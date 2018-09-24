@@ -1,0 +1,22 @@
+b30_30:
+Explored 396 layers. Reachable: false
+[INF] ** CEGAR iterations: 7
+[INF] ** CEGAR clock predicates: 28
+[INF] Result: false
+
+real	4m25.567s
+user	4m24.296s
+sys	0m0.109s
+
+verifytga 2m20
+
+c30_30:
+Explored 143 layers. Reachable: false
+[INF] ** CEGAR iterations: 6
+[INF] ** CEGAR clock predicates: 28
+[INF] Result: false
+
+real	1m4.773s
+
+vs
+verifytga 26s

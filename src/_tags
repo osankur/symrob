@@ -1,0 +1,1 @@
+<*>: thread, package(batteries), package(num), package(str), package(xml-light), package(uppaal_parser), package(cudd), debug, custom, annot, bin_annot

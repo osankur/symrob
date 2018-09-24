@@ -1,0 +1,264 @@
+<TA><Declaration> var fdead :{0..1} = 0;
+var Ii_hbusreq0 :{0..1} = 0;
+var Ii_hbusreq1 :{0..1} = 0;
+var Ii_hbusreq2 :{0..1} = 0;
+var Ii_hburst1 :{0..1} = 0;
+var Ii_hburst0 :{0..1} = 0;
+var Ii_hlock0 :{0..1} = 0;
+var Ii_hlock1 :{0..1} = 0;
+var Ii_hlock2 :{0..1} = 0;
+var Ii_hready :{0..1} = 0;
+var Icontrollable_hmastlock :{0..1} = 0;
+var Icontrollable_nstart :{0..1} = 0;
+var Icontrollable_hmaster1 :{0..1} = 0;
+var Icontrollable_locked :{0..1} = 0;
+var Icontrollable_hmaster0 :{0..1} = 0;
+var Icontrollable_hgrant1 :{0..1} = 0;
+var Icontrollable_busreq :{0..1} = 0;
+var Icontrollable_hgrant2 :{0..1} = 0;
+var Icontrollable_ndecide :{0..1} = 0;
+var Icontrollable_nhgrant0 :{0..1} = 0;
+var Ln41  :{0..1} = 0;
+var Lreg_controllable_hgrant2_out  :{0..1} = 0;
+var Lreg_controllable_hmaster1_out  :{0..1} = 0;
+var Lsys_fair0done_out  :{0..1} = 0;
+var Lreg_stateG3_0_out  :{0..1} = 0;
+var Lenv_fair1done_out  :{0..1} = 0;
+var Lreg_controllable_locked_out  :{0..1} = 0;
+var Lsys_fair3done_out  :{0..1} = 0;
+var Lreg_stateG3_1_out  :{0..1} = 0;
+var Lreg_controllable_ndecide_out  :{0..1} = 0;
+var Lreg_stateG3_2_out  :{0..1} = 0;
+var Lreg_i_hbusreq0_out  :{0..1} = 0;
+var Lreg_controllable_busreq_out  :{0..1} = 0;
+var Lreg_controllable_nstart_out  :{0..1} = 0;
+var Lreg_i_hbusreq1_out  :{0..1} = 0;
+var Lsys_fair1done_out  :{0..1} = 0;
+var Lreg_stateG2_out  :{0..1} = 0;
+var Lreg_stateG10_1_out  :{0..1} = 0;
+var Lenv_fair0done_out  :{0..1} = 0;
+var Lreg_controllable_nhgrant0_out  :{0..1} = 0;
+var Lreg_i_hlock2_out  :{0..1} = 0;
+var Lreg_stateG10_2_out  :{0..1} = 0;
+var Lreg_stateA1_out  :{0..1} = 0;
+var Lreg_controllable_hmastlock_out  :{0..1} = 0;
+var Lsys_fair4done_out  :{0..1} = 0;
+var Lreg_i_hbusreq2_out  :{0..1} = 0;
+var Lreg_i_hlock1_out  :{0..1} = 0;
+var Lfair_cnt0_out  :{0..1} = 0;
+var Lfair_cnt1_out  :{0..1} = 0;
+var Lfair_cnt2_out  :{0..1} = 0;
+var Lenv_safe_err_happened_out  :{0..1} = 0;
+var Lreg_i_hlock0_out  :{0..1} = 0;
+var Lreg_i_hready_out  :{0..1} = 0;
+var Lreg_controllable_hgrant1_out  :{0..1} = 0;
+var Lsys_fair2done_out  :{0..1} = 0;
+var Lreg_controllable_hmaster0_out  :{0..1} = 0;
+System = Circuit();
+#define Dead fdead==1;
+#assert System reaches Dead;
+
+TimedAutomaton Circuit
+{
+clock: x_40, x_42, x_44, x_46, t;
+	state Init	
+	urgent;
+	trans: tau { Ii_hbusreq0 = 0; } -&gt;JustSetIi_hbusreq0;
+	trans: tau { Ii_hbusreq0 = 1; } -&gt;JustSetIi_hbusreq0;
+	endstate
+
+	state JustSetIi_hbusreq0	
+	urgent;
+	trans: tau { Ii_hbusreq1 = 0; } -&gt;JustSetIi_hbusreq1;
+	trans: tau { Ii_hbusreq1 = 1; } -&gt;JustSetIi_hbusreq1;
+	endstate
+
+	state JustSetIi_hbusreq1	
+	urgent;
+	trans: tau { Ii_hbusreq2 = 0; } -&gt;JustSetIi_hbusreq2;
+	trans: tau { Ii_hbusreq2 = 1; } -&gt;JustSetIi_hbusreq2;
+	endstate
+
+	state JustSetIi_hbusreq2	
+	urgent;
+	trans: tau { Ii_hburst1 = 0; } -&gt;JustSetIi_hburst1;
+	trans: tau { Ii_hburst1 = 1; } -&gt;JustSetIi_hburst1;
+	endstate
+
+	state JustSetIi_hburst1	
+	urgent;
+	trans: tau { Ii_hburst0 = 0; } -&gt;JustSetIi_hburst0;
+	trans: tau { Ii_hburst0 = 1; } -&gt;JustSetIi_hburst0;
+	endstate
+
+	state JustSetIi_hburst0	
+	urgent;
+	trans: tau { Ii_hlock0 = 0; } -&gt;JustSetIi_hlock0;
+	trans: tau { Ii_hlock0 = 1; } -&gt;JustSetIi_hlock0;
+	endstate
+
+	state JustSetIi_hlock0	
+	urgent;
+	trans: tau { Ii_hlock1 = 0; } -&gt;JustSetIi_hlock1;
+	trans: tau { Ii_hlock1 = 1; } -&gt;JustSetIi_hlock1;
+	endstate
+
+	state JustSetIi_hlock1	
+	urgent;
+	trans: tau { Ii_hlock2 = 0; } -&gt;JustSetIi_hlock2;
+	trans: tau { Ii_hlock2 = 1; } -&gt;JustSetIi_hlock2;
+	endstate
+
+	state JustSetIi_hlock2	
+	urgent;
+	trans: tau { Ii_hready = 0; } -&gt;JustSetIi_hready;
+	trans: tau { Ii_hready = 1; } -&gt;JustSetIi_hready;
+	endstate
+
+	state JustSetIi_hready	
+	urgent;
+	trans: tau { Icontrollable_hmastlock = 0; } -&gt;JustSetIcontrollable_hmastlock;
+	trans: tau { Icontrollable_hmastlock = 1; } -&gt;JustSetIcontrollable_hmastlock;
+	endstate
+
+	state JustSetIcontrollable_hmastlock	
+	urgent;
+	trans: tau { Icontrollable_nstart = 0; } -&gt;JustSetIcontrollable_nstart;
+	trans: tau { Icontrollable_nstart = 1; } -&gt;JustSetIcontrollable_nstart;
+	endstate
+
+	state JustSetIcontrollable_nstart	
+	urgent;
+	trans: tau { Icontrollable_hmaster1 = 0; } -&gt;JustSetIcontrollable_hmaster1;
+	trans: tau { Icontrollable_hmaster1 = 1; } -&gt;JustSetIcontrollable_hmaster1;
+	endstate
+
+	state JustSetIcontrollable_hmaster1	
+	urgent;
+	trans: tau { Icontrollable_locked = 0; } -&gt;JustSetIcontrollable_locked;
+	trans: tau { Icontrollable_locked = 1; } -&gt;JustSetIcontrollable_locked;
+	endstate
+
+	state JustSetIcontrollable_locked	
+	urgent;
+	trans: tau { Icontrollable_hmaster0 = 0; } -&gt;JustSetIcontrollable_hmaster0;
+	trans: tau { Icontrollable_hmaster0 = 1; } -&gt;JustSetIcontrollable_hmaster0;
+	endstate
+
+	state JustSetIcontrollable_hmaster0	
+	urgent;
+	trans: tau { Icontrollable_hgrant1 = 0; } -&gt;JustSetIcontrollable_hgrant1;
+	trans: tau { Icontrollable_hgrant1 = 1; } -&gt;JustSetIcontrollable_hgrant1;
+	endstate
+
+	state JustSetIcontrollable_hgrant1	
+	urgent;
+	trans: tau { Icontrollable_busreq = 0; } -&gt;JustSetIcontrollable_busreq;
+	trans: tau { Icontrollable_busreq = 1; } -&gt;JustSetIcontrollable_busreq;
+	endstate
+
+	state JustSetIcontrollable_busreq	
+	urgent;
+	trans: tau { Icontrollable_hgrant2 = 0; } -&gt;JustSetIcontrollable_hgrant2;
+	trans: tau { Icontrollable_hgrant2 = 1; } -&gt;JustSetIcontrollable_hgrant2;
+	endstate
+
+	state JustSetIcontrollable_hgrant2	
+	urgent;
+	trans: tau { Icontrollable_ndecide = 0; } -&gt;JustSetIcontrollable_ndecide;
+	trans: tau { Icontrollable_ndecide = 1; } -&gt;JustSetIcontrollable_ndecide;
+	endstate
+
+	state JustSetIcontrollable_ndecide	
+	urgent;
+	trans: tau { Icontrollable_nhgrant0 = 0; } -&gt;JustSetIcontrollable_nhgrant0;
+	trans: tau { Icontrollable_nhgrant0 = 1; } -&gt;JustSetIcontrollable_nhgrant0;
+	endstate
+
+	state JustSetIcontrollable_nhgrant0	
+	urgent;
+	trans: [Ln41 == 1] tau -&gt;UpdatedLn41;
+	trans: [[x_40 &gt;= 100000]] [Ln41 == 1 &amp;&amp; Ln41 != 1] tau -&gt;UpdatedLn41;
+	trans: [[x_40 &gt;= 150000]] [Ln41 == 0 &amp;&amp; Ln41 != 1] tau -&gt;UpdatedLn41;
+	trans: [[x_40 &lt;= 99999]] [Ln41 == 1 &amp;&amp; Ln41 != 1] tau -&gt;UpdatedLn41_becomes0;
+	trans: [[x_40 &lt;= 149999]] [Ln41 == 0 &amp;&amp; Ln41 != 1 ] tau -&gt;UpdatedLn41_becomes1;
+	endstate
+
+	state UpdatedLn41	
+	urgent;
+	trans: [Lreg_controllable_hgrant2_out == (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_42 &gt;= 50000]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_42 &gt;= 200000]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_42 &lt;= 49999]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes0;
+	trans: [[x_42 &lt;= 199999]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) ] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes1;
+	endstate
+
+	state UpdatedLn41_becomes0	
+	inv: x_40 &lt;= 100000;
+	trans: [[x_40 &gt;= 100000]] tau { Ln41 = 1; } &lt;x_40&gt; -&gt;UpdatedLn41;
+	endstate
+
+	state UpdatedLn41_becomes1	
+	inv: x_40 &lt;= 150000;
+	trans: [[x_40 &gt;= 150000]] tau { Ln41 = 1; } &lt;x_40&gt; -&gt;UpdatedLn41;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out	
+	urgent;
+	trans: [Lreg_controllable_hmaster1_out == (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_44 &gt;= 200000]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_44 &gt;= 300000]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_44 &lt;= 199999]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes0;
+	trans: [[x_44 &lt;= 299999]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) ] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes1;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out_becomes0	
+	inv: x_42 &lt;= 50000;
+	trans: [[x_42 &gt;= 50000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_42&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out_becomes1	
+	inv: x_42 &lt;= 200000;
+	trans: [[x_42 &gt;= 200000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_42&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out	
+	urgent;
+	trans: [Lsys_fair0done_out == ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))] tau -&gt;UpdatedLsys_fair0done_out;
+	trans: [[x_46 &gt;= 300000]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))] tau -&gt;UpdatedLsys_fair0done_out;
+	trans: [[x_46 &gt;= 0]] [Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))] tau -&gt;UpdatedLsys_fair0done_out;
+	trans: [[x_46 &lt;= 299999]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))] tau -&gt;UpdatedLsys_fair0done_out_becomes0;
+	trans: [Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))) ] tau -&gt;UpdatedLsys_fair0done_out_becomes1;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out_becomes0	
+	inv: x_44 &lt;= 200000;
+	trans: [[x_44 &gt;= 200000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_44&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out_becomes1	
+	inv: x_44 &lt;= 300000;
+	trans: [[x_44 &gt;= 300000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_44&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	endstate
+
+	state UpdatedLsys_fair0done_out	
+	urgent;
+	trans: [[t &lt;= 290000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=290001]] tau { fdead = 1; } -&gt;dead;
+	endstate
+
+	state UpdatedLsys_fair0done_out_becomes0	
+	inv: x_46 &lt;= 300000;
+	trans: [[x_46 &gt;= 300000]] tau { Lsys_fair0done_out = ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))); } &lt;x_46&gt; -&gt;UpdatedLsys_fair0done_out;
+	endstate
+
+	state UpdatedLsys_fair0done_out_becomes1	
+	inv: x_46 &lt;= 0;
+	trans: [[x_46 &gt;= 0]] tau { Lsys_fair0done_out = ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))); } &lt;x_46&gt; -&gt;UpdatedLsys_fair0done_out;
+	endstate
+
+	state dead	
+	endstate
+
+}
+</Declaration><Processes/></TA>

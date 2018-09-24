@@ -1,0 +1,4 @@
+testXYZ_K_L.xml : obtained with make_sched.py with cntXy.aag, cnyYy.aag,
+	cnyZy.aag, where K and L are the deadlines of the two modes of the process
+
+Explain all the files and benchmarks here

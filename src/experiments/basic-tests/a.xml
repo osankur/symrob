@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+bool a,b,c,d;
+int[1,5] z;</declaration><template><name x="5" y="5">Template</name><declaration>// Place local declarations here.
+</declaration><location id="id0" x="-280" y="-40"></location><location id="id1" x="32" y="80"><name x="22" y="50">s4</name></location><location id="id2" x="160" y="48"><name x="150" y="18">s3</name></location><location id="id3" x="264" y="-40"><name x="254" y="-70">s2</name></location><location id="id4" x="16" y="-216"><name x="6" y="-246">s1</name></location><location id="id5" x="16" y="-40"></location><init ref="id0"/><transition action=""><source ref="id0"/><target ref="id5"/><label kind="assignment" x="-248" y="-64">a := 1, b := false, c := true, d := 0</label></transition><transition action=""><source ref="id5"/><target ref="id1"/><label kind="guard" x="-120" y="40">!(a == 1 &amp;&amp; b == 0) != c</label></transition><transition action=""><source ref="id5"/><target ref="id2"/><label kind="guard" x="104" y="-16">!(a == 1 &amp;&amp; b == 0) == c</label></transition><transition action=""><source ref="id5"/><target ref="id3"/><label kind="guard" x="64" y="-64">(a == 1 &amp;&amp; b == 0) != c</label></transition><transition action=""><source ref="id5"/><target ref="id4"/><label kind="guard" x="24" y="-184">(a == 1 &amp;&amp; b == 0) == c</label></transition></template><system>// Place template instantiations here.
+Process = Template();
+
+// List one or more processes to be composed into a system.
+system Process;</system></nta>

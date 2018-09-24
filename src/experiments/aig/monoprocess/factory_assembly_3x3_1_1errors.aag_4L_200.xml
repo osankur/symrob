@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta><declaration> clock x_38;
+clock x_40;
+clock x_42;
+clock x_44;
+clock T;
+bool Ip0_0;
+bool Ip0_1;
+bool Ip0_2;
+bool Ip1_0;
+bool Ip1_1;
+bool Ip1_2;
+bool Ip2_0;
+bool Ip2_1;
+bool Ip2_2;
+bool IerrorCount_0_0_1;
+bool Icontrollable_arm1_0_0_2;
+bool Icontrollable_arm1_1;
+bool Icontrollable_arm2_0_0_2;
+bool Icontrollable_arm2_1;
+bool Icontrollable_arm1op_0_0_2;
+bool Icontrollable_arm1op_1;
+bool Icontrollable_arm2op_0_0_2;
+bool Icontrollable_arm2op_1;
+bool LIsNotFirstRound;
+bool Lprev_p0_0;
+bool Lprev_p0_1;
+bool Lprev_p0_2;
+bool Lprev_p1_0;
+bool Lprev_p1_1;
+bool Lprev_p1_2;
+bool Lprev_p2_0;
+bool Lprev_p2_1;
+bool Lprev_p2_2;
+bool Lprev_errorCount_0_0_1;
+bool Lprev_arm1_0_0_2;
+bool Lprev_arm1_1;
+bool Lprev_arm2_0_0_2;
+bool Lprev_arm2_1;
+bool Lprev_arm1op_0_0_2;
+bool Lprev_arm1op_1;
+bool Lprev_arm2op_0_0_2;
+bool Lprev_arm2op_1;
+bool LAssumptionsAlreadyViolated;
+</declaration>
+<template><name>Circuit</name>
+<location id="loc0"><name>Init</name>
+<urgent/>
+</location>
+<location id="loc2"><name>JustSetIp0_0</name>
+<urgent/>
+</location>
+<location id="loc3"><name>JustSetIp0_1</name>
+<urgent/>
+</location>
+<location id="loc4"><name>JustSetIp0_2</name>
+<urgent/>
+</location>
+<location id="loc5"><name>JustSetIp1_0</name>
+<urgent/>
+</location>
+<location id="loc6"><name>JustSetIp1_1</name>
+<urgent/>
+</location>
+<location id="loc7"><name>JustSetIp1_2</name>
+<urgent/>
+</location>
+<location id="loc8"><name>JustSetIp2_0</name>
+<urgent/>
+</location>
+<location id="loc9"><name>JustSetIp2_1</name>
+<urgent/>
+</location>
+<location id="loc10"><name>JustSetIp2_2</name>
+<urgent/>
+</location>
+<location id="loc11"><name>JustSetIerrorCount_0_0_1</name>
+<urgent/>
+</location>
+<location id="loc12"><name>JustSetIcontrollable_arm1_0_0_2</name>
+<urgent/>
+</location>
+<location id="loc13"><name>JustSetIcontrollable_arm1_1</name>
+<urgent/>
+</location>
+<location id="loc14"><name>JustSetIcontrollable_arm2_0_0_2</name>
+<urgent/>
+</location>
+<location id="loc15"><name>JustSetIcontrollable_arm2_1</name>
+<urgent/>
+</location>
+<location id="loc16"><name>JustSetIcontrollable_arm1op_0_0_2</name>
+<urgent/>
+</location>
+<location id="loc17"><name>JustSetIcontrollable_arm1op_1</name>
+<urgent/>
+</location>
+<location id="loc18"><name>JustSetIcontrollable_arm2op_0_0_2</name>
+<urgent/>
+</location>
+<location id="loc19"><name>JustSetIcontrollable_arm2op_1</name>
+<urgent/>
+</location>
+<location id="loc20"><name>UpdatedLIsNotFirstRound</name>
+<urgent/>
+</location>
+<location id="loc21"><name>UpdatedLIsNotFirstRound_becomes0</name>
+<label kind="invariant">x_38 &lt;= 100</label>
+</location>
+<location id="loc22"><name>UpdatedLIsNotFirstRound_becomes1</name>
+<label kind="invariant">x_38 &lt;= 150</label>
+</location>
+<location id="loc23"><name>UpdatedLprev_p0_0</name>
+<urgent/>
+</location>
+<location id="loc24"><name>UpdatedLprev_p0_0_becomes0</name>
+<label kind="invariant">x_40 &lt;= 50</label>
+</location>
+<location id="loc25"><name>UpdatedLprev_p0_0_becomes1</name>
+<label kind="invariant">x_40 &lt;= 200</label>
+</location>
+<location id="loc26"><name>UpdatedLprev_p0_1</name>
+<urgent/>
+</location>
+<location id="loc27"><name>UpdatedLprev_p0_1_becomes0</name>
+<label kind="invariant">x_42 &lt;= 200</label>
+</location>
+<location id="loc28"><name>UpdatedLprev_p0_1_becomes1</name>
+<label kind="invariant">x_42 &lt;= 300</label>
+</location>
+<location id="loc29"><name>UpdatedLprev_p0_2</name>
+<urgent/>
+</location>
+<location id="loc30"><name>UpdatedLprev_p0_2_becomes0</name>
+<label kind="invariant">x_44 &lt;= 300</label>
+</location>
+<location id="loc31"><name>UpdatedLprev_p0_2_becomes1</name>
+<label kind="invariant">x_44 &lt;= 0</label>
+</location>
+<location id="loc1"><name>dead</name>
+</location>
+<init ref="loc0"/>
+<transition>
+<source ref="loc0"/><target ref="loc2"/>
+<label kind="assignment">Ip0_0 := 0</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc2"/>
+<label kind="assignment">Ip0_0 := 1</label>
+</transition>
+<transition>
+<source ref="loc2"/><target ref="loc3"/>
+<label kind="assignment">Ip0_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc2"/><target ref="loc3"/>
+<label kind="assignment">Ip0_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc4"/>
+<label kind="assignment">Ip0_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc4"/>
+<label kind="assignment">Ip0_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc4"/><target ref="loc5"/>
+<label kind="assignment">Ip1_0 := 0</label>
+</transition>
+<transition>
+<source ref="loc4"/><target ref="loc5"/>
+<label kind="assignment">Ip1_0 := 1</label>
+</transition>
+<transition>
+<source ref="loc5"/><target ref="loc6"/>
+<label kind="assignment">Ip1_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc5"/><target ref="loc6"/>
+<label kind="assignment">Ip1_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc6"/><target ref="loc7"/>
+<label kind="assignment">Ip1_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc6"/><target ref="loc7"/>
+<label kind="assignment">Ip1_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Ip2_0 := 0</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Ip2_0 := 1</label>
+</transition>
+<transition>
+<source ref="loc8"/><target ref="loc9"/>
+<label kind="assignment">Ip2_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc8"/><target ref="loc9"/>
+<label kind="assignment">Ip2_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc9"/><target ref="loc10"/>
+<label kind="assignment">Ip2_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc9"/><target ref="loc10"/>
+<label kind="assignment">Ip2_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc10"/><target ref="loc11"/>
+<label kind="assignment">IerrorCount_0_0_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc10"/><target ref="loc11"/>
+<label kind="assignment">IerrorCount_0_0_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc11"/><target ref="loc12"/>
+<label kind="assignment">Icontrollable_arm1_0_0_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc11"/><target ref="loc12"/>
+<label kind="assignment">Icontrollable_arm1_0_0_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc12"/><target ref="loc13"/>
+<label kind="assignment">Icontrollable_arm1_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc12"/><target ref="loc13"/>
+<label kind="assignment">Icontrollable_arm1_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc14"/>
+<label kind="assignment">Icontrollable_arm2_0_0_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc14"/>
+<label kind="assignment">Icontrollable_arm2_0_0_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc14"/><target ref="loc15"/>
+<label kind="assignment">Icontrollable_arm2_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc14"/><target ref="loc15"/>
+<label kind="assignment">Icontrollable_arm2_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc15"/><target ref="loc16"/>
+<label kind="assignment">Icontrollable_arm1op_0_0_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc15"/><target ref="loc16"/>
+<label kind="assignment">Icontrollable_arm1op_0_0_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc16"/><target ref="loc17"/>
+<label kind="assignment">Icontrollable_arm1op_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc16"/><target ref="loc17"/>
+<label kind="assignment">Icontrollable_arm1op_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc17"/><target ref="loc18"/>
+<label kind="assignment">Icontrollable_arm2op_0_0_2 := 0</label>
+</transition>
+<transition>
+<source ref="loc17"/><target ref="loc18"/>
+<label kind="assignment">Icontrollable_arm2op_0_0_2 := 1</label>
+</transition>
+<transition>
+<source ref="loc18"/><target ref="loc19"/>
+<label kind="assignment">Icontrollable_arm2op_1 := 0</label>
+</transition>
+<transition>
+<source ref="loc18"/><target ref="loc19"/>
+<label kind="assignment">Icontrollable_arm2op_1 := 1</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc20"/>
+<label kind="guard">LIsNotFirstRound == 1</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc20"/>
+<label kind="guard">LIsNotFirstRound == 1 &amp;&amp; LIsNotFirstRound != 1 &amp;&amp; x_38 &gt;= 100</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc20"/>
+<label kind="guard">LIsNotFirstRound == 0 &amp;&amp; LIsNotFirstRound != 1 &amp;&amp; x_38 &gt;= 150</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc21"/>
+<label kind="guard">LIsNotFirstRound == 1 &amp;&amp; LIsNotFirstRound != 1 &amp;&amp; x_38 &lt; 100</label>
+</transition>
+<transition>
+<source ref="loc21"/><target ref="loc20"/>
+<label kind="assignment">x_38:=0, LIsNotFirstRound := 1</label>
+<label kind="guard">x_38 &gt;= 100</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc22"/>
+<label kind="guard">LIsNotFirstRound == 0 &amp;&amp; LIsNotFirstRound != 1 &amp;&amp; x_38 &lt; 150</label>
+</transition>
+<transition>
+<source ref="loc22"/><target ref="loc20"/>
+<label kind="assignment">x_38:=0, LIsNotFirstRound := 1</label>
+<label kind="guard">x_38 &gt;= 150</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc23"/>
+<label kind="guard">Lprev_p0_0 == (Ip0_0)</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc23"/>
+<label kind="guard">Lprev_p0_0 == 1 &amp;&amp; Lprev_p0_0 != (Ip0_0) &amp;&amp; x_40 &gt;= 50</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc23"/>
+<label kind="guard">Lprev_p0_0 == 0 &amp;&amp; Lprev_p0_0 != (Ip0_0) &amp;&amp; x_40 &gt;= 200</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc24"/>
+<label kind="guard">Lprev_p0_0 == 1 &amp;&amp; Lprev_p0_0 != (Ip0_0) &amp;&amp; x_40 &lt; 50</label>
+</transition>
+<transition>
+<source ref="loc24"/><target ref="loc23"/>
+<label kind="assignment">x_40:=0, Lprev_p0_0 := (Ip0_0)</label>
+<label kind="guard">x_40 &gt;= 50</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc25"/>
+<label kind="guard">Lprev_p0_0 == 0 &amp;&amp; Lprev_p0_0 != (Ip0_0) &amp;&amp; x_40 &lt; 200</label>
+</transition>
+<transition>
+<source ref="loc25"/><target ref="loc23"/>
+<label kind="assignment">x_40:=0, Lprev_p0_0 := (Ip0_0)</label>
+<label kind="guard">x_40 &gt;= 200</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc26"/>
+<label kind="guard">Lprev_p0_1 == (Ip0_1)</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc26"/>
+<label kind="guard">Lprev_p0_1 == 1 &amp;&amp; Lprev_p0_1 != (Ip0_1) &amp;&amp; x_42 &gt;= 200</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc26"/>
+<label kind="guard">Lprev_p0_1 == 0 &amp;&amp; Lprev_p0_1 != (Ip0_1) &amp;&amp; x_42 &gt;= 300</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc27"/>
+<label kind="guard">Lprev_p0_1 == 1 &amp;&amp; Lprev_p0_1 != (Ip0_1) &amp;&amp; x_42 &lt; 200</label>
+</transition>
+<transition>
+<source ref="loc27"/><target ref="loc26"/>
+<label kind="assignment">x_42:=0, Lprev_p0_1 := (Ip0_1)</label>
+<label kind="guard">x_42 &gt;= 200</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc28"/>
+<label kind="guard">Lprev_p0_1 == 0 &amp;&amp; Lprev_p0_1 != (Ip0_1) &amp;&amp; x_42 &lt; 300</label>
+</transition>
+<transition>
+<source ref="loc28"/><target ref="loc26"/>
+<label kind="assignment">x_42:=0, Lprev_p0_1 := (Ip0_1)</label>
+<label kind="guard">x_42 &gt;= 300</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc29"/>
+<label kind="guard">Lprev_p0_2 == (Ip0_2)</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc29"/>
+<label kind="guard">Lprev_p0_2 == 1 &amp;&amp; Lprev_p0_2 != (Ip0_2) &amp;&amp; x_44 &gt;= 300</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc29"/>
+<label kind="guard">Lprev_p0_2 == 0 &amp;&amp; Lprev_p0_2 != (Ip0_2) &amp;&amp; x_44 &gt;= 0</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc30"/>
+<label kind="guard">Lprev_p0_2 == 1 &amp;&amp; Lprev_p0_2 != (Ip0_2) &amp;&amp; x_44 &lt; 300</label>
+</transition>
+<transition>
+<source ref="loc30"/><target ref="loc29"/>
+<label kind="assignment">x_44:=0, Lprev_p0_2 := (Ip0_2)</label>
+<label kind="guard">x_44 &gt;= 300</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc31"/>
+<label kind="guard">Lprev_p0_2 == 0 &amp;&amp; Lprev_p0_2 != (Ip0_2) &amp;&amp; x_44 &lt; 0</label>
+</transition>
+<transition>
+<source ref="loc31"/><target ref="loc29"/>
+<label kind="assignment">x_44:=0, Lprev_p0_2 := (Ip0_2)</label>
+<label kind="guard">x_44 &gt;= 0</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc0"/>
+<label kind="assignment">T:=0</label>
+<label kind="guard">T &lt;= 200</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc1"/>
+<label kind="guard">T &gt;200</label>
+</transition>
+</template>
+<instantiation></instantiation>
+<system>system Circuit;</system>
+</nta>

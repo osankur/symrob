@@ -1,0 +1,30 @@
+Symrob 0.2 Build Instructions
+
+Changes from version 0.1
+============
+Just added a stand-alone OCaml parser 
+rather than relying on Verifix, Uppaal DBM, Uppaal Parser
+libraries.
+
+Dependencies
+============
+- OCaml 4.0+
+- ocamlbuild
+- ocaml batteries included 2.2+
+  (opam install batteries)
+- xml-light
+  (opam install xml-light)
+
+Compilation
+===========
+1) Build uppaal_parser
+  
+2) Build symrob
+
+License
+=============
+The license is GNU GPL 3.0
+
+Contact
+============================
+Ocan Sankur <osankur@ulb.ac.be>

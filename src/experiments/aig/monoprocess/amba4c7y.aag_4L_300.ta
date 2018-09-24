@@ -1,0 +1,287 @@
+<TA><Declaration> var fdead :{0..1} = 0;
+var Ii_hbusreq0 :{0..1} = 0;
+var Ii_hbusreq1 :{0..1} = 0;
+var Ii_hbusreq2 :{0..1} = 0;
+var Ii_hbusreq3 :{0..1} = 0;
+var Ii_hburst1 :{0..1} = 0;
+var Ii_hburst0 :{0..1} = 0;
+var Ii_hlock0 :{0..1} = 0;
+var Ii_hlock1 :{0..1} = 0;
+var Ii_hlock2 :{0..1} = 0;
+var Ii_hlock3 :{0..1} = 0;
+var Ii_hready :{0..1} = 0;
+var Icontrollable_hmastlock :{0..1} = 0;
+var Icontrollable_nstart :{0..1} = 0;
+var Icontrollable_hmaster1 :{0..1} = 0;
+var Icontrollable_locked :{0..1} = 0;
+var Icontrollable_hmaster0 :{0..1} = 0;
+var Icontrollable_hgrant1 :{0..1} = 0;
+var Icontrollable_busreq :{0..1} = 0;
+var Icontrollable_hgrant2 :{0..1} = 0;
+var Icontrollable_hgrant3 :{0..1} = 0;
+var Icontrollable_ndecide :{0..1} = 0;
+var Icontrollable_nhgrant0 :{0..1} = 0;
+var Ln47  :{0..1} = 0;
+var Lreg_controllable_hgrant2_out  :{0..1} = 0;
+var Lreg_controllable_hmaster1_out  :{0..1} = 0;
+var Lreg_controllable_hgrant3_out  :{0..1} = 0;
+var Lnext_env_fair_out  :{0..1} = 0;
+var Lreg_stateG3_0_out  :{0..1} = 0;
+var Lreg_controllable_locked_out  :{0..1} = 0;
+var Lreg_stateG3_1_out  :{0..1} = 0;
+var Lreg_controllable_ndecide_out  :{0..1} = 0;
+var Lreg_stateG3_2_out  :{0..1} = 0;
+var Lreg_i_hbusreq0_out  :{0..1} = 0;
+var Lreg_controllable_busreq_out  :{0..1} = 0;
+var Lreg_controllable_nstart_out  :{0..1} = 0;
+var Lreg_i_hbusreq1_out  :{0..1} = 0;
+var Lreg_i_hlock3_out  :{0..1} = 0;
+var Lreg_stateG2_out  :{0..1} = 0;
+var Lreg_stateG10_1_out  :{0..1} = 0;
+var Lreg_controllable_nhgrant0_out  :{0..1} = 0;
+var Lreg_i_hlock2_out  :{0..1} = 0;
+var Lreg_stateG10_2_out  :{0..1} = 0;
+var Lreg_stateA1_out  :{0..1} = 0;
+var Lreg_controllable_hmastlock_out  :{0..1} = 0;
+var Lreg_i_hbusreq2_out  :{0..1} = 0;
+var Lnext_sys_fair0_out  :{0..1} = 0;
+var Lnext_sys_fair1_out  :{0..1} = 0;
+var Lnext_sys_fair2_out  :{0..1} = 0;
+var Lnext_sys_fair3_out  :{0..1} = 0;
+var Lreg_i_hlock1_out  :{0..1} = 0;
+var Lreg_stateG10_3_out  :{0..1} = 0;
+var Lfair_cnt0_out  :{0..1} = 0;
+var Lfair_cnt1_out  :{0..1} = 0;
+var Lfair_cnt2_out  :{0..1} = 0;
+var Lreg_i_hbusreq3_out  :{0..1} = 0;
+var Lenv_safe_err_happened_out  :{0..1} = 0;
+var Lreg_i_hlock0_out  :{0..1} = 0;
+var Lreg_i_hready_out  :{0..1} = 0;
+var Lreg_controllable_hgrant1_out  :{0..1} = 0;
+var Lreg_controllable_hmaster0_out  :{0..1} = 0;
+System = Circuit();
+#define Dead fdead==1;
+#assert System reaches Dead;
+
+TimedAutomaton Circuit
+{
+clock: x_46, x_48, x_50, x_52, t;
+	state Init	
+	urgent;
+	trans: tau { Ii_hbusreq0 = 0; } -&gt;JustSetIi_hbusreq0;
+	trans: tau { Ii_hbusreq0 = 1; } -&gt;JustSetIi_hbusreq0;
+	endstate
+
+	state JustSetIi_hbusreq0	
+	urgent;
+	trans: tau { Ii_hbusreq1 = 0; } -&gt;JustSetIi_hbusreq1;
+	trans: tau { Ii_hbusreq1 = 1; } -&gt;JustSetIi_hbusreq1;
+	endstate
+
+	state JustSetIi_hbusreq1	
+	urgent;
+	trans: tau { Ii_hbusreq2 = 0; } -&gt;JustSetIi_hbusreq2;
+	trans: tau { Ii_hbusreq2 = 1; } -&gt;JustSetIi_hbusreq2;
+	endstate
+
+	state JustSetIi_hbusreq2	
+	urgent;
+	trans: tau { Ii_hbusreq3 = 0; } -&gt;JustSetIi_hbusreq3;
+	trans: tau { Ii_hbusreq3 = 1; } -&gt;JustSetIi_hbusreq3;
+	endstate
+
+	state JustSetIi_hbusreq3	
+	urgent;
+	trans: tau { Ii_hburst1 = 0; } -&gt;JustSetIi_hburst1;
+	trans: tau { Ii_hburst1 = 1; } -&gt;JustSetIi_hburst1;
+	endstate
+
+	state JustSetIi_hburst1	
+	urgent;
+	trans: tau { Ii_hburst0 = 0; } -&gt;JustSetIi_hburst0;
+	trans: tau { Ii_hburst0 = 1; } -&gt;JustSetIi_hburst0;
+	endstate
+
+	state JustSetIi_hburst0	
+	urgent;
+	trans: tau { Ii_hlock0 = 0; } -&gt;JustSetIi_hlock0;
+	trans: tau { Ii_hlock0 = 1; } -&gt;JustSetIi_hlock0;
+	endstate
+
+	state JustSetIi_hlock0	
+	urgent;
+	trans: tau { Ii_hlock1 = 0; } -&gt;JustSetIi_hlock1;
+	trans: tau { Ii_hlock1 = 1; } -&gt;JustSetIi_hlock1;
+	endstate
+
+	state JustSetIi_hlock1	
+	urgent;
+	trans: tau { Ii_hlock2 = 0; } -&gt;JustSetIi_hlock2;
+	trans: tau { Ii_hlock2 = 1; } -&gt;JustSetIi_hlock2;
+	endstate
+
+	state JustSetIi_hlock2	
+	urgent;
+	trans: tau { Ii_hlock3 = 0; } -&gt;JustSetIi_hlock3;
+	trans: tau { Ii_hlock3 = 1; } -&gt;JustSetIi_hlock3;
+	endstate
+
+	state JustSetIi_hlock3	
+	urgent;
+	trans: tau { Ii_hready = 0; } -&gt;JustSetIi_hready;
+	trans: tau { Ii_hready = 1; } -&gt;JustSetIi_hready;
+	endstate
+
+	state JustSetIi_hready	
+	urgent;
+	trans: tau { Icontrollable_hmastlock = 0; } -&gt;JustSetIcontrollable_hmastlock;
+	trans: tau { Icontrollable_hmastlock = 1; } -&gt;JustSetIcontrollable_hmastlock;
+	endstate
+
+	state JustSetIcontrollable_hmastlock	
+	urgent;
+	trans: tau { Icontrollable_nstart = 0; } -&gt;JustSetIcontrollable_nstart;
+	trans: tau { Icontrollable_nstart = 1; } -&gt;JustSetIcontrollable_nstart;
+	endstate
+
+	state JustSetIcontrollable_nstart	
+	urgent;
+	trans: tau { Icontrollable_hmaster1 = 0; } -&gt;JustSetIcontrollable_hmaster1;
+	trans: tau { Icontrollable_hmaster1 = 1; } -&gt;JustSetIcontrollable_hmaster1;
+	endstate
+
+	state JustSetIcontrollable_hmaster1	
+	urgent;
+	trans: tau { Icontrollable_locked = 0; } -&gt;JustSetIcontrollable_locked;
+	trans: tau { Icontrollable_locked = 1; } -&gt;JustSetIcontrollable_locked;
+	endstate
+
+	state JustSetIcontrollable_locked	
+	urgent;
+	trans: tau { Icontrollable_hmaster0 = 0; } -&gt;JustSetIcontrollable_hmaster0;
+	trans: tau { Icontrollable_hmaster0 = 1; } -&gt;JustSetIcontrollable_hmaster0;
+	endstate
+
+	state JustSetIcontrollable_hmaster0	
+	urgent;
+	trans: tau { Icontrollable_hgrant1 = 0; } -&gt;JustSetIcontrollable_hgrant1;
+	trans: tau { Icontrollable_hgrant1 = 1; } -&gt;JustSetIcontrollable_hgrant1;
+	endstate
+
+	state JustSetIcontrollable_hgrant1	
+	urgent;
+	trans: tau { Icontrollable_busreq = 0; } -&gt;JustSetIcontrollable_busreq;
+	trans: tau { Icontrollable_busreq = 1; } -&gt;JustSetIcontrollable_busreq;
+	endstate
+
+	state JustSetIcontrollable_busreq	
+	urgent;
+	trans: tau { Icontrollable_hgrant2 = 0; } -&gt;JustSetIcontrollable_hgrant2;
+	trans: tau { Icontrollable_hgrant2 = 1; } -&gt;JustSetIcontrollable_hgrant2;
+	endstate
+
+	state JustSetIcontrollable_hgrant2	
+	urgent;
+	trans: tau { Icontrollable_hgrant3 = 0; } -&gt;JustSetIcontrollable_hgrant3;
+	trans: tau { Icontrollable_hgrant3 = 1; } -&gt;JustSetIcontrollable_hgrant3;
+	endstate
+
+	state JustSetIcontrollable_hgrant3	
+	urgent;
+	trans: tau { Icontrollable_ndecide = 0; } -&gt;JustSetIcontrollable_ndecide;
+	trans: tau { Icontrollable_ndecide = 1; } -&gt;JustSetIcontrollable_ndecide;
+	endstate
+
+	state JustSetIcontrollable_ndecide	
+	urgent;
+	trans: tau { Icontrollable_nhgrant0 = 0; } -&gt;JustSetIcontrollable_nhgrant0;
+	trans: tau { Icontrollable_nhgrant0 = 1; } -&gt;JustSetIcontrollable_nhgrant0;
+	endstate
+
+	state JustSetIcontrollable_nhgrant0	
+	urgent;
+	trans: [Ln47 == 1] tau -&gt;UpdatedLn47;
+	trans: [[x_46 &gt;= 100000]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
+	trans: [[x_46 &gt;= 150000]] [Ln47 == 0 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
+	trans: [[x_46 &lt;= 99999]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47_becomes0;
+	trans: [[x_46 &lt;= 149999]] [Ln47 == 0 &amp;&amp; Ln47 != 1 ] tau -&gt;UpdatedLn47_becomes1;
+	endstate
+
+	state UpdatedLn47	
+	urgent;
+	trans: [Lreg_controllable_hgrant2_out == (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_48 &gt;= 50000]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_48 &gt;= 200000]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_48 &lt;= 49999]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes0;
+	trans: [[x_48 &lt;= 199999]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) ] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes1;
+	endstate
+
+	state UpdatedLn47_becomes0	
+	inv: x_46 &lt;= 100000;
+	trans: [[x_46 &gt;= 100000]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
+	endstate
+
+	state UpdatedLn47_becomes1	
+	inv: x_46 &lt;= 150000;
+	trans: [[x_46 &gt;= 150000]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out	
+	urgent;
+	trans: [Lreg_controllable_hmaster1_out == (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_50 &gt;= 200000]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_50 &gt;= 300000]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_50 &lt;= 199999]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes0;
+	trans: [[x_50 &lt;= 299999]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) ] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes1;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out_becomes0	
+	inv: x_48 &lt;= 50000;
+	trans: [[x_48 &gt;= 50000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant2_out_becomes1	
+	inv: x_48 &lt;= 200000;
+	trans: [[x_48 &gt;= 200000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out	
+	urgent;
+	trans: [Lreg_controllable_hgrant3_out == (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
+	trans: [[x_52 &gt;= 300000]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
+	trans: [[x_52 &gt;= 0]] [Lreg_controllable_hgrant3_out == 0 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
+	trans: [[x_52 &lt;= 299999]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out_becomes0;
+	trans: [Lreg_controllable_hgrant3_out == 0 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3) ] tau -&gt;UpdatedLreg_controllable_hgrant3_out_becomes1;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out_becomes0	
+	inv: x_50 &lt;= 200000;
+	trans: [[x_50 &gt;= 200000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	endstate
+
+	state UpdatedLreg_controllable_hmaster1_out_becomes1	
+	inv: x_50 &lt;= 300000;
+	trans: [[x_50 &gt;= 300000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant3_out	
+	urgent;
+	trans: [[t &lt;= 300000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=300001]] tau { fdead = 1; } -&gt;dead;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant3_out_becomes0	
+	inv: x_52 &lt;= 300000;
+	trans: [[x_52 &gt;= 300000]] tau { Lreg_controllable_hgrant3_out = (Icontrollable_hgrant3); } &lt;x_52&gt; -&gt;UpdatedLreg_controllable_hgrant3_out;
+	endstate
+
+	state UpdatedLreg_controllable_hgrant3_out_becomes1	
+	inv: x_52 &lt;= 0;
+	trans: [[x_52 &gt;= 0]] tau { Lreg_controllable_hgrant3_out = (Icontrollable_hgrant3); } &lt;x_52&gt; -&gt;UpdatedLreg_controllable_hgrant3_out;
+	endstate
+
+	state dead	
+	endstate
+
+}
+</Declaration><Processes/></TA>

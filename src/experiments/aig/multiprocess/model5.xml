@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta><declaration> 
+chan go0,go1,go2; // Process i can start
+chan release0;
+chan release1; // Machine j can be freed
+int[0,2] running0 = 0; // Machine 1 is running process running1. 3 means none
+int[0,2] running1 = 0;
+
+int[0,2] round = 0;
+// Is process(i) waiting?
+// This is redundant information but don't know how to
+// simply access processes' locations
+bool w0 = 1;
+bool w1 = 1;
+bool w2 = 1;
+
+clock x0;
+// int[0,1] mode0;
+
+clock x1;
+// int[0,1] mode1;
+
+clock x2;
+// int[0,1] mode2;
+</declaration>
+<template><name>Process0</name>
+<declaration>bool Istay;
+bool Icontrollable_reset;
+bool Ln7;
+bool Lcounter_0__out;
+bool Lcounter_1__out;
+bool Lcounter_2__out;
+</declaration>
+<location id="loc5"><name>on0</name>
+<label kind="invariant">x0 &lt;= 10</label>
+</location>
+<location id="loc6"><name>on1</name>
+<label kind="invariant">x0 &lt;= 8</label>
+</location>
+<location id="loc0"><name>w</name>
+</location>
+<location id="loc1"><name>dead</name>
+</location>
+<location id="loc3"><name>up</name>
+<committed/>
+</location>
+<location id="loc7"><name>JustSetIstay</name>
+<committed/>
+</location>
+<location id="loc8"><name>JustSetIcontrollable_reset</name>
+<committed/>
+</location>
+<location id="loc9"><name>UpdatedLn7</name>
+<committed/>
+</location>
+<location id="loc10"><name>UpdatedLcounter_0__out</name>
+<committed/>
+</location>
+<location id="loc11"><name>UpdatedLcounter_1__out</name>
+<committed/>
+</location>
+<location id="loc12"><name>UpdatedLcounter_2__out</name>
+<committed/>
+</location>
+<init ref="loc0"/>
+<transition>
+<source ref="loc0"/><target ref="loc5"/>
+<label kind="synchronisation">go0?</label>
+<label kind="assignment">x0:=0, w0:=0</label>
+<label kind="guard">Lcounter_0__out == 0</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc1"/>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x0 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc5"/><target ref="loc3"/>
+<label kind="assignment">x0:=0</label>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x0 &gt;= 5 &amp;&amp; x0 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc6"/>
+<label kind="synchronisation">go0?</label>
+<label kind="assignment">x0:=0, w0:=0</label>
+<label kind="guard">Lcounter_0__out == 1</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc1"/>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x0 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc6"/><target ref="loc3"/>
+<label kind="assignment">x0:=0</label>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x0 &gt;= 4 &amp;&amp; x0 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc7"/>
+<label kind="assignment">Istay := 0</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc7"/>
+<label kind="assignment">Istay := 1</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Icontrollable_reset := 0</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Icontrollable_reset := 1</label>
+</transition>
+<transition>
+<source ref="loc8"/><target ref="loc9"/>
+<label kind="assignment">Ln7 := 1</label>
+</transition>
+<transition>
+<source ref="loc9"/><target ref="loc10"/>
+<label kind="assignment">Lcounter_0__out := !(!(!((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; (Istay)))</label>
+</transition>
+<transition>
+<source ref="loc10"/><target ref="loc11"/>
+<label kind="assignment">Lcounter_1__out := !(!((((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_1__out) &amp;&amp; (Ln7))) &amp;&amp; !(!(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; ((Lcounter_1__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc11"/><target ref="loc12"/>
+<label kind="assignment">Lcounter_2__out := (!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; ((Lcounter_2__out) &amp;&amp; (Ln7))) &amp;&amp; !(Istay)) &amp;&amp; !(!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; !(Icontrollable_reset)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_2__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc12"/><target ref="loc0"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w0:=1</label>
+<label kind="guard">running0 == 0</label>
+</transition>
+<transition>
+<source ref="loc12"/><target ref="loc0"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w0:=1</label>
+<label kind="guard">running1 == 0</label>
+</transition>
+</template>
+<template><name>Process1</name>
+<declaration>bool Istay;
+bool Icontrollable_reset;
+bool Ln7;
+bool Lcounter_0__out;
+bool Lcounter_1__out;
+bool Lcounter_2__out;
+</declaration>
+<location id="loc18"><name>on0</name>
+<label kind="invariant">x1 &lt;= 10</label>
+</location>
+<location id="loc19"><name>on1</name>
+<label kind="invariant">x1 &lt;= 8</label>
+</location>
+<location id="loc13"><name>w</name>
+</location>
+<location id="loc14"><name>dead</name>
+</location>
+<location id="loc16"><name>up</name>
+<committed/>
+</location>
+<location id="loc20"><name>JustSetIstay</name>
+<committed/>
+</location>
+<location id="loc21"><name>JustSetIcontrollable_reset</name>
+<committed/>
+</location>
+<location id="loc22"><name>UpdatedLn7</name>
+<committed/>
+</location>
+<location id="loc23"><name>UpdatedLcounter_0__out</name>
+<committed/>
+</location>
+<location id="loc24"><name>UpdatedLcounter_1__out</name>
+<committed/>
+</location>
+<location id="loc25"><name>UpdatedLcounter_2__out</name>
+<committed/>
+</location>
+<init ref="loc13"/>
+<transition>
+<source ref="loc13"/><target ref="loc18"/>
+<label kind="synchronisation">go1?</label>
+<label kind="assignment">x1:=0, w1:=0</label>
+<label kind="guard">Lcounter_0__out == 0</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc14"/>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x1 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc18"/><target ref="loc16"/>
+<label kind="assignment">x1:=0</label>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x1 &gt;= 5 &amp;&amp; x1 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc19"/>
+<label kind="synchronisation">go1?</label>
+<label kind="assignment">x1:=0, w1:=0</label>
+<label kind="guard">Lcounter_0__out == 1</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc14"/>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x1 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc16"/>
+<label kind="assignment">x1:=0</label>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x1 &gt;= 4 &amp;&amp; x1 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc16"/><target ref="loc20"/>
+<label kind="assignment">Istay := 0</label>
+</transition>
+<transition>
+<source ref="loc16"/><target ref="loc20"/>
+<label kind="assignment">Istay := 1</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc21"/>
+<label kind="assignment">Icontrollable_reset := 0</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc21"/>
+<label kind="assignment">Icontrollable_reset := 1</label>
+</transition>
+<transition>
+<source ref="loc21"/><target ref="loc22"/>
+<label kind="assignment">Ln7 := 1</label>
+</transition>
+<transition>
+<source ref="loc22"/><target ref="loc23"/>
+<label kind="assignment">Lcounter_0__out := !(!(!((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; (Istay)))</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc24"/>
+<label kind="assignment">Lcounter_1__out := !(!((((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_1__out) &amp;&amp; (Ln7))) &amp;&amp; !(!(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; ((Lcounter_1__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc24"/><target ref="loc25"/>
+<label kind="assignment">Lcounter_2__out := (!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; ((Lcounter_2__out) &amp;&amp; (Ln7))) &amp;&amp; !(Istay)) &amp;&amp; !(!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; !(Icontrollable_reset)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_2__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc25"/><target ref="loc13"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w1:=1</label>
+<label kind="guard">running0 == 1</label>
+</transition>
+<transition>
+<source ref="loc25"/><target ref="loc13"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w1:=1</label>
+<label kind="guard">running1 == 1</label>
+</transition>
+</template>
+<template><name>Process2</name>
+<declaration>bool Istay;
+bool Icontrollable_reset;
+bool Ln7;
+bool Lcounter_0__out;
+bool Lcounter_1__out;
+bool Lcounter_2__out;
+</declaration>
+<location id="loc31"><name>on0</name>
+<label kind="invariant">x2 &lt;= 10</label>
+</location>
+<location id="loc32"><name>on1</name>
+<label kind="invariant">x2 &lt;= 8</label>
+</location>
+<location id="loc26"><name>w</name>
+</location>
+<location id="loc27"><name>dead</name>
+</location>
+<location id="loc29"><name>up</name>
+<committed/>
+</location>
+<location id="loc33"><name>JustSetIstay</name>
+<committed/>
+</location>
+<location id="loc34"><name>JustSetIcontrollable_reset</name>
+<committed/>
+</location>
+<location id="loc35"><name>UpdatedLn7</name>
+<committed/>
+</location>
+<location id="loc36"><name>UpdatedLcounter_0__out</name>
+<committed/>
+</location>
+<location id="loc37"><name>UpdatedLcounter_1__out</name>
+<committed/>
+</location>
+<location id="loc38"><name>UpdatedLcounter_2__out</name>
+<committed/>
+</location>
+<init ref="loc26"/>
+<transition>
+<source ref="loc26"/><target ref="loc31"/>
+<label kind="synchronisation">go2?</label>
+<label kind="assignment">x2:=0, w2:=0</label>
+<label kind="guard">Lcounter_0__out == 0</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc27"/>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x2 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc31"/><target ref="loc29"/>
+<label kind="assignment">x2:=0</label>
+<label kind="guard">Lcounter_0__out == 0 &amp;&amp; x2 &gt;= 5 &amp;&amp; x2 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc32"/>
+<label kind="synchronisation">go2?</label>
+<label kind="assignment">x2:=0, w2:=0</label>
+<label kind="guard">Lcounter_0__out == 1</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc27"/>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x2 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc32"/><target ref="loc29"/>
+<label kind="assignment">x2:=0</label>
+<label kind="guard">Lcounter_0__out == 1 &amp;&amp; x2 &gt;= 4 &amp;&amp; x2 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc33"/>
+<label kind="assignment">Istay := 0</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc33"/>
+<label kind="assignment">Istay := 1</label>
+</transition>
+<transition>
+<source ref="loc33"/><target ref="loc34"/>
+<label kind="assignment">Icontrollable_reset := 0</label>
+</transition>
+<transition>
+<source ref="loc33"/><target ref="loc34"/>
+<label kind="assignment">Icontrollable_reset := 1</label>
+</transition>
+<transition>
+<source ref="loc34"/><target ref="loc35"/>
+<label kind="assignment">Ln7 := 1</label>
+</transition>
+<transition>
+<source ref="loc35"/><target ref="loc36"/>
+<label kind="assignment">Lcounter_0__out := !(!(!((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; (Istay)))</label>
+</transition>
+<transition>
+<source ref="loc36"/><target ref="loc37"/>
+<label kind="assignment">Lcounter_1__out := !(!((((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_1__out) &amp;&amp; (Ln7))) &amp;&amp; !(!(((Lcounter_0__out) &amp;&amp; (Ln7)) &amp;&amp; !(Istay)) &amp;&amp; ((Lcounter_1__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc37"/><target ref="loc38"/>
+<label kind="assignment">Lcounter_2__out := (!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; ((Lcounter_2__out) &amp;&amp; (Ln7))) &amp;&amp; !(Istay)) &amp;&amp; !(!(((((Lcounter_1__out) &amp;&amp; (Ln7)) &amp;&amp; ((Lcounter_0__out) &amp;&amp; (Ln7))) &amp;&amp; !(Icontrollable_reset)) &amp;&amp; !(Istay)) &amp;&amp; !((Lcounter_2__out) &amp;&amp; (Ln7))))</label>
+</transition>
+<transition>
+<source ref="loc38"/><target ref="loc26"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w2:=1</label>
+<label kind="guard">running0 == 2</label>
+</transition>
+<transition>
+<source ref="loc38"/><target ref="loc26"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w2:=1</label>
+<label kind="guard">running1 == 2</label>
+</transition>
+</template>
+<template><name>Machine0</name>
+<location id="loc40"><name>busy</name>
+</location>
+<location id="loc39"><name>idle</name>
+<committed/>
+</location>
+<init ref="loc39"/>
+<transition>
+<source ref="loc40"/><target ref="loc39"/>
+<label kind="synchronisation">release0?</label>
+<label kind="assignment">running0 := 2</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc40"/>
+<label kind="synchronisation">go0!</label>
+<label kind="assignment">round = 1,  running0 := 0</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 1</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc39"/>
+<label kind="assignment">round = 1</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 0</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc40"/>
+<label kind="synchronisation">go1!</label>
+<label kind="assignment">round = 2,  running0 := 1</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 1</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc39"/>
+<label kind="assignment">round = 2</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 0</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc40"/>
+<label kind="synchronisation">go2!</label>
+<label kind="assignment">round = 0,  running0 := 2</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 1</label>
+</transition>
+<transition>
+<source ref="loc39"/><target ref="loc39"/>
+<label kind="assignment">round = 0</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 0</label>
+</transition>
+</template>
+<template><name>Machine1</name>
+<location id="loc42"><name>busy</name>
+</location>
+<location id="loc41"><name>idle</name>
+<committed/>
+</location>
+<init ref="loc41"/>
+<transition>
+<source ref="loc42"/><target ref="loc41"/>
+<label kind="synchronisation">release1?</label>
+<label kind="assignment">running1 := 2</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc42"/>
+<label kind="synchronisation">go0!</label>
+<label kind="assignment">round = 1,  running1 := 0</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 1</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc41"/>
+<label kind="assignment">round = 1</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 0</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc42"/>
+<label kind="synchronisation">go1!</label>
+<label kind="assignment">round = 2,  running1 := 1</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 1</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc41"/>
+<label kind="assignment">round = 2</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 0</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc42"/>
+<label kind="synchronisation">go2!</label>
+<label kind="assignment">round = 0,  running1 := 2</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 1</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc41"/>
+<label kind="assignment">round = 0</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 0</label>
+</transition>
+</template>
+<instantiation></instantiation>
+<system>system Process0, Process1, Process2, Machine0, Machine1;</system>
+</nta>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?><nta><declaration>clock S1_z;
+clock S2_z;
+clock Ctrl_z;
+clock Ctrl_y0;
+int[0,2] S1_IntStat := 0;
+int[0,2] S2_IntStat := 0;
+int[0,4] Ctrl_IntStat := 0;
+int[0,1] Root_req1 := 0;
+int[0,1] polled_S1_request := 0;
+int[0,1] Ctrl_grant1 := 0;
+int[0,1] polled_S1_grant := 0;
+int[0,1] Root_req2 := 0;
+int[0,1] polled_S2_request := 0;
+int[0,1] Ctrl_grant2 := 0;
+int[0,1] polled_S2_grant := 0;
+int[0,1] S1_Safe := 0;
+int[0,1] polled_Ctrl_Safe1 := 0;
+int[0,1] S2_Safe := 0;
+int[0,1] polled_Ctrl_Safe2 := 0;</declaration><template><name>S1</name><location
+	id="id0" x="40" y="80"><name x="30" y="50">start_S1</name><label
+		kind="invariant" x="30" y="95">S1_z &lt;= 0</label></location><location
+	id="id1" x="190" y="80"><name x="180" y="50">I_am_safe</name><label
+		kind="invariant" x="180" y="95">S1_z &lt;= 1000</label></location><location
+	id="id2" x="190" y="230"><name x="208" y="192">I_am_unsafe</name><label
+		kind="invariant" x="180" y="245">S1_z &lt;= 1000</label></location><init
+	ref="id0"/><transition><source ref="id0"/><target ref="id1"/><label
+		kind="assignment" x="-88" y="-40">S1_Safe := 1, S1_IntStat :=
+		0</label></transition><transition><source ref="id1"/><target
+		ref="id1"/><label kind="guard" x="130" y="50">S1_IntStat == 0 &amp;&amp;
+		S1_z &gt;= 0</label><label kind="assignment" x="184"
+		y="64">polled_S1_request := Root_req1, polled_S1_grant := Ctrl_grant1,
+		S1_IntStat := 1</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id1"/><target
+		ref="id1"/><label kind="guard" x="130" y="50">S1_IntStat == 2</label><label
+		kind="assignment" x="-160" y="120">S1_IntStat := 0, S1_z := 0</label><nail
+		x="160" y="50"/><nail x="220" y="50"/></transition><transition><source
+		ref="id1"/><target ref="id1"/><label kind="guard" x="144" y="-8">S1_IntStat
+		== 1 &amp;&amp; polled_S1_request == 0 &amp;&amp; polled_S1_grant == 0
+		&amp;&amp; S1_Safe == 1</label><label kind="assignment" x="272"
+		y="80">S1_IntStat := 0, S1_z := 0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id1"/><target
+		ref="id1"/><label kind="guard" x="136" y="32">S1_IntStat == 1 &amp;&amp;
+		polled_S1_request == 1 &amp;&amp; polled_S1_grant == 0 &amp;&amp; S1_Safe ==
+		1</label><label kind="assignment" x="320" y="96">S1_IntStat := 0, S1_z :=
+		0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id1"/><target
+		ref="id1"/><label kind="guard" x="128" y="16">S1_IntStat == 1 &amp;&amp;
+		polled_S1_request == 0 &amp;&amp; polled_S1_grant == 1 &amp;&amp; S1_Safe ==
+		1</label><label kind="assignment" x="512" y="88">S1_IntStat := 0, S1_z :=
+		0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id1"/><target
+		ref="id2"/><label kind="guard" x="432" y="112">S1_IntStat == 1 &amp;&amp;
+		polled_S1_request == 1 &amp;&amp; polled_S1_grant == 1 &amp;&amp; S1_Safe ==
+		1</label><label kind="assignment" x="130" y="155">S1_Safe := 0, S1_IntStat
+		:= 0, S1_z := 0</label></transition><transition><source ref="id2"/><target
+		ref="id2"/><label kind="guard" x="296" y="192">S1_IntStat == 0 &amp;&amp;
+		S1_z &gt;= 0</label><label kind="assignment" x="144"
+		y="264">polled_S1_request := Root_req1, polled_S1_grant := Ctrl_grant1,
+		S1_IntStat := 1</label><nail x="160" y="200"/><nail x="220"
+		y="200"/></transition><transition><source ref="id2"/><target
+		ref="id2"/><label kind="guard" x="-48" y="208">S1_IntStat == 2</label><label
+		kind="assignment" x="130" y="230">S1_IntStat := 0, S1_z := 0</label><nail
+		x="160" y="200"/><nail x="220" y="200"/></transition><transition><source
+		ref="id2"/><target ref="id1"/><label kind="guard" x="130" y="125">S1_IntStat
+		== 1 &amp;&amp; polled_S1_request == 0 &amp;&amp; S1_Safe == 0</label><label
+		kind="assignment" x="424" y="152">S1_Safe := 1, S1_IntStat := 0, S1_z :=
+		0</label></transition><transition><source ref="id2"/><target
+		ref="id2"/><label kind="guard" x="296" y="216">S1_IntStat == 1 &amp;&amp;
+		polled_S1_request == 1 &amp;&amp; S1_Safe == 0</label><label
+		kind="assignment" x="130" y="230">S1_IntStat := 0, S1_z := 0</label><nail
+		x="160" y="200"/><nail x="220"
+		y="200"/></transition></template><template><name>S2</name><location id="id3"
+	x="40" y="80"><name x="30" y="50">start_S2</name><label kind="invariant"
+		x="30" y="95">S2_z &lt;= 0</label></location><location id="id4" x="190"
+	y="80"><name x="180" y="50">I_am_safe</name><label kind="invariant" x="180"
+		y="95">S2_z &lt;= 1000</label></location><location id="id5" x="190"
+	y="230"><name x="48" y="184">I_am_unsafe</name><label kind="invariant" x="180"
+		y="245">S2_z &lt;= 1000</label></location><init
+	ref="id3"/><transition><source ref="id3"/><target ref="id4"/><label
+		kind="assignment" x="55" y="80">S2_Safe := 1, S2_IntStat :=
+		0</label></transition><transition><source ref="id4"/><target
+		ref="id4"/><label kind="guard" x="312" y="40">S2_IntStat == 0 &amp;&amp;
+		S2_z &gt;= 0</label><label kind="assignment" x="168"
+		y="64">polled_S2_request := Root_req2, polled_S2_grant := Ctrl_grant2,
+		S2_IntStat := 1</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id4"/><target
+		ref="id4"/><label kind="guard" x="184" y="40">S2_IntStat == 2</label><label
+		kind="assignment" x="208" y="64">S2_IntStat := 0, S2_z := 0</label><nail
+		x="160" y="50"/><nail x="220" y="50"/></transition><transition><source
+		ref="id4"/><target ref="id4"/><label kind="guard" x="128" y="16">S2_IntStat
+		== 1 &amp;&amp; polled_S2_request == 0 &amp;&amp; polled_S2_grant == 0
+		&amp;&amp; S2_Safe == 1</label><label kind="assignment" x="-40"
+		y="8">S2_IntStat := 0, S2_z := 0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id4"/><target
+		ref="id4"/><label kind="guard" x="136" y="-24">S2_IntStat == 1 &amp;&amp;
+		polled_S2_request == 1 &amp;&amp; polled_S2_grant == 0 &amp;&amp; S2_Safe ==
+		1</label><label kind="assignment" x="16" y="120">S2_IntStat := 0, S2_z :=
+		0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id4"/><target
+		ref="id4"/><label kind="guard" x="120" y="0">S2_IntStat == 1 &amp;&amp;
+		polled_S2_request == 0 &amp;&amp; polled_S2_grant == 1 &amp;&amp; S2_Safe ==
+		1</label><label kind="assignment" x="208" y="56">S2_IntStat := 0, S2_z :=
+		0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id4"/><target
+		ref="id5"/><label kind="guard" x="184" y="136">S2_IntStat == 1 &amp;&amp;
+		polled_S2_request == 1 &amp;&amp; polled_S2_grant == 1 &amp;&amp; S2_Safe ==
+		1</label><label kind="assignment" x="130" y="155">S2_Safe := 0, S2_IntStat
+		:= 0, S2_z := 0</label></transition><transition><source ref="id5"/><target
+		ref="id5"/><label kind="guard" x="168" y="184">S2_IntStat == 0 &amp;&amp;
+		S2_z &gt;= 0</label><label kind="assignment" x="72"
+		y="296">polled_S2_request := Root_req2, polled_S2_grant := Ctrl_grant2,
+		S2_IntStat := 1</label><nail x="160" y="200"/><nail x="220"
+		y="200"/></transition><transition><source ref="id5"/><target
+		ref="id5"/><label kind="guard" x="130" y="200">S2_IntStat == 2</label><label
+		kind="assignment" x="16" y="232">S2_IntStat := 0, S2_z := 0</label><nail
+		x="160" y="200"/><nail x="220" y="200"/></transition><transition><source
+		ref="id5"/><target ref="id4"/><label kind="guard" x="264" y="112">S2_IntStat
+		== 1 &amp;&amp; polled_S2_request == 0 &amp;&amp; S2_Safe == 0</label><label
+		kind="assignment" x="130" y="155">S2_Safe := 1, S2_IntStat := 0, S2_z :=
+		0</label></transition><transition><source ref="id5"/><target
+		ref="id5"/><label kind="guard" x="336" y="200">S2_IntStat == 1 &amp;&amp;
+		polled_S2_request == 1 &amp;&amp; S2_Safe == 0</label><label
+		kind="assignment" x="232" y="256">S2_IntStat := 0, S2_z := 0</label><nail
+		x="160" y="200"/><nail x="220"
+		y="200"/></transition></template><template><name>Ctrl</name><location
+	id="id6" x="40" y="80"><name x="30" y="50">start_Ctrl</name><label
+		kind="invariant" x="30" y="95">Ctrl_z &lt;= 0</label></location><location
+	id="id7" x="190" y="80"><name x="180" y="50">wait_for_s2</name><label
+		kind="invariant" x="180" y="95">Ctrl_z &lt;=
+		1000</label></location><location id="id8" x="190" y="230"><name x="180"
+		y="200">g1</name><label kind="invariant" x="180" y="245">Ctrl_z &lt;=
+		1000</label></location><location id="id9" x="40" y="230"><name x="-112"
+		y="184">wait_for_s1</name><label kind="invariant" x="30" y="245">Ctrl_z
+		&lt;= 1000</label></location><location id="id10" x="340" y="80"><name
+		x="330" y="50">g2</name><label kind="invariant" x="330" y="95">Ctrl_z &lt;=
+		1000</label></location><init ref="id6"/><transition><source
+		ref="id6"/><target ref="id7"/><label kind="assignment" x="-240"
+		y="40">Ctrl_grant1 := 0, Ctrl_grant2 := 0, Ctrl_IntStat :=
+		0</label></transition><transition><source ref="id7"/><target
+		ref="id7"/><label kind="guard" x="304" y="40">Ctrl_IntStat == 0 &amp;&amp;
+		Ctrl_z &gt;= 0</label><label kind="assignment" x="-192"
+		y="296">polled_Ctrl_Safe1 := S1_Safe, polled_Ctrl_Safe2 := S2_Safe,
+		Ctrl_IntStat := 1</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id7"/><target
+		ref="id7"/><label kind="guard" x="96" y="56">Ctrl_IntStat == 2</label><label
+		kind="assignment" x="-104" y="24">Ctrl_IntStat := 0, Ctrl_z :=
+		0</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id7"/><target
+		ref="id7"/><label kind="guard" x="128" y="24">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe2 == 0 &amp;&amp; Ctrl_grant1 == 0</label><label
+		kind="assignment" x="-104" y="8">Ctrl_IntStat := 0, Ctrl_z := 0</label><nail
+		x="160" y="50"/><nail x="220" y="50"/></transition><transition><source
+		ref="id7"/><target ref="id7"/><label kind="guard" x="144" y="0">Ctrl_IntStat
+		== 1 &amp;&amp; polled_Ctrl_Safe2 == 1 &amp;&amp; Ctrl_grant1 == 0
+		&amp;&amp; Ctrl_y0 &lt;= 2000</label><label kind="assignment" x="-64"
+		y="-72">Ctrl_IntStat := 2</label><nail x="160" y="50"/><nail x="220"
+		y="50"/></transition><transition><source ref="id7"/><target
+		ref="id8"/><label kind="guard" x="152" y="136">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe2 == 1 &amp;&amp; Ctrl_grant1 == 0 &amp;&amp; Ctrl_y0 &gt;=
+		2000</label><label kind="assignment" x="130" y="155">Ctrl_grant1 := 1,
+		Ctrl_IntStat := 0, Ctrl_z := 0, Ctrl_y0 :=
+		0</label></transition><transition><source ref="id8"/><target
+		ref="id8"/><label kind="guard" x="144" y="176">Ctrl_IntStat == 0 &amp;&amp;
+		Ctrl_z &gt;= 0</label><label kind="assignment" x="88"
+		y="408">polled_Ctrl_Safe1 := S1_Safe, polled_Ctrl_Safe2 := S2_Safe,
+		Ctrl_IntStat := 1</label><nail x="160" y="200"/><nail x="220"
+		y="200"/></transition><transition><source ref="id8"/><target
+		ref="id8"/><label kind="guard" x="136" y="200">Ctrl_IntStat ==
+		2</label><label kind="assignment" x="72" y="328">Ctrl_IntStat := 0, Ctrl_z
+		:= 0</label><nail x="160" y="200"/><nail x="220"
+		y="200"/></transition><transition><source ref="id8"/><target
+		ref="id9"/><label kind="guard" x="512" y="192">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe1 == 0 &amp;&amp; Ctrl_grant1 == 1</label><label
+		kind="assignment" x="40" y="272">Ctrl_grant1 := 0, Ctrl_IntStat := 0, Ctrl_z
+		:= 0, Ctrl_y0 := 0</label></transition><transition><source
+		ref="id8"/><target ref="id8"/><label kind="guard" x="208"
+		y="216">Ctrl_IntStat == 1 &amp;&amp; polled_Ctrl_Safe1 == 1 &amp;&amp;
+		Ctrl_grant1 == 1 &amp;&amp; Ctrl_y0 &lt;= 2000</label><label
+		kind="assignment" x="336" y="232">Ctrl_IntStat := 2</label><nail x="160"
+		y="200"/><nail x="220" y="200"/></transition><transition><source
+		ref="id8"/><target ref="id9"/><label kind="guard" x="440"
+		y="176">Ctrl_IntStat == 1 &amp;&amp; polled_Ctrl_Safe1 == 1 &amp;&amp;
+		Ctrl_grant1 == 1 &amp;&amp; Ctrl_y0 &gt;= 2000</label><label
+		kind="assignment" x="24" y="352">Ctrl_grant1 := 0, Ctrl_IntStat := 0, Ctrl_z
+		:= 0, Ctrl_y0 := 0</label></transition><transition><source
+		ref="id9"/><target ref="id9"/><label kind="guard" x="-168"
+		y="168">Ctrl_IntStat == 0 &amp;&amp; Ctrl_z &gt;= 0</label><label
+		kind="assignment" x="-40" y="376">polled_Ctrl_Safe1 := S1_Safe,
+		polled_Ctrl_Safe2 := S2_Safe, Ctrl_IntStat := 1</label><nail x="10"
+		y="200"/><nail x="70" y="200"/></transition><transition><source
+		ref="id9"/><target ref="id9"/><label kind="guard" x="-20"
+		y="200">Ctrl_IntStat == 2</label><label kind="assignment" x="-20"
+		y="230">Ctrl_IntStat := 0, Ctrl_z := 0</label><nail x="10" y="200"/><nail
+		x="70" y="200"/></transition><transition><source ref="id9"/><target
+		ref="id9"/><label kind="guard" x="-320" y="128">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe1 == 0 &amp;&amp; Ctrl_grant2 == 0</label><label
+		kind="assignment" x="-20" y="230">Ctrl_IntStat := 0, Ctrl_z :=
+		0</label><nail x="10" y="200"/><nail x="70"
+		y="200"/></transition><transition><source ref="id9"/><target
+		ref="id9"/><label kind="guard" x="400" y="264">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe1 == 1 &amp;&amp; Ctrl_grant2 == 0 &amp;&amp; Ctrl_y0 &lt;=
+		2000</label><label kind="assignment" x="-20" y="230">Ctrl_IntStat :=
+		2</label><nail x="10" y="200"/><nail x="70"
+		y="200"/></transition><transition><source ref="id9"/><target
+		ref="id10"/><label kind="guard" x="130" y="125">Ctrl_IntStat == 1 &amp;&amp;
+		polled_Ctrl_Safe1 == 1 &amp;&amp; Ctrl_grant2 == 0 &amp;&amp; Ctrl_y0 &gt;=
+		2000</label><label kind="assignment" x="130" y="155">Ctrl_grant2 := 1,
+		Ctrl_IntStat := 0, Ctrl_z := 0, Ctrl_y0 :=
+		0</label></transition><transition><source ref="id10"/><target
+		ref="id10"/><label kind="guard" x="608" y="32">Ctrl_IntStat == 0 &amp;&amp;
+		Ctrl_z &gt;= 0</label><label kind="assignment" x="288" y="-72">polled_Ctrl_Safe1 := S1_Safe, polled_Ctrl_Safe2 := S2_Safe, Ctrl_IntStat := 1</label><nail x="310" y="50"/><nail x="370" y="50"/></transition><transition><source ref="id10"/><target ref="id10"/><label kind="guard" x="240" y="48">Ctrl_IntStat == 2</label><label kind="assignment" x="296" y="-128">Ctrl_IntStat := 0, Ctrl_z := 0</label><nail x="310" y="50"/><nail x="370" y="50"/></transition><transition><source ref="id10"/><target ref="id7"/><label kind="guard" x="488" y="48">Ctrl_IntStat == 1 &amp;&amp; polled_Ctrl_Safe2 == 0 &amp;&amp; Ctrl_grant2 == 1</label><label kind="assignment" x="224" y="64">Ctrl_grant2 := 0, Ctrl_IntStat := 0, Ctrl_z := 0, Ctrl_y0 := 0</label></transition><transition><source ref="id10"/><target ref="id10"/><label kind="guard" x="264" y="-96">Ctrl_IntStat == 1 &amp;&amp; polled_Ctrl_Safe2 == 1 &amp;&amp; Ctrl_grant2 == 1 &amp;&amp; Ctrl_y0 &lt;= 2000</label><label kind="assignment" x="104" y="-40">Ctrl_IntStat := 2</label><nail x="310" y="50"/><nail x="370" y="50"/></transition><transition><source ref="id10"/><target ref="id7"/><label kind="guard" x="200" y="-32">Ctrl_IntStat == 1 &amp;&amp; polled_Ctrl_Safe2 == 1 &amp;&amp; Ctrl_grant2 == 1 &amp;&amp; Ctrl_y0 &gt;= 2000</label><label kind="assignment" x="480" y="96">Ctrl_grant2 := 0, Ctrl_IntStat := 0, Ctrl_z := 0, Ctrl_y0 := 0</label></transition></template><template><name>drive_Root_req1</name><location id="id11" x="40" y="80"><name x="32" y="16">loop</name></location><init ref="id11"/><transition><source ref="id11"/><target ref="id11"/><label kind="guard" x="0" y="24">Root_req1 == 1</label><label kind="assignment" x="-20" y="80">Root_req1 := 0</label><nail x="10" y="50"/><nail x="70" y="50"/></transition><transition><source ref="id11"/><target ref="id11"/><label kind="guard" x="-20" y="50">Root_req1 == 0</label><label kind="assignment" x="-24" y="104">Root_req1 := 1</label><nail x="10" y="50"/><nail x="70" y="50"/></transition></template><template><name>drive_Root_req2</name><location id="id12" x="40" y="80"><name x="30" y="50">loop</name></location><init ref="id12"/><transition><source ref="id12"/><target ref="id12"/><label kind="guard" x="-16" y="16">Root_req2 == 1</label><label kind="assignment" x="40" y="80">Root_req2 := 0</label><nail x="10" y="50"/><nail x="70" y="50"/></transition><transition><source ref="id12"/><target ref="id12"/><label kind="guard" x="-8" y="32">Root_req2 == 0</label><label kind="assignment" x="-16" y="112">Root_req2 := 1</label><nail x="10" y="50"/><nail x="70" y="50"/></transition></template><system>system S1, S2, Ctrl, drive_Root_req1, drive_Root_req2;</system></nta>

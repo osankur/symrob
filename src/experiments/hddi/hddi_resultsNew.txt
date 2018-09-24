@@ -1,0 +1,105 @@
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            20612
+Total generated states:           28947
+property:                     not satisfied
+verifix -o 0 hddi_input_11.xml hddi_input.q 2.26s 103240kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            54965
+Total generated states:           68667
+property:                     not satisfied
+verifix -o 1 hddi_input_11.xml hddi_input.q 9.95s 272176kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+Total explored states:            51127
+Total generated states:          122848
+property:                     not satisfied
+verifix -o 2 hddi_input_11.xml hddi_input.q 62.05s 382492kB
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            39664
+Total generated states:           55899
+property:                     not satisfied
+verifix -o 0 hddi_input_12.xml hddi_input.q 10.41s 230040kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:           110121
+Total generated states:          137616
+property:                     not satisfied
+verifix -o 1 hddi_input_12.xml hddi_input.q 42.35s 635688kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+Total explored states:           102529
+Total generated states:          224433
+property:                     not satisfied
+verifix -o 2 hddi_input_12.xml hddi_input.q 263.76s 840724kB
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            77253
+Total generated states:          109112
+property:                     not satisfied
+verifix -o 0 hddi_input_13.xml hddi_input.q 53.15s 518556kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+Explored states:       200000 open:    16181 closed:   199999
+
+Total explored states:           223491
+Total generated states:          278010
+property:                     not satisfied
+verifix -o 1 hddi_input_13.xml hddi_input.q 187.37s 1497484kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+Total explored states:           207308
+Total generated states:          363582
+property:                     not satisfied
+verifix -o 2 hddi_input_13.xml hddi_input.q 905.81s 1775264kB

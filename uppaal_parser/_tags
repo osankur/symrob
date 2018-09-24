@@ -1,0 +1,2 @@
+<*>: thread, unsafe, package(batteries), package(str), package(xml-light), debug, custom, annot, bin_annot
+

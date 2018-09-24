@@ -1,0 +1,3 @@
+version="0.1"
+archive(native)="utaReader.cmxa"
+archive(byte)="utaReader.cma"

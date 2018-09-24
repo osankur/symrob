@@ -1,0 +1,260 @@
+<TA><Declaration> var fdead :{0..1} = 0;
+var Ip0_0 :{0..1} = 0;
+var Ip0_1 :{0..1} = 0;
+var Ip0_2 :{0..1} = 0;
+var Ip1_0 :{0..1} = 0;
+var Ip1_1 :{0..1} = 0;
+var Ip1_2 :{0..1} = 0;
+var Ip2_0 :{0..1} = 0;
+var Ip2_1 :{0..1} = 0;
+var Ip2_2 :{0..1} = 0;
+var IerrorCount_0_0_1 :{0..1} = 0;
+var Icontrollable_arm1_0_0_2 :{0..1} = 0;
+var Icontrollable_arm1_1 :{0..1} = 0;
+var Icontrollable_arm2_0_0_2 :{0..1} = 0;
+var Icontrollable_arm2_1 :{0..1} = 0;
+var Icontrollable_arm1op_0_0_2 :{0..1} = 0;
+var Icontrollable_arm1op_1 :{0..1} = 0;
+var Icontrollable_arm2op_0_0_2 :{0..1} = 0;
+var Icontrollable_arm2op_1 :{0..1} = 0;
+var LIsNotFirstRound  :{0..1} = 0;
+var Lprev_p0_0  :{0..1} = 0;
+var Lprev_p0_1  :{0..1} = 0;
+var Lprev_p0_2  :{0..1} = 0;
+var Lprev_p1_0  :{0..1} = 0;
+var Lprev_p1_1  :{0..1} = 0;
+var Lprev_p1_2  :{0..1} = 0;
+var Lprev_p2_0  :{0..1} = 0;
+var Lprev_p2_1  :{0..1} = 0;
+var Lprev_p2_2  :{0..1} = 0;
+var Lprev_errorCount_0_0_1  :{0..1} = 0;
+var Lprev_arm1_0_0_2  :{0..1} = 0;
+var Lprev_arm1_1  :{0..1} = 0;
+var Lprev_arm2_0_0_2  :{0..1} = 0;
+var Lprev_arm2_1  :{0..1} = 0;
+var Lprev_arm1op_0_0_2  :{0..1} = 0;
+var Lprev_arm1op_1  :{0..1} = 0;
+var Lprev_arm2op_0_0_2  :{0..1} = 0;
+var Lprev_arm2op_1  :{0..1} = 0;
+var LAssumptionsAlreadyViolated  :{0..1} = 0;
+System = Circuit();
+#define Dead fdead==1;
+#assert System reaches Dead;
+
+TimedAutomaton Circuit
+{
+clock: x_38, x_40, x_42, x_44, x_46, t;
+	state Init	
+	urgent;
+	trans: tau { Ip0_0 = 0; } -&gt;JustSetIp0_0;
+	trans: tau { Ip0_0 = 1; } -&gt;JustSetIp0_0;
+	endstate
+
+	state JustSetIp0_0	
+	urgent;
+	trans: tau { Ip0_1 = 0; } -&gt;JustSetIp0_1;
+	trans: tau { Ip0_1 = 1; } -&gt;JustSetIp0_1;
+	endstate
+
+	state JustSetIp0_1	
+	urgent;
+	trans: tau { Ip0_2 = 0; } -&gt;JustSetIp0_2;
+	trans: tau { Ip0_2 = 1; } -&gt;JustSetIp0_2;
+	endstate
+
+	state JustSetIp0_2	
+	urgent;
+	trans: tau { Ip1_0 = 0; } -&gt;JustSetIp1_0;
+	trans: tau { Ip1_0 = 1; } -&gt;JustSetIp1_0;
+	endstate
+
+	state JustSetIp1_0	
+	urgent;
+	trans: tau { Ip1_1 = 0; } -&gt;JustSetIp1_1;
+	trans: tau { Ip1_1 = 1; } -&gt;JustSetIp1_1;
+	endstate
+
+	state JustSetIp1_1	
+	urgent;
+	trans: tau { Ip1_2 = 0; } -&gt;JustSetIp1_2;
+	trans: tau { Ip1_2 = 1; } -&gt;JustSetIp1_2;
+	endstate
+
+	state JustSetIp1_2	
+	urgent;
+	trans: tau { Ip2_0 = 0; } -&gt;JustSetIp2_0;
+	trans: tau { Ip2_0 = 1; } -&gt;JustSetIp2_0;
+	endstate
+
+	state JustSetIp2_0	
+	urgent;
+	trans: tau { Ip2_1 = 0; } -&gt;JustSetIp2_1;
+	trans: tau { Ip2_1 = 1; } -&gt;JustSetIp2_1;
+	endstate
+
+	state JustSetIp2_1	
+	urgent;
+	trans: tau { Ip2_2 = 0; } -&gt;JustSetIp2_2;
+	trans: tau { Ip2_2 = 1; } -&gt;JustSetIp2_2;
+	endstate
+
+	state JustSetIp2_2	
+	urgent;
+	trans: tau { IerrorCount_0_0_1 = 0; } -&gt;JustSetIerrorCount_0_0_1;
+	trans: tau { IerrorCount_0_0_1 = 1; } -&gt;JustSetIerrorCount_0_0_1;
+	endstate
+
+	state JustSetIerrorCount_0_0_1	
+	urgent;
+	trans: tau { Icontrollable_arm1_0_0_2 = 0; } -&gt;JustSetIcontrollable_arm1_0_0_2;
+	trans: tau { Icontrollable_arm1_0_0_2 = 1; } -&gt;JustSetIcontrollable_arm1_0_0_2;
+	endstate
+
+	state JustSetIcontrollable_arm1_0_0_2	
+	urgent;
+	trans: tau { Icontrollable_arm1_1 = 0; } -&gt;JustSetIcontrollable_arm1_1;
+	trans: tau { Icontrollable_arm1_1 = 1; } -&gt;JustSetIcontrollable_arm1_1;
+	endstate
+
+	state JustSetIcontrollable_arm1_1	
+	urgent;
+	trans: tau { Icontrollable_arm2_0_0_2 = 0; } -&gt;JustSetIcontrollable_arm2_0_0_2;
+	trans: tau { Icontrollable_arm2_0_0_2 = 1; } -&gt;JustSetIcontrollable_arm2_0_0_2;
+	endstate
+
+	state JustSetIcontrollable_arm2_0_0_2	
+	urgent;
+	trans: tau { Icontrollable_arm2_1 = 0; } -&gt;JustSetIcontrollable_arm2_1;
+	trans: tau { Icontrollable_arm2_1 = 1; } -&gt;JustSetIcontrollable_arm2_1;
+	endstate
+
+	state JustSetIcontrollable_arm2_1	
+	urgent;
+	trans: tau { Icontrollable_arm1op_0_0_2 = 0; } -&gt;JustSetIcontrollable_arm1op_0_0_2;
+	trans: tau { Icontrollable_arm1op_0_0_2 = 1; } -&gt;JustSetIcontrollable_arm1op_0_0_2;
+	endstate
+
+	state JustSetIcontrollable_arm1op_0_0_2	
+	urgent;
+	trans: tau { Icontrollable_arm1op_1 = 0; } -&gt;JustSetIcontrollable_arm1op_1;
+	trans: tau { Icontrollable_arm1op_1 = 1; } -&gt;JustSetIcontrollable_arm1op_1;
+	endstate
+
+	state JustSetIcontrollable_arm1op_1	
+	urgent;
+	trans: tau { Icontrollable_arm2op_0_0_2 = 0; } -&gt;JustSetIcontrollable_arm2op_0_0_2;
+	trans: tau { Icontrollable_arm2op_0_0_2 = 1; } -&gt;JustSetIcontrollable_arm2op_0_0_2;
+	endstate
+
+	state JustSetIcontrollable_arm2op_0_0_2	
+	urgent;
+	trans: tau { Icontrollable_arm2op_1 = 0; } -&gt;JustSetIcontrollable_arm2op_1;
+	trans: tau { Icontrollable_arm2op_1 = 1; } -&gt;JustSetIcontrollable_arm2op_1;
+	endstate
+
+	state JustSetIcontrollable_arm2op_1	
+	urgent;
+	trans: [LIsNotFirstRound == 1] tau -&gt;UpdatedLIsNotFirstRound;
+	trans: [[x_38 &gt;= 100000]] [LIsNotFirstRound == 1 &amp;&amp; LIsNotFirstRound != 1] tau -&gt;UpdatedLIsNotFirstRound;
+	trans: [[x_38 &gt;= 150000]] [LIsNotFirstRound == 0 &amp;&amp; LIsNotFirstRound != 1] tau -&gt;UpdatedLIsNotFirstRound;
+	trans: [[x_38 &lt;= 99999]] [LIsNotFirstRound == 1 &amp;&amp; LIsNotFirstRound != 1] tau -&gt;UpdatedLIsNotFirstRound_becomes0;
+	trans: [[x_38 &lt;= 149999]] [LIsNotFirstRound == 0 &amp;&amp; LIsNotFirstRound != 1 ] tau -&gt;UpdatedLIsNotFirstRound_becomes1;
+	endstate
+
+	state UpdatedLIsNotFirstRound	
+	urgent;
+	trans: [Lprev_p0_0 == (Ip0_0)] tau -&gt;UpdatedLprev_p0_0;
+	trans: [[x_40 &gt;= 50000]] [Lprev_p0_0 == 1 &amp;&amp; Lprev_p0_0 != (Ip0_0)] tau -&gt;UpdatedLprev_p0_0;
+	trans: [[x_40 &gt;= 200000]] [Lprev_p0_0 == 0 &amp;&amp; Lprev_p0_0 != (Ip0_0)] tau -&gt;UpdatedLprev_p0_0;
+	trans: [[x_40 &lt;= 49999]] [Lprev_p0_0 == 1 &amp;&amp; Lprev_p0_0 != (Ip0_0)] tau -&gt;UpdatedLprev_p0_0_becomes0;
+	trans: [[x_40 &lt;= 199999]] [Lprev_p0_0 == 0 &amp;&amp; Lprev_p0_0 != (Ip0_0) ] tau -&gt;UpdatedLprev_p0_0_becomes1;
+	endstate
+
+	state UpdatedLIsNotFirstRound_becomes0	
+	inv: x_38 &lt;= 100000;
+	trans: [[x_38 &gt;= 100000]] tau { LIsNotFirstRound = 1; } &lt;x_38&gt; -&gt;UpdatedLIsNotFirstRound;
+	endstate
+
+	state UpdatedLIsNotFirstRound_becomes1	
+	inv: x_38 &lt;= 150000;
+	trans: [[x_38 &gt;= 150000]] tau { LIsNotFirstRound = 1; } &lt;x_38&gt; -&gt;UpdatedLIsNotFirstRound;
+	endstate
+
+	state UpdatedLprev_p0_0	
+	urgent;
+	trans: [Lprev_p0_1 == (Ip0_1)] tau -&gt;UpdatedLprev_p0_1;
+	trans: [[x_42 &gt;= 200000]] [Lprev_p0_1 == 1 &amp;&amp; Lprev_p0_1 != (Ip0_1)] tau -&gt;UpdatedLprev_p0_1;
+	trans: [[x_42 &gt;= 300000]] [Lprev_p0_1 == 0 &amp;&amp; Lprev_p0_1 != (Ip0_1)] tau -&gt;UpdatedLprev_p0_1;
+	trans: [[x_42 &lt;= 199999]] [Lprev_p0_1 == 1 &amp;&amp; Lprev_p0_1 != (Ip0_1)] tau -&gt;UpdatedLprev_p0_1_becomes0;
+	trans: [[x_42 &lt;= 299999]] [Lprev_p0_1 == 0 &amp;&amp; Lprev_p0_1 != (Ip0_1) ] tau -&gt;UpdatedLprev_p0_1_becomes1;
+	endstate
+
+	state UpdatedLprev_p0_0_becomes0	
+	inv: x_40 &lt;= 50000;
+	trans: [[x_40 &gt;= 50000]] tau { Lprev_p0_0 = (Ip0_0); } &lt;x_40&gt; -&gt;UpdatedLprev_p0_0;
+	endstate
+
+	state UpdatedLprev_p0_0_becomes1	
+	inv: x_40 &lt;= 200000;
+	trans: [[x_40 &gt;= 200000]] tau { Lprev_p0_0 = (Ip0_0); } &lt;x_40&gt; -&gt;UpdatedLprev_p0_0;
+	endstate
+
+	state UpdatedLprev_p0_1	
+	urgent;
+	trans: [Lprev_p0_2 == (Ip0_2)] tau -&gt;UpdatedLprev_p0_2;
+	trans: [[x_44 &gt;= 300000]] [Lprev_p0_2 == 1 &amp;&amp; Lprev_p0_2 != (Ip0_2)] tau -&gt;UpdatedLprev_p0_2;
+	trans: [[x_44 &gt;= 0]] [Lprev_p0_2 == 0 &amp;&amp; Lprev_p0_2 != (Ip0_2)] tau -&gt;UpdatedLprev_p0_2;
+	trans: [[x_44 &lt;= 299999]] [Lprev_p0_2 == 1 &amp;&amp; Lprev_p0_2 != (Ip0_2)] tau -&gt;UpdatedLprev_p0_2_becomes0;
+	trans: [Lprev_p0_2 == 0 &amp;&amp; Lprev_p0_2 != (Ip0_2) ] tau -&gt;UpdatedLprev_p0_2_becomes1;
+	endstate
+
+	state UpdatedLprev_p0_1_becomes0	
+	inv: x_42 &lt;= 200000;
+	trans: [[x_42 &gt;= 200000]] tau { Lprev_p0_1 = (Ip0_1); } &lt;x_42&gt; -&gt;UpdatedLprev_p0_1;
+	endstate
+
+	state UpdatedLprev_p0_1_becomes1	
+	inv: x_42 &lt;= 300000;
+	trans: [[x_42 &gt;= 300000]] tau { Lprev_p0_1 = (Ip0_1); } &lt;x_42&gt; -&gt;UpdatedLprev_p0_1;
+	endstate
+
+	state UpdatedLprev_p0_2	
+	urgent;
+	trans: [Lprev_p1_0 == (Ip1_0)] tau -&gt;UpdatedLprev_p1_0;
+	trans: [[x_46 &gt;= 250000]] [Lprev_p1_0 == 1 &amp;&amp; Lprev_p1_0 != (Ip1_0)] tau -&gt;UpdatedLprev_p1_0;
+	trans: [[x_46 &gt;= 0]] [Lprev_p1_0 == 0 &amp;&amp; Lprev_p1_0 != (Ip1_0)] tau -&gt;UpdatedLprev_p1_0;
+	trans: [[x_46 &lt;= 249999]] [Lprev_p1_0 == 1 &amp;&amp; Lprev_p1_0 != (Ip1_0)] tau -&gt;UpdatedLprev_p1_0_becomes0;
+	trans: [Lprev_p1_0 == 0 &amp;&amp; Lprev_p1_0 != (Ip1_0) ] tau -&gt;UpdatedLprev_p1_0_becomes1;
+	endstate
+
+	state UpdatedLprev_p0_2_becomes0	
+	inv: x_44 &lt;= 300000;
+	trans: [[x_44 &gt;= 300000]] tau { Lprev_p0_2 = (Ip0_2); } &lt;x_44&gt; -&gt;UpdatedLprev_p0_2;
+	endstate
+
+	state UpdatedLprev_p0_2_becomes1	
+	inv: x_44 &lt;= 0;
+	trans: [[x_44 &gt;= 0]] tau { Lprev_p0_2 = (Ip0_2); } &lt;x_44&gt; -&gt;UpdatedLprev_p0_2;
+	endstate
+
+	state UpdatedLprev_p1_0	
+	urgent;
+	trans: [[t &lt;= 300000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=300001]] tau { fdead = 1; } -&gt;dead;
+	endstate
+
+	state UpdatedLprev_p1_0_becomes0	
+	inv: x_46 &lt;= 250000;
+	trans: [[x_46 &gt;= 250000]] tau { Lprev_p1_0 = (Ip1_0); } &lt;x_46&gt; -&gt;UpdatedLprev_p1_0;
+	endstate
+
+	state UpdatedLprev_p1_0_becomes1	
+	inv: x_46 &lt;= 0;
+	trans: [[x_46 &gt;= 0]] tau { Lprev_p1_0 = (Ip1_0); } &lt;x_46&gt; -&gt;UpdatedLprev_p1_0;
+	endstate
+
+	state dead	
+	endstate
+
+}
+</Declaration><Processes/></TA>

@@ -1,0 +1,111 @@
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            20612
+Total generated states:           28947
+property:                     not satisfied
+verifix -o 0 hddi_input_11.xml hddi_input.q 1.74s 103200kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            54965
+Total generated states:           68667
+property:                     not satisfied
+verifix -o 1 hddi_input_11.xml hddi_input.q 8.41s 272148kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+0=0 1=0 2=20 3=570 4=570 5=20 6=570 7=570 8=20 9=570 10=570 11=20 12=570 13=570 14=20 15=570 16=570 17=20 18=570 19=570 20=20 21=570 22=570 23=20 24=570 25=570 26=20 27=570 28=570 29=20 30=570 31=570 32=20 33=570 34=570 
+Explored states (in stable):            0 open:        0 close:        0Explored states (in stable):        20000 open:     2222 close:    20000Explored states (in stable):        40000 open:     3684 close:    40000
+
+Total explored states:            51127
+Total generated states:           78901
+property:                     not satisfied
+verifix -o 2 hddi_input_11.xml hddi_input.q 19.81s 289792kB
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            39664
+Total generated states:           55899
+property:                     not satisfied
+verifix -o 0 hddi_input_12.xml hddi_input.q 6.94s 230004kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:           110121
+Total generated states:          137616
+property:                     not satisfied
+verifix -o 1 hddi_input_12.xml hddi_input.q 31.08s 635656kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+0=0 1=0 2=20 3=620 4=620 5=20 6=620 7=620 8=20 9=620 10=620 11=20 12=620 13=620 14=20 15=620 16=620 17=20 18=620 19=620 20=20 21=620 22=620 23=20 24=620 25=620 26=20 27=620 28=620 29=20 30=620 31=620 32=20 33=620 34=620 35=20 36=620 37=620 
+Explored states (in stable):            0 open:        0 close:        0Explored states (in stable):        20000 open:     1835 close:    20000Explored states (in stable):        40000 open:     4119 close:    40000Explored states (in stable):        60000 open:     5944 close:    60000Explored states (in stable):        80000 open:     7192 close:    80000Explored states (in stable):       100000 open:     7597 close:   100000
+
+Total explored states:           102529
+Total generated states:          158090
+property:                     not satisfied
+verifix -o 2 hddi_input_12.xml hddi_input.q 108.64s 676216kB
+Selected Options:
+  Search order:     breadth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+
+
+Total explored states:            77253
+Total generated states:          109112
+property:                     not satisfied
+verifix -o 0 hddi_input_13.xml hddi_input.q 33.38s 518516kB
+Selected Options:
+  Search order:     depth first 
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+Explored states:       200000 open:    16181 closed:   199999
+
+Total explored states:           223491
+Total generated states:          278010
+property:                     not satisfied
+verifix -o 1 hddi_input_13.xml hddi_input.q 123.44s 1497708kB
+Selected Options:
+  Search order:     robust depth first
+  Normalizer:       LU local diagonal bounds
+  Trace:            statistic   
+  Using             new syntax.
+
+0=0 1=0 2=20 3=670 4=670 5=20 6=670 7=670 8=20 9=670 10=670 11=20 12=670 13=670 14=20 15=670 16=670 17=20 18=670 19=670 20=20 21=670 22=670 23=20 24=670 25=670 26=20 27=670 28=670 29=20 30=670 31=670 32=20 33=670 34=670 35=20 36=670 37=670 38=20 39=670 40=670 
+Explored states (in stable):            0 open:        0 close:        0Explored states (in stable):        20000 open:     1823 close:    20000Explored states (in stable):        40000 open:     4239 close:    40000Explored states (in stable):        60000 open:     6466 close:    60000Explored states (in stable):        80000 open:     8602 close:    80000Explored states (in stable):       100000 open:    10609 close:   100000Explored states (in stable):       120000 open:    12388 close:   120000Explored states (in stable):       140000 open:    13886 close:   140000Explored states (in stable):       160000 open:    15022 close:   160000Explored states (in stable):       180000 open:    15827 close:   180000Explored states (in stable):       200000 open:    16181 close:   200000
+
+Total explored states:           207308
+Total generated states:          318964
+property:                     not satisfied
+verifix -o 2 hddi_input_13.xml hddi_input.q 455.50s 1583296kB

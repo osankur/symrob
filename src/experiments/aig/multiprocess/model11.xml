@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta><declaration> 
+chan go0,go1,go2; // Process i can start
+chan release0;
+chan release1; // Machine j can be freed
+int[0,2] running0 = 0; // Machine 1 is running process running1. 3 means none
+int[0,2] running1 = 0;
+
+int[0,2] round = 0;
+// Is process(i) waiting?
+// This is redundant information but don't know how to
+// simply access processes' locations
+bool w0 = 1;
+bool w1 = 1;
+bool w2 = 1;
+
+clock x0;
+// int[0,1] mode0;
+
+clock x1;
+// int[0,1] mode1;
+
+clock x2;
+// int[0,1] mode2;
+</declaration>
+<template><name>Process0</name>
+<declaration>bool Ish0;
+bool Ish1;
+bool Ish2;
+bool Icontrollable_do_shift;
+bool Lstate_benchn11;
+bool Lstate_benchr0_out;
+bool Lstate_benchr1_out;
+bool Lstate_benchr2_out;
+bool Lstate_benchr3_out;
+bool Lstate_benchr4_out;
+bool Lstate_benchr5_out;
+bool Lstate_benchr6_out;
+bool Lstate_benchr7_out;
+</declaration>
+<location id="loc5"><name>on0</name>
+<label kind="invariant">x0 &lt;= 10</label>
+</location>
+<location id="loc6"><name>on1</name>
+<label kind="invariant">x0 &lt;= 8</label>
+</location>
+<location id="loc0"><name>w</name>
+</location>
+<location id="loc1"><name>dead</name>
+</location>
+<location id="loc3"><name>up</name>
+<committed/>
+</location>
+<location id="loc7"><name>JustSetIsh0</name>
+<committed/>
+</location>
+<location id="loc8"><name>JustSetIsh1</name>
+<committed/>
+</location>
+<location id="loc9"><name>JustSetIsh2</name>
+<committed/>
+</location>
+<location id="loc10"><name>JustSetIcontrollable_do_shift</name>
+<committed/>
+</location>
+<location id="loc11"><name>UpdatedLstate_benchn11</name>
+<committed/>
+</location>
+<location id="loc12"><name>UpdatedLstate_benchr0_out</name>
+<committed/>
+</location>
+<location id="loc13"><name>UpdatedLstate_benchr1_out</name>
+<committed/>
+</location>
+<location id="loc14"><name>UpdatedLstate_benchr2_out</name>
+<committed/>
+</location>
+<location id="loc15"><name>UpdatedLstate_benchr3_out</name>
+<committed/>
+</location>
+<location id="loc16"><name>UpdatedLstate_benchr4_out</name>
+<committed/>
+</location>
+<location id="loc17"><name>UpdatedLstate_benchr5_out</name>
+<committed/>
+</location>
+<location id="loc18"><name>UpdatedLstate_benchr6_out</name>
+<committed/>
+</location>
+<location id="loc19"><name>UpdatedLstate_benchr7_out</name>
+<committed/>
+</location>
+<init ref="loc0"/>
+<transition>
+<source ref="loc0"/><target ref="loc5"/>
+<label kind="synchronisation">go0?</label>
+<label kind="assignment">x0:=0, w0:=0</label>
+<label kind="guard">Lstate_benchn11 == 0</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc1"/>
+<label kind="guard">Lstate_benchn11 == 0 &amp;&amp; x0 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc5"/><target ref="loc3"/>
+<label kind="assignment">x0:=0</label>
+<label kind="guard">Lstate_benchn11 == 0 &amp;&amp; x0 &gt;= 5 &amp;&amp; x0 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc6"/>
+<label kind="synchronisation">go0?</label>
+<label kind="assignment">x0:=0, w0:=0</label>
+<label kind="guard">Lstate_benchn11 == 1</label>
+</transition>
+<transition>
+<source ref="loc0"/><target ref="loc1"/>
+<label kind="guard">Lstate_benchn11 == 1 &amp;&amp; x0 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc6"/><target ref="loc3"/>
+<label kind="assignment">x0:=0</label>
+<label kind="guard">Lstate_benchn11 == 1 &amp;&amp; x0 &gt;= 4 &amp;&amp; x0 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc7"/>
+<label kind="assignment">Ish0 := 0</label>
+</transition>
+<transition>
+<source ref="loc3"/><target ref="loc7"/>
+<label kind="assignment">Ish0 := 1</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Ish1 := 0</label>
+</transition>
+<transition>
+<source ref="loc7"/><target ref="loc8"/>
+<label kind="assignment">Ish1 := 1</label>
+</transition>
+<transition>
+<source ref="loc8"/><target ref="loc9"/>
+<label kind="assignment">Ish2 := 0</label>
+</transition>
+<transition>
+<source ref="loc8"/><target ref="loc9"/>
+<label kind="assignment">Ish2 := 1</label>
+</transition>
+<transition>
+<source ref="loc9"/><target ref="loc10"/>
+<label kind="assignment">Icontrollable_do_shift := 0</label>
+</transition>
+<transition>
+<source ref="loc9"/><target ref="loc10"/>
+<label kind="assignment">Icontrollable_do_shift := 1</label>
+</transition>
+<transition>
+<source ref="loc10"/><target ref="loc11"/>
+<label kind="assignment">Lstate_benchn11 := 1</label>
+</transition>
+<transition>
+<source ref="loc11"/><target ref="loc12"/>
+<label kind="assignment">Lstate_benchr0_out := !(!(!(!(Lstate_benchr0_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(!(!(Lstate_benchr0_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr7_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr4_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr3_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc12"/><target ref="loc13"/>
+<label kind="assignment">Lstate_benchr1_out := !(!(((Lstate_benchr1_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr1_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(!(!(Lstate_benchr0_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr5_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr4_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc13"/><target ref="loc14"/>
+<label kind="assignment">Lstate_benchr2_out := !(!(((Lstate_benchr2_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr2_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr1_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr6_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr5_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc14"/><target ref="loc15"/>
+<label kind="assignment">Lstate_benchr3_out := !(!(((Lstate_benchr3_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr3_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr2_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr7_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr6_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc15"/><target ref="loc16"/>
+<label kind="assignment">Lstate_benchr4_out := !(!(((Lstate_benchr4_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr4_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr3_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(!(!(Lstate_benchr0_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr7_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc16"/><target ref="loc17"/>
+<label kind="assignment">Lstate_benchr5_out := !(!(((Lstate_benchr5_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr5_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr4_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr1_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(!(!(Lstate_benchr0_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc17"/><target ref="loc18"/>
+<label kind="assignment">Lstate_benchr6_out := !(!(((Lstate_benchr6_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr6_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr5_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr2_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr1_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc18"/><target ref="loc19"/>
+<label kind="assignment">Lstate_benchr7_out := !(!(((Lstate_benchr7_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Icontrollable_do_shift)) &amp;&amp; !(!(!(!(!(((Lstate_benchr7_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr6_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; !(Ish2)) &amp;&amp; !(!(!(((Lstate_benchr3_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; !(Ish0)) &amp;&amp; !(((Lstate_benchr2_out) &amp;&amp; (Lstate_benchn11)) &amp;&amp; (Ish0))) &amp;&amp; (Ish2))) &amp;&amp; (Icontrollable_do_shift)))</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc0"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w0:=1</label>
+<label kind="guard">running0 == 0</label>
+</transition>
+<transition>
+<source ref="loc19"/><target ref="loc0"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w0:=1</label>
+<label kind="guard">running1 == 0</label>
+</transition>
+</template>
+<template><name>Process1</name>
+<declaration>bool Ia_0_;
+bool Ia_1_;
+bool Ib_0_;
+bool Ib_1_;
+bool Icontrollable_c_0_;
+bool Icontrollable_c_1_;
+bool Lstate_n15;
+bool Lerr_out;
+</declaration>
+<location id="loc25"><name>on0</name>
+<label kind="invariant">x1 &lt;= 10</label>
+</location>
+<location id="loc26"><name>on1</name>
+<label kind="invariant">x1 &lt;= 8</label>
+</location>
+<location id="loc20"><name>w</name>
+</location>
+<location id="loc21"><name>dead</name>
+</location>
+<location id="loc23"><name>up</name>
+<committed/>
+</location>
+<location id="loc27"><name>JustSetIa_0_</name>
+<committed/>
+</location>
+<location id="loc28"><name>JustSetIa_1_</name>
+<committed/>
+</location>
+<location id="loc29"><name>JustSetIb_0_</name>
+<committed/>
+</location>
+<location id="loc30"><name>JustSetIb_1_</name>
+<committed/>
+</location>
+<location id="loc31"><name>JustSetIcontrollable_c_0_</name>
+<committed/>
+</location>
+<location id="loc32"><name>JustSetIcontrollable_c_1_</name>
+<committed/>
+</location>
+<location id="loc33"><name>UpdatedLstate_n15</name>
+<committed/>
+</location>
+<location id="loc34"><name>UpdatedLerr_out</name>
+<committed/>
+</location>
+<init ref="loc20"/>
+<transition>
+<source ref="loc20"/><target ref="loc25"/>
+<label kind="synchronisation">go1?</label>
+<label kind="assignment">x1:=0, w1:=0</label>
+<label kind="guard">Lstate_n15 == 0</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc21"/>
+<label kind="guard">Lstate_n15 == 0 &amp;&amp; x1 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc25"/><target ref="loc23"/>
+<label kind="assignment">x1:=0</label>
+<label kind="guard">Lstate_n15 == 0 &amp;&amp; x1 &gt;= 5 &amp;&amp; x1 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc26"/>
+<label kind="synchronisation">go1?</label>
+<label kind="assignment">x1:=0, w1:=0</label>
+<label kind="guard">Lstate_n15 == 1</label>
+</transition>
+<transition>
+<source ref="loc20"/><target ref="loc21"/>
+<label kind="guard">Lstate_n15 == 1 &amp;&amp; x1 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc26"/><target ref="loc23"/>
+<label kind="assignment">x1:=0</label>
+<label kind="guard">Lstate_n15 == 1 &amp;&amp; x1 &gt;= 4 &amp;&amp; x1 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc27"/>
+<label kind="assignment">Ia_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc23"/><target ref="loc27"/>
+<label kind="assignment">Ia_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc27"/><target ref="loc28"/>
+<label kind="assignment">Ia_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc27"/><target ref="loc28"/>
+<label kind="assignment">Ia_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc28"/><target ref="loc29"/>
+<label kind="assignment">Ib_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc28"/><target ref="loc29"/>
+<label kind="assignment">Ib_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc30"/>
+<label kind="assignment">Ib_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc29"/><target ref="loc30"/>
+<label kind="assignment">Ib_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc30"/><target ref="loc31"/>
+<label kind="assignment">Icontrollable_c_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc30"/><target ref="loc31"/>
+<label kind="assignment">Icontrollable_c_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc31"/><target ref="loc32"/>
+<label kind="assignment">Icontrollable_c_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc31"/><target ref="loc32"/>
+<label kind="assignment">Icontrollable_c_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc32"/><target ref="loc33"/>
+<label kind="assignment">Lstate_n15 := 1</label>
+</transition>
+<transition>
+<source ref="loc33"/><target ref="loc34"/>
+<label kind="assignment">Lerr_out := !((!((!(!(!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !((!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; ((Ib_0_) &amp;&amp; (Ia_0_)))) &amp;&amp; (Icontrollable_c_1_)) &amp;&amp; !(!(!(!(!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !((!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; ((Ib_0_) &amp;&amp; (Ia_0_)))) &amp;&amp; !(Icontrollable_c_1_))) &amp;&amp; (!(!(!(!(Ib_0_) &amp;&amp; !(Ia_0_)) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; (Icontrollable_c_0_)) &amp;&amp; !((!(!(Ib_0_) &amp;&amp; !(Ia_0_)) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !(Icontrollable_c_0_))))</label>
+</transition>
+<transition>
+<source ref="loc34"/><target ref="loc20"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w1:=1</label>
+<label kind="guard">running0 == 1</label>
+</transition>
+<transition>
+<source ref="loc34"/><target ref="loc20"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w1:=1</label>
+<label kind="guard">running1 == 1</label>
+</transition>
+</template>
+<template><name>Process2</name>
+<declaration>bool Ia_0_;
+bool Ia_1_;
+bool Ib_0_;
+bool Ib_1_;
+bool Icontrollable_c_0_;
+bool Icontrollable_c_1_;
+bool Lstate_n15;
+bool Lerr_out;
+</declaration>
+<location id="loc40"><name>on0</name>
+<label kind="invariant">x2 &lt;= 10</label>
+</location>
+<location id="loc41"><name>on1</name>
+<label kind="invariant">x2 &lt;= 8</label>
+</location>
+<location id="loc35"><name>w</name>
+</location>
+<location id="loc36"><name>dead</name>
+</location>
+<location id="loc38"><name>up</name>
+<committed/>
+</location>
+<location id="loc42"><name>JustSetIa_0_</name>
+<committed/>
+</location>
+<location id="loc43"><name>JustSetIa_1_</name>
+<committed/>
+</location>
+<location id="loc44"><name>JustSetIb_0_</name>
+<committed/>
+</location>
+<location id="loc45"><name>JustSetIb_1_</name>
+<committed/>
+</location>
+<location id="loc46"><name>JustSetIcontrollable_c_0_</name>
+<committed/>
+</location>
+<location id="loc47"><name>JustSetIcontrollable_c_1_</name>
+<committed/>
+</location>
+<location id="loc48"><name>UpdatedLstate_n15</name>
+<committed/>
+</location>
+<location id="loc49"><name>UpdatedLerr_out</name>
+<committed/>
+</location>
+<init ref="loc35"/>
+<transition>
+<source ref="loc35"/><target ref="loc40"/>
+<label kind="synchronisation">go2?</label>
+<label kind="assignment">x2:=0, w2:=0</label>
+<label kind="guard">Lstate_n15 == 0</label>
+</transition>
+<transition>
+<source ref="loc35"/><target ref="loc36"/>
+<label kind="guard">Lstate_n15 == 0 &amp;&amp; x2 &gt; 5</label>
+</transition>
+<transition>
+<source ref="loc40"/><target ref="loc38"/>
+<label kind="assignment">x2:=0</label>
+<label kind="guard">Lstate_n15 == 0 &amp;&amp; x2 &gt;= 5 &amp;&amp; x2 &lt;= 10</label>
+</transition>
+<transition>
+<source ref="loc35"/><target ref="loc41"/>
+<label kind="synchronisation">go2?</label>
+<label kind="assignment">x2:=0, w2:=0</label>
+<label kind="guard">Lstate_n15 == 1</label>
+</transition>
+<transition>
+<source ref="loc35"/><target ref="loc36"/>
+<label kind="guard">Lstate_n15 == 1 &amp;&amp; x2 &gt; 8</label>
+</transition>
+<transition>
+<source ref="loc41"/><target ref="loc38"/>
+<label kind="assignment">x2:=0</label>
+<label kind="guard">Lstate_n15 == 1 &amp;&amp; x2 &gt;= 4 &amp;&amp; x2 &lt;= 8</label>
+</transition>
+<transition>
+<source ref="loc38"/><target ref="loc42"/>
+<label kind="assignment">Ia_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc38"/><target ref="loc42"/>
+<label kind="assignment">Ia_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc42"/><target ref="loc43"/>
+<label kind="assignment">Ia_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc42"/><target ref="loc43"/>
+<label kind="assignment">Ia_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc43"/><target ref="loc44"/>
+<label kind="assignment">Ib_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc43"/><target ref="loc44"/>
+<label kind="assignment">Ib_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc44"/><target ref="loc45"/>
+<label kind="assignment">Ib_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc44"/><target ref="loc45"/>
+<label kind="assignment">Ib_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc45"/><target ref="loc46"/>
+<label kind="assignment">Icontrollable_c_0_ := 0</label>
+</transition>
+<transition>
+<source ref="loc45"/><target ref="loc46"/>
+<label kind="assignment">Icontrollable_c_0_ := 1</label>
+</transition>
+<transition>
+<source ref="loc46"/><target ref="loc47"/>
+<label kind="assignment">Icontrollable_c_1_ := 0</label>
+</transition>
+<transition>
+<source ref="loc46"/><target ref="loc47"/>
+<label kind="assignment">Icontrollable_c_1_ := 1</label>
+</transition>
+<transition>
+<source ref="loc47"/><target ref="loc48"/>
+<label kind="assignment">Lstate_n15 := 1</label>
+</transition>
+<transition>
+<source ref="loc48"/><target ref="loc49"/>
+<label kind="assignment">Lerr_out := !((!((!(!(!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !((!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; ((Ib_0_) &amp;&amp; (Ia_0_)))) &amp;&amp; (Icontrollable_c_1_)) &amp;&amp; !(!(!(!(!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !((!(!(Ib_1_) &amp;&amp; (Ia_1_)) &amp;&amp; !((Ib_1_) &amp;&amp; !(Ia_1_))) &amp;&amp; ((Ib_0_) &amp;&amp; (Ia_0_)))) &amp;&amp; !(Icontrollable_c_1_))) &amp;&amp; (!(!(!(!(Ib_0_) &amp;&amp; !(Ia_0_)) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; (Icontrollable_c_0_)) &amp;&amp; !((!(!(Ib_0_) &amp;&amp; !(Ia_0_)) &amp;&amp; !((Ib_0_) &amp;&amp; (Ia_0_))) &amp;&amp; !(Icontrollable_c_0_))))</label>
+</transition>
+<transition>
+<source ref="loc49"/><target ref="loc35"/>
+<label kind="synchronisation">release0!</label>
+<label kind="assignment">w2:=1</label>
+<label kind="guard">running0 == 2</label>
+</transition>
+<transition>
+<source ref="loc49"/><target ref="loc35"/>
+<label kind="synchronisation">release1!</label>
+<label kind="assignment">w2:=1</label>
+<label kind="guard">running1 == 2</label>
+</transition>
+</template>
+<template><name>Machine0</name>
+<location id="loc51"><name>busy</name>
+</location>
+<location id="loc50"><name>idle</name>
+<committed/>
+</location>
+<init ref="loc50"/>
+<transition>
+<source ref="loc51"/><target ref="loc50"/>
+<label kind="synchronisation">release0?</label>
+<label kind="assignment">running0 := 2</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc51"/>
+<label kind="synchronisation">go0!</label>
+<label kind="assignment">round = 1,  running0 := 0</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 1</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc50"/>
+<label kind="assignment">round = 1</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 0</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc51"/>
+<label kind="synchronisation">go1!</label>
+<label kind="assignment">round = 2,  running0 := 1</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 1</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc50"/>
+<label kind="assignment">round = 2</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 0</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc51"/>
+<label kind="synchronisation">go2!</label>
+<label kind="assignment">round = 0,  running0 := 2</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 1</label>
+</transition>
+<transition>
+<source ref="loc50"/><target ref="loc50"/>
+<label kind="assignment">round = 0</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 0</label>
+</transition>
+</template>
+<template><name>Machine1</name>
+<location id="loc53"><name>busy</name>
+</location>
+<location id="loc52"><name>idle</name>
+<committed/>
+</location>
+<init ref="loc52"/>
+<transition>
+<source ref="loc53"/><target ref="loc52"/>
+<label kind="synchronisation">release1?</label>
+<label kind="assignment">running1 := 2</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc53"/>
+<label kind="synchronisation">go0!</label>
+<label kind="assignment">round = 1,  running1 := 0</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 1</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc52"/>
+<label kind="assignment">round = 1</label>
+<label kind="guard">round == 0 &amp;&amp; w0 == 0</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc53"/>
+<label kind="synchronisation">go1!</label>
+<label kind="assignment">round = 2,  running1 := 1</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 1</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc52"/>
+<label kind="assignment">round = 2</label>
+<label kind="guard">round == 1 &amp;&amp; w1 == 0</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc53"/>
+<label kind="synchronisation">go2!</label>
+<label kind="assignment">round = 0,  running1 := 2</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 1</label>
+</transition>
+<transition>
+<source ref="loc52"/><target ref="loc52"/>
+<label kind="assignment">round = 0</label>
+<label kind="guard">round == 2 &amp;&amp; w2 == 0</label>
+</transition>
+</template>
+<instantiation></instantiation>
+<system>system Process0, Process1, Process2, Machine0, Machine1;</system>
+</nta>

@@ -1,0 +1,8 @@
+S .
+S _build/
+B _build/
+PKG batteries
+PKG uppaal_parser
+PKG num
+PKG str
+PKG cudd
