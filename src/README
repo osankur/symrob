@@ -1,6 +1,10 @@
-Symrob 0.2 Build Instructions
+Symrob 0.3 Build Instructions
 
-Changes from version 0.1
+Changes from version 0.2 to 0.3
+============
+Added new BDD-based algorithm
+
+Changes from version 0.1 to 0.2
 ============
 Just added a stand-alone OCaml parser 
 rather than relying on Verifix, Uppaal DBM, Uppaal Parser
@@ -8,18 +12,17 @@ libraries.
 
 Dependencies
 ============
+All packages below can be installed using opam:
 - OCaml 4.0+
 - ocamlbuild
 - ocaml batteries included 2.2+
-  (opam install batteries)
 - xml-light
-  (opam install xml-light)
+- mlcuddidl
 
 Compilation
 ===========
-1) Build uppaal_parser
-  
-2) Build symrob
+1) Build and install uppaal_parser (make; make install)
+2) Build symrob (make)
 
 License
 =============
@@ -27,4 +30,4 @@ The license is GNU GPL 3.0
 
 Contact
 ============================
-Ocan Sankur <osankur@ulb.ac.be>
+Ocan Sankur <ocan.sankur@irisa.fr>

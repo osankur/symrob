@@ -99,9 +99,6 @@ struct
   let print_statistics chan mode = 
     match mode with 
       Options.ExactReachability
-    | Options.Verifix ->
-      fprintf chan "[INF] Search Statistics:\n";
-      fprintf chan "[INF] Visited states: %d\n" !counter_visited
     |Options.RobustReachability ->
       fprintf chan "[INF] Search Statistics:\n";
       fprintf chan "[INF] Visited states: %d\n[INF] Expanded gamma cycles: %d (%d new states)\n" !counter_visited !counter_acceleration !counter_gamma

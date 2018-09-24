@@ -7,28 +7,16 @@ open Batteries
 open Printf
 open Uta
 open Cudd
-(*****
-   0) Bug in parser - simulator
-   -- exact model checkin of lip sync fails. debug this. This can be due to ***urgent*** channels being ignored
-   -- scheduling/a.xml is also incorrect : la garde discrete n'est pas recpectee.
 
-   1) Syntactically check whether the guards contain discrete variables
-   (rather than raising run-time exceptions).
-   Accordingly allow some algorithms on automata without discrete variables
-
-   2) The Uautomaton version visits 151986 states while Verifix versioned did 147739
-   Maybe check lu bounds
- *****)
-
-let test () = 
-  let tafile = "examples/nonrobust.xml" in 
+let test () =
+  let tafile = "examples/nonrobust.xml" in
   let qfile = "examples/nonrobust.q" in
   Log.info "Running Uautomaton-based reachability\n";
   let ta = Uautomaton.from_file tafile qfile () in
   Log.infof "Read TA with %d clocks\n" (VarContext.size (Uautomaton.clocks ta ));
   let module Search = ExactReach.Bfs in
   (match Search.reach ta with
-   | SearchTree.Unreachable ->  
+   | SearchTree.Unreachable ->
      Log.info "\nVERDICT: SAFE\n";
      Log.SearchStatistics.print_statistics stdout !Options.mode;
    | SearchTree.Reachable(path) ->
@@ -45,21 +33,18 @@ let usage () =
 Usage: symrob [options] <system> [query]
 
 Options:
-  -e\t\t\t\tExact model checking
-  -r\t\t\t\tRobust model checking
-  -s\t\t\t\tSymbolic Cegar model checking using NuSMV/nuXmv
-  -c\t\t\t\tSymbolic Cegar model checking with internal engine using CUDD
+  -e\t\t\t\tZone-bsed exact model checking
+  -r\t\t\t\tParameterized zone-based robust model checking
+  -c\t\t\t\tSymbolic Cegar model checking with BDDs
   --enlarge N\t\t\tExact model checking applied on syntactic enlargement by N(see also --scale)
   --scale N\t\t\tMultiply all constants by N and run exact model checking
   --initial-width N\t\tSet the enlargement for acceleration threshold to N (default 10)
   --greedy{1,2,3}\t\tGreedy level for the acceleration of the cycles of a prefix (default 3)
   --dfs\t\t\t\tDFS search mode
   --bfs\t\t\t\tBFS search mode
-
 "
 
 let execute tafile qfile =
-(*  Log.info (sprintf "INF = %d \n" (Pdbm.infty_val));*)
   Log.info (sprintf "Reading timed automaton %s and query %s\n" tafile qfile); flush stdout;
   match !Options.mode with
   | Options.RobustReachability ->
@@ -80,25 +65,9 @@ let execute tafile qfile =
        Log.SearchStatistics.print_statistics stdout !Options.mode
     )
   | Options.ExactReachability ->
-     (*
-     Log.info "Running exact reachability\n";
-     let ta = UppaalAutomaton.from_file tafile qfile in
-     Log.infof "Read TA with %d clocks\n" (VarContext.size (UppaalAutomaton.clocks ta));
-     let ta =
-       match !Options.rescaling with
-       | false -> ta
-       | true -> failwith ""
-     in
-      *)
     Log.info "Running Uautomaton-based reachability\n";
     let ta = Uautomaton.from_file tafile qfile () in
-(*
-     Uautomaton.print_timed_automaton stderr ta;
- *)
     Log.infof "Read TA with %d clocks\n" (VarContext.size (Uautomaton.clocks ta));
-     (*
-        let module Search = ExactReach.Bfs(Uautomaton) in
-      *)
     let reach = (match !Options.search with
         | Options.Dfs -> ExactReach.Dfs.reach
         | Options.Bfs -> ExactReach.Bfs.reach
@@ -113,14 +82,6 @@ let execute tafile qfile =
        Log.info "VERDICT: REACHABLE\n";
        Log.SearchStatistics.print_statistics stdout !Options.mode
     )
-  | Options.Verifix ->
-    failwith "Verifix not implemented in this version"
-  | Options.SmvCegar ->
-    Log.info "Running symbolic CEGAR algorithm...\n";
-    let ta = Uautomaton.from_file tafile qfile () in
-    Log.infof "Read TA with %d clocks\n" (VarContext.size (Uautomaton.clocks ta));
-    Log.infof "VERDICT: %s\n"
-      (SmvCegar.verify ta !Options.sym_init !Options.sym_alg Options.Sym_nuxmv)
   | Options.CuddSymbolicCegar ->
     Log.info "Running Cudd Cegar algorithm...\n";
     let ta = Uautomaton.from_file tafile qfile () in
@@ -138,7 +99,6 @@ let main () =
   for i = 0 to (Array.length options_args) - 1 do
     match options_args.(i) with
     | "--test" -> test()
-    | "--verifix" -> Options.mode := Options.Verifix
     | "--dfs" -> Options.search := Options.Dfs
     | "--bfs" -> Options.search := Options.Bfs
     | "--enlarged" -> 
@@ -157,10 +117,6 @@ let main () =
     | "--sym-init-empty" ->
       Options.sym_init := Options.Sym_init_empty;
       Log.warning "CEGAR refinement procedure is not complete under empty init refinement"
-    | "--sym-alg-ic3" ->
-      Options.sym_alg := Options.Sym_ic3
-    | "--sym-alg-bdd" ->
-      Options.sym_alg := Options.Sym_bdd
     | "--bdd-reordering-sift" ->
       Options.bdd_reordering := Cudd.Man.REORDER_SIFT
     | "--bdd-reordering-random" ->
@@ -172,7 +128,6 @@ let main () =
              | 'q' -> Options.quantified := true
              | 'e' -> Options.mode := Options.ExactReachability
              | 'r' -> Options.mode := Options.RobustReachability
-             | 's' -> Options.mode := Options.SmvCegar
              | 'c' -> Options.mode := Options.CuddSymbolicCegar
              | c ->
                Log.warningf "Unrecognized option: %c\n" c

@@ -1,0 +1,9 @@
+Known issues
+   0) Bug in parser - simulator
+   -- exact model checkin of lip sync fails. debug this. This can be due to ***urgent*** channels being ignored
+   -- scheduling/a.xml is also incorrect : la garde discrete n'est pas recpectee.
+
+   1) Syntactically check whether the guards contain discrete variables
+   (rather than raising run-time exceptions).
+   Accordingly allow some algorithms on automata without discrete variables
+
