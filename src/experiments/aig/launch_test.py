@@ -13,7 +13,6 @@ import argparse
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
-
 def parse_symrob(fname, output):
     times = re.findall("\d+\.\d+", output)
     verdict = None
@@ -23,6 +22,8 @@ def parse_symrob(fname, output):
         verdict=False
     eprint(output)
     print(fname, times[0],verdict)
+    sys.stdout.flush()
+    sys.stderr.flush()
 
 def parse_uppaal(fname, output):
     times = re.findall("\d+\.\d+", output)
@@ -33,7 +34,8 @@ def parse_uppaal(fname, output):
         verdict = False
     eprint(output)
     print(fname, times[0],verdict)
-
+    sys.stdout.flush()
+    sys.stderr.flush()
 
 def test_mono(factor, prog, timeout):
     tests_dir = "monoprocess{0}".format(factor)
@@ -61,7 +63,9 @@ def test_mono(factor, prog, timeout):
         except CalledProcessError as e:
             print(fname, " error: ", e.returncode)
             eprint(fname, " error:\n", e.output.decode())
-
+        except Exception as e:
+            printf(fname, " unknown error")
+            eprint(fname, " unknown error")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generation or Execution of AIG Tests")
