@@ -23,7 +23,7 @@ from itertools import chain
 import StringIO
 
 # when set to true, boolean operations are translated as arithmetic ones such as && -> *
-numeric_mode = True
+numeric_mode = False
 
 from aiger_swig.aiger_wrap import (
     get_aiger_symbol,
@@ -246,6 +246,7 @@ class TAWRITER:
             print >> sys.stderr, ""
 
 def main():
+    global numeric_mode
     parser = argparse.ArgumentParser(description="AIG Format Based Synth")
     parser.add_argument("spec", metavar="spec", type=str,
                         help="input specification in extended AIGER format")
@@ -262,8 +263,11 @@ def main():
     parser.add_argument("-f", "--factor", dest="factor", type=int,
                         required=False, default=1,
                         help=("Factor by which all constants are to be multiplied"))
+    parser.add_argument("-n", "--numeric", action="store_true",
+                        help=("Encode Boolean functions with number operations"))
     args = parser.parse_args()
     log.parse_verbose_level(args.verbose_level)
+    numeric_mode = args.numeric
     # realizability / synthesis
     tawriter = TAWRITER(args.spec, args.time, args.factor)
     # tawriter.test();

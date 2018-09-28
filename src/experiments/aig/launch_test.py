@@ -1,3 +1,4 @@
+#!/usr/bin/python3.5
 from __future__ import print_function
 from subprocess import STDOUT, check_output, TimeoutExpired
 from subprocess import *
@@ -55,8 +56,11 @@ def test_mono(factor, prog, timeout):
             output = check_output(cmd, timeout=timeout, stderr=STDOUT)
             parse(fname, output.decode())
         except TimeoutExpired:
-            print("timeout")
-            eprint("timeout")
+            print(fname, " timeout")
+            eprint(fname, " timeout")
+        except CalledProcessError as e:
+            print(fname, " error: ", e.returncode)
+            eprint(fname, " error:\n", e.output.decode())
 
 
 if __name__ == "__main__":

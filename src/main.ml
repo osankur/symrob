@@ -86,7 +86,8 @@ let execute tafile qfile =
     Log.info "Running Cudd Cegar algorithm...\n";
     let ta = Uautomaton.from_file tafile qfile () in
     Log.infof "Read TA with %d clocks\n" (VarContext.size (Uautomaton.clocks ta));
-    Log.info (sprintf "Result: %s\n" (CuddCegar.reach ta))
+    (*Log.info (sprintf "Result: %s\n" (CuddCegar.reach ta))*)
+    (printf "Result: %s\n" (CuddCegar.reach ta))
 
 let main () =
   let isfile name =
@@ -98,21 +99,22 @@ let main () =
   let prev = ref "" in
   for i = 0 to (Array.length options_args) - 1 do
     match options_args.(i) with
+    | "--silent" -> Log.set_level Log.Silent
     | "--test" -> test()
     | "--dfs" -> Options.search := Options.Dfs
     | "--bfs" -> Options.search := Options.Bfs
-    | "--enlarged" -> 
-      Options.mode := Options.ExactReachability; 
+    | "--enlarged" ->
+      Options.mode := Options.ExactReachability;
       Options.rescaling := true
     | "--debug" -> Log.set_level Log.Debug
     | "--greedy1" -> Options.gammaGreedyLevel := 1
     | "--greedy2" -> Options.gammaGreedyLevel := 2
     | "--greedy3" -> Options.gammaGreedyLevel := 3
     | "--scale" | "--enlarge" ->
-      Options.mode := Options.ExactReachability; 
+      Options.mode := Options.ExactReachability;
       Options.rescaling := true;
       prev := options_args.(i)
-    | "--initial-width" 
+    | "--initial-width"
     | "--enlarge-precision" -> prev := options_args.(i)
     | "--sym-init-empty" ->
       Options.sym_init := Options.Sym_init_empty;

@@ -7,7 +7,7 @@ let cegar_print_bdd_stats = ref false
 let cegar_verbose_fwd_reach = ref true
 
 
-type log_t = Info | Debug | Warning | Error | Fatal
+type log_t = Info | Debug | Warning | Error | Fatal | Silent
 
 let log_level = ref Info
 let set_level level =
@@ -26,31 +26,32 @@ let log_regular_channel = stdout
 
 let logf level s f = 
   (match level with
-	| Error ->
-		 Printf.fprintf log_err_channel "[ERR] ";
-		 Printf.fprintf log_err_channel s f
-	| Fatal ->
-		 Printf.fprintf log_err_channel "[FAT] ";
-		 Printf.fprintf log_err_channel s f;
-		 exit(-1)
-	| Warning -> 
-		 if ( !log_level = Debug || !log_level = Warning ) then
-		   (
-			 Printf.fprintf log_err_channel "[WAR] ";
-			 Printf.fprintf log_err_channel s f
-		   )
-	| Info ->
-		 if ( !log_level = Info || !log_level = Debug || !log_level = Warning ) then
-		   (
-			 Printf.fprintf log_regular_channel "[INF] ";
-			 Printf.fprintf log_regular_channel s f
-		   )
-	| Debug ->
-		 if ( !log_level = Debug ) then
-		   (
-			 Printf.fprintf log_regular_channel "[DEB] ";
-			 Printf.fprintf log_regular_channel s f;
-		   )
+   | Silent -> ()
+   | Error ->
+     Printf.fprintf log_err_channel "[ERR] ";
+     Printf.fprintf log_err_channel s f
+   | Fatal ->
+     Printf.fprintf log_err_channel "[FAT] ";
+     Printf.fprintf log_err_channel s f;
+     exit(-1)
+   | Warning -> 
+     if ( !log_level = Debug || !log_level = Warning ) then
+       (
+	 Printf.fprintf log_err_channel "[WAR] ";
+	 Printf.fprintf log_err_channel s f
+       )
+   | Info ->
+     if ( !log_level = Info || !log_level = Debug || !log_level = Warning ) then
+       (
+	 Printf.fprintf log_regular_channel "[INF] ";
+	 Printf.fprintf log_regular_channel s f
+       )
+   | Debug ->
+     if ( !log_level = Debug ) then
+       (
+	 Printf.fprintf log_regular_channel "[DEB] ";
+	 Printf.fprintf log_regular_channel s f;
+       )
   );
   flush log_err_channel;
   flush log_regular_channel

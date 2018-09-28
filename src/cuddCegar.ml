@@ -1151,7 +1151,7 @@ struct
       else (
         incr(it);
         if !Log.cegar_verbose_fwd_reach then(
-          printf "Iteration %d: Reachable has size %d\t\t\r" !it (Bdd.size !reachable);
+          Log.info (sprintf "Iteration %d: Reachable has size %d\t\t\r" !it (Bdd.size !reachable));
           flush stdout;
         );
         let next = expand_edges states
@@ -1170,7 +1170,7 @@ struct
         in
         if !Log.cegar_verbose_fwd_reach then(
           if (Bdd.size next) > (Bdd.size next') then
-            printf "\tNext: %d. Next': %d\n" (Bdd.size next) (Bdd.size next')
+            Log.info (sprintf "\tNext: %d. Next': %d\n" (Bdd.size next) (Bdd.size next'))
         );
         reachable := Bdd.dor !reachable next';
         if (not(Bdd.is_inter_empty next' target)) then(
@@ -1477,7 +1477,7 @@ struct
     Queue.add init_state_up layers;
     let result = explore !reachable in
     if !Log.cegar_verbose_fwd_reach then
-      printf "Explored %d layers." (Queue.length layers);
+      Log.info (sprintf "Explored %d layers." (Queue.length layers));
     if !verdict then (
       Some(extract_abstract_counterexample enc layers target)
     ) else (
