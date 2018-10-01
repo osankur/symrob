@@ -26,9 +26,9 @@ aag 23 2 4 1 17
 i0 stay
 i1 controllable_reset
 l0 n7
-l1 counter<0>_out
-l2 counter<1>_out
-l3 counter<2>_out
+l1 counter0_out
+l2 counter1_out
+l3 counter2_out
 o0 err
 c
 bench

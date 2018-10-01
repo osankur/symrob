@@ -8,7 +8,7 @@ from dataset import *
 
 
 data_dir = "data/"
-verbose = False
+verbose = True
 
 def mono_file_name(factor, filename, nbL, bound, ext):
     dirname = "monoprocess{0}/".format(factor)
@@ -98,6 +98,6 @@ def test_mono(factor, prog):
     # I am abandoning here...
 
 if __name__ == "__main__":
-    for i in [1,10,100]:
+    for i in [1]:
         gen_mono(i);
         gen_multiprocess(i);

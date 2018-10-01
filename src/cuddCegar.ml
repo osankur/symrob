@@ -1491,6 +1491,7 @@ let reach ta =
   let open Encoding in
   let cpa = ClockPredicateAbstraction.init_syntax ta in
   let max_iterations = 1000 in
+  let count_peak = ref 0 in
   if !Log.log_level = Log.Debug then (
     VarContext.iter (fun name i -> printf "Clock(%d) = %s\n" i name) ta.clocks
   );
@@ -1510,6 +1511,7 @@ let reach ta =
       Stats.cegar_nb_clock_predicates :=
         Hashtbl.length (fst (enc.enc_clock_predicates));
       Stats.print_cegar_stats();
+      count_peak := max !count_peak (Cudd.Man.get_node_count_peak man);
       (match forward_reach enc with
        | None -> raise (Cegar_result "false")
        | Some(cex) ->
@@ -1524,6 +1526,7 @@ let reach ta =
     done;
     ""
   with Cegar_result(s) ->
+    printf "** Node peak: %d\n" !count_peak;
     Stats.print_cegar_stats();
     s
 end

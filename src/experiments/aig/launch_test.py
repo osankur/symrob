@@ -21,7 +21,7 @@ def parse_symrob(fname, output):
     elif "Result: false" in output:
         verdict=False
     eprint(output)
-    print(fname, times[0],verdict)
+    print(fname, "\t;", times[0], "\t;",verdict, ";")
     sys.stdout.flush()
     sys.stderr.flush()
 
@@ -33,12 +33,17 @@ def parse_uppaal(fname, output):
     elif "Property is NOT satisfied." in output:
         verdict = False
     eprint(output)
-    print(fname, times[0],verdict)
+    print(fname, "\t;", times[0], "\t;",verdict, ";")
     sys.stdout.flush()
     sys.stderr.flush()
 
-def test_mono(factor, prog, timeout):
-    tests_dir = "monoprocess{0}".format(factor)
+def execute_test(factor, prog, bench, timeout):
+    if bench == "mono":
+        tests_dir = "monoprocess{0}".format(factor)
+        specfile = "mono.q"
+    elif bench == "multi":
+        tests_dir = "multiprocess{0}".format(factor)
+        specfile = "multi.q"
     ext = ".xml"
     if prog == 2:
         ext= ".ta"
@@ -47,10 +52,10 @@ def test_mono(factor, prog, timeout):
     for fname in tests:
         eprint("Testing: " + fname)
         if prog == 0:
-            cmd = ["time", "symrob", "-c", fname, "mono.q", "--silent"]
+            cmd = ["time", "symrob", "-c", fname, specfile, "--silent"]
             parse = parse_symrob
         elif prog == 1:
-            cmd = ["time", "verifytga", fname, "mono.q"]
+            cmd = ["time", "verifytga", fname, specfile]
             parse = parse_uppaal
         elif prog == 2:
             raise Exception("Not implemented yet")
@@ -66,6 +71,7 @@ def test_mono(factor, prog, timeout):
         except Exception as e:
             printf(fname, " unknown error")
             eprint(fname, " unknown error")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generation or Execution of AIG Tests")
@@ -83,8 +89,9 @@ if __name__ == "__main__":
             gen_multiprocess(i);
     else:
         if args.benchtype == 0:
-            test_mono(args.factor, args.program, args.timeout)
+            execute_test(args.factor, args.program, "mono", args.timeout)
         elif args.benchtype == 1:
-            test_multi(args.factor, args.program, args.timout)
+            execute_test(args.factor, args.program, "multi", args.timeout)
         else:
             raise Exception("Unknown bench type")
+        test_mono(args.factor, args.program, args.timeout)
