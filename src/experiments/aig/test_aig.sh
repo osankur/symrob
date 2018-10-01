@@ -11,7 +11,7 @@
 DIR=`dirname $0`/
 
 # Time limit in seconds:
-TIME_LIMIT=5
+TIME_LIMIT=600
 # Memory limit in kB:
 MEMORY_LIMIT=4000000
 
@@ -67,13 +67,11 @@ for filename in $DIR*.xml; do
      echo "=====================  $filename =====================" 1>> $RES_TXT_FILE
      #------------------------------------------------------------------------------
      # BEGIN execution of synthesis tool
-     echo " Running model checker ... "
      echo "${GNU_TIME} --output=${RES_TXT_FILE} -a -f \"Time: %e sec (Real time) / %U sec (User CPU time)\" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}"
      ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}
      exit_code=$?
      if [ $exit_code != 0 ]; then
         echo "timeout or error" >> $RES_TXT_FILE
      fi
-     echo " Done running the synthesizer. "
      # END execution of synthesis tool
 done
