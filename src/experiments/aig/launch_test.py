@@ -75,6 +75,7 @@ def execute_test(factor, prog, bench, timeout):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generation or Execution of AIG Tests")
+    parser.add_argument("file", metavar="file", type=str, nargs="+")
     parser.add_argument("-t", "--test", action="store_true")
     parser.add_argument("-b", "--benchtype", dest="benchtype", type=int,
                         help=("0 for mono, 1 for multi"))

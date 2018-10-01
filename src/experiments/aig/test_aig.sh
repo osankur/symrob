@@ -28,11 +28,11 @@ load_5c_comp_comp7_REAL   $REAL
 )
 
 CALL_MC="symrob --silent -c "
-TIMESTAMP=`date +%s`
+TIMESTAMP=`date +%R%s`
 RES_TXT_FILE="${DIR}tests/results_${TIMESTAMP}.txt"
-RES_DIR="${DIR}tests/results_${TIMESTAMP}/"
-mkdir -p "${DIR}tests/"
-mkdir -p ${RES_DIR}
+#RES_DIR="${DIR}tests/results_${TIMESTAMP}/"
+#mkdir -p "${DIR}tests/"
+#mkdir -p ${RES_DIR}
 
 benchmark=$1
 factor=$2
@@ -63,6 +63,7 @@ DIR="$BM_DIR/$1$factor/"
 #set -x
 for filename in $DIR*.xml; do
      echo "Checking file ${filename}..."
+     echo "-BEGIN-" 1>> $RES_TXT_FILE
      echo "=====================  $filename =====================" 1>> $RES_TXT_FILE
      #------------------------------------------------------------------------------
      # BEGIN execution of synthesis tool

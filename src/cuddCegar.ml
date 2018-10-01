@@ -1527,7 +1527,8 @@ let reach ta =
     ""
   with Cegar_result(s) ->
     printf "** Node peak: %d\n" !count_peak;
-    Stats.print_cegar_stats();
+    printf "** CEGAR iterations: %d w/ %d clock predicates\n" !Stats.cegar_nb_iterations
+                !Stats.cegar_nb_clock_predicates;
     s
 end
 
