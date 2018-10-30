@@ -187,9 +187,9 @@ raise e
 		)
 	      in
 	      (match (Xml.attrib node "kind") with
-		 "guard" -> 
+		 "guard" ->
 		 trans.edgeGuardPos <- (x,y);
-		 let g = parse_guard (Xml.pcdata (List.hd children)) in						 
+		 let g = parse_guard (Xml.pcdata (List.hd children)) in
 		 trans.edgeGuard <- g
 	       | "assignment" ->
 		 trans.edgeUpdatesPos <- (x,y);

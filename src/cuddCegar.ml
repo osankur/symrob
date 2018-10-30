@@ -541,7 +541,7 @@ struct
                Bdd.dand states (Bdd.dnot committed)
              ) else states
            in
-           let trans_bdd = Bdd.dand trans_rel trans_grd in
+           let trans_bdd = trans_rel in (*Bdd.dand trans_rel trans_grd in*)
            (* TODO Use early quantification here *)
            let img =
              (Bdd.dand states trans_bdd)
@@ -1289,7 +1289,7 @@ struct
           in
           Queue.iter
             (fun (trans,trans_rel, trans_grd, resets) ->
-               let trans_bdd = Bdd.dand trans_rel trans_grd in
+               let trans_bdd = trans_rel in
                (*
                printf "Trying following transition:\n";
                TASemantics.print_transition_pair enc.enc_ta trans;
@@ -1497,7 +1497,6 @@ let reach ta =
   );
   try
     for count = 1 to max_iterations do
-      Gc.full_major(); (* this forces BDD nodes to be destroyed *)
       (*
       printf "Before saturation\n";
       CPA.print ta cpa;

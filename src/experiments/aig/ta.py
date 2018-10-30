@@ -43,6 +43,8 @@ class Template:
         self.decl = decl
 
     def add_location(self, loc):
+        if not loc in self.locs and loc.name in map(lambda x: x.name, self.locs):
+            raise Exception("Location of name " + loc.name + " already present")
         if not loc in self.locs:
             self.locs.append(loc)
     def add_locations(self, locs):

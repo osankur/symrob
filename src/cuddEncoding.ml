@@ -1024,7 +1024,7 @@ struct
           let grd = bdd_of_disc_guard enc edge.edgeDiscGuard in
           let clock_grd = bdd_of_clock_guard enc edge.edgeGuard in
           let up = bdd_of_disc_update enc edge.edgeDiscUpdate in
-          (Bdd.dand_of_array enc.enc_man [|src;tgt;grd;up|]), clock_grd
+          (Bdd.dand_of_array enc.enc_man [|src;tgt;grd;up;clock_grd|]), clock_grd
       in
       (* The final bdd is obtained by adding the identity relation for locations not participating*)
       let result =

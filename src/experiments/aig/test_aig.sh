@@ -11,9 +11,9 @@
 DIR=`dirname $0`/
 
 # Time limit in seconds:
-TIME_LIMIT=600
+TIME_LIMIT=1800
 # Memory limit in kB:
-MEMORY_LIMIT=4000000
+MEMORY_LIMIT=8000000
 
 # Maybe change the following line to point to GNU time:
 GNU_TIME="time"
@@ -28,7 +28,7 @@ load_5c_comp_comp7_REAL   $REAL
 )
 
 CALL_MC="symrob --silent -c "
-TIMESTAMP=`date +%R%s`
+TIMESTAMP=`date +%d_%m_%R%s`
 RES_TXT_FILE="${DIR}tests/results_${TIMESTAMP}.txt"
 #RES_DIR="${DIR}tests/results_${TIMESTAMP}/"
 #mkdir -p "${DIR}tests/"
