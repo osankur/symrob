@@ -127,17 +127,17 @@ struct
       The operations are time up, or reset of given clock through an edge(s).
       A tau-transition along an edge e=(l,g,[r1;r2;r3),l') is encoded as follows (provided l not committed or urgent)
 
-      Sym_Edge(l,(Single e), Some r1, false)
-      Sym_Reset(l, (Single e), r2, false)
-      Sym_Reset(l, (Single e), r3, true)
+      Sym_Edge(l,(Single e), l', Some r1, false)
+      Sym_Reset(l, (Single e), l', r2, false)
+      Sym_Reset(l, (Single e), l', r3, true)
       Sym_Up(l,true)
 
       The last boolean in Sym_Edge or Sym_Reset is a flag indicating the last reset so that the invariant can be applied. For Sym_Up the boolean flag indicates whether time can elapse.
   *)
   type symbolic_transition =
       Sym_Up of discrete_state * bool
-    | Sym_Edge of discrete_state * edge single_or_pair * (clock_t option) * bool
-    | Sym_Reset of discrete_state * edge single_or_pair * clock_t * bool
+    | Sym_Edge of discrete_state * edge single_or_pair * discrete_state * (clock_t option) * bool
+    | Sym_Reset of discrete_state * edge single_or_pair * discrete_state * clock_t * bool
 
 
   let string_of_symbolic_transition bta =
@@ -148,16 +148,16 @@ struct
     function
     | Sym_Up(loc, b) ->
       sprintf "%s\nUp(%b)" (string_of_state bta loc) b
-    | Sym_Edge(lar, (Single e),res, b) ->
+    | Sym_Edge(lsrc, (Single e), ltgt, res, b) ->
       sprintf "TAU: %s | Resetting <%s> | Last: %b\n%s\n"
         (string_of_edge bta e) (string_of_clock_option res)
-        b          (string_of_state bta lar)
+        b          (string_of_state bta lsrc)
 
-    | Sym_Edge(lar, Pair(e1,e2),res, b) ->
+    | Sym_Edge(lsrc, Pair(e1,e2), ltgt, res, b) ->
       sprintf "SYNC:\n%s\n%s\n\t| Resetting <%s> | Last: %b\n%s\n"
         (string_of_edge bta e1)  (string_of_edge bta e2) (string_of_clock_option res) b
-         (string_of_state bta lar)
-    | Sym_Reset(loc, edge, i, b) ->
+         (string_of_state bta lsrc)
+    | Sym_Reset(lsrc, edge, ltgt, i, b) ->
       sprintf "Resetting: %d | Last: %b" i b
 
 
@@ -449,7 +449,7 @@ struct
       incr(count);
       let p = Bdd.cube_of_minterm enc.Encoding.enc_man mt in
       try
-        let dbm = Encoding.dbm_of_minterm enc mt in
+        (*let dbm = Encoding.dbm_of_minterm enc mt in*)
         print_discrete_state stdout enc.Encoding.enc_ta (Encoding.discrete_state_of_cube enc p);
         (*
         printf "\n%s\n\n" (Dbm.to_string dbm);
@@ -688,7 +688,7 @@ struct
       let path = Array.of_list path in
       let nclocks = (nb_clocks enc.enc_ta) - 1 in
       let npath= Array.length path in
-
+      (*
       let invar_of_next_ds locs edges =
         let tr =  (match edges with
               Pair(e1,e2) ->
@@ -701,6 +701,7 @@ struct
         TASemantics.dbm_invariant_of_state bta
           {stateLocs = locs'; stateVars = [||]}
       in
+         *)
       (* Zone successor through sym-action.
          Invariant is applied after the last reset
          and after time up
@@ -733,7 +734,7 @@ struct
              Dbm.intersect d invar;
            );
 
-         | Sym_Edge(locs, edges, reset, flag_last) ->
+         | Sym_Edge(lsrc, edges, ltgt, reset, flag_last) ->
            (* debug *)
            (*
            BTA.print_discrete_state Pervasives.stdout
@@ -759,14 +760,12 @@ struct
             | Some(x) -> Dbm.reset d (ClockSet.singleton x)
            );
            if flag_last then (
-             let invar = invar_of_next_ds locs edges in
-             Dbm.intersect d invar;
+             Dbm.intersect d (TASemantics.dbm_invariant_of_state bta ltgt);
            )
-         | Sym_Reset (locs, edges, x, flag_last) ->
+         | Sym_Reset (lsrc, edges, ltgt, x, flag_last) ->
            Dbm.reset d (ClockSet.singleton x);
            if flag_last then (
-             let invar = invar_of_next_ds locs edges in
-             Dbm.intersect d invar;
+             Dbm.intersect d (TASemantics.dbm_invariant_of_state bta ltgt);
            )
         );
         d
@@ -787,7 +786,7 @@ struct
              failwith "Empty intersection with invariant"
            );
            if telapse then Dbm.pretime d;
-         | Sym_Edge(locs, edges, reset, flag_last) ->
+         | Sym_Edge(lsrc, edges, ltgt, reset, flag_last) ->
            (match reset with
               None -> ()
             | Some(x) ->
@@ -807,10 +806,10 @@ struct
              )
            in
            Dbm.intersect d g;
-           let invar = TASemantics.dbm_invariant_of_state bta locs
+           let invar = TASemantics.dbm_invariant_of_state bta lsrc
            in
            Dbm.intersect d invar;
-         | Sym_Reset(locs, edges, reset, flag_last) ->
+         | Sym_Reset(lsrc, edges, ltgt, reset, flag_last) ->
            Dbm.constrain d reset 0 (0,DBM_WEAK);
            Dbm.free d (ClockSet.singleton reset);
         );
@@ -956,8 +955,8 @@ struct
              printf "PRE of ai0_1 is:\n";
              (Guard.pretty_print stdout bta.clocks preAi01);
              printf "\n";
+             printf "\nAbout to intersect with ai0 which is:\n%s\n" (Dbm.to_string aposts.(i0));
            );
-           printf "\nAbout to intersect with ai0 which is:\n%s\n" (Dbm.to_string aposts.(i0));
            let preAi01_ai0 = Dbm.copy preAi01 in
            Dbm.intersect preAi01_ai0 aposts.(i0);
            (* If this set is not empty, we can refine regularly *)
@@ -988,7 +987,7 @@ struct
            Dbm.pretime ai0_1;
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
 
-         | Sym_Reset(_,_,x,_),_ ->
+         | Sym_Reset(_,_,_,x,_),_ ->
            Log.debug "Irregular refinement: Reset\n";
            let ai0 = Dbm.copy aposts.(i0) in
            Dbm.free ai0 (ClockSet.singleton x);
@@ -996,7 +995,7 @@ struct
            Dbm.free ai0_1 (ClockSet.singleton x);
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
 
-         | ((Sym_Edge(locs, edges, reset_opt, flag_last)) as trans,_) ->
+         | ((Sym_Edge(lsrc, edges, ltgt, reset_opt, flag_last)),_) as trans ->
            Log.debug "Irregular refinement: Edge Reset\n";
            let ai0 = Dbm.copy aposts.(i0) in
            let ai0_1 = Dbm.copy aposts.(i0+1) in
@@ -1005,45 +1004,20 @@ struct
               failwith "Irregular refinement: Reset without reset"
             | Some x ->
 
-              (* FIXME ici c'est l'invariant de l'etat suivant! *)
-              let invar = (TASemantics.dbm_invariant_of_state bta locs) in
+              (*
+              let invar = (TASemantics.dbm_invariant_of_state bta lsrc) in
               if flag_last then(
                 printf "The invariant at ai0 is:\n%s\n\n" (Dbm.to_string invar);
                 assert(Dbm.leq ai0 invar);
               );
+                 *)
+
               (*
               let invar = (TASemantics.dbm_invariant_of_state bta locs) in
               assert(Dbm.leq ai0 invar);
               let invar = invar_of_next_ds locs edges in
               assert(Dbm.leq ai0_1 invar);
                  *)
-              (*
-              (* debug *)
-              let tmp = Dbm.copy ai0 in
-              (try
-                 let tmp = post (trans,[]) tmp in
-                 printf "\nPost(ai0) is NON-EMPTY!!";
-                 Dbm.intersect tmp ai0_1;
-                 printf "\nPost(ai0) /\\ ai0_1 is NON-EMPTY!!"
-                   (* TODO.
-                      Check if invariants are respected
-                   *)
-               with EmptyDBM ->
-                 printf "OK Post(ai0) /\\ ai0_1 empty\n";
-              );
-              let tmp = Dbm.copy ai0_1 in
-              (try
-                 let tmp = pre (trans,[]) tmp in
-                 printf "\nPre(ai0_1) is NON-EMPTY:\n%s\n" (Dbm.to_string tmp);
-                 printf "\nWill now intersect with ai0 which is:\n%s\n\n" (Dbm.to_string ai0);
-                 Dbm.intersect tmp ai0;
-                 printf "Result is\n%s\n\n" (Dbm.to_string tmp);
-                 printf "\nPre(ai0_1) /\\ ai0 is NON-EMPTY!!"
-               with EmptyDBM ->
-                 printf "OK Pre(ai0_1) /\\ ai0 empty\n";
-              );
-                 *)
-              (* debug *)
 
               Dbm.free ai0 (ClockSet.singleton x);
 
@@ -1055,21 +1029,22 @@ struct
                  CPA.refine_separate enc.enc_cpa ai0_1 d;
                  raise (BreakRefined(-1))
               );
-            (*
-            printf "Guard is:\n%s\n" (Guard.to_string g);
+              (*
+                 printf "Guard is:\n%s\n" (Guard.to_string g);
                *)
               Dbm.constrain ai0_1 x 0 (0, DBM_WEAK);
-            (*
-            printf "ai0_1 /\\ x=0 is\n%s\n" (Guard.to_string ai0_1);
+              (*
+                printf "ai0_1 /\\ x=0 is\n%s\n" (Guard.to_string ai0_1);
                *)
               Dbm.free ai0_1 (ClockSet.singleton x);
               if flag_last then (
-                let invar = invar_of_next_ds locs edges in
+                let invar = (TASemantics.dbm_invariant_of_state bta ltgt) in
                 Dbm.intersect ai0_1 invar;
               );
-
-            printf "free(ai0_1 /\\ x=0) is\n%s\n" (Guard.to_string ai0_1);
-            printf "And ai0 is\n%s\n" (Guard.to_string ai0);
+              (*
+                printf "free(ai0_1 /\\ x=0) is\n%s\n" (Guard.to_string ai0_1);
+                printf "And ai0 is\n%s\n" (Guard.to_string ai0);
+               *)
            );
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
         );
@@ -1102,8 +1077,8 @@ struct
       Log.info "** BDD STATS\n";
       printf "Edge relation BDDs have sizes: ";
       Queue.iter
-        (fun (_,transrel,transgrd,_) ->
-           printf "(%d, %d)" (Bdd.size transrel) (Bdd.size transgrd)
+        (fun (_,transrel,_,_) ->
+           printf "%d " (Bdd.size transrel)
         )
         edges;
       printf "\nReset table BDDs: ";
@@ -1271,7 +1246,7 @@ struct
            We pick one particular state
            and comptue the predecessors of that state in layer.(i-1)
         *)
-        let mt = (Bdd.pick_minterm (Bdd.dand !current_state symtrace.(i))) 
+        let mt = (Bdd.pick_minterm (Bdd.dand !current_state symtrace.(i)))
                  |> Bdd.fill_in_minterm_unprimed_positive in
         current_state := Bdd.cube_of_minterm man mt;
         (*
@@ -1427,19 +1402,21 @@ struct
                      *)
                      (* If no reset at all *)
                      if nsteps = 0 then (
+                       (* FIXME to avoid a big change, we temporarily put tgt_ds
+                          both for src and tgt locations, and fix this after the loop *)
                        Stack.push
-                         ((Sym_Edge (tgt_ds, trans, None,true)),!cclist)
+                         ((Sym_Edge (tgt_ds, trans, tgt_ds, None,true)),!cclist)
                          conc_trace
                      ) else if nsteps = 1 then (
                        let last_clock = List.last resets in
                        Stack.push
-                         (((Sym_Edge (tgt_ds, trans, Some last_clock, true))), !cclist)
+                         (((Sym_Edge (tgt_ds, trans, tgt_ds, Some last_clock, true))), !cclist)
                          conc_trace;
                        current_state := apply_unreset !current_state last_clock;
                      ) else (
                        let last_clock = List.last resets in
                        Stack.push
-                         (((Sym_Reset (tgt_ds, trans, last_clock, true))), !cclist)
+                         (((Sym_Reset (tgt_ds, trans, tgt_ds, last_clock, true))), !cclist)
                          conc_trace;
                        current_state := apply_unreset !current_state last_clock;
                      );
@@ -1454,18 +1431,18 @@ struct
                           *)
                      for ri = nsteps-2 downto 0 do
                        let ri_clock = List.nth resets ri in
-                       let mt = Bdd.pick_minterm (Bdd.dand !current_state steps.(ri)) 
-                                |> Bdd.fill_in_minterm_unprimed_positive 
+                       let mt = Bdd.pick_minterm (Bdd.dand !current_state steps.(ri))
+                                |> Bdd.fill_in_minterm_unprimed_positive
                        in
                        current_state := Bdd.cube_of_minterm man mt;
                        cclist := constraint_list_of_minterm enc mt;
                        if ri > 0 then (
                          Stack.push
-                           (((Sym_Reset (tgt_ds, trans, ri_clock, false))), !cclist)
+                           (((Sym_Reset (tgt_ds, trans, tgt_ds, ri_clock, false))), !cclist)
                            conc_trace
                        ) else (
                          Stack.push
-                           (((Sym_Edge (tgt_ds, trans, Some ri_clock, false))), !cclist)
+                           (((Sym_Edge (tgt_ds, trans, tgt_ds, Some ri_clock, false))), !cclist)
                            conc_trace
                        );
                        current_state := apply_unreset !current_state ri_clock
@@ -1500,8 +1477,9 @@ struct
           failwith "Could not compute counterexample edge"
           with Found -> ()
       done;
+
       (* Add (initial up) *)
-      let mt = (Bdd.pick_minterm (Bdd.dand !current_state symtrace.(0))) 
+      let mt = (Bdd.pick_minterm (Bdd.dand !current_state symtrace.(0)))
                |> Bdd.fill_in_minterm_unprimed_positive
       in
       current_state := Bdd.cube_of_minterm man mt;
@@ -1509,16 +1487,33 @@ struct
         ((make_up_trans !current_state),
          constraint_list_of_minterm enc mt
         ) conc_trace;
+      (* Go over the trace and set the source locations.
+         we set it as the location seen at the latest up transition *)
+      let sym_path =
+        (Stack.enum conc_trace |> List.of_enum)
+        |>
+        List.fold_left
+          (fun (ds,sym_path') trans ->
+             match trans with
+               (Sym_Up(lsrc, _),_) as st ->
+               (lsrc, st::sym_path')
+             | (Sym_Reset(lsrc, edges, ltgt, x, flag)),cclist ->
+               (ds, ((Sym_Reset(ds, edges, ltgt, x, flag)), cclist)::sym_path')
+             | (Sym_Edge(lsrc, edges, ltgt, x, flag)),cclist ->
+               (ds, ((Sym_Edge(ds, edges, ltgt, x, flag)), cclist)::sym_path')
+          )
+          ((Encoding.discrete_state_of_cube enc !current_state),[])
+        |> snd
+        |> List.rev
+      in
       (* Now add the initial (before up *)
       let cur_down = apply_down !current_state in
-      let mt  = (Bdd.pick_minterm (Bdd.dand cur_down init_state)) 
+      let mt = (Bdd.pick_minterm (Bdd.dand cur_down init_state))
                |> Bdd.fill_in_minterm_unprimed_positive
       in
       current_state := Bdd.cube_of_minterm man mt;
-      let cexinit = (Encoding.discrete_state_of_cube enc !current_state), (constraint_list_of_minterm enc mt) in
-      let sym_path =
-        (Stack.enum conc_trace |> List.of_enum)
-      in
+      let cexinit = (Encoding.discrete_state_of_cube enc !current_state),
+                    (constraint_list_of_minterm enc mt) in
       if !Log.cegar_verbose then
         printf "Printing CEX\t\t\t\t\n%s\n\n"
           (string_of_symbolic_path enc.enc_ta (cexinit, sym_path));

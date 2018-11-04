@@ -7,18 +7,19 @@ import StringIO
 from ta import *
 from dataset import *
 numeric_mode = False
-# majority, and, or, 
+# majority, and, or,
 # threshold(n,k)
 
 
 
 class TAWRITER:
-    def __init__(self, graph, time, bound):
+    def __init__(self, graph, time, numeric, bound):
         self.factor=1
         self.delays = []
         self.graph = graph
         self._read_delays(time)
         self.bound = bound
+        self.numeric = numeric
 
     def _read_delays(self, time_file_name):
         with open(time_file_name,'r') as fp:
@@ -151,13 +152,12 @@ def main():
                         help=("Time bound before the output node becomes 1"))
     args = parser.parse_args()
     log.parse_verbose_level(args.verbose_level)
-    numeric_mode = args.numeric
     out_dir = "/tmp/"
     # realizability / synthesis
     for i,gr in enumerate(graph):
         if gr == None:
             continue
-        tawriter = TAWRITER(gr, args.time, 3000)
+        tawriter = TAWRITER(gr, args.time, args.numeric, 3000)
         with open("{0}a{1}.xml".format(out_dir,i),"w") as f:
             sys.stdout = f
         # tawriter.test();
@@ -167,7 +167,7 @@ def main():
     for i,gr in enumerate(graph_sat):
         if gr == None:
             continue
-        tawriter = TAWRITER(gr, args.time, 3000)
+        tawriter = TAWRITER(gr, args.time, args.numeric, 3000)
         with open("{0}b{1}.xml".format(out_dir, i),"w") as f:
             sys.stdout = f
         # tawriter.test();

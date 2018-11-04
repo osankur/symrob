@@ -3,6 +3,7 @@ import os
 import errno
 import sys
 from dataset import *
+import make_wave
 
 # FIXME Why am I using process calls to call python??
 
@@ -89,15 +90,34 @@ def gen_multiprocess(factor):
         f.close()
         print "Model" + str(i), specs
 
-def test_mono(factor, prog):
-    for case in dataset_mono:
-        ext = ".xml"
-        if prog == 2:
-            ext= ".ta"
-        filename = mono_file_name(factor, case[0], case[2], case[3], ext)
-    # I am abandoning here...
+def str_of_bool(b):
+    if b == False:
+        return "f"
+    else:
+        return "t"
+
+def gen_wave():
+    dirname = "wave/"
+    if not os.path.exists(os.path.dirname(dirname)):
+        try:
+            os.makedirs(os.path.dirname(dirname))
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+    for (i,(g, b, res)) in enumerate(dataset_wave_unsat):
+        with open("{0}/a{1}_{2}.xml".format(dirname,i,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
+
+    for (i,(g, b, res)) in enumerate(dataset_wave_sat):
+        with open("{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
 
 if __name__ == "__main__":
-    for i in [1]:
-        gen_mono(i);
-        gen_multiprocess(i);
+    #for i in [1]:
+    #    gen_mono(i);
+    #    gen_multiprocess(i);
+    gen_wave();
