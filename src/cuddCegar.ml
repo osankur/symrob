@@ -120,8 +120,9 @@ struct
     }
 
   (** A symbolic path is a list of symbolic_state which is a pair made of
-      1) the last operation applied
-      2) current state
+      1) the latest operation applied
+      2) current state (result of the latest operation)
+
       so that the last operation has led to the current state.
       The operations are time up, or reset of given clock through an edge(s).
       A tau-transition along an edge e=(l,g,[r1;r2;r3),l') is encoded as follows (provided l not committed or urgent)
@@ -131,10 +132,10 @@ struct
       Sym_Reset(l, (Single e), r3, true)
       Sym_Up(l,true)
 
-      The last boolean being a flag indicating the last reset so that the invariant can be applied
+      The last boolean in Sym_Edge or Sym_Reset is a flag indicating the last reset so that the invariant can be applied. For Sym_Up the boolean flag indicates whether time can elapse.
   *)
   type symbolic_transition =
-      Sym_Up of discrete_state * bool (* current location and whether time can elapse *)
+      Sym_Up of discrete_state * bool
     | Sym_Edge of discrete_state * edge single_or_pair * (clock_t option) * bool
     | Sym_Reset of discrete_state * edge single_or_pair * clock_t * bool
 
@@ -687,6 +688,19 @@ struct
       let path = Array.of_list path in
       let nclocks = (nb_clocks enc.enc_ta) - 1 in
       let npath= Array.length path in
+
+      let invar_of_next_ds locs edges =
+        let tr =  (match edges with
+              Pair(e1,e2) ->
+              (SyncTrans (locs, e1, e2))
+            | Single(e1) ->
+              (InternalTrans (locs, e1))
+          )
+        in
+        let locs' = next_location_vector bta locs.stateLocs tr in
+        TASemantics.dbm_invariant_of_state bta
+          {stateLocs = locs'; stateVars = [||]}
+      in
       (* Zone successor through sym-action.
          Invariant is applied after the last reset
          and after time up
@@ -697,7 +711,7 @@ struct
            Sym_Up (ds, telapse) ->
            (* debug *)
            (*
-           BTA.print_discrete_state Pervasives.stdout 
+           BTA.print_discrete_state Pervasives.stdout
              bta {BTA.stateLocs = locs; BTA.stateVars = [||]};
            printf "\n";
               *)
@@ -745,25 +759,13 @@ struct
             | Some(x) -> Dbm.reset d (ClockSet.singleton x)
            );
            if flag_last then (
-             let tr =  (match edges with
-                   Pair(e1,e2) ->
-                   (SyncTrans (locs, e1, e2))
-                 | Single(e1) ->
-                   (InternalTrans (locs, e1))
-               )
-             in
-             let locs' = next_location_vector bta locs.stateLocs tr in
-             let invar = TASemantics.dbm_invariant_of_state bta
-                 {stateLocs = locs'; stateVars = [||]}
-             in
+             let invar = invar_of_next_ds locs edges in
              Dbm.intersect d invar;
            )
          | Sym_Reset (locs, edges, x, flag_last) ->
            Dbm.reset d (ClockSet.singleton x);
            if flag_last then (
-             let invar = TASemantics.dbm_invariant_of_state bta
-                 locs
-             in
+             let invar = invar_of_next_ds locs edges in
              Dbm.intersect d invar;
            )
         );
@@ -805,8 +807,7 @@ struct
              )
            in
            Dbm.intersect d g;
-           let invar = TASemantics.dbm_invariant_of_state bta
-               locs
+           let invar = TASemantics.dbm_invariant_of_state bta locs
            in
            Dbm.intersect d invar;
          | Sym_Reset(locs, edges, reset, flag_last) ->
@@ -848,8 +849,7 @@ struct
         );
 
         (* Compute forward successors into cposts,
-           while aposts is the zones as computed
-           by smv
+           while aposts is the seq of zones of the abstract trace
         *)
         let cposts = Array.make (npath+1) init in
         let aposts = Array.make (npath+1) ainit in
@@ -866,6 +866,11 @@ struct
           let (trans,constr) = path.(i-1) in
           (try
              aposts.(i) <- (Dbm.from_constraints (nb_clocks bta) constr);
+
+(*
+             let invar = (TASemantics.dbm_invariant_of_state bta locs) in
+             assert(Dbm.leq ai0 invar);
+*)
            (*
            printf "Aposts(%d)\n" i;
            printf "%s\n" (Dbm.to_string aposts.(i));
@@ -952,6 +957,7 @@ struct
              (Guard.pretty_print stdout bta.clocks preAi01);
              printf "\n";
            );
+           printf "\nAbout to intersect with ai0 which is:\n%s\n" (Dbm.to_string aposts.(i0));
            let preAi01_ai0 = Dbm.copy preAi01 in
            Dbm.intersect preAi01_ai0 aposts.(i0);
            (* If this set is not empty, we can refine regularly *)
@@ -970,7 +976,7 @@ struct
         (match path.(i0) with
            (Sym_Up(_,false),_) ->
            Log.fatal "Encountered Sym_Up(_,false) during refinement with empty predecessor";
-           failwith "this must be a bug in the program"
+           failwith "Inconclusive"
          | (Sym_Up(_,true),_) ->
            Log.debug "Irregular refinement: Up\n";
            let ai0 = Dbm.copy aposts.(i0) in
@@ -981,6 +987,7 @@ struct
            let ai0_1 = Dbm.copy aposts.(i0+1) in
            Dbm.pretime ai0_1;
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
+
          | Sym_Reset(_,_,x,_),_ ->
            Log.debug "Irregular refinement: Reset\n";
            let ai0 = Dbm.copy aposts.(i0) in
@@ -989,7 +996,7 @@ struct
            Dbm.free ai0_1 (ClockSet.singleton x);
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
 
-         | Sym_Edge(locs,edges,reset_opt,flag_last),_ ->
+         | ((Sym_Edge(locs, edges, reset_opt, flag_last)) as trans,_) ->
            Log.debug "Irregular refinement: Edge Reset\n";
            let ai0 = Dbm.copy aposts.(i0) in
            let ai0_1 = Dbm.copy aposts.(i0+1) in
@@ -997,6 +1004,46 @@ struct
               None ->
               failwith "Irregular refinement: Reset without reset"
             | Some x ->
+
+              (* FIXME ici c'est l'invariant de l'etat suivant! *)
+              let invar = (TASemantics.dbm_invariant_of_state bta locs) in
+              if flag_last then(
+                printf "The invariant at ai0 is:\n%s\n\n" (Dbm.to_string invar);
+                assert(Dbm.leq ai0 invar);
+              );
+              (*
+              let invar = (TASemantics.dbm_invariant_of_state bta locs) in
+              assert(Dbm.leq ai0 invar);
+              let invar = invar_of_next_ds locs edges in
+              assert(Dbm.leq ai0_1 invar);
+                 *)
+              (*
+              (* debug *)
+              let tmp = Dbm.copy ai0 in
+              (try
+                 let tmp = post (trans,[]) tmp in
+                 printf "\nPost(ai0) is NON-EMPTY!!";
+                 Dbm.intersect tmp ai0_1;
+                 printf "\nPost(ai0) /\\ ai0_1 is NON-EMPTY!!"
+                   (* TODO.
+                      Check if invariants are respected
+                   *)
+               with EmptyDBM ->
+                 printf "OK Post(ai0) /\\ ai0_1 empty\n";
+              );
+              let tmp = Dbm.copy ai0_1 in
+              (try
+                 let tmp = pre (trans,[]) tmp in
+                 printf "\nPre(ai0_1) is NON-EMPTY:\n%s\n" (Dbm.to_string tmp);
+                 printf "\nWill now intersect with ai0 which is:\n%s\n\n" (Dbm.to_string ai0);
+                 Dbm.intersect tmp ai0;
+                 printf "Result is\n%s\n\n" (Dbm.to_string tmp);
+                 printf "\nPre(ai0_1) /\\ ai0 is NON-EMPTY!!"
+               with EmptyDBM ->
+                 printf "OK Pre(ai0_1) /\\ ai0 empty\n";
+              );
+                 *)
+              (* debug *)
 
               Dbm.free ai0 (ClockSet.singleton x);
 
@@ -1016,10 +1063,13 @@ struct
             printf "ai0_1 /\\ x=0 is\n%s\n" (Guard.to_string ai0_1);
                *)
               Dbm.free ai0_1 (ClockSet.singleton x);
-            (*
+              if flag_last then (
+                let invar = invar_of_next_ds locs edges in
+                Dbm.intersect ai0_1 invar;
+              );
+
             printf "free(ai0_1 /\\ x=0) is\n%s\n" (Guard.to_string ai0_1);
-            printf "And reset(ai0) is\n%s\n" (Guard.to_string ai0);
-               *)
+            printf "And ai0 is\n%s\n" (Guard.to_string ai0);
            );
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
         );
@@ -1288,7 +1338,7 @@ struct
                              |> prime_locations_and_vars enc
           in
           Queue.iter
-            (fun (trans,trans_rel, trans_grd, resets) ->
+            (fun (trans, trans_rel, trans_grd, resets) ->
                let trans_bdd = trans_rel in
                (*
                printf "Trying following transition:\n";

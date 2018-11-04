@@ -252,7 +252,11 @@ struct
           let name = VarContext.index2var ta.vars i in
           Buffer.add_string out (sprintf "%s = %d, " name v)) state.stateVars;
     );
-    (*    Buffer.add_string out "\n";*)
+    Buffer.add_string out "\n";
+    Array.iter (fun loc ->
+        Buffer.add_string out (string_of_guard ta loc.locInvar);
+        Buffer.add_string out " ")
+      state.stateLocs;
     Buffer.contents out
 
   let string_of_edge ta edge =
