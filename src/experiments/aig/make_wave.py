@@ -46,7 +46,7 @@ class TAWRITER:
         elif node[1] == "in":
             return ("1==1", "0==1")
         elif node[1] == "not":
-            return ("out{0}&lt;2".format(node[2][0]), "out{0}&lt;2".format(node[2][0]))
+            return ("out{0}&lt;2".format(node[2][0]), "out{0} == 2".format(node[2][0]))
         else:
             raise Exception("unknown gate")
 
@@ -104,11 +104,16 @@ class TAWRITER:
                 node_outputs_true = self.node_output_true(node)
 
                 if bound == None or inode != 0:
-                    proc.add_transition(Transition(down, up, guard="x{0} &lt;= {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[0], up="out{0} := 1".format(i)))
+                    proc.add_transition(Transition(down, up, guard="{1} &lt;= x{0} &amp;&amp; x{0} &lt;= {2} ".format(i, self.delays[i][0], self.delays[i][1]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[0], up="out{0} := 1".format(i)))
+
                 else:
                     print >> decl, "clock t;"
                     bg = " &amp;&amp; t &lt;= {0}".format(bound)
                     proc.add_transition(Transition(down, up, guard="{1} &lt;= x{0} &amp;&amp; x{0} &lt;= {2}".format(i, self.delays[i][0], self.delays[i][1]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[0] + bg, up="out{0} := 1".format(i)))
+                    non_input_out_reset = ",".join(map(lambda n: "out{0} := 2".format(n[0]), filter(lambda n: n[1] != "in", graph)))
+                    # this is new
+                    proc.add_transition(Transition(down,down, guard="t &gt; {0}".format(bound), up=non_input_out_reset))
+
                 proc.add_transition(Transition(down, up, guard="{1} &lt;= x{0} &amp;&amp; x{0} &lt;= {2} ".format(i, self.delays[i][0], self.delays[i][1]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[1], up="out{0} := 0".format(i)))
 #                    proc.add_transition(Transition(down, up, guard="x{0} &lt;= {1}".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[0] + bg, up="out{0} :
 #                proc.add_transition(Transition(down, up, guard="x{0} &lt;= {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[1], up="out{0} := 0".format(i)))

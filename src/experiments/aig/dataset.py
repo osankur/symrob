@@ -286,14 +286,15 @@ n0 = (0, "th", 3, [n5,inps[9],n2])
 graph_sat[5] = [n0,n1,n2,n3,n4,n5] + inps
 
 dataset_wave_unsat = map(lambda g: (g, 1000, False), graph)
-dataset_wave_sat = [(graph_sat[0], 50, True),
-                    (graph_sat[0], 150, False),
-                    (graph_sat[1], 50, False),
-                    (graph_sat[1], 150, True),
-                    (graph_sat[2], 50, False), # 2m30 - 6 ref
-                    (graph_sat[2], 150, True), # 2m30 - 10 ref
-                    (graph_sat[3], 150, False), # 45s - 21 ref
-                    (graph_sat[3], 300, True), # 45s - 14 ref
-                    (graph_sat[4], 300, False), # 10s
-                    (graph_sat[5], 300, False), # 11s
+dataset_wave_sat = [(0, graph_sat[0], 50, False),
+                    (0, graph_sat[0], 150, True),
+                    (1, graph_sat[1], 50, False),
+                    (1, graph_sat[1], 150, False),
+                    (1, graph_sat[1], 400, False),
+                    (2, graph_sat[2], 50, False), # 2m30 - 6 ref
+                    (2, graph_sat[2], 150, True), # 2m30 - 10 ref
+                    (3, graph_sat[3], 150, False), # 45s - 21 ref
+                    (3, graph_sat[3], 300, True), # 45s - 14 ref
+                    (4, graph_sat[4], 300, False), # 10s
+                    (5, graph_sat[5], 300, False), # 11s
 ]

@@ -21,15 +21,8 @@ GNU_TIME="time"
 # The directory where the benchmarks are located:
 BM_DIR="."
 
-# The benchmarks to be used.
-# The files have to be located in ${BM_DIR}.
-FILES=(
-load_5c_comp_comp7_REAL   $REAL
-)
-
 CALL_MC="symrob --silent -c "
 TIMESTAMP=`date +%d_%m_%R%s`
-RES_TXT_FILE="${DIR}tests/results_${TIMESTAMP}.txt"
 #RES_DIR="${DIR}tests/results_${TIMESTAMP}/"
 #mkdir -p "${DIR}tests/"
 #mkdir -p ${RES_DIR}
@@ -42,6 +35,9 @@ if [ "$benchmark" == "multiprocess" ]; then
     spec="multi.q"
 elif [ "$benchmark" == "monoprocess" ]; then
     spec="mono.q"
+elif [ "$benchmark" == "wave" ]; then
+		spec="wave.q"
+		factor=""
 else
     echo "Unknown parameter"
     exit 1
@@ -55,6 +51,7 @@ else
     exit 1
 fi
 
+RES_TXT_FILE="${DIR}tests/${benchmark}${factor}_${mc}_${TIMESTAMP}.txt"
 
 
 ulimit -m ${MEMORY_LIMIT} -v ${MEMORY_LIMIT} -t ${TIME_LIMIT}

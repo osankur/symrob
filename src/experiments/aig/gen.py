@@ -110,7 +110,8 @@ def gen_wave():
             taw = make_wave.TAWRITER(g, "time", False, b)
             taw.dump_cyclic_graph(b)
 
-    for (i,(g, b, res)) in enumerate(dataset_wave_sat):
+    for (i,g, b, res) in (dataset_wave_sat):
+#        print >> sys.stderr, (b,res), "yields", "{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res))
         with open("{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res)),"w") as f:
             sys.stdout = f
             taw = make_wave.TAWRITER(g, "time", False, b)
