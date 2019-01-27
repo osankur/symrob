@@ -4,6 +4,7 @@ import errno
 import sys
 from dataset import *
 import make_wave
+import make_pat_wave
 
 # FIXME Why am I using process calls to call python??
 
@@ -117,8 +118,21 @@ def gen_wave():
             taw = make_wave.TAWRITER(g, "time", False, b)
             taw.dump_cyclic_graph(b)
 
+    for (i,(g, b, res)) in enumerate(dataset_wave_unsat):
+        with open("{0}/a{1}_{2}.ta".format(dirname,i,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_pat_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
+
+    for (i,g, b, res) in (dataset_wave_sat):
+#        print >> sys.stderr, (b,res), "yields", "{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res))
+        with open("{0}/b{1}_{2}_{3}.ta".format(dirname,i,b,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_pat_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
+
 if __name__ == "__main__":
-    #for i in [1]:
-    #    gen_mono(i);
-    #    gen_multiprocess(i);
-    gen_wave();
+    for i in [1,10]:
+        gen_mono(i);
+        gen_multiprocess(i);
+    #gen_wave();

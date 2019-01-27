@@ -27,7 +27,7 @@ class TAWRITER:
                 if s <> "":
                     si = map(lambda x: int(x), s.split(" "))
                     assert(len(si) == 2)
-                    self.delays.append((si[0] * self.factor,si[0] * 2 * self.factor))
+                    self.delays.append((si[0] * self.factor, si[1] * 2 * self.factor))
 
 
     def node_ready(self, node):
@@ -227,7 +227,13 @@ namespace wave{
 
 #                proc.add_transition(Transition(down, down, guard="x{0} == {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[1], up="x{0} := 0".format(i)))
 
-                    print "s.add_edge(\"Node{0}\", \"up\", \"down\", \"x{0} <= {1}\", \"x{0}\", \"\");".format(i, self.delays[i][1])
+                    up = """
+                    [](syntax::layout_t  & l){{
+                       wave::layout_t & _l = CAST(wave::layout_t &, l);
+                       _l.out{0} = 2;
+                    }}
+                    """.format(i)
+                    print "s.add_edge(\"Node{0}\", \"up\", \"down\", \"x{0} <= {1}\", \"x{0}\", \"\",syntax::layout_true,{2});".format(i, self.delays[i][1], up)
 
 
                 else:
@@ -284,7 +290,14 @@ namespace wave{
 
 #                proc.add_transition(Transition(down, down, guard="x{0} == {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[1], up="x{0} := 0".format(i)))
 
-                    print "s.add_edge(\"Node{0}\", \"up\", \"down\", \"x{0} <= {1}\", \"x{0}\", \"\");".format(i, self.delays[i][1])
+                    up = """
+                    [](syntax::layout_t  & l){{
+                       wave::layout_t & _l = CAST(wave::layout_t &, l);
+                       _l.out{0} = 2;
+                    }}
+                    """.format(i)
+
+                    print "s.add_edge(\"Node{0}\", \"up\", \"down\", \"x{0} <= {1}\", \"x{0}\", \"\",syntax::layout_true,{2});".format(i, self.delays[i][1],up)
 #                proc.add_transition(Transition(up, down, guard="x{0} &lt;={1}".format(i, self.delays[i][1]), up="x{0}:=0".format(i)))
 
                 if inode == 0:

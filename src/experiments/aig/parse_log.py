@@ -56,6 +56,17 @@ def parse(filename, mc):
                 filename = os.path.basename(m.group(1))
             if not error:
                 print "{0};\t\t{1};\t\t{2};\t\t{3};".format(filename, time, result, error)
+        if mc == "pat":
+            times = re.search("/ (\d+\.\d+) sec", case)
+            if times <> None:
+                time = times.group(1)
+            if "timeout or error" in case:
+                error = True
+            m = re.search("=+ ([^=]+) =+", case)
+            if m <> None:
+                filename = os.path.basename(m.group(1))
+            if not error:
+                print "{0};\t\t{1};\t\t{2};\t\t{3};".format(filename, time, result, error)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generation or Execution of AIG Tests")

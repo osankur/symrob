@@ -10,7 +10,10 @@
 # This directory:
 DIR=`dirname $0`/
 
+PAT_DIR=~/tools/PAT
+
 # Time limit in seconds:
+#TIME_LIMIT=1800
 TIME_LIMIT=1800
 # Memory limit in kB:
 MEMORY_LIMIT=8000000
@@ -46,6 +49,8 @@ if [ $mc == "symrob" ]; then
     CALL_MC="symrob --silent -c"
 elif [ $mc == "uppaal" ]; then
     CALL_MC="verifytga"
+elif [ $mc == "pat" ]; then
+	CALL_MC="wine $PAT_DIR/PAT3.Console.exe -ta -engine 7"
 else
     echo "Unknown model checker"
     exit 1
@@ -59,13 +64,31 @@ DIR="$BM_DIR/$1$factor/"
 #echo $DIR*.xml
 #set -x
 for filename in $DIR*.xml; do
+	if [ $mc == "uppaal" ] || [ $mc == "symrob" ]; then
      echo "Checking file ${filename}..."
      echo "-BEGIN-" 1>> $RES_TXT_FILE
      echo "=====================  $filename =====================" 1>> $RES_TXT_FILE
+	   echo "${GNU_TIME} --output=${RES_TXT_FILE} -a -f \"Time: %e sec (Real time) / %U sec (User CPU time)\" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}"
+	   ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}
+     exit_code=$?
+     if [ $exit_code != 0 ]; then
+        echo "timeout or error" >> $RES_TXT_FILE
+     fi
+	fi
+     # END execution of synthesis tool
+done
+
+for filename in $DIR*.ta; do
+		 if [ $mc == "pat" ]; then
+       echo "Checking file ${filename}..."
+       echo "-BEGIN-" 1>> $RES_TXT_FILE
+       echo "=====================  $filename =====================" 1>> $RES_TXT_FILE
      #------------------------------------------------------------------------------
      # BEGIN execution of synthesis tool
-     echo "${GNU_TIME} --output=${RES_TXT_FILE} -a -f \"Time: %e sec (Real time) / %U sec (User CPU time)\" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}"
-     ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ${CALL_MC} $filename $spec >> ${RES_TXT_FILE}
+		 	 [ -d foo ] || mkdir foo
+			 [ -d /tmp/`dirname $filename` ] || mkdir /tmp/`dirname $filename`
+	     ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ${CALL_MC} $filename /tmp/$filename.out >> ${RES_TXT_FILE}
+		 fi
      exit_code=$?
      if [ $exit_code != 0 ]; then
         echo "timeout or error" >> $RES_TXT_FILE

@@ -27,6 +27,8 @@ class Template:
         self.locs = []
         self.trans = []
 
+    def set_decl(self, decl):
+        self.decl = decl
     def add_location(self, loc):
         if not loc in self.locs:
             self.locs.append(loc)

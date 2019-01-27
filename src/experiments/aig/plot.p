@@ -13,8 +13,8 @@ plot "< sort -n tests/smu1 -k2 -t ';'" using ($2) title 'Symrob' with linespoint
 
 set output "mono.png"
 set title "Monoprocess Scheduling"
-plot "< sort -n tests/smo1 -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
-"< sort -n tests/umo1 -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2
+plot "< sort -n tests/mono_symrob -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
+"< sort -n tests/mono_pat -k2 -t ';'" using ($2) title 'Pat' with linespoints lt 2
 
 set output "wave.png"
 set title "Wave"

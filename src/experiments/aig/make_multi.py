@@ -1,6 +1,3 @@
-"""
-TODO: Add latches and take the state space into account
-"""
 import sys
 import argparse
 import log
@@ -15,7 +12,8 @@ numeric_mode = False
 sched_policy = 0
 
 data = [[[5,10,30], [4,8,30]],
-        [[5,10,15], [4,8,16]]
+        [[5,10,15], [4,8,16]],
+        [[
        ]
 
 from aiger_swig.aiger_wrap import (

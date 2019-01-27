@@ -119,7 +119,7 @@ class TAWRITER:
 #                proc.add_transition(Transition(down, up, guard="x{0} &lt;= {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[0]  + " &amp;&amp; " + node_outputs_true[1], up="out{0} := 0".format(i)))
                 proc.add_transition(Transition(down, down, guard="x{0} == {1} ".format(i, self.delays[i][0]) + " &amp;&amp; " + node_ready[1], up="x{0} := 0".format(i)))
 
-                proc.add_transition(Transition(up, down, guard="x{0} &lt;={1}".format(i, self.delays[i][1]), up="x{0}:=0".format(i)))
+                proc.add_transition(Transition(up, down, guard="x{0} &lt;={1}".format(i, self.delays[i][1]), up="x{0}:=0, out{0} := 2".format(i)))
 
                 if inode == 0:
                     proc.add_transition(Transition(up,Location("err"), guard="out{0}==1".format(i)))
