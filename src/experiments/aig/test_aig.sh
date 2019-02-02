@@ -16,7 +16,7 @@ PAT_DIR=~/tools/PAT
 #TIME_LIMIT=1800
 TIME_LIMIT=1800
 # Memory limit in kB:
-MEMORY_LIMIT=8000000
+MEMORY_LIMIT=2000000
 
 # Maybe change the following line to point to GNU time:
 GNU_TIME="time"
@@ -31,8 +31,8 @@ TIMESTAMP=`date +%d_%m_%R%s`
 #mkdir -p ${RES_DIR}
 
 benchmark=$1
-factor=$2
-mc=$3
+mc=$2
+suffix=$3
 spec="mono.q"
 if [ "$benchmark" == "multiprocess" ]; then
     spec="multi.q"
@@ -40,9 +40,9 @@ elif [ "$benchmark" == "monoprocess" ]; then
     spec="mono.q"
 elif [ "$benchmark" == "wave" ]; then
 		spec="wave.q"
-		factor=""
+		suffix=""
 else
-    echo "Unknown parameter"
+    echo "Unknown benchmark"
     exit 1
 fi
 if [ $mc == "symrob" ]; then
@@ -51,16 +51,18 @@ elif [ $mc == "uppaal" ]; then
     CALL_MC="verifytga"
 elif [ $mc == "pat" ]; then
 	CALL_MC="wine $PAT_DIR/PAT3.Console.exe -ta -engine 7"
+elif [ $mc == "tchecker" ]; then
+	echo "TChecker"
 else
     echo "Unknown model checker"
     exit 1
 fi
 
-RES_TXT_FILE="${DIR}tests/${benchmark}${factor}_${mc}_${TIMESTAMP}.txt"
+RES_TXT_FILE="${DIR}tests/${benchmark}${suffix}_${mc}_${TIMESTAMP}.txt"
 
 
 ulimit -m ${MEMORY_LIMIT} -v ${MEMORY_LIMIT} -t ${TIME_LIMIT}
-DIR="$BM_DIR/$1$factor/"
+DIR="$BM_DIR/$1$suffix/"
 #echo $DIR*.xml
 #set -x
 for filename in $DIR*.xml; do
@@ -95,3 +97,18 @@ for filename in $DIR*.ta; do
      fi
      # END execution of synthesis tool
 done
+
+RES_TXT_FILE=/tmp/output
+if [ $mc == "tchecker" ]; then
+    for filename in $DIR/*; do
+        echo $filename
+	if [ -x $filename ] && [ ! -d $filename ] ; then
+            echo "=====================  $filename =====================" 1>> $RES_TXT_FILE
+	    ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ./$filename empty -a -Lhigh -l "err" >> ${RES_TXT_FILE}
+	    exit_code=$?
+	    if [ $exit_code != 0 ]; then
+		echo "timeout or error" >> $RES_TXT_FILE
+	    fi
+	fi
+    done
+fi

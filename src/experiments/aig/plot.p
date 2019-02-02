@@ -8,26 +8,27 @@ set key left
 
 set output "multi.png"
 set title "Multiprocess Scheduling"
-plot "< sort -n tests/smu1 -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
-"< sort -n tests/umu1 -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2
+plot "< sort -n tests/multi_symrob100 -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
+"< sort -n tests/multi_uppaal -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2,\
+"< sort -n tests/multi_pat100 -k2 -t ';'" using ($2) title 'PAT' with linespoints lt 3
 
 set output "mono.png"
 set title "Monoprocess Scheduling"
 plot "< sort -n tests/mono_symrob -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
-"< sort -n tests/mono_pat -k2 -t ';'" using ($2) title 'Pat' with linespoints lt 2
+"< sort -n tests/mono_uppaal -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2,\
+"< sort -n tests/mono_pat10 -k2 -t ';'" using ($2) title 'PAT' with linespoints lt 3
 
 set output "wave.png"
 set title "Wave"
-plot "< sort -n tests/ws -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
-"< sort -n tests/wu -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2
+plot "< sort -n tests/wave_symrob -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
+"< sort -n tests/wave_uppaal -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2,\
+"< sort -n tests/wave_pat -k2 -t ';'" using ($2) title 'PAT' with linespoints lt 3
 
-set output "wave_sat.png"
-set title "Wave Sat"
-plot "< sort -n tests/ws_b -k2 -t ';'" using ($2) title 'SymrobWave' with linespoints ls 1,\
-"< sort -n tests/wu_b -k2 -t ';'" using ($2) title 'UppaalWave' with linespoints lt 2
 
-set output "wave_unsat.png"
-set title "Wave Unsat"
-plot "< sort -n tests/ws_a -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
-"< sort -n tests/wu_a -k2 -t ';'" using ($2) title 'Uppaal' with linespoints lt 2
+set output "mono-factors.png"
+set title "Monoprocess Scheduling"
+plot "< sort -n tests/mono_symrob -k2 -t ';'" using ($2) title 'Symrob' with linespoints ls 1,\
+"< sort -n tests/mono_pat -k2 -t ';'" using ($2) title 'PAT x1' with linespoints lt 2,\
+"< sort -n tests/mono_pat10 -k2 -t ';'" using ($2) title 'PAT x10' with linespoints lt 3
+
 quit

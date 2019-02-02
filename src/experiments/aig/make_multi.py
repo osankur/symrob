@@ -13,7 +13,7 @@ sched_policy = 0
 
 data = [[[5,10,30], [4,8,30]],
         [[5,10,15], [4,8,16]],
-        [[
+        [[10,10,100], [20,20,200]]
        ]
 
 from aiger_swig.aiger_wrap import (

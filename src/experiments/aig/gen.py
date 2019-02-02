@@ -5,6 +5,7 @@ import sys
 from dataset import *
 import make_wave
 import make_pat_wave
+import make_tchecker_wave
 
 # FIXME Why am I using process calls to call python??
 
@@ -52,6 +53,14 @@ def gen_mono(factor):
         f = open(target_file,"w")
         f.write(answer)
         f.close()
+
+        target_file = mono_file_name(factor, input, nbL, bound, ".cpp")
+        output = Popen(["python", "make_tchecker_mono.py", data_dir+input, time, str(nbL), str(bound), "-f", str(factor)], stdout=PIPE)
+        answer = output.stdout.read()
+        f = open(target_file,"w")
+        f.write(answer)
+        f.close()
+
 def multi_file_name(factor, i, ext):
     dirname = "multiprocess{0}/".format(factor)
     return dirname + str(i) + ext
@@ -111,7 +120,7 @@ def gen_wave():
             taw = make_wave.TAWRITER(g, "time", False, b)
             taw.dump_cyclic_graph(b)
 
-    for (i,g, b, res) in (dataset_wave_sat):
+    for (i,g,b,res) in (dataset_wave_sat):
 #        print >> sys.stderr, (b,res), "yields", "{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res))
         with open("{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res)),"w") as f:
             sys.stdout = f
@@ -131,8 +140,22 @@ def gen_wave():
             taw = make_pat_wave.TAWRITER(g, "time", False, b)
             taw.dump_cyclic_graph(b)
 
+    for (i,(g, b, res)) in enumerate(dataset_wave_unsat):
+        with open("{0}/a{1}_{2}.cpp".format(dirname,i,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_tchecker_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
+
+    for (i,g, b, res) in (dataset_wave_sat):
+#        print >> sys.stderr, (b,res), "yields", "{0}/b{1}_{2}_{3}.xml".format(dirname,i,b,str_of_bool(res))
+        with open("{0}/b{1}_{2}_{3}.cpp".format(dirname,i,b,str_of_bool(res)),"w") as f:
+            sys.stdout = f
+            taw = make_tchecker_wave.TAWRITER(g, "time", False, b)
+            taw.dump_cyclic_graph(b)
+
+
 if __name__ == "__main__":
-    for i in [1,10]:
-        gen_mono(i);
-        gen_multiprocess(i);
-    #gen_wave();
+    #for i in [10,100]:
+    #    gen_mono(i);
+    #    gen_multiprocess(i);
+    gen_wave();
