@@ -98,6 +98,17 @@ def gen_multiprocess(factor):
         f = open(target_file,"w")
         f.write(answer)
         f.close()
+
+
+        target_file = multi_file_name(factor, i, ".cpp")
+        if verbose:
+            print "python make_tchecker_multi.py", specs[0], specs[1], specs[2], mode
+        output = Popen(["python", "make_tchecker_multi.py",specs[0], specs[1], specs[2], str(mode), "-f", str(factor)], stdout=PIPE)
+        answer = output.stdout.read()
+        f = open(target_file,"w")
+        f.write(answer)
+        f.close()
+
         print "Model" + str(i), specs
 
 def str_of_bool(b):
@@ -155,7 +166,7 @@ def gen_wave():
 
 
 if __name__ == "__main__":
-    #for i in [10,100]:
+    for i in [10,100]:
     #    gen_mono(i);
-    #    gen_multiprocess(i);
+        gen_multiprocess(i);
     gen_wave();

@@ -26,12 +26,16 @@ class Template:
         self.decl = ""
         self.locs = []
         self.trans = []
+        self.init_loc = None
 
     def set_decl(self, decl):
         self.decl = decl
     def add_location(self, loc):
         if not loc in self.locs:
-            self.locs.append(loc)
+            if not loc.initial:
+                self.locs.append(loc)
+            else:
+                self.init_loc = loc
     def add_locations(self, locs):
         iter(lambda l: self.add_location(l), locs)
 
@@ -46,6 +50,7 @@ class Template:
         print "TimedAutomaton {0}".format(self.name)
         print "{"
         print self.decl
+        self.init_loc.dump(self.trans)
         for loc in self.locs:
             loc.dump(self.trans)
         print "}"

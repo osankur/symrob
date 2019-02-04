@@ -222,7 +222,7 @@ class TAWRITER:
 
         print "s.add_location(\"Circuit\", \"init\", \"\", \"\", syntax::loc_t::INIT | syntax::loc_t::URGENT);"
         #init = Location("Init", urgent=True,initial=True)
-        print "s.add_location(\"Circuit\", \"dead\", \"\", \"\");"
+        print "s.add_location(\"Circuit\", \"dead\", \"\", \"err\");"
         #deadlock = Location("dead")
 
         # nta.set_query("E<>Process.dead")

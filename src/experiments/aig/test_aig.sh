@@ -58,13 +58,11 @@ else
     exit 1
 fi
 
-RES_TXT_FILE="${DIR}tests/${benchmark}${suffix}_${mc}_${TIMESTAMP}.txt"
-
 
 ulimit -m ${MEMORY_LIMIT} -v ${MEMORY_LIMIT} -t ${TIME_LIMIT}
+RES_TXT_FILE="${DIR}tests/${benchmark}${suffix}_${mc}_${TIMESTAMP}.txt"
 DIR="$BM_DIR/$1$suffix/"
-#echo $DIR*.xml
-#set -x
+
 for filename in $DIR*.xml; do
 	if [ $mc == "uppaal" ] || [ $mc == "symrob" ]; then
      echo "Checking file ${filename}..."
@@ -98,7 +96,6 @@ for filename in $DIR*.ta; do
      # END execution of synthesis tool
 done
 
-RES_TXT_FILE=/tmp/output
 if [ $mc == "tchecker" ]; then
     for filename in $DIR/*; do
         echo $filename
