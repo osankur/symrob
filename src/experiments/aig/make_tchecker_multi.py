@@ -8,7 +8,7 @@ import StringIO
 from itertools import *
 
 # when set to true, boolean operations are translated as arithmetic ones such as && -> *
-numeric_mode = True
+numeric_mode = False
 
 # 0 for round-robin
 # 1 for EDF

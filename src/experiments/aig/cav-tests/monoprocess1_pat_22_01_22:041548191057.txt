@@ -1,0 +1,296 @@
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_10L_300.ta =====================
+PAT finished successfully.
+Unable to resize subtable 77 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 5241497
+Time: 203.95 sec (Real time) / 201.66 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 1.68 sec (Real time) / 1.47 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_290.ta =====================
+PAT finished successfully.
+Time: 1.73 sec (Real time) / 1.52 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 2.98 sec (Real time) / 2.78 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_5L_290.ta =====================
+PAT finished successfully.
+Time: 2.42 sec (Real time) / 2.21 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 4.03 sec (Real time) / 3.82 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_6L_290.ta =====================
+PAT finished successfully.
+Time: 5.00 sec (Real time) / 4.79 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 10.59 sec (Real time) / 10.34 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_7L_290.ta =====================
+PAT finished successfully.
+Time: 13.06 sec (Real time) / 12.76 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_7L_300.ta =====================
+PAT finished successfully.
+Time: 16.87 sec (Real time) / 16.58 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_8L_300.ta =====================
+PAT finished successfully.
+Time: 22.39 sec (Real time) / 21.98 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_9L_300.ta =====================
+PAT finished successfully.
+Time: 45.13 sec (Real time) / 44.35 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_10L_300.ta =====================
+PAT finished successfully.
+Time: 109.93 sec (Real time) / 107.86 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_10L_500.ta =====================
+PAT finished successfully.
+Time: 125.43 sec (Real time) / 122.69 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 1.67 sec (Real time) / 1.45 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 2.83 sec (Real time) / 2.62 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_5L_200.ta =====================
+PAT finished successfully.
+Time: 2.53 sec (Real time) / 2.30 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 4.35 sec (Real time) / 4.08 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 11.91 sec (Real time) / 11.58 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_6L_500.ta =====================
+PAT finished successfully.
+Time: 17.97 sec (Real time) / 17.59 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_7L_300.ta =====================
+PAT finished successfully.
+Time: 19.15 sec (Real time) / 18.82 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_7L_500.ta =====================
+PAT finished successfully.
+Time: 27.76 sec (Real time) / 27.22 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_8L_300.ta =====================
+PAT finished successfully.
+Time: 21.49 sec (Real time) / 21.03 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_8L_500.ta =====================
+PAT finished successfully.
+Time: 30.43 sec (Real time) / 29.84 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_9L_300.ta =====================
+PAT finished successfully.
+Time: 48.76 sec (Real time) / 47.56 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_9L_500.ta =====================
+PAT finished successfully.
+Time: 61.12 sec (Real time) / 60.04 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_100.ta =====================
+PAT finished successfully.
+Time: 1.41 sec (Real time) / 1.21 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_150.ta =====================
+PAT finished successfully.
+Time: 1.44 sec (Real time) / 1.23 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 1.43 sec (Real time) / 1.23 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/cnt5y.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 1.17 sec (Real time) / 0.95 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/cnt5y.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 1.48 sec (Real time) / 1.29 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_10L_500.ta =====================
+PAT finished successfully.
+Time: 37227.97 sec (Real time) / 122.07 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 1.45 sec (Real time) / 1.23 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 2.37 sec (Real time) / 2.16 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 2.97 sec (Real time) / 2.74 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 4.96 sec (Real time) / 4.74 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_400.ta =====================
+PAT finished successfully.
+Time: 11.11 sec (Real time) / 10.84 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_500.ta =====================
+PAT finished successfully.
+Time: 11.79 sec (Real time) / 11.50 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_7L_500.ta =====================
+PAT finished successfully.
+Time: 18.33 sec (Real time) / 17.90 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_8L_500.ta =====================
+PAT finished successfully.
+Time: 21.69 sec (Real time) / 21.30 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_9L_500.ta =====================
+PAT finished successfully.
+Time: 42.85 sec (Real time) / 42.12 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_10L_400.ta =====================
+PAT finished successfully.
+Time: 118.23 sec (Real time) / 116.11 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 1.66 sec (Real time) / 1.47 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_5L_250.ta =====================
+PAT finished successfully.
+Time: 1.86 sec (Real time) / 1.64 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 2.44 sec (Real time) / 2.22 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 6.84 sec (Real time) / 6.62 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_7L_300.ta =====================
+PAT finished successfully.
+Time: 12.47 sec (Real time) / 12.13 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_7L_400.ta =====================
+PAT finished successfully.
+Time: 13.53 sec (Real time) / 13.24 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_8L_400.ta =====================
+PAT finished successfully.
+Time: 24.45 sec (Real time) / 23.90 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_9L_400.ta =====================
+PAT finished successfully.
+Time: 48.90 sec (Real time) / 47.91 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_10L_300.ta =====================
+PAT finished successfully.
+Unable to resize subtable 81 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 6696396
+Time: 246.18 sec (Real time) / 243.24 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_5L_290.ta =====================
+PAT finished successfully.
+Time: 5.69 sec (Real time) / 5.39 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 5.88 sec (Real time) / 5.58 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_6L_290.ta =====================
+PAT finished successfully.
+Time: 13.06 sec (Real time) / 12.65 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 13.49 sec (Real time) / 13.15 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_7L_290.ta =====================
+PAT finished successfully.
+Time: 25.53 sec (Real time) / 25.03 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_7L_300.ta =====================
+PAT finished successfully.
+Time: 27.48 sec (Real time) / 26.85 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_8L_300.ta =====================
+PAT finished successfully.
+Time: 42.68 sec (Real time) / 41.95 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_9L_300.ta =====================
+PAT finished successfully.
+Time: 110.09 sec (Real time) / 108.60 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_10L_300.ta =====================
+PAT finished successfully.
+Time: 6005.88 sec (Real time) / 99.60 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_4L_150.ta =====================
+PAT finished successfully.
+Time: 1.29 sec (Real time) / 1.08 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 2.35 sec (Real time) / 2.14 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_5L_150.ta =====================
+PAT finished successfully.
+Time: 1.71 sec (Real time) / 1.52 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 3.18 sec (Real time) / 2.96 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_150.ta =====================
+PAT finished successfully.
+Time: 5.23 sec (Real time) / 5.00 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_300.ta =====================
+PAT finished successfully.
+Time: 7.47 sec (Real time) / 7.25 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_500.ta =====================
+PAT finished successfully.
+Time: 11.92 sec (Real time) / 11.67 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_150.ta =====================
+PAT finished successfully.
+Time: 6.26 sec (Real time) / 6.01 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_300.ta =====================
+PAT finished successfully.
+Time: 12.98 sec (Real time) / 12.64 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_500.ta =====================
+PAT finished successfully.
+Time: 18.56 sec (Real time) / 17.79 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_8L_300.ta =====================
+PAT finished successfully.
+Time: 15.88 sec (Real time) / 15.40 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_8L_500.ta =====================
+PAT finished successfully.
+Time: 21.70 sec (Real time) / 21.27 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_9L_300.ta =====================
+PAT finished successfully.
+Time: 35.44 sec (Real time) / 34.78 sec (User CPU time)

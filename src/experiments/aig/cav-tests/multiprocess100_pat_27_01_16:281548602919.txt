@@ -1,0 +1,201 @@
+-BEGIN-
+=====================  ./multiprocess100/0.ta =====================
+Unable to resize subtable 173 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 6105139
+Command exited with non-zero status 1
+Time: 173.15 sec (Real time) / 170.31 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/10.ta =====================
+PAT finished successfully.
+Time: 78.78 sec (Real time) / 77.53 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/11.ta =====================
+Command terminated by signal 9
+Time: 1824.55 sec (Real time) / 1798.80 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/12.ta =====================
+PAT finished successfully.
+Time: 91.90 sec (Real time) / 91.28 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/13.ta =====================
+Command terminated by signal 9
+Time: 1819.12 sec (Real time) / 1798.91 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/14.ta =====================
+PAT finished successfully.
+Time: 88.24 sec (Real time) / 87.28 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/15.ta =====================
+PAT finished successfully.
+Time: 55.75 sec (Real time) / 55.20 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/16.ta =====================
+Command terminated by signal 9
+Time: 1808.37 sec (Real time) / 1799.50 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/17.ta =====================
+PAT finished successfully.
+Time: 81.97 sec (Real time) / 81.34 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/18.ta =====================
+PAT finished successfully.
+Time: 53.02 sec (Real time) / 52.55 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/19.ta =====================
+Command terminated by signal 9
+Time: 1806.36 sec (Real time) / 1799.57 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/1.ta =====================
+Unable to resize subtable 172 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 6025164
+Command exited with non-zero status 1
+Time: 96.73 sec (Real time) / 95.16 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/20.ta =====================
+Unable to resize subtable 172 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 6025164
+Command exited with non-zero status 1
+Time: 98.77 sec (Real time) / 97.14 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/21.ta =====================
+Unable to resize subtable 173 for lack of memory
+Slowing down table growth: GC fraction = 0.20	minDead = 6105139
+Command exited with non-zero status 1
+Time: 163.85 sec (Real time) / 162.25 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/22.ta =====================
+Slowing down table growth: GC fraction = 0.20	minDead = 6497638
+Command exited with non-zero status 1
+Time: 94.94 sec (Real time) / 93.56 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/23.ta =====================
+Slowing down table growth: GC fraction = 0.20	minDead = 6530048
+Command exited with non-zero status 1
+Time: 155.06 sec (Real time) / 153.32 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/24.ta =====================
+PAT finished successfully.
+Time: 136.17 sec (Real time) / 135.26 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/25.ta =====================
+PAT finished successfully.
+Time: 101.25 sec (Real time) / 100.50 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/26.ta =====================
+Command terminated by signal 9
+Time: 1806.78 sec (Real time) / 1799.79 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/27.ta =====================
+PAT finished successfully.
+Time: 159.96 sec (Real time) / 158.35 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/28.ta =====================
+PAT finished successfully.
+Time: 116.72 sec (Real time) / 116.07 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/29.ta =====================
+Command terminated by signal 9
+Time: 1813.70 sec (Real time) / 1799.34 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/2.ta =====================
+Command terminated by signal 9
+Time: 1810.37 sec (Real time) / 1799.13 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/30.ta =====================
+PAT finished successfully.
+Time: 180.23 sec (Real time) / 179.10 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/31.ta =====================
+PAT finished successfully.
+Time: 130.32 sec (Real time) / 128.78 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/32.ta =====================
+Command terminated by signal 9
+Time: 1815.72 sec (Real time) / 1799.76 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/33.ta =====================
+PAT finished successfully.
+Time: 441.58 sec (Real time) / 439.30 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/34.ta =====================
+PAT finished successfully.
+Time: 412.48 sec (Real time) / 409.25 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/35.ta =====================
+Command terminated by signal 9
+Time: 1811.33 sec (Real time) / 1799.71 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/36.ta =====================
+Command terminated by signal 9
+Time: 1806.52 sec (Real time) / 1798.97 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/37.ta =====================
+Command terminated by signal 9
+Time: 1810.32 sec (Real time) / 1799.71 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/38.ta =====================
+Command terminated by signal 9
+Time: 1813.32 sec (Real time) / 1799.43 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/39.ta =====================
+Command terminated by signal 9
+Time: 1807.66 sec (Real time) / 1799.02 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/3.ta =====================
+PAT finished successfully.
+Time: 72.59 sec (Real time) / 72.08 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/40.ta =====================
+Command terminated by signal 9
+Time: 1805.56 sec (Real time) / 1799.84 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/41.ta =====================
+Command terminated by signal 9
+Time: 3531.95 sec (Real time) / 1799.56 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/4.ta =====================
+PAT finished successfully.
+Time: 44.23 sec (Real time) / 43.80 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/5.ta =====================
+Command terminated by signal 9
+Time: 1806.21 sec (Real time) / 1799.74 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/6.ta =====================
+PAT finished successfully.
+Time: 81.30 sec (Real time) / 80.71 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/7.ta =====================
+PAT finished successfully.
+Time: 52.98 sec (Real time) / 52.55 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100/8.ta =====================
+Command terminated by signal 9
+Time: 1806.25 sec (Real time) / 1799.73 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100/9.ta =====================
+PAT finished successfully.
+Time: 101.17 sec (Real time) / 100.36 sec (User CPU time)

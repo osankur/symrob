@@ -1,0 +1,436 @@
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_10L_300.xml =====================
+** Node peak: 8724814
+** CEGAR iterations: 79 w/ 168 clock predicates
+Result: false
+Time: 967.71 sec (Real time) / 956.55 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_200.xml =====================
+** Node peak: 48034
+** CEGAR iterations: 14 w/ 41 clock predicates
+Result: true
+Time: 1.30 sec (Real time) / 1.25 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_290.xml =====================
+** Node peak: 30660
+** CEGAR iterations: 17 w/ 38 clock predicates
+Result: true
+Time: 1.70 sec (Real time) / 1.64 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_4L_300.xml =====================
+** Node peak: 24528
+** CEGAR iterations: 9 w/ 32 clock predicates
+Result: false
+Time: 1.29 sec (Real time) / 1.24 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_5L_290.xml =====================
+** Node peak: 37814
+** CEGAR iterations: 19 w/ 45 clock predicates
+Result: true
+Time: 2.56 sec (Real time) / 2.49 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_5L_300.xml =====================
+** Node peak: 65408
+** CEGAR iterations: 16 w/ 48 clock predicates
+Result: false
+Time: 4.62 sec (Real time) / 4.46 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_6L_290.xml =====================
+** Node peak: 45990
+** CEGAR iterations: 18 w/ 52 clock predicates
+Result: true
+Time: 3.25 sec (Real time) / 3.18 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_6L_300.xml =====================
+** Node peak: 239148
+** CEGAR iterations: 34 w/ 84 clock predicates
+Result: false
+Time: 33.05 sec (Real time) / 32.46 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_7L_290.xml =====================
+** Node peak: 99134
+** CEGAR iterations: 28 w/ 74 clock predicates
+Result: true
+Time: 8.70 sec (Real time) / 8.54 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_7L_300.xml =====================
+** Node peak: 892206
+** CEGAR iterations: 57 w/ 113 clock predicates
+Result: false
+Time: 57.24 sec (Real time) / 56.26 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_8L_300.xml =====================
+** Node peak: 862568
+** CEGAR iterations: 60 w/ 123 clock predicates
+Result: false
+Time: 86.41 sec (Real time) / 85.12 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba3b5y.aag_9L_300.xml =====================
+** Node peak: 2469152
+** CEGAR iterations: 73 w/ 154 clock predicates
+Result: false
+Time: 210.59 sec (Real time) / 207.34 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_10L_300.xml =====================
+** Node peak: 1231510
+** CEGAR iterations: 56 w/ 128 clock predicates
+Result: true
+Time: 478.48 sec (Real time) / 473.28 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_10L_500.xml =====================
+Command terminated by signal 9
+Time: 1809.15 sec (Real time) / 1792.01 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_4L_200.xml =====================
+** Node peak: 49056
+** CEGAR iterations: 14 w/ 41 clock predicates
+Result: true
+Time: 1.41 sec (Real time) / 1.35 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_4L_300.xml =====================
+** Node peak: 25550
+** CEGAR iterations: 9 w/ 32 clock predicates
+Result: false
+Time: 1.27 sec (Real time) / 1.21 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_5L_200.xml =====================
+** Node peak: 64386
+** CEGAR iterations: 17 w/ 49 clock predicates
+Result: true
+Time: 2.25 sec (Real time) / 2.19 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_5L_300.xml =====================
+** Node peak: 65408
+** CEGAR iterations: 16 w/ 48 clock predicates
+Result: false
+Time: 4.59 sec (Real time) / 4.44 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_6L_300.xml =====================
+** Node peak: 125706
+** CEGAR iterations: 28 w/ 72 clock predicates
+Result: true
+Time: 17.46 sec (Real time) / 17.25 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_6L_500.xml =====================
+** Node peak: 62342
+** CEGAR iterations: 17 w/ 52 clock predicates
+Result: false
+Time: 12.82 sec (Real time) / 12.54 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_7L_300.xml =====================
+** Node peak: 248346
+** CEGAR iterations: 39 w/ 90 clock predicates
+Result: true
+Time: 32.82 sec (Real time) / 32.52 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_7L_500.xml =====================
+** Node peak: 756280
+** CEGAR iterations: 53 w/ 112 clock predicates
+Result: false
+Time: 122.88 sec (Real time) / 121.70 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_8L_300.xml =====================
+** Node peak: 322952
+** CEGAR iterations: 42 w/ 100 clock predicates
+Result: true
+Time: 54.15 sec (Real time) / 53.48 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_8L_500.xml =====================
+** Node peak: 1274434
+** CEGAR iterations: 56 w/ 122 clock predicates
+Result: false
+Time: 169.17 sec (Real time) / 167.30 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_9L_300.xml =====================
+** Node peak: 542682
+** CEGAR iterations: 49 w/ 114 clock predicates
+Result: true
+Time: 138.08 sec (Real time) / 136.51 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/amba4c7y.aag_9L_500.xml =====================
+** Node peak: 2106342
+** CEGAR iterations: 64 w/ 143 clock predicates
+Result: false
+Time: 299.21 sec (Real time) / 296.39 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_100.xml =====================
+** Node peak: 3066
+** CEGAR iterations: 3 w/ 20 clock predicates
+Result: true
+Time: 0.14 sec (Real time) / 0.12 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_150.xml =====================
+** Node peak: 3066
+** CEGAR iterations: 5 w/ 22 clock predicates
+Result: false
+Time: 0.23 sec (Real time) / 0.19 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/bs16y.aag_4L_200.xml =====================
+** Node peak: 4088
+** CEGAR iterations: 5 w/ 24 clock predicates
+Result: false
+Time: 0.23 sec (Real time) / 0.20 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/cnt5y.aag_4L_200.xml =====================
+** Node peak: 63364
+** CEGAR iterations: 21 w/ 48 clock predicates
+Result: true
+Time: 0.59 sec (Real time) / 0.53 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/cnt5y.aag_4L_300.xml =====================
+** Node peak: 54166
+** CEGAR iterations: 19 w/ 45 clock predicates
+Result: false
+Time: 0.60 sec (Real time) / 0.54 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_10L_500.xml =====================
+Command terminated by signal 9
+Time: 1809.68 sec (Real time) / 1792.12 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_4L_200.xml =====================
+** Node peak: 47012
+** CEGAR iterations: 14 w/ 41 clock predicates
+Result: true
+Time: 0.96 sec (Real time) / 0.91 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_4L_300.xml =====================
+** Node peak: 23506
+** CEGAR iterations: 9 w/ 32 clock predicates
+Result: false
+Time: 0.86 sec (Real time) / 0.81 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_5L_300.xml =====================
+** Node peak: 63364
+** CEGAR iterations: 16 w/ 48 clock predicates
+Result: false
+Time: 3.43 sec (Real time) / 3.34 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_300.xml =====================
+** Node peak: 64386
+** CEGAR iterations: 17 w/ 52 clock predicates
+Result: true
+Time: 5.81 sec (Real time) / 5.67 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_400.xml =====================
+** Node peak: 78694
+** CEGAR iterations: 19 w/ 56 clock predicates
+Result: false
+Time: 11.62 sec (Real time) / 11.41 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_6L_500.xml =====================
+** Node peak: 72562
+** CEGAR iterations: 18 w/ 54 clock predicates
+Result: false
+Time: 9.97 sec (Real time) / 9.72 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_7L_500.xml =====================
+** Node peak: 737884
+** CEGAR iterations: 54 w/ 114 clock predicates
+Result: false
+Time: 95.00 sec (Real time) / 93.69 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_8L_500.xml =====================
+** Node peak: 885052
+** CEGAR iterations: 57 w/ 124 clock predicates
+Result: false
+Time: 128.09 sec (Real time) / 126.42 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/factory_assembly_3x3_1_1errors.aag_9L_500.xml =====================
+** Node peak: 4914798
+** CEGAR iterations: 78 w/ 161 clock predicates
+Result: false
+Time: 537.18 sec (Real time) / 531.07 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_10L_400.xml =====================
+** Node peak: 963746
+** CEGAR iterations: 61 w/ 140 clock predicates
+Result: false
+Time: 309.72 sec (Real time) / 305.57 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_4L_300.xml =====================
+** Node peak: 223818
+** CEGAR iterations: 36 w/ 65 clock predicates
+Result: false
+Time: 3.30 sec (Real time) / 3.21 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_5L_250.xml =====================
+** Node peak: 63364
+** CEGAR iterations: 22 w/ 50 clock predicates
+Result: true
+Time: 1.58 sec (Real time) / 1.53 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_5L_300.xml =====================
+** Node peak: 219730
+** CEGAR iterations: 37 w/ 71 clock predicates
+Result: false
+Time: 4.29 sec (Real time) / 4.19 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_6L_300.xml =====================
+** Node peak: 34748
+** CEGAR iterations: 16 w/ 43 clock predicates
+Result: false
+Time: 1.57 sec (Real time) / 1.49 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_7L_300.xml =====================
+** Node peak: 147168
+** CEGAR iterations: 35 w/ 78 clock predicates
+Result: false
+Time: 6.82 sec (Real time) / 6.70 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_7L_400.xml =====================
+** Node peak: 40880
+** CEGAR iterations: 16 w/ 50 clock predicates
+Result: false
+Time: 2.57 sec (Real time) / 2.51 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_8L_400.xml =====================
+** Node peak: 63364
+** CEGAR iterations: 19 w/ 61 clock predicates
+Result: false
+Time: 6.13 sec (Real time) / 6.00 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf2b3unrealy.aag_9L_400.xml =====================
+** Node peak: 810446
+** CEGAR iterations: 56 w/ 127 clock predicates
+Result: false
+Time: 82.04 sec (Real time) / 80.62 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_10L_300.xml =====================
+** Node peak: 150234
+** CEGAR iterations: 35 w/ 101 clock predicates
+Result: false
+Time: 861.34 sec (Real time) / 854.02 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_5L_290.xml =====================
+** Node peak: 71540
+** CEGAR iterations: 22 w/ 57 clock predicates
+Result: true
+Time: 3.76 sec (Real time) / 3.69 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_5L_300.xml =====================
+** Node peak: 42924
+** CEGAR iterations: 15 w/ 44 clock predicates
+Result: false
+Time: 3.23 sec (Real time) / 3.13 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_6L_290.xml =====================
+** Node peak: 65408
+** CEGAR iterations: 23 w/ 61 clock predicates
+Result: true
+Time: 7.56 sec (Real time) / 7.39 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_6L_300.xml =====================
+** Node peak: 73584
+** CEGAR iterations: 22 w/ 62 clock predicates
+Result: false
+Time: 10.58 sec (Real time) / 10.42 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_7L_290.xml =====================
+** Node peak: 106288
+** CEGAR iterations: 27 w/ 73 clock predicates
+Result: true
+Time: 15.64 sec (Real time) / 15.45 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_7L_300.xml =====================
+** Node peak: 90958
+** CEGAR iterations: 24 w/ 72 clock predicates
+Result: false
+Time: 20.90 sec (Real time) / 20.65 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_8L_300.xml =====================
+** Node peak: 112420
+** CEGAR iterations: 27 w/ 82 clock predicates
+Result: false
+Time: 43.98 sec (Real time) / 43.49 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/genbuf5f5n.aag_9L_300.xml =====================
+** Node peak: 118552
+** CEGAR iterations: 31 w/ 91 clock predicates
+Result: false
+Time: 156.53 sec (Real time) / 154.79 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_10L_300.xml =====================
+** Node peak: 1181432
+** CEGAR iterations: 56 w/ 129 clock predicates
+Result: true
+Time: 589.92 sec (Real time) / 584.12 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_4L_150.xml =====================
+** Node peak: 5110
+** CEGAR iterations: 6 w/ 23 clock predicates
+Result: true
+Time: 0.35 sec (Real time) / 0.33 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_4L_300.xml =====================
+** Node peak: 23506
+** CEGAR iterations: 9 w/ 32 clock predicates
+Result: false
+Time: 0.90 sec (Real time) / 0.85 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_5L_150.xml =====================
+** Node peak: 6132
+** CEGAR iterations: 7 w/ 28 clock predicates
+Result: true
+Time: 0.56 sec (Real time) / 0.52 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_5L_300.xml =====================
+** Node peak: 63364
+** CEGAR iterations: 16 w/ 48 clock predicates
+Result: false
+Time: 3.64 sec (Real time) / 3.55 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_150.xml =====================
+** Node peak: 16352
+** CEGAR iterations: 11 w/ 39 clock predicates
+Result: true
+Time: 1.49 sec (Real time) / 1.43 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_300.xml =====================
+** Node peak: 64386
+** CEGAR iterations: 17 w/ 52 clock predicates
+Result: true
+Time: 6.11 sec (Real time) / 5.96 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_6L_500.xml =====================
+** Node peak: 72562
+** CEGAR iterations: 18 w/ 54 clock predicates
+Result: false
+Time: 11.04 sec (Real time) / 10.82 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_150.xml =====================
+** Node peak: 34748
+** CEGAR iterations: 17 w/ 50 clock predicates
+Result: true
+Time: 4.08 sec (Real time) / 3.97 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_300.xml =====================
+** Node peak: 517132
+** CEGAR iterations: 42 w/ 92 clock predicates
+Result: true
+Time: 27.55 sec (Real time) / 27.23 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_7L_500.xml =====================
+** Node peak: 737884
+** CEGAR iterations: 54 w/ 114 clock predicates
+Result: false
+Time: 96.39 sec (Real time) / 95.44 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_8L_300.xml =====================
+** Node peak: 531440
+** CEGAR iterations: 45 w/ 102 clock predicates
+Result: true
+Time: 45.37 sec (Real time) / 44.67 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_8L_500.xml =====================
+** Node peak: 782852
+** CEGAR iterations: 57 w/ 124 clock predicates
+Result: false
+Time: 130.84 sec (Real time) / 129.41 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess1/moving_obstacle_8x8_1glitches.aag_9L_300.xml =====================
+** Node peak: 541660
+** CEGAR iterations: 54 w/ 118 clock predicates
+Result: true
+Time: 122.42 sec (Real time) / 120.82 sec (User CPU time)

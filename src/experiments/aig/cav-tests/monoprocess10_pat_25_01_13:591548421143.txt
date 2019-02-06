@@ -1,0 +1,31 @@
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_10L_300.ta =====================
+Command terminated by signal 9
+Time: 1809.31 sec (Real time) / 1798.29 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_4L_200.ta =====================
+PAT finished successfully.
+Time: 279.74 sec (Real time) / 278.10 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_4L_290.ta =====================
+PAT finished successfully.
+Time: 306.11 sec (Real time) / 304.64 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_4L_300.ta =====================
+PAT finished successfully.
+Time: 371.39 sec (Real time) / 369.36 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_5L_290.ta =====================
+PAT finished successfully.
+Time: 422.66 sec (Real time) / 420.20 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_5L_300.ta =====================
+PAT finished successfully.
+Time: 479.08 sec (Real time) / 476.98 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_6L_290.ta =====================
+PAT finished successfully.
+Time: 656.79 sec (Real time) / 653.10 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10/amba3b5y.aag_6L_300.ta =====================

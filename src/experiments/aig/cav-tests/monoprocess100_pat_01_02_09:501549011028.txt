@@ -1,0 +1,42 @@
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_10L_300.ta =====================
+Command terminated by signal 9
+Time: 1843.62 sec (Real time) / 1798.13 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_4L_200.ta =====================
+Command terminated by signal 9
+Time: 1808.77 sec (Real time) / 1798.82 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_4L_290.ta =====================
+Command terminated by signal 9
+Time: 1810.39 sec (Real time) / 1799.45 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_4L_300.ta =====================
+Command terminated by signal 9
+Time: 1809.40 sec (Real time) / 1799.31 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_5L_290.ta =====================
+Command terminated by signal 9
+Time: 1805.07 sec (Real time) / 1799.70 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_5L_300.ta =====================
+Command terminated by signal 9
+Time: 1806.18 sec (Real time) / 1798.70 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_6L_290.ta =====================
+Command terminated by signal 9
+Time: 1807.96 sec (Real time) / 1799.08 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_6L_300.ta =====================
+Command terminated by signal 9
+Time: 1805.60 sec (Real time) / 1799.59 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess100/amba3b5y.aag_7L_290.ta =====================

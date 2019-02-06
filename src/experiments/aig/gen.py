@@ -167,6 +167,6 @@ def gen_wave():
 
 if __name__ == "__main__":
     for i in [10,100]:
-    #    gen_mono(i);
+        gen_mono(i);
         gen_multiprocess(i);
     gen_wave();

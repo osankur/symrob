@@ -1,0 +1,338 @@
+-BEGIN-
+=====================  ./multiprocess100//0 =====================
+Time: 554.96 sec (Real time) / 544.05 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//1 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5410816
+TCHECKER_RSS_NOW 5410816
+TCHECKER_TIME_USER 0.038608
+TCHECKER_TIME_OS 0
+Time: 0.04 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//10 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5054464
+TCHECKER_RSS_NOW 5054464
+TCHECKER_TIME_USER 0.03684
+TCHECKER_TIME_OS 0.000114
+Time: 0.04 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//11 =====================
+Time: 585.70 sec (Real time) / 574.67 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//12 =====================
+Time: 572.28 sec (Real time) / 560.63 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//13 =====================
+Time: 564.89 sec (Real time) / 554.34 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//14 =====================
+Time: 572.72 sec (Real time) / 561.38 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//15 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5038080
+TCHECKER_RSS_NOW 5038080
+TCHECKER_TIME_USER 0.044807
+TCHECKER_TIME_OS 0.001956
+Time: 0.49 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//16 =====================
+Time: 595.43 sec (Real time) / 582.96 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//17 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 8891027
+NODES_VISITED 6840895
+NODES_UNVISITED 2050132
+PW_SIZE 6325839
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 4736253952
+TCHECKER_RSS_NOW 4736253952
+TCHECKER_TIME_USER 334.8
+TCHECKER_TIME_OS 1.56369
+Time: 337.21 sec (Real time) / 334.80 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//18 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 4964352
+TCHECKER_RSS_NOW 4964352
+TCHECKER_TIME_USER 0.028193
+TCHECKER_TIME_OS 0.001032
+Time: 0.03 sec (Real time) / 0.02 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//19 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 6611817
+NODES_VISITED 5164381
+NODES_UNVISITED 1447436
+PW_SIZE 4630491
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 3531722752
+TCHECKER_RSS_NOW 3531722752
+TCHECKER_TIME_USER 258.345
+TCHECKER_TIME_OS 1.16278
+Time: 260.12 sec (Real time) / 258.34 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//2 =====================
+Time: 570.37 sec (Real time) / 558.98 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//20 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5226496
+TCHECKER_RSS_NOW 5226496
+TCHECKER_TIME_USER 0.04987
+TCHECKER_TIME_OS 0.001997
+Time: 0.75 sec (Real time) / 0.05 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//21 =====================
+Time: 555.76 sec (Real time) / 544.95 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//22 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5496832
+TCHECKER_RSS_NOW 5496832
+TCHECKER_TIME_USER 0.048421
+TCHECKER_TIME_OS 0.002936
+Time: 0.29 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//23 =====================
+Time: 554.41 sec (Real time) / 543.13 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//24 =====================
+Time: 494.82 sec (Real time) / 480.68 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//25 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5226496
+TCHECKER_RSS_NOW 5226496
+TCHECKER_TIME_USER 0.041016
+TCHECKER_TIME_OS 0.001932
+Time: 0.04 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//26 =====================
+Time: 509.78 sec (Real time) / 499.00 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//27 =====================
+Time: 1803.77 sec (Real time) / 1798.25 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//28 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5165056
+TCHECKER_RSS_NOW 5165056
+TCHECKER_TIME_USER 0.027566
+TCHECKER_TIME_OS 0.000983
+Time: 0.09 sec (Real time) / 0.02 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//29 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 37033731
+NODES_VISITED 26915587
+NODES_UNVISITED 10118144
+PW_SIZE 5949633
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 5981016064
+TCHECKER_RSS_NOW 5981016064
+TCHECKER_TIME_USER 1650.29
+TCHECKER_TIME_OS 1.9572
+Time: 1655.89 sec (Real time) / 1650.29 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//3 =====================
+Time: 568.31 sec (Real time) / 556.67 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//30 =====================
+Time: 1803.59 sec (Real time) / 1799.51 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//31 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5337088
+TCHECKER_RSS_NOW 5337088
+TCHECKER_TIME_USER 0.035355
+TCHECKER_TIME_OS 0.00202
+Time: 0.06 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//32 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 6491907
+NODES_VISITED 5287171
+NODES_UNVISITED 1204736
+PW_SIZE 1467073
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 1426149376
+TCHECKER_RSS_NOW 1426149376
+TCHECKER_TIME_USER 289.184
+TCHECKER_TIME_OS 0.483104
+Time: 290.27 sec (Real time) / 289.18 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//33 =====================
+Time: 541.59 sec (Real time) / 530.26 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//34 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5132288
+TCHECKER_RSS_NOW 5132288
+TCHECKER_TIME_USER 0.044075
+TCHECKER_TIME_OS 0.002012
+Time: 0.32 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//35 =====================
+Time: 525.21 sec (Real time) / 514.53 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//36 =====================
+Time: 536.62 sec (Real time) / 525.33 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//37 =====================
+Time: 503.56 sec (Real time) / 491.61 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//38 =====================
+Time: 483.55 sec (Real time) / 470.56 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//39 =====================
+Time: 555.78 sec (Real time) / 545.27 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//4 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5095424
+TCHECKER_RSS_NOW 5095424
+TCHECKER_TIME_USER 0.043338
+TCHECKER_TIME_OS 0.002992
+Time: 0.05 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//40 =====================
+Time: 483.62 sec (Real time) / 472.54 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//41 =====================
+Time: 520.94 sec (Real time) / 509.78 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//5 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 13939217
+NODES_VISITED 10977889
+NODES_UNVISITED 2961328
+PW_SIZE 9772403
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 7422308352
+TCHECKER_RSS_NOW 7422308352
+TCHECKER_TIME_USER 548.218
+TCHECKER_TIME_OS 2.55805
+Time: 552.48 sec (Real time) / 548.21 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//6 =====================
+Time: 570.80 sec (Real time) / 557.93 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//7 =====================
+MODEL_NAME Multi
+ACCEPTING_LABELS err
+NODES_TOTAL 15
+NODES_VISITED 8
+NODES_UNVISITED 7
+PW_SIZE 15
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 4997120
+TCHECKER_RSS_NOW 4997120
+TCHECKER_TIME_USER 0.03586
+TCHECKER_TIME_OS 0
+Time: 0.04 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  ./multiprocess100//8 =====================
+Time: 588.61 sec (Real time) / 577.39 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./multiprocess100//9 =====================
+Time: 567.28 sec (Real time) / 555.83 sec (User CPU time)
+timeout or error

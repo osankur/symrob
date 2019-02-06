@@ -1,0 +1,357 @@
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_10L_300 =====================
+Time: 267.75 sec (Real time) / 259.19 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_4L_200 =====================
+Time: 436.50 sec (Real time) / 424.02 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_4L_290 =====================
+Time: 433.22 sec (Real time) / 421.76 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_4L_300 =====================
+Time: 434.13 sec (Real time) / 422.62 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_5L_290 =====================
+Time: 254.40 sec (Real time) / 243.51 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_5L_300 =====================
+Time: 254.90 sec (Real time) / 245.20 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_6L_290 =====================
+Time: 260.20 sec (Real time) / 250.77 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_6L_300 =====================
+Time: 261.80 sec (Real time) / 252.60 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_7L_290 =====================
+Time: 263.07 sec (Real time) / 252.80 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_7L_300 =====================
+Time: 262.17 sec (Real time) / 252.93 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_8L_300 =====================
+Time: 264.94 sec (Real time) / 255.73 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba3b5y.aag_9L_300 =====================
+Time: 263.75 sec (Real time) / 254.24 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_10L_300 =====================
+Time: 225.54 sec (Real time) / 217.29 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_4L_200 =====================
+Time: 204.09 sec (Real time) / 194.43 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_4L_300 =====================
+Time: 204.53 sec (Real time) / 193.74 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_5L_200 =====================
+Time: 207.40 sec (Real time) / 198.58 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_5L_300 =====================
+Time: 208.07 sec (Real time) / 197.88 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_6L_300 =====================
+Time: 210.86 sec (Real time) / 199.86 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_7L_300 =====================
+Time: 217.10 sec (Real time) / 207.42 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_8L_300 =====================
+Time: 221.86 sec (Real time) / 212.05 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//amba4c7y.aag_9L_300 =====================
+Time: 228.28 sec (Real time) / 215.73 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//bs16y.aag_4L_100 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 1101
+NODES_VISITED 827
+NODES_UNVISITED 274
+PW_SIZE 583
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5648384
+TCHECKER_RSS_NOW 5648384
+TCHECKER_TIME_USER 0.13178
+TCHECKER_TIME_OS 0.001991
+Time: 0.47 sec (Real time) / 0.13 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//bs16y.aag_4L_150 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 1101
+NODES_VISITED 827
+NODES_UNVISITED 274
+PW_SIZE 583
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5722112
+TCHECKER_RSS_NOW 5722112
+TCHECKER_TIME_USER 0.080688
+TCHECKER_TIME_OS 0.00097
+Time: 0.30 sec (Real time) / 0.08 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//bs16y.aag_4L_200 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 1705
+NODES_VISITED 1295
+NODES_UNVISITED 410
+PW_SIZE 634
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 5910528
+TCHECKER_RSS_NOW 5910528
+TCHECKER_TIME_USER 0.098243
+TCHECKER_TIME_OS 0.002882
+Time: 0.19 sec (Real time) / 0.09 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//cnt5y.aag_4L_200 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 705
+NODES_VISITED 538
+NODES_UNVISITED 167
+PW_SIZE 138
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 5468160
+TCHECKER_RSS_NOW 5468160
+TCHECKER_TIME_USER 0.110647
+TCHECKER_TIME_OS 0.004013
+Time: 0.33 sec (Real time) / 0.11 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//cnt5y.aag_4L_300 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 829
+NODES_VISITED 652
+NODES_UNVISITED 177
+PW_SIZE 198
+TCHECKER_OUTCOME true
+TCHECKER_RSS_PEAK 5656576
+TCHECKER_RSS_NOW 5656576
+TCHECKER_TIME_USER 0.053494
+TCHECKER_TIME_OS 0.000952
+Time: 0.05 sec (Real time) / 0.05 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_10L_500 =====================
+Time: 276.25 sec (Real time) / 265.37 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_4L_200 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 12451835
+NODES_VISITED 8912895
+NODES_UNVISITED 3538940
+PW_SIZE 6946808
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 4843352064
+TCHECKER_RSS_NOW 4843352064
+TCHECKER_TIME_USER 251.45
+TCHECKER_TIME_OS 1.49504
+Time: 253.62 sec (Real time) / 251.45 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_4L_300 =====================
+Time: 1803.17 sec (Real time) / 1798.45 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_5L_300 =====================
+Time: 1802.82 sec (Real time) / 1798.07 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_6L_300 =====================
+Time: 1803.22 sec (Real time) / 1797.68 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_6L_400 =====================
+Time: 448.45 sec (Real time) / 437.81 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_6L_500 =====================
+Time: 449.82 sec (Real time) / 438.88 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_7L_500 =====================
+Time: 265.36 sec (Real time) / 255.72 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_8L_500 =====================
+Time: 273.20 sec (Real time) / 262.59 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//factory_assembly_3x3_1_1errors.aag_9L_500 =====================
+Time: 278.46 sec (Real time) / 267.83 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_10L_400 =====================
+Time: 297.69 sec (Real time) / 288.42 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_4L_300 =====================
+Time: 1803.05 sec (Real time) / 1799.37 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_5L_250 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 561467
+NODES_VISITED 426207
+NODES_UNVISITED 135260
+PW_SIZE 307452
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 221163520
+TCHECKER_RSS_NOW 221163520
+TCHECKER_TIME_USER 11.991
+TCHECKER_TIME_OS 0.06386
+Time: 12.15 sec (Real time) / 11.99 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_5L_300 =====================
+Time: 1802.93 sec (Real time) / 1799.33 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_6L_300 =====================
+Time: 1803.00 sec (Real time) / 1798.90 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_7L_400 =====================
+Time: 1802.83 sec (Real time) / 1798.82 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_8L_400 =====================
+Time: 1803.24 sec (Real time) / 1797.47 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf2b3unrealy.aag_9L_400 =====================
+Time: 291.97 sec (Real time) / 282.88 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_10L_300 =====================
+Time: 247.54 sec (Real time) / 238.60 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_5L_290 =====================
+Time: 225.93 sec (Real time) / 214.52 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_5L_300 =====================
+Time: 226.48 sec (Real time) / 215.14 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_6L_290 =====================
+Time: 227.81 sec (Real time) / 218.64 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_6L_300 =====================
+Time: 227.52 sec (Real time) / 218.13 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_7L_290 =====================
+Time: 237.32 sec (Real time) / 228.07 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_7L_300 =====================
+Time: 238.41 sec (Real time) / 227.39 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_8L_300 =====================
+Time: 242.93 sec (Real time) / 233.90 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//genbuf5f5n.aag_9L_300 =====================
+Time: 245.99 sec (Real time) / 236.53 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_10L_300 =====================
+Time: 279.43 sec (Real time) / 270.40 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_4L_150 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 12451835
+NODES_VISITED 8912895
+NODES_UNVISITED 3538940
+PW_SIZE 6946808
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 4843327488
+TCHECKER_RSS_NOW 4843327488
+TCHECKER_TIME_USER 254.629
+TCHECKER_TIME_OS 1.56987
+Time: 256.89 sec (Real time) / 254.62 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_4L_300 =====================
+Time: 1803.24 sec (Real time) / 1798.34 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_5L_150 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 14811131
+NODES_VISITED 11272191
+NODES_UNVISITED 3538940
+PW_SIZE 8126456
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 6044913664
+TCHECKER_RSS_NOW 6044913664
+TCHECKER_TIME_USER 340.163
+TCHECKER_TIME_OS 1.92365
+Time: 343.09 sec (Real time) / 340.16 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_5L_300 =====================
+Time: 1803.19 sec (Real time) / 1797.79 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_6L_150 =====================
+MODEL_NAME Mono
+ACCEPTING_LABELS err
+NODES_TOTAL 18563067
+NODES_VISITED 14057471
+NODES_UNVISITED 4505596
+PW_SIZE 10231804
+TCHECKER_OUTCOME false
+TCHECKER_RSS_PEAK 7885369344
+TCHECKER_RSS_NOW 7885369344
+TCHECKER_TIME_USER 453.855
+TCHECKER_TIME_OS 2.27646
+Time: 457.34 sec (Real time) / 453.85 sec (User CPU time)
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_6L_300 =====================
+Time: 1803.42 sec (Real time) / 1797.63 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_7L_150 =====================
+Time: 263.64 sec (Real time) / 254.65 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_7L_300 =====================
+Time: 263.60 sec (Real time) / 254.89 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_8L_300 =====================
+Time: 274.50 sec (Real time) / 265.35 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  ./monoprocess10//moving_obstacle_8x8_1glitches.aag_9L_300 =====================
+Time: 281.38 sec (Real time) / 272.00 sec (User CPU time)
+timeout or error
+
