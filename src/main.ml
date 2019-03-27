@@ -29,19 +29,8 @@ let test () =
 
 let usage () =
   printf
-    "symrob: explicit/symbolic model checker for timed automata
-Usage: symrob [options] <system> [query]
-
-Options:
-  -e\t\t\t\tZone-bsed exact model checking
-  -r\t\t\t\tParameterized zone-based robust model checking
-  -c\t\t\t\tSymbolic Cegar model checking with BDDs
-  --enlarge N\t\t\tExact model checking applied on syntactic enlargement by N(see also --scale)
-  --scale N\t\t\tMultiply all constants by N and run exact model checking
-  --initial-width N\t\tSet the enlargement for acceleration threshold to N (default 10)
-  --greedy{1,2,3}\t\tGreedy level for the acceleration of the cycles of a prefix (default 3)
-  --dfs\t\t\t\tDFS search mode
-  --bfs\t\t\t\tBFS search mode
+    "Symbolic CEGAR Algorithm for checking safety of timed automata
+Usage: abs-symbolic -c model.xml query.q
 "
 
 let execute tafile qfile =

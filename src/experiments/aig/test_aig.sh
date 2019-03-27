@@ -16,7 +16,7 @@ PAT_DIR=~/tools/PAT
 #TIME_LIMIT=1800
 TIME_LIMIT=1800
 # Memory limit in kB:
-MEMORY_LIMIT=2000000
+MEMORY_LIMIT=8000000
 
 # Maybe change the following line to point to GNU time:
 GNU_TIME="time"
@@ -41,6 +41,9 @@ elif [ "$benchmark" == "monoprocess" ]; then
 elif [ "$benchmark" == "wave" ]; then
 		spec="wave.q"
 		suffix=""
+elif [ "$benchmark" == "csma" ]; then
+	spec="csma/csma_input_03.q"
+	suffix=""
 else
     echo "Unknown benchmark"
     exit 1
@@ -87,6 +90,7 @@ for filename in $DIR*.ta; do
      # BEGIN execution of synthesis tool
 		 	 [ -d foo ] || mkdir foo
 			 [ -d /tmp/`dirname $filename` ] || mkdir /tmp/`dirname $filename`
+	     echo "${GNU_TIME} --output=${RES_TXT_FILE} -a -f \"Time: %e sec (Real time) / %U sec (User CPU time)\" ${CALL_MC} $filename /tmp/$filename.out >> ${RES_TXT_FILE}"
 	     ${GNU_TIME} --output=${RES_TXT_FILE} -a -f "Time: %e sec (Real time) / %U sec (User CPU time)" ${CALL_MC} $filename /tmp/$filename.out >> ${RES_TXT_FILE}
 		 fi
      exit_code=$?

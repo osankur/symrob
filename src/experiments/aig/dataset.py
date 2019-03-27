@@ -319,3 +319,13 @@ dataset_wave_sat = [(0, graph_sat[0], 50, False),
                     (4, graph_sat[4], 300, False), # 10s
                     (5, graph_sat[5], 300, False), # 11s
 ]
+
+#for i, (p1,p2,p3,sc,v) in enumerate(dataset_multi):
+#    print str(i) + " & " + p1 + " & " + p2 + " & " + p3 + " & " + str(sc) + "\\\\ \\hline"
+def get_ins(g):
+    return len(filter(lambda x: x, map(lambda node: node[1] == "in", g)))
+
+for i,(j, g, b, tf) in enumerate(dataset_wave_sat):
+    print "a" + str(i) + " & " + str(len(g)) + " & " + str(get_ins(g)) + " & " + str(b) + "\\\\ \\hline"
+for i,(g, b, tf) in enumerate(dataset_wave_unsat):
+    print "b" + str(i) + " & " + str(len(g)) + " & " + str(get_ins(g)) + " & " + str(b) + "\\\\ \\hline"
