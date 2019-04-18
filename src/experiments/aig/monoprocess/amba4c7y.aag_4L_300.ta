@@ -201,78 +201,78 @@ clock: x_46, x_48, x_50, x_52, t;
 	state JustSetIcontrollable_nhgrant0	
 	urgent;
 	trans: [Ln47 == 1] tau -&gt;UpdatedLn47;
-	trans: [[x_46 &gt;= 100000]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
-	trans: [[x_46 &gt;= 150000]] [Ln47 == 0 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
-	trans: [[x_46 &lt;= 99999]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47_becomes0;
-	trans: [[x_46 &lt;= 149999]] [Ln47 == 0 &amp;&amp; Ln47 != 1 ] tau -&gt;UpdatedLn47_becomes1;
+	trans: [[x_46 &gt;= 1000]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
+	trans: [[x_46 &gt;= 1500]] [Ln47 == 0 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47;
+	trans: [[x_46 &lt;= 999]] [Ln47 == 1 &amp;&amp; Ln47 != 1] tau -&gt;UpdatedLn47_becomes0;
+	trans: [[x_46 &lt;= 1499]] [Ln47 == 0 &amp;&amp; Ln47 != 1 ] tau -&gt;UpdatedLn47_becomes1;
 	endstate
 
 	state UpdatedLn47	
 	urgent;
 	trans: [Lreg_controllable_hgrant2_out == (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
-	trans: [[x_48 &gt;= 50000]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
-	trans: [[x_48 &gt;= 200000]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
-	trans: [[x_48 &lt;= 49999]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes0;
-	trans: [[x_48 &lt;= 199999]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) ] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes1;
+	trans: [[x_48 &gt;= 500]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_48 &gt;= 2000]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out;
+	trans: [[x_48 &lt;= 499]] [Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2)] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes0;
+	trans: [[x_48 &lt;= 1999]] [Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) ] tau -&gt;UpdatedLreg_controllable_hgrant2_out_becomes1;
 	endstate
 
 	state UpdatedLn47_becomes0	
-	inv: x_46 &lt;= 100000;
-	trans: [[x_46 &gt;= 100000]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
+	inv: x_46 &lt;= 1000;
+	trans: [[x_46 &gt;= 1000]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
 	endstate
 
 	state UpdatedLn47_becomes1	
-	inv: x_46 &lt;= 150000;
-	trans: [[x_46 &gt;= 150000]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
+	inv: x_46 &lt;= 1500;
+	trans: [[x_46 &gt;= 1500]] tau { Ln47 = 1; } &lt;x_46&gt; -&gt;UpdatedLn47;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant2_out	
 	urgent;
 	trans: [Lreg_controllable_hmaster1_out == (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
-	trans: [[x_50 &gt;= 200000]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
-	trans: [[x_50 &gt;= 300000]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
-	trans: [[x_50 &lt;= 199999]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes0;
-	trans: [[x_50 &lt;= 299999]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) ] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes1;
+	trans: [[x_50 &gt;= 2000]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_50 &gt;= 3000]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out;
+	trans: [[x_50 &lt;= 1999]] [Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1)] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes0;
+	trans: [[x_50 &lt;= 2999]] [Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) ] tau -&gt;UpdatedLreg_controllable_hmaster1_out_becomes1;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant2_out_becomes0	
-	inv: x_48 &lt;= 50000;
-	trans: [[x_48 &gt;= 50000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	inv: x_48 &lt;= 500;
+	trans: [[x_48 &gt;= 500]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant2_out_becomes1	
-	inv: x_48 &lt;= 200000;
-	trans: [[x_48 &gt;= 200000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
+	inv: x_48 &lt;= 2000;
+	trans: [[x_48 &gt;= 2000]] tau { Lreg_controllable_hgrant2_out = (Icontrollable_hgrant2); } &lt;x_48&gt; -&gt;UpdatedLreg_controllable_hgrant2_out;
 	endstate
 
 	state UpdatedLreg_controllable_hmaster1_out	
 	urgent;
 	trans: [Lreg_controllable_hgrant3_out == (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
-	trans: [[x_52 &gt;= 300000]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
+	trans: [[x_52 &gt;= 3000]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
 	trans: [[x_52 &gt;= 0]] [Lreg_controllable_hgrant3_out == 0 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out;
-	trans: [[x_52 &lt;= 299999]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out_becomes0;
+	trans: [[x_52 &lt;= 2999]] [Lreg_controllable_hgrant3_out == 1 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3)] tau -&gt;UpdatedLreg_controllable_hgrant3_out_becomes0;
 	trans: [Lreg_controllable_hgrant3_out == 0 &amp;&amp; Lreg_controllable_hgrant3_out != (Icontrollable_hgrant3) ] tau -&gt;UpdatedLreg_controllable_hgrant3_out_becomes1;
 	endstate
 
 	state UpdatedLreg_controllable_hmaster1_out_becomes0	
-	inv: x_50 &lt;= 200000;
-	trans: [[x_50 &gt;= 200000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	inv: x_50 &lt;= 2000;
+	trans: [[x_50 &gt;= 2000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
 	endstate
 
 	state UpdatedLreg_controllable_hmaster1_out_becomes1	
-	inv: x_50 &lt;= 300000;
-	trans: [[x_50 &gt;= 300000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
+	inv: x_50 &lt;= 3000;
+	trans: [[x_50 &gt;= 3000]] tau { Lreg_controllable_hmaster1_out = (Icontrollable_hmaster1); } &lt;x_50&gt; -&gt;UpdatedLreg_controllable_hmaster1_out;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant3_out	
 	urgent;
-	trans: [[t &lt;= 300000]] tau &lt;t&gt; -&gt;Init;
-	trans: [[t &gt;=300001]] tau { fdead = 1; } -&gt;dead;
+	trans: [[t &lt;= 3000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=3001]] tau { fdead = 1; } -&gt;dead;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant3_out_becomes0	
-	inv: x_52 &lt;= 300000;
-	trans: [[x_52 &gt;= 300000]] tau { Lreg_controllable_hgrant3_out = (Icontrollable_hgrant3); } &lt;x_52&gt; -&gt;UpdatedLreg_controllable_hgrant3_out;
+	inv: x_52 &lt;= 3000;
+	trans: [[x_52 &gt;= 3000]] tau { Lreg_controllable_hgrant3_out = (Icontrollable_hgrant3); } &lt;x_52&gt; -&gt;UpdatedLreg_controllable_hgrant3_out;
 	endstate
 
 	state UpdatedLreg_controllable_hgrant3_out_becomes1	

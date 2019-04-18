@@ -125,34 +125,34 @@ bool Lreg_controllable_hmaster0_out;
 <urgent/>
 </location>
 <location id="loc22"><name>UpdatedLn41_becomes0</name>
-<label kind="invariant">x_40 &lt;= 100</label>
+<label kind="invariant">x_40 &lt;= 1000</label>
 </location>
 <location id="loc23"><name>UpdatedLn41_becomes1</name>
-<label kind="invariant">x_40 &lt;= 150</label>
+<label kind="invariant">x_40 &lt;= 1500</label>
 </location>
 <location id="loc24"><name>UpdatedLreg_controllable_hgrant2_out</name>
 <urgent/>
 </location>
 <location id="loc25"><name>UpdatedLreg_controllable_hgrant2_out_becomes0</name>
-<label kind="invariant">x_42 &lt;= 50</label>
+<label kind="invariant">x_42 &lt;= 500</label>
 </location>
 <location id="loc26"><name>UpdatedLreg_controllable_hgrant2_out_becomes1</name>
-<label kind="invariant">x_42 &lt;= 200</label>
+<label kind="invariant">x_42 &lt;= 2000</label>
 </location>
 <location id="loc27"><name>UpdatedLreg_controllable_hmaster1_out</name>
 <urgent/>
 </location>
 <location id="loc28"><name>UpdatedLreg_controllable_hmaster1_out_becomes0</name>
-<label kind="invariant">x_44 &lt;= 200</label>
+<label kind="invariant">x_44 &lt;= 2000</label>
 </location>
 <location id="loc29"><name>UpdatedLreg_controllable_hmaster1_out_becomes1</name>
-<label kind="invariant">x_44 &lt;= 300</label>
+<label kind="invariant">x_44 &lt;= 3000</label>
 </location>
 <location id="loc30"><name>UpdatedLsys_fair0done_out</name>
 <urgent/>
 </location>
 <location id="loc31"><name>UpdatedLsys_fair0done_out_becomes0</name>
-<label kind="invariant">x_46 &lt;= 300</label>
+<label kind="invariant">x_46 &lt;= 3000</label>
 </location>
 <location id="loc32"><name>UpdatedLsys_fair0done_out_becomes1</name>
 <label kind="invariant">x_46 &lt;= 0</label>
@@ -318,29 +318,29 @@ bool Lreg_controllable_hmaster0_out;
 </transition>
 <transition>
 <source ref="loc20"/><target ref="loc21"/>
-<label kind="guard">Ln41 == 1 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &gt;= 100</label>
+<label kind="guard">Ln41 == 1 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &gt;= 1000</label>
 </transition>
 <transition>
 <source ref="loc20"/><target ref="loc21"/>
-<label kind="guard">Ln41 == 0 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &gt;= 150</label>
+<label kind="guard">Ln41 == 0 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &gt;= 1500</label>
 </transition>
 <transition>
 <source ref="loc20"/><target ref="loc22"/>
-<label kind="guard">Ln41 == 1 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &lt; 100</label>
+<label kind="guard">Ln41 == 1 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &lt; 1000</label>
 </transition>
 <transition>
 <source ref="loc22"/><target ref="loc21"/>
 <label kind="assignment">x_40:=0, Ln41 := 1</label>
-<label kind="guard">x_40 &gt;= 100</label>
+<label kind="guard">x_40 &gt;= 1000</label>
 </transition>
 <transition>
 <source ref="loc20"/><target ref="loc23"/>
-<label kind="guard">Ln41 == 0 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &lt; 150</label>
+<label kind="guard">Ln41 == 0 &amp;&amp; Ln41 != 1 &amp;&amp; x_40 &lt; 1500</label>
 </transition>
 <transition>
 <source ref="loc23"/><target ref="loc21"/>
 <label kind="assignment">x_40:=0, Ln41 := 1</label>
-<label kind="guard">x_40 &gt;= 150</label>
+<label kind="guard">x_40 &gt;= 1500</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
@@ -348,29 +348,29 @@ bool Lreg_controllable_hmaster0_out;
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
-<label kind="guard">Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &gt;= 50</label>
+<label kind="guard">Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &gt;= 500</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
-<label kind="guard">Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &gt;= 200</label>
+<label kind="guard">Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc25"/>
-<label kind="guard">Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &lt; 50</label>
+<label kind="guard">Lreg_controllable_hgrant2_out == 1 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &lt; 500</label>
 </transition>
 <transition>
 <source ref="loc25"/><target ref="loc24"/>
 <label kind="assignment">x_42:=0, Lreg_controllable_hgrant2_out := (Icontrollable_hgrant2)</label>
-<label kind="guard">x_42 &gt;= 50</label>
+<label kind="guard">x_42 &gt;= 500</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc26"/>
-<label kind="guard">Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &lt; 200</label>
+<label kind="guard">Lreg_controllable_hgrant2_out == 0 &amp;&amp; Lreg_controllable_hgrant2_out != (Icontrollable_hgrant2) &amp;&amp; x_42 &lt; 2000</label>
 </transition>
 <transition>
 <source ref="loc26"/><target ref="loc24"/>
 <label kind="assignment">x_42:=0, Lreg_controllable_hgrant2_out := (Icontrollable_hgrant2)</label>
-<label kind="guard">x_42 &gt;= 200</label>
+<label kind="guard">x_42 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc27"/>
@@ -378,68 +378,68 @@ bool Lreg_controllable_hmaster0_out;
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc27"/>
-<label kind="guard">Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &gt;= 200</label>
+<label kind="guard">Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc27"/>
-<label kind="guard">Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &gt;= 300</label>
+<label kind="guard">Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc28"/>
-<label kind="guard">Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &lt; 200</label>
+<label kind="guard">Lreg_controllable_hmaster1_out == 1 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &lt; 2000</label>
 </transition>
 <transition>
 <source ref="loc28"/><target ref="loc27"/>
 <label kind="assignment">x_44:=0, Lreg_controllable_hmaster1_out := (Icontrollable_hmaster1)</label>
-<label kind="guard">x_44 &gt;= 200</label>
+<label kind="guard">x_44 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc29"/>
-<label kind="guard">Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &lt; 300</label>
+<label kind="guard">Lreg_controllable_hmaster1_out == 0 &amp;&amp; Lreg_controllable_hmaster1_out != (Icontrollable_hmaster1) &amp;&amp; x_44 &lt; 3000</label>
 </transition>
 <transition>
 <source ref="loc29"/><target ref="loc27"/>
 <label kind="assignment">x_44:=0, Lreg_controllable_hmaster1_out := (Icontrollable_hmaster1)</label>
-<label kind="guard">x_44 &gt;= 300</label>
+<label kind="guard">x_44 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc27"/><target ref="loc30"/>
-<label kind="guard">Lsys_fair0done_out == ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))</label>
+<label kind="guard">Lsys_fair0done_out == (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))</label>
 </transition>
 <transition>
 <source ref="loc27"/><target ref="loc30"/>
-<label kind="guard">Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))) &amp;&amp; x_46 &gt;= 300</label>
+<label kind="guard">Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41)))) &amp;&amp; x_46 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc27"/><target ref="loc30"/>
-<label kind="guard">Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))) &amp;&amp; x_46 &gt;= 0</label>
+<label kind="guard">Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41)))) &amp;&amp; x_46 &gt;= 0</label>
 </transition>
 <transition>
 <source ref="loc27"/><target ref="loc31"/>
-<label kind="guard">Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))) &amp;&amp; x_46 &lt; 300</label>
+<label kind="guard">Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41)))) &amp;&amp; x_46 &lt; 3000</label>
 </transition>
 <transition>
 <source ref="loc31"/><target ref="loc30"/>
-<label kind="assignment">x_46:=0, Lsys_fair0done_out := ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))</label>
-<label kind="guard">x_46 &gt;= 300</label>
+<label kind="assignment">x_46:=0, Lsys_fair0done_out := (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))</label>
+<label kind="guard">x_46 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc27"/><target ref="loc32"/>
-<label kind="guard">Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))) &amp;&amp; x_46 &lt; 0</label>
+<label kind="guard">Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41)))) &amp;&amp; x_46 &lt; 0</label>
 </transition>
 <transition>
 <source ref="loc32"/><target ref="loc30"/>
-<label kind="assignment">x_46:=0, Lsys_fair0done_out := ((1-((1-((1-((Lsys_fair4done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (Icontrollable_hmaster1))) * (Ii_hbusreq2)))) * ((1-((1-((Lsys_fair3done_out) * (Ln41))) * ((1-((Icontrollable_hmaster0) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq1)))) * ((1-((1-((Lsys_fair2done_out) * (Ln41))) * ((1-((1-(Icontrollable_hmaster0)) * (1-(Icontrollable_hmaster1)))) * (Ii_hbusreq0)))) * ((1-((1-((Lsys_fair1done_out) * (Ln41))) * (1-((1-((Lreg_stateG3_2_out) * (Ln41))) * ((1-((Lreg_stateG3_1_out) * (Ln41))) * (1-((Lreg_stateG3_0_out) * (Ln41)))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41))))))))) * (1-((1-((Lsys_fair0done_out) * (Ln41))) * ((Lreg_stateG2_out) * (Ln41)))))</label>
+<label kind="assignment">x_46:=0, Lsys_fair0done_out := (!(!(!((Lsys_fair4done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; (Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq2))) &amp;&amp; (!(!((Lsys_fair3done_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq1))) &amp;&amp; (!(!((Lsys_fair2done_out) &amp;&amp; (Ln41)) &amp;&amp; (!(!(Icontrollable_hmaster0) &amp;&amp; !(Icontrollable_hmaster1)) &amp;&amp; (Ii_hbusreq0))) &amp;&amp; (!(!((Lsys_fair1done_out) &amp;&amp; (Ln41)) &amp;&amp; !(!((Lreg_stateG3_2_out) &amp;&amp; (Ln41)) &amp;&amp; (!((Lreg_stateG3_1_out) &amp;&amp; (Ln41)) &amp;&amp; !((Lreg_stateG3_0_out) &amp;&amp; (Ln41))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))))) &amp;&amp; !(!((Lsys_fair0done_out) &amp;&amp; (Ln41)) &amp;&amp; ((Lreg_stateG2_out) &amp;&amp; (Ln41))))</label>
 <label kind="guard">x_46 &gt;= 0</label>
 </transition>
 <transition>
 <source ref="loc30"/><target ref="loc0"/>
 <label kind="assignment">T:=0</label>
-<label kind="guard">T &lt;= 300</label>
+<label kind="guard">T &lt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc30"/><target ref="loc1"/>
-<label kind="guard">T &gt;300</label>
+<label kind="guard">T &gt;3000</label>
 </transition>
 </template>
 <instantiation></instantiation>

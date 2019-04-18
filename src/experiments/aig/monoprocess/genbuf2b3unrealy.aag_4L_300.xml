@@ -90,34 +90,34 @@ bool Lreg_i_StoB_REQ0_out;
 <urgent/>
 </location>
 <location id="loc16"><name>UpdatedLn29_becomes0</name>
-<label kind="invariant">x_28 &lt;= 100</label>
+<label kind="invariant">x_28 &lt;= 1000</label>
 </location>
 <location id="loc17"><name>UpdatedLn29_becomes1</name>
-<label kind="invariant">x_28 &lt;= 150</label>
+<label kind="invariant">x_28 &lt;= 1500</label>
 </location>
 <location id="loc18"><name>UpdatedLreg_stateG7_0_out</name>
 <urgent/>
 </location>
 <location id="loc19"><name>UpdatedLreg_stateG7_0_out_becomes0</name>
-<label kind="invariant">x_30 &lt;= 50</label>
+<label kind="invariant">x_30 &lt;= 500</label>
 </location>
 <location id="loc20"><name>UpdatedLreg_stateG7_0_out_becomes1</name>
-<label kind="invariant">x_30 &lt;= 200</label>
+<label kind="invariant">x_30 &lt;= 2000</label>
 </location>
 <location id="loc21"><name>UpdatedLreg_controllable_BtoR_REQ1_out</name>
 <urgent/>
 </location>
 <location id="loc22"><name>UpdatedLreg_controllable_BtoR_REQ1_out_becomes0</name>
-<label kind="invariant">x_32 &lt;= 200</label>
+<label kind="invariant">x_32 &lt;= 2000</label>
 </location>
 <location id="loc23"><name>UpdatedLreg_controllable_BtoR_REQ1_out_becomes1</name>
-<label kind="invariant">x_32 &lt;= 300</label>
+<label kind="invariant">x_32 &lt;= 3000</label>
 </location>
 <location id="loc24"><name>UpdatedLreg_i_RtoB_ACK1_out</name>
 <urgent/>
 </location>
 <location id="loc25"><name>UpdatedLreg_i_RtoB_ACK1_out_becomes0</name>
-<label kind="invariant">x_34 &lt;= 300</label>
+<label kind="invariant">x_34 &lt;= 3000</label>
 </location>
 <location id="loc26"><name>UpdatedLreg_i_RtoB_ACK1_out_becomes1</name>
 <label kind="invariant">x_34 &lt;= 0</label>
@@ -235,59 +235,59 @@ bool Lreg_i_StoB_REQ0_out;
 </transition>
 <transition>
 <source ref="loc14"/><target ref="loc15"/>
-<label kind="guard">Ln29 == 1 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &gt;= 100</label>
+<label kind="guard">Ln29 == 1 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &gt;= 1000</label>
 </transition>
 <transition>
 <source ref="loc14"/><target ref="loc15"/>
-<label kind="guard">Ln29 == 0 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &gt;= 150</label>
+<label kind="guard">Ln29 == 0 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &gt;= 1500</label>
 </transition>
 <transition>
 <source ref="loc14"/><target ref="loc16"/>
-<label kind="guard">Ln29 == 1 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &lt; 100</label>
+<label kind="guard">Ln29 == 1 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &lt; 1000</label>
 </transition>
 <transition>
 <source ref="loc16"/><target ref="loc15"/>
 <label kind="assignment">x_28:=0, Ln29 := 1</label>
-<label kind="guard">x_28 &gt;= 100</label>
+<label kind="guard">x_28 &gt;= 1000</label>
 </transition>
 <transition>
 <source ref="loc14"/><target ref="loc17"/>
-<label kind="guard">Ln29 == 0 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &lt; 150</label>
+<label kind="guard">Ln29 == 0 &amp;&amp; Ln29 != 1 &amp;&amp; x_28 &lt; 1500</label>
 </transition>
 <transition>
 <source ref="loc17"/><target ref="loc15"/>
 <label kind="assignment">x_28:=0, Ln29 := 1</label>
-<label kind="guard">x_28 &gt;= 150</label>
+<label kind="guard">x_28 &gt;= 1500</label>
 </transition>
 <transition>
 <source ref="loc15"/><target ref="loc18"/>
-<label kind="guard">Lreg_stateG7_0_out == ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))</label>
+<label kind="guard">Lreg_stateG7_0_out == (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)))))</label>
 </transition>
 <transition>
 <source ref="loc15"/><target ref="loc18"/>
-<label kind="guard">Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) &amp;&amp; x_30 &gt;= 50</label>
+<label kind="guard">Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))))) &amp;&amp; x_30 &gt;= 500</label>
 </transition>
 <transition>
 <source ref="loc15"/><target ref="loc18"/>
-<label kind="guard">Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) &amp;&amp; x_30 &gt;= 200</label>
+<label kind="guard">Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))))) &amp;&amp; x_30 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc15"/><target ref="loc19"/>
-<label kind="guard">Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) &amp;&amp; x_30 &lt; 50</label>
+<label kind="guard">Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))))) &amp;&amp; x_30 &lt; 500</label>
 </transition>
 <transition>
 <source ref="loc19"/><target ref="loc18"/>
-<label kind="assignment">x_30:=0, Lreg_stateG7_0_out := ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))</label>
-<label kind="guard">x_30 &gt;= 50</label>
+<label kind="assignment">x_30:=0, Lreg_stateG7_0_out := (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)))))</label>
+<label kind="guard">x_30 &gt;= 500</label>
 </transition>
 <transition>
 <source ref="loc15"/><target ref="loc20"/>
-<label kind="guard">Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) &amp;&amp; x_30 &lt; 200</label>
+<label kind="guard">Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))))) &amp;&amp; x_30 &lt; 2000</label>
 </transition>
 <transition>
 <source ref="loc20"/><target ref="loc18"/>
-<label kind="assignment">x_30:=0, Lreg_stateG7_0_out := ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))</label>
-<label kind="guard">x_30 &gt;= 200</label>
+<label kind="assignment">x_30:=0, Lreg_stateG7_0_out := (!(!(!((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_stateG7_0_out) &amp;&amp; (Ln29))) &amp;&amp; (!((!((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; ((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; !((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29))) &amp;&amp; !((((Lreg_nstateG7_1_out) &amp;&amp; (Ln29)) &amp;&amp; !((Lreg_controllable_BtoR_REQ0_out) &amp;&amp; (Ln29))) &amp;&amp; ((Lreg_controllable_BtoR_REQ1_out) &amp;&amp; (Ln29)))))</label>
+<label kind="guard">x_30 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc18"/><target ref="loc21"/>
@@ -295,29 +295,29 @@ bool Lreg_i_StoB_REQ0_out;
 </transition>
 <transition>
 <source ref="loc18"/><target ref="loc21"/>
-<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &gt;= 200</label>
+<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc18"/><target ref="loc21"/>
-<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &gt;= 300</label>
+<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc18"/><target ref="loc22"/>
-<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &lt; 200</label>
+<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &lt; 2000</label>
 </transition>
 <transition>
 <source ref="loc22"/><target ref="loc21"/>
 <label kind="assignment">x_32:=0, Lreg_controllable_BtoR_REQ1_out := (Icontrollable_BtoR_REQ1)</label>
-<label kind="guard">x_32 &gt;= 200</label>
+<label kind="guard">x_32 &gt;= 2000</label>
 </transition>
 <transition>
 <source ref="loc18"/><target ref="loc23"/>
-<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &lt; 300</label>
+<label kind="guard">Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) &amp;&amp; x_32 &lt; 3000</label>
 </transition>
 <transition>
 <source ref="loc23"/><target ref="loc21"/>
 <label kind="assignment">x_32:=0, Lreg_controllable_BtoR_REQ1_out := (Icontrollable_BtoR_REQ1)</label>
-<label kind="guard">x_32 &gt;= 300</label>
+<label kind="guard">x_32 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
@@ -325,7 +325,7 @@ bool Lreg_i_StoB_REQ0_out;
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
-<label kind="guard">Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1) &amp;&amp; x_34 &gt;= 300</label>
+<label kind="guard">Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1) &amp;&amp; x_34 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc24"/>
@@ -333,12 +333,12 @@ bool Lreg_i_StoB_REQ0_out;
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc25"/>
-<label kind="guard">Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1) &amp;&amp; x_34 &lt; 300</label>
+<label kind="guard">Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1) &amp;&amp; x_34 &lt; 3000</label>
 </transition>
 <transition>
 <source ref="loc25"/><target ref="loc24"/>
 <label kind="assignment">x_34:=0, Lreg_i_RtoB_ACK1_out := (Ii_RtoB_ACK1)</label>
-<label kind="guard">x_34 &gt;= 300</label>
+<label kind="guard">x_34 &gt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc21"/><target ref="loc26"/>
@@ -352,11 +352,11 @@ bool Lreg_i_StoB_REQ0_out;
 <transition>
 <source ref="loc24"/><target ref="loc0"/>
 <label kind="assignment">T:=0</label>
-<label kind="guard">T &lt;= 300</label>
+<label kind="guard">T &lt;= 3000</label>
 </transition>
 <transition>
 <source ref="loc24"/><target ref="loc1"/>
-<label kind="guard">T &gt;300</label>
+<label kind="guard">T &gt;3000</label>
 </transition>
 </template>
 <instantiation></instantiation>

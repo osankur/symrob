@@ -1,0 +1,173 @@
+<TA><Declaration> var err : {0..1} = 0;
+var out0 : {0..2} = 2;
+var b0_0 : {0..2} = 2;
+var b0_1 : {0..2} = 2;
+var out1 : {0..2} = 2;
+var b1_0 : {0..2} = 2;
+var b1_1 : {0..2} = 2;
+var b1_2 : {0..2} = 2;
+var b1_3 : {0..2} = 2;
+var out2 : {0..2} = 2;
+var b2_0 : {0..2} = 2;
+var b2_1 : {0..2} = 2;
+var b2_2 : {0..2} = 2;
+var b2_3 : {0..2} = 2;
+var out3 : {0..2} = 2;
+var b3_0 : {0..2} = 2;
+var b3_1 : {0..2} = 2;
+var out4 : {0..2} = 2;
+var b4_0 : {0..2} = 2;
+var b4_1 : {0..2} = 2;
+var out5 : {0..2} = 2;
+var out6 : {0..2} = 2;
+var out7 : {0..2} = 2;
+var out8 : {0..2} = 2;
+var out9 : {0..2} = 2;
+System = Node0()||| Node1()||| Node2()||| Node3()||| Node4()||| Node5()||| Inputs();
+#define Err err==1;
+#assert System reaches Err;
+
+TimedAutomaton Node0
+{
+clock: t, x0;
+
+	state down	
+	inv: x0 &lt;= 100;
+	trans: [[100 &lt;= x0 &amp;&amp; x0 &lt;= 200 &amp;&amp; t &lt;= 1000]] [out5 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; out5 == 1 &amp;&amp; out4 == 1] tau { out0 = 1 } -&gt;up;
+	trans: [[t &gt;= 1001]] tau { out0 = 2;out1 = 2;out2 = 2;out3 = 2;out4 = 2;out5 = 2 } -&gt;down;
+	trans: [[100 &lt;= x0 &amp;&amp; x0 &lt;= 200 ]] [out5 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; !(out5 == 1 &amp;&amp; out4 == 1)] tau { out0 = 0 } -&gt;up;
+	trans: [[x0 == 100 ]] [(out5 != 2 &amp;&amp; out4 != 2) == 0] tau &lt;x0&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x0 &lt;= 200;
+	trans: [[x0 &lt;=200]] tau { out0 = 2 } &lt;x0&gt; -&gt;down;
+	trans: [out0==1] tau { err = 1; } -&gt;err;
+	endstate
+
+	state err	
+	endstate
+
+}
+TimedAutomaton Node1
+{
+clock: x1;
+
+	state down	
+	inv: x1 &lt;= 50;
+	trans: [[50 &lt;= x1 &amp;&amp; x1 &lt;= 100 ]] [out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; out9 &lt; 2 &amp;&amp; (out6+(out7+(out8+(out9)))) &gt;= 3] tau { out1 = 1 } -&gt;up;
+	trans: [[50 &lt;= x1 &amp;&amp; x1 &lt;= 100 ]] [out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; out9 &lt; 2 &amp;&amp; (out6+(out7+(out8+(out9)))) &lt; 3] tau { out1 = 0 } -&gt;up;
+	trans: [[x1 == 50 ]] [(out6 != 2 &amp;&amp; (out7 != 2 &amp;&amp; (out8 != 2 &amp;&amp; (out9 != 2)))) == 0] tau &lt;x1&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x1 &lt;= 100;
+	trans: [[x1 &lt;=100]] tau { out1 = 2 } &lt;x1&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node2
+{
+clock: x2;
+
+	state down	
+	inv: x2 &lt;= 200;
+	trans: [[200 &lt;= x2 &amp;&amp; x2 &lt;= 400 ]] [out1 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; (out1+(out6+(out7+(out8)))) &gt;= 2] tau { out2 = 1 } -&gt;up;
+	trans: [[200 &lt;= x2 &amp;&amp; x2 &lt;= 400 ]] [out1 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; (out1+(out6+(out7+(out8)))) &lt; 2] tau { out2 = 0 } -&gt;up;
+	trans: [[x2 == 200 ]] [(out1 != 2 &amp;&amp; (out6 != 2 &amp;&amp; (out7 != 2 &amp;&amp; (out8 != 2)))) == 0] tau &lt;x2&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x2 &lt;= 400;
+	trans: [[x2 &lt;=400]] tau { out2 = 2 } &lt;x2&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node3
+{
+clock: x3;
+
+	state down	
+	inv: x3 &lt;= 300;
+	trans: [[300 &lt;= x3 &amp;&amp; x3 &lt;= 600 ]] [out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; !(out1 == 0 &amp;&amp; out2 == 0)] tau { out3 = 1 } -&gt;up;
+	trans: [[300 &lt;= x3 &amp;&amp; x3 &lt;= 600 ]] [out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out1 == 0 &amp;&amp; out2 == 0] tau { out3 = 0 } -&gt;up;
+	trans: [[x3 == 300 ]] [(out1 != 2 &amp;&amp; out2 != 2) == 0] tau &lt;x3&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x3 &lt;= 600;
+	trans: [[x3 &lt;=600]] tau { out3 = 2 } &lt;x3&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node4
+{
+clock: x4;
+
+	state down	
+	inv: x4 &lt;= 250;
+	trans: [[250 &lt;= x4 &amp;&amp; x4 &lt;= 500 ]] [out7 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; out7 == 1 &amp;&amp; out3 == 1] tau { out4 = 1 } -&gt;up;
+	trans: [[250 &lt;= x4 &amp;&amp; x4 &lt;= 500 ]] [out7 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; !(out7 == 1 &amp;&amp; out3 == 1)] tau { out4 = 0 } -&gt;up;
+	trans: [[x4 == 250 ]] [(out7 != 2 &amp;&amp; out3 != 2) == 0] tau &lt;x4&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x4 &lt;= 500;
+	trans: [[x4 &lt;=500]] tau { out4 = 2 } &lt;x4&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node5
+{
+clock: x5;
+
+	state down	
+	inv: x5 &lt;= 400;
+	trans: [[400 &lt;= x5 &amp;&amp; x5 &lt;= 800 ]] [out7&lt;2 &amp;&amp; (1-out7)==1] tau { out5 = 1 } -&gt;up;
+	trans: [[400 &lt;= x5 &amp;&amp; x5 &lt;= 800 ]] [out7&lt;2 &amp;&amp; (1-out7) ==0] tau { out5 = 0 } -&gt;up;
+	trans: [[x5 == 400 ]] [out7 == 2] tau &lt;x5&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x5 &lt;= 800;
+	trans: [[x5 &lt;=800]] tau { out5 = 2 } &lt;x5&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Inputs
+{
+
+	state input_init	
+	committed;
+	trans: tau { out6 = 1 } -&gt;In6;
+	trans: tau { out6 = 0 } -&gt;In6;
+	endstate
+
+	state In6	
+	committed;
+	trans: tau { out7 = 1 } -&gt;In7;
+	trans: tau { out7 = 0 } -&gt;In7;
+	endstate
+
+	state In7	
+	committed;
+	trans: tau { out8 = 1 } -&gt;In8;
+	trans: tau { out8 = 0 } -&gt;In8;
+	endstate
+
+	state In8	
+	committed;
+	trans: tau { out9 = 1 } -&gt;In9;
+	trans: tau { out9 = 0 } -&gt;In9;
+	endstate
+
+	state In9	
+	committed;
+	trans: tau -&gt;end;
+	endstate
+
+	state end	
+	endstate
+
+}
+</Declaration><Processes/></TA>

@@ -125,81 +125,81 @@ clock: x_28, x_30, x_32, x_34, x_36, t;
 	state JustSetIcontrollable_DEQ	
 	urgent;
 	trans: [Ln29 == 1] tau -&gt;UpdatedLn29;
-	trans: [[x_28 &gt;= 100000]] [Ln29 == 1 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29;
-	trans: [[x_28 &gt;= 150000]] [Ln29 == 0 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29;
-	trans: [[x_28 &lt;= 99999]] [Ln29 == 1 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29_becomes0;
-	trans: [[x_28 &lt;= 149999]] [Ln29 == 0 &amp;&amp; Ln29 != 1 ] tau -&gt;UpdatedLn29_becomes1;
+	trans: [[x_28 &gt;= 1000]] [Ln29 == 1 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29;
+	trans: [[x_28 &gt;= 1500]] [Ln29 == 0 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29;
+	trans: [[x_28 &lt;= 999]] [Ln29 == 1 &amp;&amp; Ln29 != 1] tau -&gt;UpdatedLn29_becomes0;
+	trans: [[x_28 &lt;= 1499]] [Ln29 == 0 &amp;&amp; Ln29 != 1 ] tau -&gt;UpdatedLn29_becomes1;
 	endstate
 
 	state UpdatedLn29	
 	urgent;
 	trans: [Lreg_stateG7_0_out == ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out;
-	trans: [[x_30 &gt;= 50000]] [Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out;
-	trans: [[x_30 &gt;= 200000]] [Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out;
-	trans: [[x_30 &lt;= 49999]] [Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out_becomes0;
-	trans: [[x_30 &lt;= 199999]] [Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) ] tau -&gt;UpdatedLreg_stateG7_0_out_becomes1;
+	trans: [[x_30 &gt;= 500]] [Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out;
+	trans: [[x_30 &gt;= 2000]] [Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out;
+	trans: [[x_30 &lt;= 499]] [Lreg_stateG7_0_out == 1 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))))] tau -&gt;UpdatedLreg_stateG7_0_out_becomes0;
+	trans: [[x_30 &lt;= 1999]] [Lreg_stateG7_0_out == 0 &amp;&amp; Lreg_stateG7_0_out != ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))) ] tau -&gt;UpdatedLreg_stateG7_0_out_becomes1;
 	endstate
 
 	state UpdatedLn29_becomes0	
-	inv: x_28 &lt;= 100000;
-	trans: [[x_28 &gt;= 100000]] tau { Ln29 = 1; } &lt;x_28&gt; -&gt;UpdatedLn29;
+	inv: x_28 &lt;= 1000;
+	trans: [[x_28 &gt;= 1000]] tau { Ln29 = 1; } &lt;x_28&gt; -&gt;UpdatedLn29;
 	endstate
 
 	state UpdatedLn29_becomes1	
-	inv: x_28 &lt;= 150000;
-	trans: [[x_28 &gt;= 150000]] tau { Ln29 = 1; } &lt;x_28&gt; -&gt;UpdatedLn29;
+	inv: x_28 &lt;= 1500;
+	trans: [[x_28 &gt;= 1500]] tau { Ln29 = 1; } &lt;x_28&gt; -&gt;UpdatedLn29;
 	endstate
 
 	state UpdatedLreg_stateG7_0_out	
 	urgent;
 	trans: [Lreg_controllable_BtoR_REQ1_out == (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
-	trans: [[x_32 &gt;= 200000]] [Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
-	trans: [[x_32 &gt;= 300000]] [Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
-	trans: [[x_32 &lt;= 199999]] [Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out_becomes0;
-	trans: [[x_32 &lt;= 299999]] [Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) ] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out_becomes1;
+	trans: [[x_32 &gt;= 2000]] [Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
+	trans: [[x_32 &gt;= 3000]] [Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
+	trans: [[x_32 &lt;= 1999]] [Lreg_controllable_BtoR_REQ1_out == 1 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1)] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out_becomes0;
+	trans: [[x_32 &lt;= 2999]] [Lreg_controllable_BtoR_REQ1_out == 0 &amp;&amp; Lreg_controllable_BtoR_REQ1_out != (Icontrollable_BtoR_REQ1) ] tau -&gt;UpdatedLreg_controllable_BtoR_REQ1_out_becomes1;
 	endstate
 
 	state UpdatedLreg_stateG7_0_out_becomes0	
-	inv: x_30 &lt;= 50000;
-	trans: [[x_30 &gt;= 50000]] tau { Lreg_stateG7_0_out = ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))); } &lt;x_30&gt; -&gt;UpdatedLreg_stateG7_0_out;
+	inv: x_30 &lt;= 500;
+	trans: [[x_30 &gt;= 500]] tau { Lreg_stateG7_0_out = ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))); } &lt;x_30&gt; -&gt;UpdatedLreg_stateG7_0_out;
 	endstate
 
 	state UpdatedLreg_stateG7_0_out_becomes1	
-	inv: x_30 &lt;= 200000;
-	trans: [[x_30 &gt;= 200000]] tau { Lreg_stateG7_0_out = ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))); } &lt;x_30&gt; -&gt;UpdatedLreg_stateG7_0_out;
+	inv: x_30 &lt;= 2000;
+	trans: [[x_30 &gt;= 2000]] tau { Lreg_stateG7_0_out = ((1-((1-((1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29))))) * (1-((Lreg_stateG7_0_out) * (Ln29))))) * ((1-(((1-((Lreg_nstateG7_1_out) * (Ln29))) * ((Lreg_controllable_BtoR_REQ0_out) * (Ln29))) * (1-((Lreg_controllable_BtoR_REQ1_out) * (Ln29))))) * (1-((((Lreg_nstateG7_1_out) * (Ln29)) * (1-((Lreg_controllable_BtoR_REQ0_out) * (Ln29)))) * ((Lreg_controllable_BtoR_REQ1_out) * (Ln29)))))); } &lt;x_30&gt; -&gt;UpdatedLreg_stateG7_0_out;
 	endstate
 
 	state UpdatedLreg_controllable_BtoR_REQ1_out	
 	urgent;
 	trans: [Lreg_i_RtoB_ACK1_out == (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out;
-	trans: [[x_34 &gt;= 300000]] [Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out;
+	trans: [[x_34 &gt;= 3000]] [Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out;
 	trans: [[x_34 &gt;= 0]] [Lreg_i_RtoB_ACK1_out == 0 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out;
-	trans: [[x_34 &lt;= 299999]] [Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out_becomes0;
+	trans: [[x_34 &lt;= 2999]] [Lreg_i_RtoB_ACK1_out == 1 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1)] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out_becomes0;
 	trans: [Lreg_i_RtoB_ACK1_out == 0 &amp;&amp; Lreg_i_RtoB_ACK1_out != (Ii_RtoB_ACK1) ] tau -&gt;UpdatedLreg_i_RtoB_ACK1_out_becomes1;
 	endstate
 
 	state UpdatedLreg_controllable_BtoR_REQ1_out_becomes0	
-	inv: x_32 &lt;= 200000;
-	trans: [[x_32 &gt;= 200000]] tau { Lreg_controllable_BtoR_REQ1_out = (Icontrollable_BtoR_REQ1); } &lt;x_32&gt; -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
+	inv: x_32 &lt;= 2000;
+	trans: [[x_32 &gt;= 2000]] tau { Lreg_controllable_BtoR_REQ1_out = (Icontrollable_BtoR_REQ1); } &lt;x_32&gt; -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
 	endstate
 
 	state UpdatedLreg_controllable_BtoR_REQ1_out_becomes1	
-	inv: x_32 &lt;= 300000;
-	trans: [[x_32 &gt;= 300000]] tau { Lreg_controllable_BtoR_REQ1_out = (Icontrollable_BtoR_REQ1); } &lt;x_32&gt; -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
+	inv: x_32 &lt;= 3000;
+	trans: [[x_32 &gt;= 3000]] tau { Lreg_controllable_BtoR_REQ1_out = (Icontrollable_BtoR_REQ1); } &lt;x_32&gt; -&gt;UpdatedLreg_controllable_BtoR_REQ1_out;
 	endstate
 
 	state UpdatedLreg_i_RtoB_ACK1_out	
 	urgent;
 	trans: [Lsys_fair0done_out == ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out;
-	trans: [[x_36 &gt;= 250000]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out;
+	trans: [[x_36 &gt;= 2500]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out;
 	trans: [[x_36 &gt;= 0]] [Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out;
-	trans: [[x_36 &lt;= 249999]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out_becomes0;
+	trans: [[x_36 &lt;= 2499]] [Lsys_fair0done_out == 1 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29))))))] tau -&gt;UpdatedLsys_fair0done_out_becomes0;
 	trans: [Lsys_fair0done_out == 0 &amp;&amp; Lsys_fair0done_out != ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))) ] tau -&gt;UpdatedLsys_fair0done_out_becomes1;
 	endstate
 
 	state UpdatedLreg_i_RtoB_ACK1_out_becomes0	
-	inv: x_34 &lt;= 300000;
-	trans: [[x_34 &gt;= 300000]] tau { Lreg_i_RtoB_ACK1_out = (Ii_RtoB_ACK1); } &lt;x_34&gt; -&gt;UpdatedLreg_i_RtoB_ACK1_out;
+	inv: x_34 &lt;= 3000;
+	trans: [[x_34 &gt;= 3000]] tau { Lreg_i_RtoB_ACK1_out = (Ii_RtoB_ACK1); } &lt;x_34&gt; -&gt;UpdatedLreg_i_RtoB_ACK1_out;
 	endstate
 
 	state UpdatedLreg_i_RtoB_ACK1_out_becomes1	
@@ -209,13 +209,13 @@ clock: x_28, x_30, x_32, x_34, x_36, t;
 
 	state UpdatedLsys_fair0done_out	
 	urgent;
-	trans: [[t &lt;= 300000]] tau &lt;t&gt; -&gt;Init;
-	trans: [[t &gt;=300001]] tau { fdead = 1; } -&gt;dead;
+	trans: [[t &lt;= 3000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=3001]] tau { fdead = 1; } -&gt;dead;
 	endstate
 
 	state UpdatedLsys_fair0done_out_becomes0	
-	inv: x_36 &lt;= 250000;
-	trans: [[x_36 &gt;= 250000]] tau { Lsys_fair0done_out = ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))); } &lt;x_36&gt; -&gt;UpdatedLsys_fair0done_out;
+	inv: x_36 &lt;= 2500;
+	trans: [[x_36 &gt;= 2500]] tau { Lsys_fair0done_out = ((1-((1-((1-((Lsys_fair2done_out) * (Ln29))) * ((Lreg_stateG12_out) * (Ln29)))) * ((1-((1-((Lsys_fair1done_out) * (Ln29))) * (1-((1-((Ii_StoB_REQ1) * (1-(Icontrollable_BtoS_ACK1)))) * (1-((1-(Ii_StoB_REQ1)) * (Icontrollable_BtoS_ACK1))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))))) * (1-((1-((1-((Ii_StoB_REQ0) * (1-(Icontrollable_BtoS_ACK0)))) * (1-((1-(Ii_StoB_REQ0)) * (Icontrollable_BtoS_ACK0))))) * (1-((Lsys_fair0done_out) * (Ln29)))))); } &lt;x_36&gt; -&gt;UpdatedLsys_fair0done_out;
 	endstate
 
 	state UpdatedLsys_fair0done_out_becomes1	

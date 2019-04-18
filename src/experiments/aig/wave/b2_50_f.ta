@@ -1,0 +1,249 @@
+<TA><Declaration> var err : {0..1} = 0;
+var out0 : {0..2} = 2;
+var b0_0 : {0..2} = 2;
+var b0_1 : {0..2} = 2;
+var out1 : {0..2} = 2;
+var out2 : {0..2} = 2;
+var out3 : {0..2} = 2;
+var out4 : {0..2} = 2;
+var out5 : {0..2} = 2;
+var out6 : {0..2} = 2;
+var out7 : {0..2} = 2;
+var out8 : {0..2} = 2;
+var out9 : {0..2} = 2;
+var b9_0 : {0..2} = 2;
+var b9_1 : {0..2} = 2;
+var b9_2 : {0..2} = 2;
+var b9_3 : {0..2} = 2;
+var out10 : {0..2} = 2;
+var b10_0 : {0..2} = 2;
+var b10_1 : {0..2} = 2;
+var b10_2 : {0..2} = 2;
+var b10_3 : {0..2} = 2;
+var b10_4 : {0..2} = 2;
+var b10_5 : {0..2} = 2;
+var out11 : {0..2} = 2;
+var b11_0 : {0..2} = 2;
+var b11_1 : {0..2} = 2;
+var b11_2 : {0..2} = 2;
+var b11_3 : {0..2} = 2;
+var b11_4 : {0..2} = 2;
+var out12 : {0..2} = 2;
+var b12_0 : {0..2} = 2;
+var b12_1 : {0..2} = 2;
+var b12_2 : {0..2} = 2;
+var b12_3 : {0..2} = 2;
+var b12_4 : {0..2} = 2;
+var out13 : {0..2} = 2;
+var b13_0 : {0..2} = 2;
+var b13_1 : {0..2} = 2;
+var out14 : {0..2} = 2;
+var b14_0 : {0..2} = 2;
+var b14_1 : {0..2} = 2;
+var out15 : {0..2} = 2;
+System = Node0()||| Node9()||| Node10()||| Node11()||| Node12()||| Node13()||| Node14()||| Node15()||| Inputs();
+#define Err err==1;
+#assert System reaches Err;
+
+TimedAutomaton Node0
+{
+clock: t, x0;
+
+	state down	
+	inv: x0 &lt;= 100;
+	trans: [[100 &lt;= x0 &amp;&amp; x0 &lt;= 200 &amp;&amp; t &lt;= 50]] [out14 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; !(out14 == 0 &amp;&amp; out15 == 0)] tau { out0 = 1 } -&gt;up;
+	trans: [[t &gt;= 51]] tau { out0 = 2;out9 = 2;out10 = 2;out11 = 2;out12 = 2;out13 = 2;out14 = 2;out15 = 2 } -&gt;down;
+	trans: [[100 &lt;= x0 &amp;&amp; x0 &lt;= 200 ]] [out14 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; out14 == 0 &amp;&amp; out15 == 0] tau { out0 = 0 } -&gt;up;
+	trans: [[x0 == 100 ]] [(out14 != 2 &amp;&amp; out15 != 2) == 0] tau &lt;x0&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x0 &lt;= 200;
+	trans: [[x0 &lt;=200]] tau { out0 = 2 } &lt;x0&gt; -&gt;down;
+	trans: [out0==1] tau { err = 1; } -&gt;err;
+	endstate
+
+	state err	
+	endstate
+
+}
+TimedAutomaton Node9
+{
+clock: x9;
+
+	state down	
+	inv: x9 &lt;= 50;
+	trans: [[50 &lt;= x9 &amp;&amp; x9 &lt;= 100 ]] [out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; (out1+(out2+(out3+(out4)))) &gt;= 4] tau { out9 = 1 } -&gt;up;
+	trans: [[50 &lt;= x9 &amp;&amp; x9 &lt;= 100 ]] [out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; (out1+(out2+(out3+(out4)))) &lt; 4] tau { out9 = 0 } -&gt;up;
+	trans: [[x9 == 50 ]] [(out1 != 2 &amp;&amp; (out2 != 2 &amp;&amp; (out3 != 2 &amp;&amp; (out4 != 2)))) == 0] tau &lt;x9&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x9 &lt;= 100;
+	trans: [[x9 &lt;=100]] tau { out9 = 2 } &lt;x9&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node10
+{
+clock: x10;
+
+	state down	
+	inv: x10 &lt;= 200;
+	trans: [[200 &lt;= x10 &amp;&amp; x10 &lt;= 400 ]] [out9 &lt; 2 &amp;&amp; out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; (out9+(out1+(out2+(out3+(out4+(out5)))))) &gt;= 4] tau { out10 = 1 } -&gt;up;
+	trans: [[200 &lt;= x10 &amp;&amp; x10 &lt;= 400 ]] [out9 &lt; 2 &amp;&amp; out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out3 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; (out9+(out1+(out2+(out3+(out4+(out5)))))) &lt; 4] tau { out10 = 0 } -&gt;up;
+	trans: [[x10 == 200 ]] [(out9 != 2 &amp;&amp; (out1 != 2 &amp;&amp; (out2 != 2 &amp;&amp; (out3 != 2 &amp;&amp; (out4 != 2 &amp;&amp; (out5 != 2)))))) == 0] tau &lt;x10&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x10 &lt;= 400;
+	trans: [[x10 &lt;=400]] tau { out10 = 2 } &lt;x10&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node11
+{
+clock: x11;
+
+	state down	
+	inv: x11 &lt;= 300;
+	trans: [[300 &lt;= x11 &amp;&amp; x11 &lt;= 600 ]] [out9 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; (out9+(out10+(out5+(out6+(out7))))) &gt;= 3] tau { out11 = 1 } -&gt;up;
+	trans: [[300 &lt;= x11 &amp;&amp; x11 &lt;= 600 ]] [out9 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; (out9+(out10+(out5+(out6+(out7))))) &lt; 3] tau { out11 = 0 } -&gt;up;
+	trans: [[x11 == 300 ]] [(out9 != 2 &amp;&amp; (out10 != 2 &amp;&amp; (out5 != 2 &amp;&amp; (out6 != 2 &amp;&amp; (out7 != 2))))) == 0] tau &lt;x11&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x11 &lt;= 600;
+	trans: [[x11 &lt;=600]] tau { out11 = 2 } &lt;x11&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node12
+{
+clock: x12;
+
+	state down	
+	inv: x12 &lt;= 250;
+	trans: [[250 &lt;= x12 &amp;&amp; x12 &lt;= 500 ]] [out9 &lt; 2 &amp;&amp; out11 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; (out9+(out11+(out4+(out5+(out6))))) &gt;= 4] tau { out12 = 1 } -&gt;up;
+	trans: [[250 &lt;= x12 &amp;&amp; x12 &lt;= 500 ]] [out9 &lt; 2 &amp;&amp; out11 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; out5 &lt; 2 &amp;&amp; out6 &lt; 2 &amp;&amp; (out9+(out11+(out4+(out5+(out6))))) &lt; 4] tau { out12 = 0 } -&gt;up;
+	trans: [[x12 == 250 ]] [(out9 != 2 &amp;&amp; (out11 != 2 &amp;&amp; (out4 != 2 &amp;&amp; (out5 != 2 &amp;&amp; (out6 != 2))))) == 0] tau &lt;x12&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x12 &lt;= 500;
+	trans: [[x12 &lt;=500]] tau { out12 = 2 } &lt;x12&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node13
+{
+clock: x13;
+
+	state down	
+	inv: x13 &lt;= 400;
+	trans: [[400 &lt;= x13 &amp;&amp; x13 &lt;= 800 ]] [out11 &lt; 2 &amp;&amp; out12 &lt; 2 &amp;&amp; !(out11 == 0 &amp;&amp; out12 == 0)] tau { out13 = 1 } -&gt;up;
+	trans: [[400 &lt;= x13 &amp;&amp; x13 &lt;= 800 ]] [out11 &lt; 2 &amp;&amp; out12 &lt; 2 &amp;&amp; out11 == 0 &amp;&amp; out12 == 0] tau { out13 = 0 } -&gt;up;
+	trans: [[x13 == 400 ]] [(out11 != 2 &amp;&amp; out12 != 2) == 0] tau &lt;x13&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x13 &lt;= 800;
+	trans: [[x13 &lt;=800]] tau { out13 = 2 } &lt;x13&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node14
+{
+clock: x14;
+
+	state down	
+	inv: x14 &lt;= 100;
+	trans: [[100 &lt;= x14 &amp;&amp; x14 &lt;= 200 ]] [out13 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; out13 == 1 &amp;&amp; out10 == 1] tau { out14 = 1 } -&gt;up;
+	trans: [[100 &lt;= x14 &amp;&amp; x14 &lt;= 200 ]] [out13 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; !(out13 == 1 &amp;&amp; out10 == 1)] tau { out14 = 0 } -&gt;up;
+	trans: [[x14 == 100 ]] [(out13 != 2 &amp;&amp; out10 != 2) == 0] tau &lt;x14&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x14 &lt;= 200;
+	trans: [[x14 &lt;=200]] tau { out14 = 2 } &lt;x14&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Node15
+{
+clock: x15;
+
+	state down	
+	inv: x15 &lt;= 100;
+	trans: [[100 &lt;= x15 &amp;&amp; x15 &lt;= 200 ]] [out14&lt;2 &amp;&amp; (1-out14)==1] tau { out15 = 1 } -&gt;up;
+	trans: [[100 &lt;= x15 &amp;&amp; x15 &lt;= 200 ]] [out14&lt;2 &amp;&amp; (1-out14) ==0] tau { out15 = 0 } -&gt;up;
+	trans: [[x15 == 100 ]] [out14 == 2] tau &lt;x15&gt; -&gt;down;
+	endstate
+
+	state up	
+	inv: x15 &lt;= 200;
+	trans: [[x15 &lt;=200]] tau { out15 = 2 } &lt;x15&gt; -&gt;down;
+	endstate
+
+}
+TimedAutomaton Inputs
+{
+
+	state input_init	
+	committed;
+	trans: tau { out1 = 1 } -&gt;In1;
+	trans: tau { out1 = 0 } -&gt;In1;
+	endstate
+
+	state In1	
+	committed;
+	trans: tau { out2 = 1 } -&gt;In2;
+	trans: tau { out2 = 0 } -&gt;In2;
+	endstate
+
+	state In2	
+	committed;
+	trans: tau { out3 = 1 } -&gt;In3;
+	trans: tau { out3 = 0 } -&gt;In3;
+	endstate
+
+	state In3	
+	committed;
+	trans: tau { out4 = 1 } -&gt;In4;
+	trans: tau { out4 = 0 } -&gt;In4;
+	endstate
+
+	state In4	
+	committed;
+	trans: tau { out5 = 1 } -&gt;In5;
+	trans: tau { out5 = 0 } -&gt;In5;
+	endstate
+
+	state In5	
+	committed;
+	trans: tau { out6 = 1 } -&gt;In6;
+	trans: tau { out6 = 0 } -&gt;In6;
+	endstate
+
+	state In6	
+	committed;
+	trans: tau { out7 = 1 } -&gt;In7;
+	trans: tau { out7 = 0 } -&gt;In7;
+	endstate
+
+	state In7	
+	committed;
+	trans: tau { out8 = 1 } -&gt;In8;
+	trans: tau { out8 = 0 } -&gt;In8;
+	endstate
+
+	state In8	
+	committed;
+	trans: tau -&gt;end;
+	endstate
+
+	state end	
+	endstate
+
+}
+</Declaration><Processes/></TA>
