@@ -244,25 +244,6 @@ module GenericDBM =
 
 
     (** Free all constraints on clocks clocks *)
-      (*
-    let free m1 clocks =
-      let dim = dimension m1 in 
-      for i = 0 to dim - 1 do
-        if (ClockSet.mem i clocks) then
-          (
-            m1.(0).(i) <- Alg.zero;
-            m1.(i).(0) <- Alg.infty
-          )
-      done;
-      for i = 0 to dim - 1 do
-        for j = 0 to dim - 1 do
-         (* FIXME The following seems buggy to me *)
-          if (i<>j && i <> 0 && j <> 0 && ((ClockSet.mem i clocks) || (ClockSet.mem j clocks)) ) then
-            m1.(i).(j) <- Alg.infty;
-        done
-      done;
-      reduce m1
-         *)
     let free m1 clocks =
       if is_empty m1 then raise EmptyDBM else
       let dim = dimension m1 in 

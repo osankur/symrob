@@ -6,18 +6,10 @@
    - We have to enumarate all firable transitions either internal or synchronized ones.
      A large number of synchronizing pairs, even unreachable, can mean inefficient or unfeasible analysis.
 
-   - TODO Reject models with simultaneous updates to same variable during sync transitions
-          This would be executed by Uppaal sequentially while their transition relation would be conjoined
-          in BDD algorithms
-
-   - Possible Optimizations
-   1) Use partitioned reset constraint. That would be meaningful for large number of clock predicate
-
-   2) Use early quantification in compute_next_discrete
-      Evaluate the cost of the image computation with local transitions
-
-   3) After refinements:
-       Reduce and reset constraints can be updated without computing all from scratch
+   - Do not use models with simultaneous updates to same variable during sync transitions
+     This would be executed by Uppaal sequentially while their transition relation would be conjoined
+     in BDD algorithms.
+     There is currently no check for this.
 *)
 open Pdbm
 open Common
@@ -542,48 +534,14 @@ struct
                Bdd.dand states (Bdd.dnot committed)
              ) else states
            in
-           let trans_bdd = trans_rel in (*Bdd.dand trans_rel trans_grd in*)
-           (* TODO Use early quantification here *)
+           let trans_bdd = trans_rel in 
+           (* TODO We should use early quantification here *)
            let img =
              (Bdd.dand states trans_bdd)
              |> Bdd.exist current_disc_state_cube
              |> Encoding.unprime_locations_and_vars enc
            in
-           (*
-           printf "Applying following transitions:\n";
-           TASemantics.print_transition_pair enc.enc_ta trans;
-           printf "BDD contains following target state\n";
-           let tgt_ds =
-             trans_bdd
-             |> Bdd.exist current_disc_state_cube
-             |> Bdd.exist enc.enc_clock_cube
-             |> Encoding.unprime_locations_and_vars enc
-           in
-
-           print_bdd tgt_ds;
-           printf "\n";
-           print_discrete_state stdout enc.enc_ta (Encoding.discrete_state_of_cube enc tgt_ds);
-           printf "\n";
-              *)
-           (*
-           printf "This ends in following location\n";
-           print_discrete_state stdout enc.enc_ta (Encoding.discrete_state_of_cube enc img);
-           printf "\n";
-              *)
            if not(Bdd.is_false img) then (
-             (*
-             printf "By:\n";
-             print_transition_pair enc.Encoding.enc_ta trans;
-             printf "Trans_bdd:\n";
-             print_bdd trans_bdd;
-             printf "\n";
-
-             printf "Image:\n";
-             print_states enc img;
-             printf "\n";
-             print_bdd img;
-             printf "\n";
-                *)
 
              (* Apply Reset *)
              let img =
@@ -688,20 +646,6 @@ struct
       let path = Array.of_list path in
       let nclocks = (nb_clocks enc.enc_ta) - 1 in
       let npath= Array.length path in
-      (*
-      let invar_of_next_ds locs edges =
-        let tr =  (match edges with
-              Pair(e1,e2) ->
-              (SyncTrans (locs, e1, e2))
-            | Single(e1) ->
-              (InternalTrans (locs, e1))
-          )
-        in
-        let locs' = next_location_vector bta locs.stateLocs tr in
-        TASemantics.dbm_invariant_of_state bta
-          {stateLocs = locs'; stateVars = [||]}
-      in
-         *)
       (* Zone successor through sym-action.
          Invariant is applied after the last reset
          and after time up
@@ -710,19 +654,6 @@ struct
         let d = Dbm.copy dbm in
         (match trans with
            Sym_Up (ds, telapse) ->
-           (* debug *)
-           (*
-           BTA.print_discrete_state Pervasives.stdout
-             bta {BTA.stateLocs = locs; BTA.stateVars = [||]};
-           printf "\n";
-              *)
-
-           (*
-           BTA.print_discrete_state Pervasives.stdout 
-             bta {BTA.stateLocs = locs; BTA.stateVars = [||]};
-           printf "\n";
-              *)
-           (* *)
            if telapse then (
              Dbm.posttime d;
              (* We can retrieve the invariant without the need
@@ -735,26 +666,7 @@ struct
            );
 
          | Sym_Edge(lsrc, edges, ltgt, reset, flag_last) ->
-           (* debug *)
-           (*
-           BTA.print_discrete_state Pervasives.stdout
-             bta {BTA.stateLocs = locs; BTA.stateVars = [||]};
-           printf "\n";
-              *)
-           (* *)
            Dbm.intersect d (TASemantics.dbm_guard_of_trans bta edges);
-           (*
-           (match edges with
-              Pair(e1,e2) ->
-              let g1 = TASemantics.dbm_guard_of_edge bta e1 in
-              let g2 = TASemantics.dbm_guard_of_edge bta e2 in
-              Dbm.intersect d g1;
-              Dbm.intersect d g2;
-            | Single(e1) ->
-              let g = TASemantics.dbm_guard_of_edge bta e1 in
-              Dbm.intersect d g;
-           );
-              *)
            (match reset with
               None -> ()
             | Some(x) -> Dbm.reset d (ClockSet.singleton x)
@@ -835,10 +747,6 @@ struct
             CPA.refine_empty enc.enc_cpa cex_init;
             raise (BreakRefined 1)
         in
-      (*
-      printf "Init:\nAbs:\n%s\n\nConc:\n%s\n\n"
-        (Dbm.to_string ainit) (Dbm.to_string init);
-         *)
         if !Log.cegar_verbose then (
           printf "\nINIT Abs:\n";
           Guard.pretty_print stdout bta.clocks ainit;
@@ -866,14 +774,6 @@ struct
           (try
              aposts.(i) <- (Dbm.from_constraints (nb_clocks bta) constr);
 
-(*
-             let invar = (TASemantics.dbm_invariant_of_state bta locs) in
-             assert(Dbm.leq ai0 invar);
-*)
-           (*
-           printf "Aposts(%d)\n" i;
-           printf "%s\n" (Dbm.to_string aposts.(i));
-              *)
            with EmptyDBM ->
              (* The intersection of the non-reduced constraints is empty.
                 Must add predicates so that abstract reduction can capture this *)
@@ -885,26 +785,7 @@ struct
           (try
              cposts.(i) <- Dbm.make_empty nclocks;
              cposts.(i) <- post path.(i-1) cposts.(i-1);
-           (*
-        printf "Cpost(%d)\n" i;
-        printf "%s\n" (Dbm.to_string cposts.(i));
-              *)
-
-             (* The following intersection is non-trivial
-                for Up and Reset which give some region of the time successors or
-                reset target states *)
-(*
-        printf "Intersecting\n %s\n and\n%s\n"
-          (Dbm.to_string cposts.(i))
-          (Dbm.to_string aposts.(i));
-*)
              Dbm.intersect cposts.(i) aposts.(i);
-           (*
-           printf "After /\\ is\n";
-           printf "%s\n" (Dbm.to_string cposts.(i));
-        printf "After /\\ aposts.(i):\n";
-        printf "%s\n" (Dbm.to_string cposts.(i));
-           *)
            with EmptyDBM -> ()
           );
           if ( not (Dbm.is_empty cposts.(i-1))) then(
@@ -920,13 +801,7 @@ struct
               Guard.pretty_print stdout bta.clocks cposts.(i);
               printf ".\n"
             );
-            (*
-            printf "\nAbs:\n%s\nConc:\n%s\n"
-              (Dbm.to_string aposts.(i))
-              (Dbm.to_string cposts.(i));
-               *)
             flush stdout;
-            (*debug_print_dbm aposts.(i);*)
           );
         done;
         (* Check if the Cex is genuine *)
@@ -944,10 +819,6 @@ struct
         in
         if !Log.cegar_verbose then
           Log.debug (sprintf "i0 = %d\n" i0); flush stdout;
-      (*
-      printf "First trans:\n";
-      printf "%s\n" (string_of_symbolic_transition bta (fst path.(i0)));
-      *)
         (* Regular refinement check: *)
         (try
            let preAi01 = (pre path.(i0) aposts.(i0+1)) in
@@ -1004,21 +875,6 @@ struct
               failwith "Irregular refinement: Reset without reset"
             | Some x ->
 
-              (*
-              let invar = (TASemantics.dbm_invariant_of_state bta lsrc) in
-              if flag_last then(
-                printf "The invariant at ai0 is:\n%s\n\n" (Dbm.to_string invar);
-                assert(Dbm.leq ai0 invar);
-              );
-                 *)
-
-              (*
-              let invar = (TASemantics.dbm_invariant_of_state bta locs) in
-              assert(Dbm.leq ai0 invar);
-              let invar = invar_of_next_ds locs edges in
-              assert(Dbm.leq ai0_1 invar);
-                 *)
-
               Dbm.free ai0 (ClockSet.singleton x);
 
               (try
@@ -1029,22 +885,12 @@ struct
                  CPA.refine_separate enc.enc_cpa ai0_1 d;
                  raise (BreakRefined(-1))
               );
-              (*
-                 printf "Guard is:\n%s\n" (Guard.to_string g);
-               *)
               Dbm.constrain ai0_1 x 0 (0, DBM_WEAK);
-              (*
-                printf "ai0_1 /\\ x=0 is\n%s\n" (Guard.to_string ai0_1);
-               *)
               Dbm.free ai0_1 (ClockSet.singleton x);
               if flag_last then (
                 let invar = (TASemantics.dbm_invariant_of_state bta ltgt) in
                 Dbm.intersect ai0_1 invar;
               );
-              (*
-                printf "free(ai0_1 /\\ x=0) is\n%s\n" (Guard.to_string ai0_1);
-                printf "And ai0 is\n%s\n" (Guard.to_string ai0);
-               *)
            );
            CPA.refine_separate enc.enc_cpa ai0 ai0_1
         );
@@ -1062,13 +908,6 @@ struct
          | BreakCannotRefine -> CannotRefine
   end
 
-    (* A lot of these transitions will be always unfirable.
-       How can we detect and eliminate these?
-
-       FIXME Use a type MC.t to store whatever is useful
-       for these computations to avoid passing long lists of arguments
-       to other functions
-    *)
   let forward_reach enc =
     let open Encoding in
     let print_bdd_stats enc ~edges:edges
@@ -1085,15 +924,9 @@ struct
       Array.iteri
         (fun ri rbdd ->
            printf "%d, " (Bdd.size rbdd)
-           (*
-         printf "Reset(%d): %d\n" ri (Bdd.size rbdd)
-              *)
         ) reset_constraint_table;
       printf "\nReduce: ";
       Queue.iter (fun r -> printf "%d, " (Bdd.size r)) reduce_full;
-    (*
-    printf "Monolithic reduce has size: %d\n" ((Bdd.dand_of_queue enc.enc_man reduce_full) |> Bdd.size);
-    *)
       printf "\nReduce_up: ";
       Queue.iter (fun r -> printf "%d, " (Bdd.size r)) reduce_up;
       printf "\nNumber of clock predicates: %d\n" (CPA.size enc.enc_cpa);
@@ -1128,7 +961,7 @@ struct
     in
     let reduce_up = encode_reduce ~threshold:Options.bdd_reduce_threshold ~mode:Reduce_Up enc in
     let reduce_full =  enc.enc_reduce in
-(*encode_reduce ~threshold:Options.bdd_reduce_threshold ~mode:Reduce_All enc in*)
+    (*encode_reduce ~threshold:Options.bdd_reduce_threshold ~mode:Reduce_All enc in*)
 
     (* Print statistics *)
     if !Log.cegar_print_bdd_stats then 
@@ -1165,11 +998,6 @@ struct
       |> Bdd.dand invariant
     in
 
-    (*
-    print_clock_constraints enc init_state;    printf "INIT:\n";
-    print_states enc init_state_up;
-    printf "\n";
-       *)
     let reachable = ref init_state_up in
     let rec explore ?early_termination:(early_termination=true) states =
       if Bdd.is_false states then !verdict
@@ -1249,23 +1077,6 @@ struct
         let mt = (Bdd.pick_minterm (Bdd.dand !current_state symtrace.(i)))
                  |> Bdd.fill_in_minterm_unprimed_positive in
         current_state := Bdd.cube_of_minterm man mt;
-        (*
-        current_state := Bdd.cube_of_minterm man mt';
-        Array.iter2i (fun i m m' ->
-            let str_of_tbool = function |Man.True -> "t"|Man.False -> "f"|Man.Top -> "_" in
-            if (i mod 2) = 0 then
-            if m<>m' then (
-              printf "differ at %d: %s vs %s\n" i (str_of_tbool m) (str_of_tbool m')
-            )
-          ) mt mt';
-
-           *)
-        (*
-        printf "current_state(%d):\n" i;
-        print_states enc !current_state;
-        printf "\n";
-           *)
-
         (* Here we apply fill_in_minterm_positive to mt in order to make the clock zone
            tight. Otherwise some predicates can become don't cares, in which case
            the refinement algorithm may not succeed (e.g. the regular case)
@@ -1279,47 +1090,17 @@ struct
         let apply_reset = compute_reset ~reset_constraint_table:reset_constraint_table
             enc
         in
-        (*
-        printf "current_state(%d):\n" i;
-        print_states enc !current_state;
-        printf "\n";
-
-        let mt' = (Bdd.fill_in_minterm_positive mt) in
-        Array.iter2i (fun i m m' ->
-            let str_of_tbool = function |Man.True -> "t"|Man.False -> "f"|Man.Top -> "_" in
-            if (i mod 2) = 0 then
-            if m<>m' then (
-              printf "differ at %d: %s vs %s\n" i (str_of_tbool m) (str_of_tbool m')
-            )
-          ) mt mt';
-        current_state := Bdd.cube_of_minterm man mt;
-        assert(false);
-           *)
-
         (* Iterate over all transitions to find a feasible one
            that leads to current_state
            Once found one, compute the intermediate states and add them to conc_trace
         *)
         try
-          (*
-          let cube = enc.enc_var_cube in
-          let cube' = prime_locations_and_vars enc cube in
-          print_bdd cube;
-          printf "\n";
-          print_bdd cube';
-          printf "\n";
-             *)
           let tgt_ds_cube' = Bdd.exist enc.enc_clock_cube !current_state
                              |> prime_locations_and_vars enc
           in
           Queue.iter
             (fun (trans, trans_rel, trans_grd, resets) ->
                let trans_bdd = trans_rel in
-               (*
-               printf "Trying following transition:\n";
-               TASemantics.print_transition_pair enc.enc_ta trans;
-               printf "\n";
-                  *)
                (* Try this trans only if trans_bdd /\ current_state' is sat *)
                if not(Bdd.is_inter_empty trans_bdd tgt_ds_cube') then (
 
@@ -1350,10 +1131,6 @@ struct
                    let before_up = Bdd.dand invariant (List.hd rev_steps) in
                    let steps = (List.rev rev_steps) |> List.tl |> List.enum |> Array.of_enum in
                    let nsteps = Array.length steps in
-                   (*
-                   printf "BEFORE_UP. steps: %d:\n" nsteps;
-                   print_states enc before_up;
-                    *)
                    (* Let steps=[r1,r2,r3]. We have
                       0) symtrace.(i)
                       1) --guard--> (ds(img), Z)
@@ -1369,32 +1146,13 @@ struct
                    *)
 
                    if not(Bdd.is_inter_empty before_up cur_down) then (
-                     (*
-                     let fst_ccl = Encoding.constraint_list_of_minterm enc (Bdd.pick_minterm !current_state) in
-                        *)
-                     (*
-                     printf "Chose following transition:\n";
-                     TASemantics.print_transition_pair enc.enc_ta trans;
-                     printf "\n";
-                        *)
-                   (*printf "Previous step before_up is:\n";
-                   print_states enc before_up;
-                   *)
                      (* The transition is feasible into current_state *)
                      let mt  = (Bdd.pick_minterm (Bdd.dand cur_down before_up)) 
                                |> Bdd.fill_in_minterm_unprimed_positive
                      in
-                     (*
-                     let snd_ccl = Encoding.constraint_list_of_minterm enc mt in
-                        *)
                      (* At 4 and 5 *)
                      current_state := Bdd.cube_of_minterm man mt;
                      let cclist = ref (constraint_list_of_minterm enc mt) in
-                     (*
-                     printf "Time predecessor(%d):\n" i;
-                     List.iter(fun cc -> printf "%s /\\ " (string_of_clock_constraint enc.enc_ta.clocks cc)) !cclist;
-                        *)
-
                      (*
                         If current_state is in r_i, we want to find a predecessor in r_{i-1}.
                         We compute pred_{reset(r_i)}(current_state) /\\ steps.(i-1)
@@ -1420,15 +1178,6 @@ struct
                          conc_trace;
                        current_state := apply_unreset !current_state last_clock;
                      );
-                       (*
-                       printf "After unreset %d, we get\n" last_clock;
-                       print_states enc cur_unreset;
-                       let mt = Bdd.pick_minterm (Bdd.dand cur_unreset steps.(nsteps-1)) in
-                       current_state := Bdd.cube_of_minterm man mt;
-                       printf "I picked:\n";
-                       print_states enc !current_state;
-                       cclist := constraint_list_of_minterm enc mt;
-                          *)
                      for ri = nsteps-2 downto 0 do
                        let ri_clock = List.nth resets ri in
                        let mt = Bdd.pick_minterm (Bdd.dand !current_state steps.(ri))
@@ -1447,19 +1196,6 @@ struct
                        );
                        current_state := apply_unreset !current_state ri_clock
                      done;
-                     (*
-                     printf "New Clocks constraints:\n";
-                     print_bdd (Bdd.support (Bdd.exist ds_cube !current_state));
-                     printf "\nds'_cube:";
-                     print_bdd ds_cube';
-                     printf "\n";
-                     print_bdd
-                         (Bdd.support(Bdd.dand trans_bdd tgt_ds_cube'
-                          |> Bdd.exist enc.enc_clock_cube
-                          |> Bdd.exist ds_cube'
-                         ));
-                     printf "\n";
-                        *)
                      current_state :=
                        (Bdd.exist ds_cube !current_state) (* clock constraints *)
                        |> Bdd.dand
@@ -1542,10 +1278,6 @@ let reach ta =
   );
   try
     for count = 1 to max_iterations do
-      (*
-      printf "Before saturation\n";
-      CPA.print ta cpa;
-         *)
       saturate_clock_constraints cpa;
       let man = Cudd.Man.make_d()in
       (*Man.enable_autodyn man Man.REORDER_SIFT;*)

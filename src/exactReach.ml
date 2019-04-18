@@ -45,16 +45,6 @@ struct
     let open Log.SearchStatistics in
     let passed_list = Hashtbl.create 10000 in
     let passed_ds = ref DSSet.empty in
-   (*
-let print_passed l = 
-(try
-BatDllist.iter 
-(fun z -> printf "%s\n\n" (Dbm.to_string z)
-)
-(Hashtbl.find passed_list l)
-with   _-> ())
-in
-*)
     let dim = (VarContext.size (Model.clocks ta)) + 1 in
     (** Normalization function: Local LU normalization *)
     let get_lua_bounds = 
@@ -67,29 +57,10 @@ in
 	for i = 0 to dim - 1 do
 	  int_alphabounds.(i) <- max int_lbounds.(i) int_ubounds.(i)
         done;
-    (*
-       printf "----------------\n";
-       Model.print_discrete_state stdout ta dstate;
-       printf ">> "; Array.iter (fun i -> printf "%d " i) int_lbounds;
-       printf "\n>> "; Array.iter (fun i -> printf "%d " i) int_ubounds;
-       printf "\n\n";
-       *)
         (int_lbounds,int_ubounds,int_alphabounds)
     in
     let normalize dstate z =
       let (lbounds,ubounds,_) = get_lua_bounds dstate in
-(*
-printf "\nBefore Norm:\n%s\n\n" (Dbm.to_string z);		
-Dbm.extrapolate_lu z lbounds ubounds;
-printf "Printing LU bounds\n";
-for x = 1 to dim -1 do
-printf "Clock %d in [%d, %d] " x (lbounds.(x)) (ubounds.(x))
-done;
-printf "\n";
-printf "Before Reduce:\n%s\n\n" (Dbm.to_string z);
-Dbm.reduce z;
-printf "Final:\n%s\n\n" (Dbm.to_string z);
- *)
       Dbm.extrapolate_lu z lbounds ubounds
     in
     let leq dstate z z' = 
@@ -228,8 +199,3 @@ end
 
 module Dfs = ExactReachability(ZoneStack)(Uautomaton)
 module Bfs = ExactReachability(ZoneQueue)(Uautomaton)
-(*
-module VBfs = ExactReachability(ZoneQueue)(UppaalAutomaton)
-module UBfs = ExactReachability(ZoneQueue)(UppaalAutomaton)
-module UDfs = ExactReachability(ZoneStack)(UppaalAutomaton)
- *)
