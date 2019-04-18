@@ -1,0 +1,66 @@
+<TA>
+  <Declaration>
+#define N 7; //number of stations
+#define SIGMA 26; // time for signal propagation. (paper: Sigma)
+#define LAMDA 808; // time for data transmission. (paper: Lambda)
+
+channel begin;
+channel end;
+channel busy;
+broadcast channel cd;
+
+
+CSMACD = Bus ||| (|||m :{0..N-1} @ Sender(m));
+
+#define goal (false);
+#assert CSMACD reaches goal;
+
+
+TimedAutomaton Bus
+{
+	clock: x;
+
+	state idle
+	trans:begin?&lt;x&gt;-&gt;active;
+	endstate
+
+	state active
+	trans:end?&lt;x&gt;-&gt;idle;
+	trans:[[x &gt;= SIGMA]]busy!-&gt;active;
+	trans:[[x  &lt;= SIGMA - 1]]begin?&lt;x&gt;-&gt;collision;
+	endstate
+
+	state collision
+	inv: x &lt;= SIGMA - 1;
+	trans:cd!&lt;x&gt;-&gt;idle;
+	endstate
+
+}
+TimedAutomaton Sender(i)
+{
+	clock: x;
+
+	state wait
+	trans:begin!&lt;x&gt;-&gt;transmit;
+	trans:cd?&lt;x&gt;-&gt;wait;
+	trans:busy?&lt;x&gt;-&gt;retry;
+	trans:cd?&lt;x&gt;-&gt;retry;
+	endstate
+
+	state retry
+	inv: x &lt;= SIGMA * 2 - 1;
+	trans:cd?&lt;x&gt;-&gt;retry;
+	trans:[[x &lt;= 2 * SIGMA - 1]]begin!&lt;x&gt;-&gt;transmit;
+	endstate
+
+	state transmit
+	inv: x &lt;= LAMDA;
+	trans:[[x == LAMDA]]end!&lt;x&gt;-&gt;wait;
+	trans:[[x &lt;= 2 * SIGMA - 1]]cd?&lt;x&gt;-&gt;retry;
+	endstate
+
+}
+
+</Declaration>
+  <Processes />
+</TA>
