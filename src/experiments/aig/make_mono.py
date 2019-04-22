@@ -187,7 +187,7 @@ class TAWRITER:
 
             # Basically, we add the following transitions but use intermediary states
             # with invariants so that all transitions are urgent
-            # updated(l_{i-1},urg) ---- f(vec(l),I) = l_i ----> updated(l_{i+1})
+            # updated(l_{i-1},urg) ---- f(vec(l),I) = l_i ----> updated(l_{i})
             # updated(l_{i-1},urg) ---- f(vec(l),I) = 0 && l_i = 1, x_i >= D_i^1, l_i := 0, x_i := 0 ----> updated(l_{i},urg)
             # updated(l_{i-1},urg) ---- f(vec(l),I) = 0 && l_i = 1, x_i < D_i^1, l_i := 0, x_i := 0 ----> will_become1_nurg(l_{i})
             # symmetrically for when the new value is 1
