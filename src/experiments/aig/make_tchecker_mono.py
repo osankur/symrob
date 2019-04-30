@@ -46,7 +46,6 @@ from aig import (
     symbol_lit,
     negate_lit
 )
-from tchecker_ta import *
 
 class TAWRITER:
     def __init__(self, aiger_file_name, time_file_name, factor=1):
@@ -267,11 +266,11 @@ class TAWRITER:
             # temp.add_transition(Transition(last_location, latch_locations[x.lit], guard=g))
 
             disc_g = self.make_discrete_guard("_l.{0} == 1 && _l.{0} != {1}".format(self.name_of(x.lit), next_funcs[x.lit]))
-            print "s.add_edge(\"Circuit\", \"{0}\", \"{1}\", \"{2} <= {3}\", \"\", \"\", {4});".format(last_location, latch_locations[x.lit], clock_name[x.lit], self.delays[x.lit][0], disc_g)
+            print "s.add_edge(\"Circuit\", \"{0}\", \"{1}\", \"{2} >= {3}\", \"\", \"\", {4});".format(last_location, latch_locations[x.lit], clock_name[x.lit], self.delays[x.lit][0], disc_g)
 
 
             disc_g = self.make_discrete_guard("_l.{0} == 0 && _l.{0} != {1}".format(self.name_of(x.lit), next_funcs[x.lit]))
-            print "s.add_edge(\"Circuit\", \"{0}\", \"{1}\", \"{2} <= {3}\", \"\", \"\", {4});".format(last_location, latch_locations[x.lit], clock_name[x.lit], self.delays[x.lit][1], disc_g)
+            print "s.add_edge(\"Circuit\", \"{0}\", \"{1}\", \"{2} >= {3}\", \"\", \"\", {4});".format(last_location, latch_locations[x.lit], clock_name[x.lit], self.delays[x.lit][1], disc_g)
 
             # if we have to wait to respect the delay go to specific wait state and wait precisely for the delay (matching invariant + guard)
             loc0 = latch_locations[x.lit] + "_becomes0"
