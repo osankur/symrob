@@ -1,0 +1,9 @@
+ bs16y.aag_4L_100;		0.01;		True;		False;
+ bs16y.aag_4L_150;		0.01;		False;		False;
+ bs16y.aag_4L_200;		0.01;		False;		False;
+ cnt5y.aag_4L_200;		0.00;		True;		False;
+ cnt5y.aag_4L_300;		0.00;		False;		False;
+ genbuf2b3unrealy.aag_6L_300;		1.51;		False;		False;
+ moving_obstacle_8x8_1glitches.aag_4L_150;		4.46;		True;		False;
+ moving_obstacle_8x8_1glitches.aag_5L_150;		5.21;		True;		False;
+ moving_obstacle_8x8_1glitches.aag_6L_150;		5.92;		True;		False;

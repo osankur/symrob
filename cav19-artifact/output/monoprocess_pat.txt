@@ -1,0 +1,35 @@
+-BEGIN-
+=====================  bs16y.aag_4L_100 =====================
+Time: 165.82 sec (Real time) / 73.51 sec (User CPU time)
+-BEGIN-
+=====================  bs16y.aag_4L_150 =====================
+Time: 0.77 sec (Real time) / 0.57 sec (User CPU time)
+-BEGIN-
+=====================  bs16y.aag_4L_200 =====================
+Time: 0.17 sec (Real time) / 0.05 sec (User CPU time)
+-BEGIN-
+=====================  cnt5y.aag_4L_200 =====================
+Time: 0.13 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  cnt5y.aag_4L_300 =====================
+Command exited with non-zero status 58
+Time: 0.01 sec (Real time) / 0.00 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  genbuf2b3unrealy.aag_6L_300 =====================
+Time: 0.14 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  genbuf5f5n.aag_5L_300 =====================
+Time: 0.13 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  moving_obstacle_8x8_1glitches.aag_4L_150 =====================
+Time: 0.58 sec (Real time) / 0.41 sec (User CPU time)
+-BEGIN-
+=====================  moving_obstacle_8x8_1glitches.aag_4L_300 =====================
+Time: 0.17 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  moving_obstacle_8x8_1glitches.aag_5L_150 =====================
+Time: 0.13 sec (Real time) / 0.03 sec (User CPU time)
+-BEGIN-
+=====================  moving_obstacle_8x8_1glitches.aag_6L_150 =====================
+Time: 0.13 sec (Real time) / 0.02 sec (User CPU time)

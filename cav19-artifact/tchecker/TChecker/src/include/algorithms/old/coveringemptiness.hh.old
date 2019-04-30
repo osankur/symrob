@@ -1,0 +1,313 @@
+#ifndef __ALGORITHMS_COVERING_EMPTINESS_HH__
+#define __ALGORITHMS_COVERING_EMPTINESS_HH__
+
+#include <vector>
+
+#include "algorithms/algorithms.hh"
+#include "algorithms/reachtreeemptiness.hh"
+#include "graph/graph.hh"
+#include "graph/nodescmp.hh"
+#include "graph/pw.hh"
+#include "graph/reachtree.hh"
+#include "semantics/zg.hh"
+#include "syntax/system_bounds.hh"
+#include "syntax/system_builder.hh"
+
+using namespace std;
+
+namespace algorithms {
+
+  namespace covering {
+
+    /*
+     * Template class for emptiness algorithms based on a reachtree_t
+     * traversal augmented with a covering test
+     *
+     * The covering test is issued for non accepting nodes and decides if
+     * the node need to be expanded. It allows to check for dynamic cover
+     * criterions (i.e. where cover may vary true/false during the run of
+     * the algorithm for the same nodes)
+     *
+     * In order to ensure correctness, a node cannot be covered by itself.
+     * Hence, there must not be any cycle in the covering relation. 
+     * Termination further requires a priority over nodes. Take for instance a
+     * node N with two child nodes N1 and N2 such that N1 <= N2 and N2 <= N1.
+     * Without priority, the PW structure will alternate between two states:
+     * N1 covered by N2, N2 uncovered to be inserted; and N2 covered by N1,
+     * N1 uncovered to be inserted; as inserting one node uncovers the other.
+     * The priority can be chosen as for instance, the smallest memory address,
+     * or a sequence number set by the search algorithm.
+     *
+     * A first idea for implementing covering algorithm is to update the
+     * covering relation dynamically, and to use priority to ensure termination.
+     * Updating the covering relation dynamically means: if a node N covers N'
+     * and N appears to be covered by N'', then transfer the covering of N' to
+     * N'' and set N'' for resolution (as transitivity of the covering test
+     * may not hold).
+     *
+     * A second idea consists in disallowing a node to be both covered and
+     * covering statically. Which means that once a node is covered, it cannot
+     * be covering anymore, and conversely. The covering relation is set
+     * forever (unless it is invalidated by a modification to the node, which
+     * makes no problem here). This ensures both correctness (there cannot be
+     * any cycle) and termination (the static covering relation defines a
+     * priority).
+     *
+     * A third idea consists in partioning the nodes into a set of nodes that
+     * can be covered and a set of nodes that can be covering. This is a
+     * natural approach for our algorithm as only the leaf nodes in the tree
+     * can be covered. This ensures both correctness (absence of cycles) and
+     * termination.
+     *
+     * The three approaches are equivalent. In the first approach, observe that
+     * a node N cannot be covered by a leaf node N' unless N' is uncovered.
+     * Using the search order priority, as N' must have been visited before
+     * N has been visited, this means that N' has no successor, so does N as
+     * it is covered by N'. In the second approach, a leaf node N' can be
+     * covering if it has been inserted in the PW list but not visited yet
+     * (recall there is no search order priority). This implies that N' will
+     * have to be expanded (it cannot be covered as it is covering). Hence,
+     * this is a matter of choice between covering a node by N' and expanding N'
+     * or expanding the other node and (maybe) cover N'. The third approach
+     * will unfold every leaf node that is not covered.
+     *
+     * Observe that the last two approaches are easier to implement as they
+     * only require to strenghten the _cover criterion used by the algorithm and
+     * the _covered and _covering criterions used by the PW structure.
+     * Experimental results show that the second approach gives the best results
+     * in number of nodes. Hence, this is the way we take here. Notice that in
+     * order to know if a node is covered or covering, one could only store two
+     * boolean flags for each node. We choose to store the covering relation
+     * here as it is used by other algorithms, even if it is useless for the
+     * current algorithm.
+     *
+     * We provide a nodes_cmp_t<NODE> criterion that strenghten an user
+     * specified criterion (see covering_nodes_cmp_t below) by checking if
+     * nodes satisfy the non-cycling property. It is passed to the algorithm
+     * using nodes_cmp_factory_t<NODE> (see algorithms::pw_owner_t for details)
+     *
+     * We also provide an event handler for the PW structure that updates the
+     * covering relation among the nodes.
+     */
+
+    template <class NODE> class nodes_cmp_t : public graph::nodes_cmp_t<NODE> {
+    public:
+      nodes_cmp_t(graph::nodes_cmp_t<NODE> & cmp) : _cmp(cmp) {
+      }
+
+      /* Is n1 covered by n2?
+       * In order to ensure correctness of the covering emptiness algorithm
+       * below, no node must be both covered and covering.
+       * Returns:  false        if n1 is covering or n2 is covered
+       *           _cmp(n1,n2)  oherwise
+       */
+      virtual bool operator () (NODE * n1, NODE * n2) const {
+	if (n1->covering() || n2->covered())
+	  return false;
+
+	return _cmp(n1, n2);
+      }
+    private:
+      graph::nodes_cmp_t<NODE> & _cmp;
+    };
+
+
+
+    template <class NODE> class nodes_cmp_factory_t
+      : public pw::nodes_cmp_factory_t<NODE>,
+	public singleton_t< nodes_cmp_factory_t<NODE> > {
+      
+      // Access to cons/des
+      friend class singleton_t< nodes_cmp_factory_t<NODE> >;
+
+    public:
+      virtual graph::nodes_cmp_t<NODE> * new_nodes_cmp
+      (syntax::system_bounds_t & system_bounds, enum pw::cover_type_t type) {
+	graph::nodes_cmp_t<NODE> * cmp =
+	  pw::basic_nodes_cmp_factory_t<NODE>::instance().new_nodes_cmp
+	  (system_bounds, type);
+	
+	if (cmp == NULL) // Optimization
+	  return NULL;
+
+	return (new nodes_cmp_t<NODE>(*cmp));
+      }
+    };
+
+    
+    /*
+     * Event handler that update the covering relation
+     */
+    template <class NODE> class events_t : public pw::events_t<NODE> {
+    public:
+      virtual ~events_t() {
+      }
+
+      /* Called by method pw_t::insert when insertion of node is requested but
+       * node is covered by covering_node
+       */
+      virtual void on_covered(NODE * node, NODE * covering_node) {
+	node->covered(covering_node);
+      }
+
+      /* Called by method pw_t::insert when insertion of node is requested and
+       * node is covering covered_node (that will hence be removed)
+       */
+      virtual void on_covering(NODE * node, NODE * covered_node) {
+	covered_node->covered(node);
+      }
+    };
+    
+
+
+    /*
+     * Covering emptiness algorithms
+     */
+    template <class NODE, class EDGE, class GRAPH, class TS>
+    class emptiness_algorithm_t
+      : public algorithms::reachtree::emptiness_algorithm_t<NODE,EDGE,GRAPH,
+							    TS> {
+    protected:
+      // Covering test (instance of nodes_cmp_t<>, see above)
+      nodes_cmp_t<NODE> _cover;
+
+      // Events handler for PW structure
+      events_t<NODE> _pw_events;
+      
+      // Called before expanding node
+      // Returns: true   if node need to be expanded
+      //          false  otherwise
+      virtual bool on_pre_expand(NODE * node) {
+	NODE * covering_node;
+	
+	// Do not expand node if _cover matches
+	if (this->_pw.cover(node, _cover, &covering_node)) {
+	  on_cover_node(node, covering_node);
+	  return false;
+	}
+
+	algorithms::reachtree::emptiness_algorithm_t<NODE,EDGE,GRAPH,
+						     TS>::on_pre_expand(node);
+
+	return true;
+      }
+
+      // Called when _cover matches for node wrt covering_node
+      virtual void on_cover_node(NODE * node, NODE * covering_node) {
+	node->covered(covering_node);
+      }
+    public:
+      emptiness_algorithm_t(TS & ts, pw::pw_t<NODE> & pw,
+			    graph::nodes_cmp_t<NODE> & cover)
+	: algorithms::reachtree::emptiness_algorithm_t<NODE,EDGE,GRAPH,TS>(ts, 
+									   pw),
+	  _cover(cover) {
+      }
+
+      virtual ~emptiness_algorithm_t() {
+      }
+    };
+
+
+
+    /*
+     * Instances of the covering algorithm for particular cover criterions
+     */
+
+
+    class node_t; // Forward declaration
+
+    typedef src_tgt_edge_t<node_t> edge_t;
+
+    typedef graph_ts_t<zg::zg_t, node_t, edge_t> graph_t;
+
+    class node_t : public state_node_t<zg::state_t>,
+		   public pw_node_t,
+		   public covering_flags_node_t<node_t>,
+		   public reachtree_node_t<edge_t> {
+    public:
+      node_t(const zg::state_t & state) : state_node_t<zg::state_t>(state) {
+      }
+    };
+
+
+    // Partial instantiation of the algorithm
+    class covering_emptiness_algorithm_t
+      : public algorithms::zg_algorithm_t,
+	public algorithms::pw_owner_t<node_t>,
+	public emptiness_algorithm_t<node_t, edge_t, graph_t, zg::zg_t> {
+    public:
+      covering_emptiness_algorithm_t(syntax::system_builder_t & system_builder,
+				     graph::nodes_cmp_t<node_t> & cover)
+	: algorithms::zg_algorithm_t(system_builder),
+	  algorithms::pw_owner_t<node_t>
+	  (*_sb, &_pw_events, nodes_cmp_factory_t<node_t>::instance()),
+	  emptiness_algorithm_t<node_t, edge_t, graph_t, zg::zg_t>
+	  (_zg, algorithms::pw_owner_t<node_t>::_pw, cover) {
+      }
+    };
+    
+    
+
+    /* Inclusion cover check
+     */
+    class inclusion_emptiness_algorithm_t
+      : public covering_emptiness_algorithm_t {
+    public:
+      inclusion_emptiness_algorithm_t(syntax::system_builder_t & system_builder)
+	: covering_emptiness_algorithm_t(system_builder, _inclusion_covered) {
+      }
+    private:
+      graph::inclusion_covered_t<node_t> _inclusion_covered;
+    };
+
+
+
+    /* ClosureM with system bounds cover check
+     */
+    class closure_M_emptiness_algorithm_t
+      : public covering_emptiness_algorithm_t {
+    public:
+      closure_M_emptiness_algorithm_t(syntax::system_builder_t & system_builder)
+	: covering_emptiness_algorithm_t(system_builder, _closure_covered),
+	  _closure_covered(*_sb) {
+      }
+    private:
+      graph::closure_covered_t<node_t> _closure_covered;
+    };
+
+
+
+    /* ClosureLU with system bounds cover check
+     */
+    class closure_LU_emptiness_algorithm_t
+      : public covering_emptiness_algorithm_t {
+    public:
+      closure_LU_emptiness_algorithm_t(syntax::system_builder_t &
+				       system_builder)
+	: covering_emptiness_algorithm_t(system_builder, _closure_LU_covered),
+	  _closure_LU_covered(*_sb) {
+      }
+    private:
+      graph::closure_LU_covered_t<node_t> _closure_LU_covered;
+    };
+
+
+
+    /* aLU with system bounds cover check
+     */
+    class a_LU_emptiness_algorithm_t : public covering_emptiness_algorithm_t {
+    public:
+      a_LU_emptiness_algorithm_t(syntax::system_builder_t & system_builder)
+	: covering_emptiness_algorithm_t(system_builder, _a_LU_covered),
+	  _a_LU_covered(*_sb) {
+      }
+    private:
+      graph::a_LU_covered_t<node_t> _a_LU_covered;
+    };
+
+  }
+
+}
+
+#endif

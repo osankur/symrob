@@ -1,0 +1,190 @@
+-BEGIN-
+=====================  10 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+-BEGIN-
+=====================  1 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.01 sec (Real time) / 0.01 sec (User CPU time)
+-BEGIN-
+=====================  20 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.01 sec (Real time) / 0.01 sec (User CPU time)
+-BEGIN-
+=====================  22 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.01 sec (Real time) / 0.01 sec (User CPU time)
+-BEGIN-
+=====================  25 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+-BEGIN-
+=====================  31 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.01 sec (Real time) / 0.00 sec (User CPU time)
+-BEGIN-
+=====================  32 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202774
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+ -- [1;34mThroughput: 22267 states/sec[0;0m, Size: 12 states, Load: 9 states[K -- [1;34mThroughput: 313664 states/sec[0;0m, Size: 66 states, Load: 63 states[K -- [1;34mThroughput: 221313 states/sec[0;0m, Size: 474 states, Load: 343 states[K -- [1;34mThroughput: 505969 states/sec[0;0m, Size: 1154 states, Load: 1023 states[K -- [1;34mThroughput: 532415 states/sec[0;0m, Size: 17805 states, Load: 8191 states[K -- [1;34mThroughput: 480449 states/sec[0;0m, Size: 58498 states, Load: 8191 states[K[2K -- Property is NOT satisfied.
+Time: 1.01 sec (Real time) / 1.00 sec (User CPU time)
+-BEGIN-
+=====================  34 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202775
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+-BEGIN-
+=====================  4 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202775
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+-BEGIN-
+=====================  7 =====================
+Options for the verification:
+  Generating no trace
+  Search order is breadth first (UPPAAL), automatic (TIGA)
+  Using conservative space optimisation
+  Seed is 1556202775
+  State space representation uses minimal constraint systems
+  Using Covariance Matrixes for learning SMC-Strategies
+  Learning-settings:
+	maxRuns		:5000
+	maxGood		:50000
+	maxBest		:500
+	evalRuns	:1000
+  Using Local Heap filtering for learning
+[2K
+Verifying property 1 at line 1
+[2K -- Property is satisfied.
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)

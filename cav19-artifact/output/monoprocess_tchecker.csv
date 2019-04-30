@@ -1,0 +1,10 @@
+bs16y.aag_4L_100;		0.05;		True
+bs16y.aag_4L_150;		0.55;		False
+bs16y.aag_4L_200;		2.56;		False
+cnt5y.aag_4L_200;		0.03;		True
+cnt5y.aag_4L_300;		0.04;		False
+factory_assembly_3x3_1_1errors.aag_4L_200;		242.25;		True
+genbuf2b3unrealy.aag_5L_250;		15.06;		True
+moving_obstacle_8x8_1glitches.aag_4L_150;		184.44;		True
+moving_obstacle_8x8_1glitches.aag_5L_150;		237.06;		True
+moving_obstacle_8x8_1glitches.aag_6L_150;		319.63;		True

@@ -1,0 +1,115 @@
+<TA><Declaration> var fdead :{0..1} = 0;
+var Istay :{0..1} = 0;
+var Icontrollable_reset :{0..1} = 0;
+var Ln7  :{0..1} = 0;
+var Lcounter0_out  :{0..1} = 0;
+var Lcounter1_out  :{0..1} = 0;
+var Lcounter2_out  :{0..1} = 0;
+var Lcounter3_out  :{0..1} = 0;
+var Lcounter4_out  :{0..1} = 0;
+System = Circuit();
+#define Dead fdead==1;
+#assert System reaches Dead;
+
+TimedAutomaton Circuit
+{
+clock: x_6, x_8, x_10, x_12, t;
+	state Init	
+	urgent;
+	trans: tau { Istay = 0; } -&gt;JustSetIstay;
+	trans: tau { Istay = 1; } -&gt;JustSetIstay;
+	endstate
+
+	state JustSetIstay	
+	urgent;
+	trans: tau { Icontrollable_reset = 0; } -&gt;JustSetIcontrollable_reset;
+	trans: tau { Icontrollable_reset = 1; } -&gt;JustSetIcontrollable_reset;
+	endstate
+
+	state JustSetIcontrollable_reset	
+	urgent;
+	trans: [Ln7 == 1] tau -&gt;UpdatedLn7;
+	trans: [[x_6 &gt;= 1000]] [Ln7 == 1 &amp;&amp; Ln7 != 1] tau -&gt;UpdatedLn7;
+	trans: [[x_6 &gt;= 1500]] [Ln7 == 0 &amp;&amp; Ln7 != 1] tau -&gt;UpdatedLn7;
+	trans: [[x_6 &lt;= 999]] [Ln7 == 1 &amp;&amp; Ln7 != 1] tau -&gt;UpdatedLn7_becomes0;
+	trans: [[x_6 &lt;= 1499]] [Ln7 == 0 &amp;&amp; Ln7 != 1 ] tau -&gt;UpdatedLn7_becomes1;
+	endstate
+
+	state UpdatedLn7	
+	urgent;
+	trans: [Lcounter0_out == (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay)))))] tau -&gt;UpdatedLcounter0_out;
+	trans: [[x_8 &gt;= 500]] [Lcounter0_out == 1 &amp;&amp; Lcounter0_out != (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay)))))] tau -&gt;UpdatedLcounter0_out;
+	trans: [[x_8 &gt;= 2000]] [Lcounter0_out == 0 &amp;&amp; Lcounter0_out != (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay)))))] tau -&gt;UpdatedLcounter0_out;
+	trans: [[x_8 &lt;= 499]] [Lcounter0_out == 1 &amp;&amp; Lcounter0_out != (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay)))))] tau -&gt;UpdatedLcounter0_out_becomes0;
+	trans: [[x_8 &lt;= 1999]] [Lcounter0_out == 0 &amp;&amp; Lcounter0_out != (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay))))) ] tau -&gt;UpdatedLcounter0_out_becomes1;
+	endstate
+
+	state UpdatedLn7_becomes0	
+	inv: x_6 &lt;= 1000;
+	trans: [[x_6 &gt;= 1000]] tau { Ln7 = 1; } &lt;x_6&gt; -&gt;UpdatedLn7;
+	endstate
+
+	state UpdatedLn7_becomes1	
+	inv: x_6 &lt;= 1500;
+	trans: [[x_6 &gt;= 1500]] tau { Ln7 = 1; } &lt;x_6&gt; -&gt;UpdatedLn7;
+	endstate
+
+	state UpdatedLcounter0_out	
+	urgent;
+	trans: [Lcounter1_out == (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7))))))] tau -&gt;UpdatedLcounter1_out;
+	trans: [[x_10 &gt;= 2000]] [Lcounter1_out == 1 &amp;&amp; Lcounter1_out != (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7))))))] tau -&gt;UpdatedLcounter1_out;
+	trans: [[x_10 &gt;= 3000]] [Lcounter1_out == 0 &amp;&amp; Lcounter1_out != (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7))))))] tau -&gt;UpdatedLcounter1_out;
+	trans: [[x_10 &lt;= 1999]] [Lcounter1_out == 1 &amp;&amp; Lcounter1_out != (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7))))))] tau -&gt;UpdatedLcounter1_out_becomes0;
+	trans: [[x_10 &lt;= 2999]] [Lcounter1_out == 0 &amp;&amp; Lcounter1_out != (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7)))))) ] tau -&gt;UpdatedLcounter1_out_becomes1;
+	endstate
+
+	state UpdatedLcounter0_out_becomes0	
+	inv: x_8 &lt;= 500;
+	trans: [[x_8 &gt;= 500]] tau { Lcounter0_out = (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay))))); } &lt;x_8&gt; -&gt;UpdatedLcounter0_out;
+	endstate
+
+	state UpdatedLcounter0_out_becomes1	
+	inv: x_8 &lt;= 2000;
+	trans: [[x_8 &gt;= 2000]] tau { Lcounter0_out = (1-((1-((1-((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * (1-(((Lcounter0_out) * (Ln7)) * (Istay))))); } &lt;x_8&gt; -&gt;UpdatedLcounter0_out;
+	endstate
+
+	state UpdatedLcounter1_out	
+	urgent;
+	trans: [Lcounter2_out == (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7))))))] tau -&gt;UpdatedLcounter2_out;
+	trans: [[x_12 &gt;= 3000]] [Lcounter2_out == 1 &amp;&amp; Lcounter2_out != (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7))))))] tau -&gt;UpdatedLcounter2_out;
+	trans: [[x_12 &gt;= 0]] [Lcounter2_out == 0 &amp;&amp; Lcounter2_out != (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7))))))] tau -&gt;UpdatedLcounter2_out;
+	trans: [[x_12 &lt;= 2999]] [Lcounter2_out == 1 &amp;&amp; Lcounter2_out != (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7))))))] tau -&gt;UpdatedLcounter2_out_becomes0;
+	trans: [Lcounter2_out == 0 &amp;&amp; Lcounter2_out != (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7)))))) ] tau -&gt;UpdatedLcounter2_out_becomes1;
+	endstate
+
+	state UpdatedLcounter1_out_becomes0	
+	inv: x_10 &lt;= 2000;
+	trans: [[x_10 &gt;= 2000]] tau { Lcounter1_out = (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7)))))); } &lt;x_10&gt; -&gt;UpdatedLcounter1_out;
+	endstate
+
+	state UpdatedLcounter1_out_becomes1	
+	inv: x_10 &lt;= 3000;
+	trans: [[x_10 &gt;= 3000]] tau { Lcounter1_out = (1-((1-((((Lcounter0_out) * (Ln7)) * (1-(Istay))) * (1-((Lcounter1_out) * (Ln7))))) * (1-((1-(((Lcounter0_out) * (Ln7)) * (1-(Istay)))) * ((Lcounter1_out) * (Ln7)))))); } &lt;x_10&gt; -&gt;UpdatedLcounter1_out;
+	endstate
+
+	state UpdatedLcounter2_out	
+	urgent;
+	trans: [[t &lt;= 3000]] tau &lt;t&gt; -&gt;Init;
+	trans: [[t &gt;=3001]] tau { fdead = 1; } -&gt;dead;
+	endstate
+
+	state UpdatedLcounter2_out_becomes0	
+	inv: x_12 &lt;= 3000;
+	trans: [[x_12 &gt;= 3000]] tau { Lcounter2_out = (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7)))))); } &lt;x_12&gt; -&gt;UpdatedLcounter2_out;
+	endstate
+
+	state UpdatedLcounter2_out_becomes1	
+	inv: x_12 &lt;= 0;
+	trans: [[x_12 &gt;= 0]] tau { Lcounter2_out = (1-((1-(((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay))) * (1-((Lcounter2_out) * (Ln7))))) * (1-((1-((((Lcounter1_out) * (Ln7)) * ((Lcounter0_out) * (Ln7))) * (1-(Istay)))) * ((Lcounter2_out) * (Ln7)))))); } &lt;x_12&gt; -&gt;UpdatedLcounter2_out;
+	endstate
+
+	state dead	
+	endstate
+
+}
+</Declaration><Processes/></TA>

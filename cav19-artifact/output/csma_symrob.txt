@@ -1,0 +1,165 @@
+-BEGIN-
+=====================  {csma_input_02[@]} =====================
+[INF] Reading timed automaton csma/{csma_input_02[@]}.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+Command exited with non-zero status 2
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  csma2 =====================
+[INF] Reading timed automaton csma/csma2.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+Command exited with non-zero status 2
+Time: 0.00 sec (Real time) / 0.00 sec (User CPU time)
+timeout or error
+-BEGIN-
+=====================  csma3 =====================
+[INF] Reading timed automaton csma/csma3.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 5 clocks
+[INF] ** CEGAR iterations: 1 w/ 13 clock predicates
+Iteration 1: Reachable has size 29		Iteration 2: Reachable has size 92		Iteration 3: Reachable has size 470		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 15 clock predicates
+Iteration 1: Reachable has size 33		Iteration 2: Reachable has size 100		Iteration 3: Reachable has size 514		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 17 clock predicates
+Iteration 1: Reachable has size 41		Iteration 2: Reachable has size 142		Iteration 3: Reachable has size 720		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 19 clock predicates
+Iteration 1: Reachable has size 52		Iteration 2: Reachable has size 158		Iteration 3: Reachable has size 741		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 21 clock predicates
+Iteration 1: Reachable has size 65		Iteration 2: Reachable has size 182		Iteration 3: Reachable has size 733		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 23 clock predicates
+Iteration 1: Reachable has size 87		Iteration 2: Reachable has size 298		Iteration 3: Reachable has size 1060		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 7 w/ 25 clock predicates
+Iteration 1: Reachable has size 100		Iteration 2: Reachable has size 392		Iteration 3: Reachable has size 1207		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 8 w/ 27 clock predicates
+Iteration 1: Reachable has size 117		Iteration 2: Reachable has size 471		Iteration 3: Reachable has size 1417		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 9 w/ 29 clock predicates
+Iteration 1: Reachable has size 132		Iteration 2: Reachable has size 588		Iteration 3: Reachable has size 2229		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 10 w/ 30 clock predicates
+Iteration 1: Reachable has size 159		Iteration 2: Reachable has size 711		Iteration 3: Reachable has size 2744		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 11 w/ 32 clock predicates
+Iteration 1: Reachable has size 201		Iteration 2: Reachable has size 849		Iteration 3: Reachable has size 3393		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 12 w/ 34 clock predicates
+Iteration 1: Reachable has size 257		Iteration 2: Reachable has size 1001		Iteration 3: Reachable has size 3962		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 13 w/ 35 clock predicates
+Iteration 1: Reachable has size 273		Iteration 2: Reachable has size 1347		Iteration 3: Reachable has size 4605		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 14 w/ 36 clock predicates
+Iteration 1: Reachable has size 278		Iteration 2: Reachable has size 1397		Iteration 3: Reachable has size 4701		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 15 w/ 37 clock predicates
+Iteration 1: Reachable has size 279		Iteration 2: Reachable has size 1623		Iteration 3: Reachable has size 5022		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 16 w/ 39 clock predicates
+Iteration 1: Reachable has size 347		Iteration 2: Reachable has size 1658		Iteration 3: Reachable has size 5476		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 17 w/ 41 clock predicates
+Iteration 1: Reachable has size 387		Iteration 2: Reachable has size 1835		Iteration 3: Reachable has size 6376		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 18 w/ 43 clock predicates
+Iteration 1: Reachable has size 260		Iteration 2: Reachable has size 1917		Iteration 3: Reachable has size 6995		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 19 w/ 45 clock predicates
+Iteration 1: Reachable has size 274		Iteration 2: Reachable has size 2139		Iteration 3: Reachable has size 7851		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 20 w/ 46 clock predicates
+Iteration 1: Reachable has size 283		Iteration 2: Reachable has size 2308		Iteration 3: Reachable has size 8438		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 21 w/ 48 clock predicates
+Iteration 1: Reachable has size 301		Iteration 2: Reachable has size 2366		Iteration 3: Reachable has size 8546		Iteration 4: Reachable has size 11832		Iteration 5: Reachable has size 14184		Iteration 6: Reachable has size 14355		Iteration 7: Reachable has size 14357		Explored 8 layers.[INF] ** CEGAR iterations: 21 w/ 48 clock predicates
+[INF] Result: false
+Time: 1.63 sec (Real time) / 1.58 sec (User CPU time)
+-BEGIN-
+=====================  csma4 =====================
+[INF] Reading timed automaton csma/csma4.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 6 clocks
+[INF] ** CEGAR iterations: 1 w/ 16 clock predicates
+Iteration 1: Reachable has size 35		Iteration 2: Reachable has size 184		Iteration 3: Reachable has size 1440		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 18 clock predicates
+Iteration 1: Reachable has size 39		Iteration 2: Reachable has size 188		Iteration 3: Reachable has size 1452		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 43		Iteration 2: Reachable has size 251		Iteration 3: Reachable has size 1556		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 47		Iteration 2: Reachable has size 263		Iteration 3: Reachable has size 1600		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 23 clock predicates
+Iteration 1: Reachable has size 58		Iteration 2: Reachable has size 346		Iteration 3: Reachable has size 1895		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 25 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 409		Iteration 3: Reachable has size 2057		Iteration 4: Reachable has size 3513		Iteration 5: Reachable has size 3641		Iteration 6: Reachable has size 3385		Iteration 7: Reachable has size 3306		Explored 8 layers.[INF] ** CEGAR iterations: 6 w/ 25 clock predicates
+[INF] Result: false
+Time: 0.21 sec (Real time) / 0.19 sec (User CPU time)
+-BEGIN-
+=====================  csma3 =====================
+[INF] Reading timed automaton csma/csma3.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 5 clocks
+[INF] ** CEGAR iterations: 1 w/ 13 clock predicates
+Iteration 1: Reachable has size 29		Iteration 2: Reachable has size 92		Iteration 3: Reachable has size 470		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 15 clock predicates
+Iteration 1: Reachable has size 33		Iteration 2: Reachable has size 100		Iteration 3: Reachable has size 514		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 17 clock predicates
+Iteration 1: Reachable has size 41		Iteration 2: Reachable has size 142		Iteration 3: Reachable has size 720		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 19 clock predicates
+Iteration 1: Reachable has size 52		Iteration 2: Reachable has size 158		Iteration 3: Reachable has size 741		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 21 clock predicates
+Iteration 1: Reachable has size 65		Iteration 2: Reachable has size 182		Iteration 3: Reachable has size 733		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 23 clock predicates
+Iteration 1: Reachable has size 87		Iteration 2: Reachable has size 298		Iteration 3: Reachable has size 1060		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 7 w/ 25 clock predicates
+Iteration 1: Reachable has size 100		Iteration 2: Reachable has size 392		Iteration 3: Reachable has size 1207		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 8 w/ 27 clock predicates
+Iteration 1: Reachable has size 117		Iteration 2: Reachable has size 471		Iteration 3: Reachable has size 1417		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 9 w/ 29 clock predicates
+Iteration 1: Reachable has size 132		Iteration 2: Reachable has size 588		Iteration 3: Reachable has size 2229		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 10 w/ 30 clock predicates
+Iteration 1: Reachable has size 159		Iteration 2: Reachable has size 711		Iteration 3: Reachable has size 2744		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 11 w/ 32 clock predicates
+Iteration 1: Reachable has size 201		Iteration 2: Reachable has size 849		Iteration 3: Reachable has size 3393		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 12 w/ 34 clock predicates
+Iteration 1: Reachable has size 257		Iteration 2: Reachable has size 1001		Iteration 3: Reachable has size 3962		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 13 w/ 35 clock predicates
+Iteration 1: Reachable has size 273		Iteration 2: Reachable has size 1347		Iteration 3: Reachable has size 4605		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 14 w/ 36 clock predicates
+Iteration 1: Reachable has size 278		Iteration 2: Reachable has size 1397		Iteration 3: Reachable has size 4701		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 15 w/ 37 clock predicates
+Iteration 1: Reachable has size 279		Iteration 2: Reachable has size 1623		Iteration 3: Reachable has size 5022		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 16 w/ 39 clock predicates
+Iteration 1: Reachable has size 347		Iteration 2: Reachable has size 1658		Iteration 3: Reachable has size 5476		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 17 w/ 41 clock predicates
+Iteration 1: Reachable has size 387		Iteration 2: Reachable has size 1835		Iteration 3: Reachable has size 6376		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 18 w/ 43 clock predicates
+Iteration 1: Reachable has size 260		Iteration 2: Reachable has size 1917		Iteration 3: Reachable has size 6995		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 19 w/ 45 clock predicates
+Iteration 1: Reachable has size 274		Iteration 2: Reachable has size 2139		Iteration 3: Reachable has size 7851		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 20 w/ 46 clock predicates
+Iteration 1: Reachable has size 283		Iteration 2: Reachable has size 2308		Iteration 3: Reachable has size 8438		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 21 w/ 48 clock predicates
+Iteration 1: Reachable has size 301		Iteration 2: Reachable has size 2366		Iteration 3: Reachable has size 8546		Iteration 4: Reachable has size 11832		Iteration 5: Reachable has size 14184		Iteration 6: Reachable has size 14355		Iteration 7: Reachable has size 14357		Explored 8 layers.[INF] ** CEGAR iterations: 21 w/ 48 clock predicates
+[INF] Result: false
+Time: 1.64 sec (Real time) / 1.59 sec (User CPU time)
+-BEGIN-
+=====================  csma4 =====================
+[INF] Reading timed automaton csma/csma4.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 6 clocks
+[INF] ** CEGAR iterations: 1 w/ 16 clock predicates
+Iteration 1: Reachable has size 35		Iteration 2: Reachable has size 184		Iteration 3: Reachable has size 1440		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 18 clock predicates
+Iteration 1: Reachable has size 39		Iteration 2: Reachable has size 188		Iteration 3: Reachable has size 1452		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 43		Iteration 2: Reachable has size 251		Iteration 3: Reachable has size 1556		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 47		Iteration 2: Reachable has size 263		Iteration 3: Reachable has size 1600		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 23 clock predicates
+Iteration 1: Reachable has size 58		Iteration 2: Reachable has size 346		Iteration 3: Reachable has size 1895		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 25 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 409		Iteration 3: Reachable has size 2057		Iteration 4: Reachable has size 3513		Iteration 5: Reachable has size 3641		Iteration 6: Reachable has size 3385		Iteration 7: Reachable has size 3306		Explored 8 layers.[INF] ** CEGAR iterations: 6 w/ 25 clock predicates
+[INF] Result: false
+Time: 0.20 sec (Real time) / 0.19 sec (User CPU time)
+-BEGIN-
+=====================  csma5 =====================
+[INF] Reading timed automaton csma/csma5.xml and query csma/csma.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 7 clocks
+[INF] ** CEGAR iterations: 1 w/ 19 clock predicates
+Iteration 1: Reachable has size 41		Iteration 2: Reachable has size 368		Iteration 3: Reachable has size 4297		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 20 clock predicates
+Iteration 1: Reachable has size 46		Iteration 2: Reachable has size 474		Iteration 3: Reachable has size 5227		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 22 clock predicates
+Iteration 1: Reachable has size 52		Iteration 2: Reachable has size 484		Iteration 3: Reachable has size 5241		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 24 clock predicates
+Iteration 1: Reachable has size 51		Iteration 2: Reachable has size 518		Iteration 3: Reachable has size 4639		Iteration 4: Reachable has size 7258		Iteration 5: Reachable has size 8341		Iteration 6: Reachable has size 8085		Iteration 7: Reachable has size 7861		Iteration 8: Reachable has size 7749		Explored 9 layers.[INF] ** CEGAR iterations: 4 w/ 24 clock predicates
+[INF] Result: false
+Time: 0.41 sec (Real time) / 0.40 sec (User CPU time)
