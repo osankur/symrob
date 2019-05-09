@@ -47,7 +47,7 @@ elif [ "$benchmark" == "wave" ]; then
 		spec="$1/wave.q"
 elif [ "$benchmark" == "csma" ]; then
 	  spec="$1/csma.q"
-	  tchecker_label="error"
+	  tchecker_label="error,transm"
 else
     echo "Unknown benchmark"
     exit 1

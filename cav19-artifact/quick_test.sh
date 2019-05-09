@@ -115,7 +115,7 @@ elif [ "$benchmark" == "wave" ]; then
 elif [ "$benchmark" == "csma" ]; then
 	  spec="$1/csma.q"
 	  FILES=(${CSMA[@]})
-	  tchecker_label="error"
+	  tchecker_label="error,transm"
 else
     echo "Unknown benchmark"
     exit 1

@@ -3,7 +3,7 @@
 CXX=${CXX:-g++}
 
 CPPFLAGS="-I/usr/include -I./uppaal/include \
--I./TChecker/src/include"
+-I/home/osankur/inria/symrob/cav19-artifact/tchecker/TChecker/src/include"
 
 # Don't forget -DNDEBUG for efficiency, don't use -O3 (fddi cannot be compiled)
 # Also -m32 to avoid wasting all available memory in large pointers
