@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta><declaration> int[0,2] out0 = 2;
+int[0,2] b0_0 = 2;
+int[0,2] b0_1 = 2;
+clock x0;
+clock t;
+int[0,2] out1 = 2;
+int[0,2] b1_0 = 2;
+int[0,2] b1_1 = 2;
+int[0,2] b1_2 = 2;
+int[0,2] b1_3 = 2;
+int[0,2] b1_4 = 2;
+int[0,2] b1_5 = 2;
+int[0,2] b1_6 = 2;
+int[0,2] b1_7 = 2;
+int[0,2] b1_8 = 2;
+int[0,2] b1_9 = 2;
+clock x1;
+int[0,2] out2 = 2;
+int[0,2] b2_0 = 2;
+int[0,2] b2_1 = 2;
+int[0,2] b2_2 = 2;
+int[0,2] b2_3 = 2;
+int[0,2] b2_4 = 2;
+clock x2;
+int[0,2] out3 = 2;
+int[0,2] b3_0 = 2;
+int[0,2] b3_1 = 2;
+int[0,2] b3_2 = 2;
+int[0,2] b3_3 = 2;
+int[0,2] b3_4 = 2;
+clock x3;
+int[0,2] out4 = 2;
+clock x4;
+int[0,2] out5 = 2;
+int[0,2] b5_0 = 2;
+int[0,2] b5_1 = 2;
+int[0,2] b5_2 = 2;
+clock x5;
+int[0,2] out6 = 2;
+int[0,2] out7 = 2;
+int[0,2] out8 = 2;
+int[0,2] out9 = 2;
+int[0,2] out10 = 2;
+int[0,2] out11 = 2;
+int[0,2] out12 = 2;
+int[0,2] out13 = 2;
+int[0,2] out14 = 2;
+int[0,2] out15 = 2;
+int[0,2] out16 = 2;
+int[0,2] out17 = 2;
+int[0,2] out18 = 2;
+int[0,2] out19 = 2;
+</declaration>
+<template><name>Node0</name>
+<location id="loc465"><name>down</name>
+<label kind="invariant">x0 &lt;= 100</label>
+</location>
+<location id="loc466"><name>up</name>
+<label kind="invariant">x0 &lt;= 200</label>
+</location>
+<location id="loc467"><name>err</name>
+</location>
+<init ref="loc465"/>
+<transition>
+<source ref="loc465"/><target ref="loc466"/>
+<label kind="assignment">out0 := 1</label>
+<label kind="guard">100 &lt;= x0 &amp;&amp; x0 &lt;= 200 &amp;&amp; out5 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; out5 == 1 &amp;&amp; out15 == 1 &amp;&amp; t &lt;= 300</label>
+</transition>
+<transition>
+<source ref="loc465"/><target ref="loc465"/>
+<label kind="assignment">out0 := 2,out1 := 2,out2 := 2,out3 := 2,out4 := 2,out5 := 2</label>
+<label kind="guard">t &gt; 300</label>
+</transition>
+<transition>
+<source ref="loc465"/><target ref="loc466"/>
+<label kind="assignment">out0 := 0</label>
+<label kind="guard">100 &lt;= x0 &amp;&amp; x0 &lt;= 200  &amp;&amp; out5 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; (out5 == 1 &amp;&amp; out15 == 1)==0</label>
+</transition>
+<transition>
+<source ref="loc465"/><target ref="loc465"/>
+<label kind="assignment">x0 := 0</label>
+<label kind="guard">x0 == 100  &amp;&amp; (out5 != 2 &amp;&amp; out15 != 2) == 0</label>
+</transition>
+<transition>
+<source ref="loc466"/><target ref="loc465"/>
+<label kind="assignment">x0:=0, out0 := 2</label>
+<label kind="guard">x0 &lt;=200</label>
+</transition>
+<transition>
+<source ref="loc466"/><target ref="loc467"/>
+<label kind="guard">out0==1</label>
+</transition>
+</template>
+<template><name>Node1</name>
+<location id="loc468"><name>down</name>
+<label kind="invariant">x1 &lt;= 50</label>
+</location>
+<location id="loc469"><name>up</name>
+<label kind="invariant">x1 &lt;= 100</label>
+</location>
+<init ref="loc468"/>
+<transition>
+<source ref="loc468"/><target ref="loc469"/>
+<label kind="assignment">out1 := 1</label>
+<label kind="guard">50 &lt;= x1 &amp;&amp; x1 &lt;= 100  &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; out9 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; out11 &lt; 2 &amp;&amp; out12 &lt; 2 &amp;&amp; out13 &lt; 2 &amp;&amp; out14 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; (out6+(out7+(out8+(out9+(out10+(out11+(out12+(out13+(out14+(out15)))))))))) &gt;= 9</label>
+</transition>
+<transition>
+<source ref="loc468"/><target ref="loc469"/>
+<label kind="assignment">out1 := 0</label>
+<label kind="guard">50 &lt;= x1 &amp;&amp; x1 &lt;= 100  &amp;&amp; out6 &lt; 2 &amp;&amp; out7 &lt; 2 &amp;&amp; out8 &lt; 2 &amp;&amp; out9 &lt; 2 &amp;&amp; out10 &lt; 2 &amp;&amp; out11 &lt; 2 &amp;&amp; out12 &lt; 2 &amp;&amp; out13 &lt; 2 &amp;&amp; out14 &lt; 2 &amp;&amp; out15 &lt; 2 &amp;&amp; (out6+(out7+(out8+(out9+(out10+(out11+(out12+(out13+(out14+(out15)))))))))) &lt; 9</label>
+</transition>
+<transition>
+<source ref="loc468"/><target ref="loc468"/>
+<label kind="assignment">x1 := 0</label>
+<label kind="guard">x1 == 50  &amp;&amp; (out6 != 2 &amp;&amp; (out7 != 2 &amp;&amp; (out8 != 2 &amp;&amp; (out9 != 2 &amp;&amp; (out10 != 2 &amp;&amp; (out11 != 2 &amp;&amp; (out12 != 2 &amp;&amp; (out13 != 2 &amp;&amp; (out14 != 2 &amp;&amp; (out15 != 2)))))))))) == 0</label>
+</transition>
+<transition>
+<source ref="loc469"/><target ref="loc468"/>
+<label kind="assignment">x1:=0, out1 := 2</label>
+<label kind="guard">x1 &lt;=100</label>
+</transition>
+</template>
+<template><name>Node2</name>
+<location id="loc470"><name>down</name>
+<label kind="invariant">x2 &lt;= 200</label>
+</location>
+<location id="loc471"><name>up</name>
+<label kind="invariant">x2 &lt;= 400</label>
+</location>
+<init ref="loc470"/>
+<transition>
+<source ref="loc470"/><target ref="loc471"/>
+<label kind="assignment">out2 := 1</label>
+<label kind="guard">200 &lt;= x2 &amp;&amp; x2 &lt;= 400  &amp;&amp; out15 &lt; 2 &amp;&amp; out16 &lt; 2 &amp;&amp; out17 &lt; 2 &amp;&amp; out18 &lt; 2 &amp;&amp; out19 &lt; 2 &amp;&amp; (out15+(out16+(out17+(out18+(out19))))) &gt;= 4</label>
+</transition>
+<transition>
+<source ref="loc470"/><target ref="loc471"/>
+<label kind="assignment">out2 := 0</label>
+<label kind="guard">200 &lt;= x2 &amp;&amp; x2 &lt;= 400  &amp;&amp; out15 &lt; 2 &amp;&amp; out16 &lt; 2 &amp;&amp; out17 &lt; 2 &amp;&amp; out18 &lt; 2 &amp;&amp; out19 &lt; 2 &amp;&amp; (out15+(out16+(out17+(out18+(out19))))) &lt; 4</label>
+</transition>
+<transition>
+<source ref="loc470"/><target ref="loc470"/>
+<label kind="assignment">x2 := 0</label>
+<label kind="guard">x2 == 200  &amp;&amp; (out15 != 2 &amp;&amp; (out16 != 2 &amp;&amp; (out17 != 2 &amp;&amp; (out18 != 2 &amp;&amp; (out19 != 2))))) == 0</label>
+</transition>
+<transition>
+<source ref="loc471"/><target ref="loc470"/>
+<label kind="assignment">x2:=0, out2 := 2</label>
+<label kind="guard">x2 &lt;=400</label>
+</transition>
+</template>
+<template><name>Node3</name>
+<location id="loc472"><name>down</name>
+<label kind="invariant">x3 &lt;= 300</label>
+</location>
+<location id="loc473"><name>up</name>
+<label kind="invariant">x3 &lt;= 600</label>
+</location>
+<init ref="loc472"/>
+<transition>
+<source ref="loc472"/><target ref="loc473"/>
+<label kind="assignment">out3 := 1</label>
+<label kind="guard">300 &lt;= x3 &amp;&amp; x3 &lt;= 600  &amp;&amp; out15 &lt; 2 &amp;&amp; out16 &lt; 2 &amp;&amp; out17 &lt; 2 &amp;&amp; out18 &lt; 2 &amp;&amp; out19 &lt; 2 &amp;&amp; (out15+(out16+(out17+(out18+(out19))))) &gt;= 5</label>
+</transition>
+<transition>
+<source ref="loc472"/><target ref="loc473"/>
+<label kind="assignment">out3 := 0</label>
+<label kind="guard">300 &lt;= x3 &amp;&amp; x3 &lt;= 600  &amp;&amp; out15 &lt; 2 &amp;&amp; out16 &lt; 2 &amp;&amp; out17 &lt; 2 &amp;&amp; out18 &lt; 2 &amp;&amp; out19 &lt; 2 &amp;&amp; (out15+(out16+(out17+(out18+(out19))))) &lt; 5</label>
+</transition>
+<transition>
+<source ref="loc472"/><target ref="loc472"/>
+<label kind="assignment">x3 := 0</label>
+<label kind="guard">x3 == 300  &amp;&amp; (out15 != 2 &amp;&amp; (out16 != 2 &amp;&amp; (out17 != 2 &amp;&amp; (out18 != 2 &amp;&amp; (out19 != 2))))) == 0</label>
+</transition>
+<transition>
+<source ref="loc473"/><target ref="loc472"/>
+<label kind="assignment">x3:=0, out3 := 2</label>
+<label kind="guard">x3 &lt;=600</label>
+</transition>
+</template>
+<template><name>Node4</name>
+<location id="loc474"><name>down</name>
+<label kind="invariant">x4 &lt;= 250</label>
+</location>
+<location id="loc475"><name>up</name>
+<label kind="invariant">x4 &lt;= 500</label>
+</location>
+<init ref="loc474"/>
+<transition>
+<source ref="loc474"/><target ref="loc475"/>
+<label kind="assignment">out4 := 1</label>
+<label kind="guard">250 &lt;= x4 &amp;&amp; x4 &lt;= 500  &amp;&amp; out3&lt;2 &amp;&amp; (1-out3)==1</label>
+</transition>
+<transition>
+<source ref="loc474"/><target ref="loc475"/>
+<label kind="assignment">out4 := 0</label>
+<label kind="guard">250 &lt;= x4 &amp;&amp; x4 &lt;= 500  &amp;&amp; out3&lt;2 &amp;&amp; (1-out3) ==0</label>
+</transition>
+<transition>
+<source ref="loc474"/><target ref="loc474"/>
+<label kind="assignment">x4 := 0</label>
+<label kind="guard">x4 == 250  &amp;&amp; out3 == 2</label>
+</transition>
+<transition>
+<source ref="loc475"/><target ref="loc474"/>
+<label kind="assignment">x4:=0, out4 := 2</label>
+<label kind="guard">x4 &lt;=500</label>
+</transition>
+</template>
+<template><name>Node5</name>
+<location id="loc476"><name>down</name>
+<label kind="invariant">x5 &lt;= 400</label>
+</location>
+<location id="loc477"><name>up</name>
+<label kind="invariant">x5 &lt;= 800</label>
+</location>
+<init ref="loc476"/>
+<transition>
+<source ref="loc476"/><target ref="loc477"/>
+<label kind="assignment">out5 := 1</label>
+<label kind="guard">400 &lt;= x5 &amp;&amp; x5 &lt;= 800  &amp;&amp; out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; (out1+(out2+(out4))) &gt;= 3</label>
+</transition>
+<transition>
+<source ref="loc476"/><target ref="loc477"/>
+<label kind="assignment">out5 := 0</label>
+<label kind="guard">400 &lt;= x5 &amp;&amp; x5 &lt;= 800  &amp;&amp; out1 &lt; 2 &amp;&amp; out2 &lt; 2 &amp;&amp; out4 &lt; 2 &amp;&amp; (out1+(out2+(out4))) &lt; 3</label>
+</transition>
+<transition>
+<source ref="loc476"/><target ref="loc476"/>
+<label kind="assignment">x5 := 0</label>
+<label kind="guard">x5 == 400  &amp;&amp; (out1 != 2 &amp;&amp; (out2 != 2 &amp;&amp; (out4 != 2))) == 0</label>
+</transition>
+<transition>
+<source ref="loc477"/><target ref="loc476"/>
+<label kind="assignment">x5:=0, out5 := 2</label>
+<label kind="guard">x5 &lt;=800</label>
+</transition>
+</template>
+<template><name>Inputs</name>
+<location id="loc478"><name>input_init</name>
+<committed/>
+</location>
+<location id="loc479"><name>In6</name>
+<committed/>
+</location>
+<location id="loc480"><name>In7</name>
+<committed/>
+</location>
+<location id="loc481"><name>In8</name>
+<committed/>
+</location>
+<location id="loc482"><name>In9</name>
+<committed/>
+</location>
+<location id="loc483"><name>In10</name>
+<committed/>
+</location>
+<location id="loc484"><name>In11</name>
+<committed/>
+</location>
+<location id="loc485"><name>In12</name>
+<committed/>
+</location>
+<location id="loc486"><name>In13</name>
+<committed/>
+</location>
+<location id="loc487"><name>In14</name>
+<committed/>
+</location>
+<location id="loc488"><name>In15</name>
+<committed/>
+</location>
+<location id="loc489"><name>In16</name>
+<committed/>
+</location>
+<location id="loc490"><name>In17</name>
+<committed/>
+</location>
+<location id="loc491"><name>In18</name>
+<committed/>
+</location>
+<location id="loc492"><name>In19</name>
+<committed/>
+</location>
+<location id="loc493"><name>end</name>
+</location>
+<init ref="loc478"/>
+<transition>
+<source ref="loc478"/><target ref="loc479"/>
+<label kind="assignment">out6 := 1</label>
+</transition>
+<transition>
+<source ref="loc478"/><target ref="loc479"/>
+<label kind="assignment">out6 := 0</label>
+</transition>
+<transition>
+<source ref="loc479"/><target ref="loc480"/>
+<label kind="assignment">out7 := 1</label>
+</transition>
+<transition>
+<source ref="loc479"/><target ref="loc480"/>
+<label kind="assignment">out7 := 0</label>
+</transition>
+<transition>
+<source ref="loc480"/><target ref="loc481"/>
+<label kind="assignment">out8 := 1</label>
+</transition>
+<transition>
+<source ref="loc480"/><target ref="loc481"/>
+<label kind="assignment">out8 := 0</label>
+</transition>
+<transition>
+<source ref="loc481"/><target ref="loc482"/>
+<label kind="assignment">out9 := 1</label>
+</transition>
+<transition>
+<source ref="loc481"/><target ref="loc482"/>
+<label kind="assignment">out9 := 0</label>
+</transition>
+<transition>
+<source ref="loc482"/><target ref="loc483"/>
+<label kind="assignment">out10 := 1</label>
+</transition>
+<transition>
+<source ref="loc482"/><target ref="loc483"/>
+<label kind="assignment">out10 := 0</label>
+</transition>
+<transition>
+<source ref="loc483"/><target ref="loc484"/>
+<label kind="assignment">out11 := 1</label>
+</transition>
+<transition>
+<source ref="loc483"/><target ref="loc484"/>
+<label kind="assignment">out11 := 0</label>
+</transition>
+<transition>
+<source ref="loc484"/><target ref="loc485"/>
+<label kind="assignment">out12 := 1</label>
+</transition>
+<transition>
+<source ref="loc484"/><target ref="loc485"/>
+<label kind="assignment">out12 := 0</label>
+</transition>
+<transition>
+<source ref="loc485"/><target ref="loc486"/>
+<label kind="assignment">out13 := 1</label>
+</transition>
+<transition>
+<source ref="loc485"/><target ref="loc486"/>
+<label kind="assignment">out13 := 0</label>
+</transition>
+<transition>
+<source ref="loc486"/><target ref="loc487"/>
+<label kind="assignment">out14 := 1</label>
+</transition>
+<transition>
+<source ref="loc486"/><target ref="loc487"/>
+<label kind="assignment">out14 := 0</label>
+</transition>
+<transition>
+<source ref="loc487"/><target ref="loc488"/>
+<label kind="assignment">out15 := 1</label>
+</transition>
+<transition>
+<source ref="loc487"/><target ref="loc488"/>
+<label kind="assignment">out15 := 0</label>
+</transition>
+<transition>
+<source ref="loc488"/><target ref="loc489"/>
+<label kind="assignment">out16 := 1</label>
+</transition>
+<transition>
+<source ref="loc488"/><target ref="loc489"/>
+<label kind="assignment">out16 := 0</label>
+</transition>
+<transition>
+<source ref="loc489"/><target ref="loc490"/>
+<label kind="assignment">out17 := 1</label>
+</transition>
+<transition>
+<source ref="loc489"/><target ref="loc490"/>
+<label kind="assignment">out17 := 0</label>
+</transition>
+<transition>
+<source ref="loc490"/><target ref="loc491"/>
+<label kind="assignment">out18 := 1</label>
+</transition>
+<transition>
+<source ref="loc490"/><target ref="loc491"/>
+<label kind="assignment">out18 := 0</label>
+</transition>
+<transition>
+<source ref="loc491"/><target ref="loc492"/>
+<label kind="assignment">out19 := 1</label>
+</transition>
+<transition>
+<source ref="loc491"/><target ref="loc492"/>
+<label kind="assignment">out19 := 0</label>
+</transition>
+<transition>
+<source ref="loc492"/><target ref="loc493"/>
+</transition>
+</template>
+<instantiation></instantiation>
+<system>system Node0, Node1, Node2, Node3, Node4, Node5, Inputs;</system>
+</nta>

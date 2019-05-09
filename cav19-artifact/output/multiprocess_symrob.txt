@@ -1,0 +1,338 @@
+-BEGIN-
+=====================  10 =====================
+[INF] Reading timed automaton multiprocess/10.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 62		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 178		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 184		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 66		Iteration 2: Reachable has size 108		Iteration 3: Reachable has size 228		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 68		Iteration 2: Reachable has size 110		Iteration 3: Reachable has size 225		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.07 sec (Real time) / 0.06 sec (User CPU time)
+-BEGIN-
+=====================  1 =====================
+[INF] Reading timed automaton multiprocess/1.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 346		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 352		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 205		Iteration 3: Reachable has size 396		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 120		Iteration 2: Reachable has size 207		Iteration 3: Reachable has size 393		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.43 sec (Real time) / 0.41 sec (User CPU time)
+-BEGIN-
+=====================  20 =====================
+[INF] Reading timed automaton multiprocess/20.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 346		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 352		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 205		Iteration 3: Reachable has size 396		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 120		Iteration 2: Reachable has size 207		Iteration 3: Reachable has size 393		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.42 sec (Real time) / 0.41 sec (User CPU time)
+-BEGIN-
+=====================  22 =====================
+[INF] Reading timed automaton multiprocess/22.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 112		Iteration 2: Reachable has size 197		Iteration 3: Reachable has size 339		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 199		Iteration 3: Reachable has size 345		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 389		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 386		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.40 sec (Real time) / 0.38 sec (User CPU time)
+-BEGIN-
+=====================  25 =====================
+[INF] Reading timed automaton multiprocess/25.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 71		Iteration 2: Reachable has size 120		Iteration 3: Reachable has size 210		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 73		Iteration 2: Reachable has size 122		Iteration 3: Reachable has size 216		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 75		Iteration 2: Reachable has size 124		Iteration 3: Reachable has size 260		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 77		Iteration 2: Reachable has size 126		Iteration 3: Reachable has size 257		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.08 sec (Real time) / 0.07 sec (User CPU time)
+-BEGIN-
+=====================  31 =====================
+[INF] Reading timed automaton multiprocess/31.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 83		Iteration 2: Reachable has size 143		Iteration 3: Reachable has size 253		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 85		Iteration 2: Reachable has size 145		Iteration 3: Reachable has size 259		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 87		Iteration 2: Reachable has size 147		Iteration 3: Reachable has size 303		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 89		Iteration 2: Reachable has size 149		Iteration 3: Reachable has size 300		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.12 sec (Real time) / 0.11 sec (User CPU time)
+-BEGIN-
+=====================  32 =====================
+[INF] Reading timed automaton multiprocess/32.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 18 clock predicates
+Iteration 1: Reachable has size 86		Iteration 2: Reachable has size 146		Iteration 3: Reachable has size 256		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 20 clock predicates
+Iteration 1: Reachable has size 88		Iteration 2: Reachable has size 148		Iteration 3: Reachable has size 256		Iteration 4: Reachable has size 598		Iteration 5: Reachable has size 615		Iteration 6: Reachable has size 751		Iteration 7: Reachable has size 841		Iteration 8: Reachable has size 908		Iteration 9: Reachable has size 932		Iteration 10: Reachable has size 934		Iteration 11: Reachable has size 934		Iteration 12: Reachable has size 936		Iteration 13: Reachable has size 938		Iteration 14: Reachable has size 938		Iteration 15: Reachable has size 936		Iteration 16: Reachable has size 940		Iteration 17: Reachable has size 946		Iteration 18: Reachable has size 1133		Iteration 19: Reachable has size 1390		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 21 clock predicates
+Iteration 1: Reachable has size 89		Iteration 2: Reachable has size 149		Iteration 3: Reachable has size 259		Iteration 4: Reachable has size 600		Iteration 5: Reachable has size 617		Iteration 6: Reachable has size 753		Iteration 7: Reachable has size 843		Iteration 8: Reachable has size 910		Iteration 9: Reachable has size 934		Iteration 10: Reachable has size 936		Iteration 11: Reachable has size 936		Iteration 12: Reachable has size 938		Iteration 13: Reachable has size 940		Iteration 14: Reachable has size 940		Iteration 15: Reachable has size 938		Iteration 16: Reachable has size 942		Iteration 17: Reachable has size 948		Iteration 18: Reachable has size 1135		Iteration 19: Reachable has size 1398		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 22 clock predicates
+Iteration 1: Reachable has size 90		Iteration 2: Reachable has size 150		Iteration 3: Reachable has size 261		Iteration 4: Reachable has size 533		Iteration 5: Reachable has size 550		Iteration 6: Reachable has size 686		Iteration 7: Reachable has size 776		Iteration 8: Reachable has size 842		Iteration 9: Reachable has size 866		Iteration 10: Reachable has size 868		Iteration 11: Reachable has size 868		Iteration 12: Reachable has size 870		Iteration 13: Reachable has size 872		Iteration 14: Reachable has size 872		Iteration 15: Reachable has size 870		Iteration 16: Reachable has size 874		Iteration 17: Reachable has size 880		Iteration 18: Reachable has size 1067		Iteration 19: Reachable has size 1333		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 23 clock predicates
+Iteration 1: Reachable has size 91		Iteration 2: Reachable has size 151		Iteration 3: Reachable has size 263		Iteration 4: Reachable has size 465		Iteration 5: Reachable has size 479		Iteration 6: Reachable has size 616		Iteration 7: Reachable has size 705		Iteration 8: Reachable has size 772		Iteration 9: Reachable has size 796		Iteration 10: Reachable has size 798		Iteration 11: Reachable has size 798		Iteration 12: Reachable has size 800		Iteration 13: Reachable has size 802		Iteration 14: Reachable has size 802		Iteration 15: Reachable has size 800		Iteration 16: Reachable has size 804		Iteration 17: Reachable has size 810		Iteration 18: Reachable has size 997		Iteration 19: Reachable has size 1191		Iteration 20: Reachable has size 1494		Iteration 21: Reachable has size 1660		Iteration 22: Reachable has size 1942		Iteration 23: Reachable has size 2110		Iteration 24: Reachable has size 2223		Iteration 25: Reachable has size 2374		Iteration 26: Reachable has size 2377		Iteration 27: Reachable has size 2377		Iteration 28: Reachable has size 2380		Iteration 29: Reachable has size 2383		Iteration 30: Reachable has size 2383		Iteration 31: Reachable has size 2380		Iteration 32: Reachable has size 2386		Iteration 33: Reachable has size 2395		Iteration 34: Reachable has size 2496		Iteration 35: Reachable has size 2684		Iteration 36: Reachable has size 3041		Iteration 37: Reachable has size 3218		Iteration 38: Reachable has size 3376		Iteration 39: Reachable has size 3498		Iteration 40: Reachable has size 3542		Iteration 41: Reachable has size 3632		Iteration 42: Reachable has size 3648		Iteration 43: Reachable has size 3648		Iteration 44: Reachable has size 3653		Iteration 45: Reachable has size 3655		Iteration 46: Reachable has size 3657		Iteration 47: Reachable has size 3653		Iteration 48: Reachable has size 3651		Iteration 49: Reachable has size 3637		Iteration 50: Reachable has size 3712		Iteration 51: Reachable has size 4074		Iteration 52: Reachable has size 4530		Iteration 53: Reachable has size 4770		Iteration 54: Reachable has size 4841		Iteration 55: Reachable has size 4878		Iteration 56: Reachable has size 4859		Iteration 57: Reachable has size 4943		Iteration 58: Reachable has size 4944		Iteration 59: Reachable has size 4942		Iteration 60: Reachable has size 4948		Iteration 61: Reachable has size 4951		Iteration 62: Reachable has size 4951		Iteration 63: Reachable has size 4946		Iteration 64: Reachable has size 4946		Iteration 65: Reachable has size 4936		Iteration 66: Reachable has size 4933		Iteration 67: Reachable has size 5118		Iteration 68: Reachable has size 5624		Iteration 69: Reachable has size 5757		Iteration 70: Reachable has size 5756		Iteration 71: Reachable has size 5755		Iteration 72: Reachable has size 5758		Iteration 73: Reachable has size 5741		Iteration 74: Reachable has size 5748		Iteration 75: Reachable has size 5747		Iteration 76: Reachable has size 5749		Iteration 77: Reachable has size 5749		Iteration 78: Reachable has size 5748		Iteration 79: Reachable has size 5745		Iteration 80: Reachable has size 5746		Iteration 81: Reachable has size 5601		Iteration 82: Reachable has size 5536		Iteration 83: Reachable has size 5645		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 24 clock predicates
+Iteration 1: Reachable has size 92		Iteration 2: Reachable has size 152		Iteration 3: Reachable has size 270		Iteration 4: Reachable has size 465		Iteration 5: Reachable has size 479		Iteration 6: Reachable has size 616		Iteration 7: Reachable has size 705		Iteration 8: Reachable has size 772		Iteration 9: Reachable has size 796		Iteration 10: Reachable has size 798		Iteration 11: Reachable has size 798		Iteration 12: Reachable has size 800		Iteration 13: Reachable has size 802		Iteration 14: Reachable has size 802		Iteration 15: Reachable has size 800		Iteration 16: Reachable has size 804		Iteration 17: Reachable has size 810		Iteration 18: Reachable has size 997		Iteration 19: Reachable has size 1207		Iteration 20: Reachable has size 1552		Iteration 21: Reachable has size 1718		Iteration 22: Reachable has size 2000		Iteration 23: Reachable has size 2168		Iteration 24: Reachable has size 2281		Iteration 25: Reachable has size 2432		Iteration 26: Reachable has size 2435		Iteration 27: Reachable has size 2435		Iteration 28: Reachable has size 2438		Iteration 29: Reachable has size 2441		Iteration 30: Reachable has size 2441		Iteration 31: Reachable has size 2438		Iteration 32: Reachable has size 2444		Iteration 33: Reachable has size 2453		Iteration 34: Reachable has size 2554		Iteration 35: Reachable has size 2740		Iteration 36: Reachable has size 3114		Iteration 37: Reachable has size 3301		Iteration 38: Reachable has size 3471		Iteration 39: Reachable has size 3593		Iteration 40: Reachable has size 3637		Iteration 41: Reachable has size 3727		Iteration 42: Reachable has size 3743		Iteration 43: Reachable has size 3743		Iteration 44: Reachable has size 3748		Iteration 45: Reachable has size 3750		Iteration 46: Reachable has size 3752		Iteration 47: Reachable has size 3748		Iteration 48: Reachable has size 3746		Iteration 49: Reachable has size 3732		Iteration 50: Reachable has size 3807		Iteration 51: Reachable has size 4162		Iteration 52: Reachable has size 4628		Iteration 53: Reachable has size 4868		Iteration 54: Reachable has size 4939		Iteration 55: Reachable has size 4976		Iteration 56: Reachable has size 4957		Iteration 57: Reachable has size 5041		Iteration 58: Reachable has size 5042		Iteration 59: Reachable has size 5040		Iteration 60: Reachable has size 5046		Iteration 61: Reachable has size 5049		Iteration 62: Reachable has size 5049		Iteration 63: Reachable has size 5044		Iteration 64: Reachable has size 5044		Iteration 65: Reachable has size 5034		Iteration 66: Reachable has size 5024		Iteration 67: Reachable has size 5206		Iteration 68: Reachable has size 5714		Iteration 69: Reachable has size 5847		Iteration 70: Reachable has size 5846		Iteration 71: Reachable has size 5845		Iteration 72: Reachable has size 5848		Iteration 73: Reachable has size 5831		Iteration 74: Reachable has size 5838		Iteration 75: Reachable has size 5837		Iteration 76: Reachable has size 5839		Iteration 77: Reachable has size 5839		Iteration 78: Reachable has size 5838		Iteration 79: Reachable has size 5835		Iteration 80: Reachable has size 5836		Iteration 81: Reachable has size 5691		Iteration 82: Reachable has size 5626		Iteration 83: Reachable has size 5755		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 7 w/ 25 clock predicates
+Iteration 1: Reachable has size 93		Iteration 2: Reachable has size 153		Iteration 3: Reachable has size 280		Iteration 4: Reachable has size 470		Iteration 5: Reachable has size 484		Iteration 6: Reachable has size 621		Iteration 7: Reachable has size 710		Iteration 8: Reachable has size 777		Iteration 9: Reachable has size 801		Iteration 10: Reachable has size 803		Iteration 11: Reachable has size 803		Iteration 12: Reachable has size 805		Iteration 13: Reachable has size 807		Iteration 14: Reachable has size 807		Iteration 15: Reachable has size 805		Iteration 16: Reachable has size 809		Iteration 17: Reachable has size 815		Iteration 18: Reachable has size 1002		Iteration 19: Reachable has size 1190		Iteration 20: Reachable has size 1436		Iteration 21: Reachable has size 1526		Iteration 22: Reachable has size 1734		Iteration 23: Reachable has size 1860		Iteration 24: Reachable has size 1956		Iteration 25: Reachable has size 2046		Iteration 26: Reachable has size 2049		Iteration 27: Reachable has size 2049		Iteration 28: Reachable has size 2052		Iteration 29: Reachable has size 2055		Iteration 30: Reachable has size 2055		Iteration 31: Reachable has size 2052		Iteration 32: Reachable has size 2058		Iteration 33: Reachable has size 2067		Iteration 34: Reachable has size 2141		Iteration 35: Reachable has size 2298		Iteration 36: Reachable has size 2537		Iteration 37: Reachable has size 2622		Iteration 38: Reachable has size 2772		Iteration 39: Reachable has size 2836		Iteration 40: Reachable has size 2850		Iteration 41: Reachable has size 2918		Iteration 42: Reachable has size 2920		Iteration 43: Reachable has size 2920		Iteration 44: Reachable has size 2922		Iteration 45: Reachable has size 2924		Iteration 46: Reachable has size 2924		Iteration 47: Reachable has size 2922		Iteration 48: Reachable has size 2918		Iteration 49: Reachable has size 2909		Iteration 50: Reachable has size 2973		Iteration 51: Reachable has size 3096		Iteration 52: Reachable has size 3428		Iteration 53: Reachable has size 3428		Iteration 54: Reachable has size 3430		Iteration 55: Reachable has size 3426		Iteration 56: Reachable has size 3423		Iteration 57: Reachable has size 3431		Iteration 58: Reachable has size 3433		Iteration 59: Reachable has size 3429		Iteration 60: Reachable has size 3435		Iteration 61: Reachable has size 3431		Iteration 62: Reachable has size 3433		Iteration 63: Reachable has size 3428		Iteration 64: Reachable has size 3436		Iteration 65: Reachable has size 3438		Iteration 66: Reachable has size 3533		Iteration 67: Reachable has size 3754		Iteration 68: Reachable has size 4086		Iteration 69: Reachable has size 4084		Iteration 70: Reachable has size 4087		Iteration 71: Reachable has size 4081		Iteration 72: Reachable has size 4085		Iteration 73: Reachable has size 4088		Iteration 74: Reachable has size 4091		Iteration 75: Reachable has size 4084		Iteration 76: Reachable has size 4093		Iteration 77: Reachable has size 4089		Iteration 78: Reachable has size 4092		Iteration 79: Reachable has size 4084		Iteration 80: Reachable has size 4097		Iteration 81: Reachable has size 4096		Iteration 82: Reachable has size 4141		Iteration 83: Reachable has size 4335		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 8 w/ 26 clock predicates
+Iteration 1: Reachable has size 94		Iteration 2: Reachable has size 154		Iteration 3: Reachable has size 285		Iteration 4: Reachable has size 478		Iteration 5: Reachable has size 492		Iteration 6: Reachable has size 629		Iteration 7: Reachable has size 718		Iteration 8: Reachable has size 785		Iteration 9: Reachable has size 809		Iteration 10: Reachable has size 811		Iteration 11: Reachable has size 811		Iteration 12: Reachable has size 813		Iteration 13: Reachable has size 815		Iteration 14: Reachable has size 815		Iteration 15: Reachable has size 813		Iteration 16: Reachable has size 817		Iteration 17: Reachable has size 823		Iteration 18: Reachable has size 1010		Iteration 19: Reachable has size 1190		Iteration 20: Reachable has size 1443		Iteration 21: Reachable has size 1533		Iteration 22: Reachable has size 1741		Iteration 23: Reachable has size 1867		Iteration 24: Reachable has size 1963		Iteration 25: Reachable has size 2053		Iteration 26: Reachable has size 2056		Iteration 27: Reachable has size 2056		Iteration 28: Reachable has size 2059		Iteration 29: Reachable has size 2062		Iteration 30: Reachable has size 2062		Iteration 31: Reachable has size 2059		Iteration 32: Reachable has size 2065		Iteration 33: Reachable has size 2074		Iteration 34: Reachable has size 2148		Iteration 35: Reachable has size 2305		Iteration 36: Reachable has size 2533		Iteration 37: Reachable has size 2618		Iteration 38: Reachable has size 2767		Iteration 39: Reachable has size 2831		Iteration 40: Reachable has size 2845		Iteration 41: Reachable has size 2913		Iteration 42: Reachable has size 2915		Iteration 43: Reachable has size 2915		Iteration 44: Reachable has size 2917		Iteration 45: Reachable has size 2919		Iteration 46: Reachable has size 2919		Iteration 47: Reachable has size 2917		Iteration 48: Reachable has size 2913		Iteration 49: Reachable has size 2904		Iteration 50: Reachable has size 2965		Iteration 51: Reachable has size 3132		Iteration 52: Reachable has size 3409		Iteration 53: Reachable has size 3408		Iteration 54: Reachable has size 3410		Iteration 55: Reachable has size 3406		Iteration 56: Reachable has size 3403		Iteration 57: Reachable has size 3410		Iteration 58: Reachable has size 3412		Iteration 59: Reachable has size 3408		Iteration 60: Reachable has size 3414		Iteration 61: Reachable has size 3411		Iteration 62: Reachable has size 3413		Iteration 63: Reachable has size 3408		Iteration 64: Reachable has size 3416		Iteration 65: Reachable has size 3416		Iteration 66: Reachable has size 3511		Iteration 67: Reachable has size 3716		Iteration 68: Reachable has size 4034		Iteration 69: Reachable has size 4032		Iteration 70: Reachable has size 4035		Iteration 71: Reachable has size 4029		Iteration 72: Reachable has size 4033		Iteration 73: Reachable has size 4036		Iteration 74: Reachable has size 4039		Iteration 75: Reachable has size 4032		Iteration 76: Reachable has size 4041		Iteration 77: Reachable has size 4037		Iteration 78: Reachable has size 4040		Iteration 79: Reachable has size 4032		Iteration 80: Reachable has size 4045		Iteration 81: Reachable has size 4044		Iteration 82: Reachable has size 4089		Iteration 83: Reachable has size 4298		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 9 w/ 27 clock predicates
+Iteration 1: Reachable has size 95		Iteration 2: Reachable has size 155		Iteration 3: Reachable has size 287		Iteration 4: Reachable has size 482		Iteration 5: Reachable has size 496		Iteration 6: Reachable has size 633		Iteration 7: Reachable has size 722		Iteration 8: Reachable has size 789		Iteration 9: Reachable has size 813		Iteration 10: Reachable has size 815		Iteration 11: Reachable has size 815		Iteration 12: Reachable has size 817		Iteration 13: Reachable has size 819		Iteration 14: Reachable has size 819		Iteration 15: Reachable has size 817		Iteration 16: Reachable has size 821		Iteration 17: Reachable has size 827		Iteration 18: Reachable has size 1014		Iteration 19: Reachable has size 1197		Iteration 20: Reachable has size 1361		Iteration 21: Reachable has size 1374		Iteration 22: Reachable has size 1502		Iteration 23: Reachable has size 1584		Iteration 24: Reachable has size 1649		Iteration 25: Reachable has size 1673		Iteration 26: Reachable has size 1675		Iteration 27: Reachable has size 1675		Iteration 28: Reachable has size 1677		Iteration 29: Reachable has size 1679		Iteration 30: Reachable has size 1679		Iteration 31: Reachable has size 1677		Iteration 32: Reachable has size 1681		Iteration 33: Reachable has size 1687		Iteration 34: Reachable has size 1733		Iteration 35: Reachable has size 1809		Iteration 36: Reachable has size 1898		Iteration 37: Reachable has size 1968		Iteration 38: Reachable has size 2041		Iteration 39: Reachable has size 2080		Iteration 40: Reachable has size 2110		Iteration 41: Reachable has size 2170		Iteration 42: Reachable has size 2171		Iteration 43: Reachable has size 2171		Iteration 44: Reachable has size 2172		Iteration 45: Reachable has size 2173		Iteration 46: Reachable has size 2173		Iteration 47: Reachable has size 2172		Iteration 48: Reachable has size 2174		Iteration 49: Reachable has size 2177		Iteration 50: Reachable has size 2221		Iteration 51: Reachable has size 2351		Iteration 52: Reachable has size 2447		Iteration 53: Reachable has size 2446		Iteration 54: Reachable has size 2447		Iteration 55: Reachable has size 2445		Iteration 56: Reachable has size 2449		Iteration 57: Reachable has size 2448		Iteration 58: Reachable has size 2449		Iteration 59: Reachable has size 2446		Iteration 60: Reachable has size 2449		Iteration 61: Reachable has size 2448		Iteration 62: Reachable has size 2449		Iteration 63: Reachable has size 2446		Iteration 64: Reachable has size 2451		Iteration 65: Reachable has size 2450		Iteration 66: Reachable has size 2530		Iteration 67: Reachable has size 2679		Iteration 68: Reachable has size 2904		Iteration 69: Reachable has size 2903		Iteration 70: Reachable has size 2905		Iteration 71: Reachable has size 2901		Iteration 72: Reachable has size 2902		Iteration 73: Reachable has size 2905		Iteration 74: Reachable has size 2907		Iteration 75: Reachable has size 2903		Iteration 76: Reachable has size 2909		Iteration 77: Reachable has size 2906		Iteration 78: Reachable has size 2908		Iteration 79: Reachable has size 2903		Iteration 80: Reachable has size 2911		Iteration 81: Reachable has size 2911		Iteration 82: Reachable has size 2954		Iteration 83: Reachable has size 3074		Iteration 84: Reachable has size 3351		Iteration 85: Reachable has size 3348		Iteration 86: Reachable has size 3351		Iteration 87: Reachable has size 3344		Iteration 88: Reachable has size 3316		Iteration 89: Reachable has size 3341		Iteration 90: Reachable has size 3344		Iteration 91: Reachable has size 3339		Iteration 92: Reachable has size 3347		Iteration 93: Reachable has size 3343		Iteration 94: Reachable has size 3346		Iteration 95: Reachable has size 3339		Iteration 96: Reachable has size 3348		Iteration 97: Reachable has size 3302		Iteration 98: Reachable has size 3313		Iteration 99: Reachable has size 3405		Iteration 100: Reachable has size 3631		Iteration 101: Reachable has size 3630		Iteration 102: Reachable has size 3631		Iteration 103: Reachable has size 3627		Iteration 104: Reachable has size 3627		Iteration 105: Reachable has size 3630		Iteration 106: Reachable has size 3632		Iteration 107: Reachable has size 3628		Iteration 108: Reachable has size 3633		Iteration 109: Reachable has size 3630		Iteration 110: Reachable has size 3631		Iteration 111: Reachable has size 3626		Iteration 112: Reachable has size 3628		Iteration 113: Reachable has size 3523		Iteration 114: Reachable has size 3538		Iteration 115: Reachable has size 3617		Iteration 116: Reachable has size 3768		Iteration 117: Reachable has size 3766		Iteration 118: Reachable has size 3768		Iteration 119: Reachable has size 3764		Iteration 120: Reachable has size 3770		Iteration 121: Reachable has size 3768		Iteration 122: Reachable has size 3770		Iteration 123: Reachable has size 3764		Iteration 124: Reachable has size 3768		Iteration 125: Reachable has size 3766		Iteration 126: Reachable has size 3768		Iteration 127: Reachable has size 3762		Iteration 128: Reachable has size 3764		Iteration 129: Reachable has size 3661		Iteration 130: Reachable has size 3661		Iteration 131: Reachable has size 3749		Iteration 132: Reachable has size 3862		Iteration 133: Reachable has size 3861		Iteration 134: Reachable has size 3862		Iteration 135: Reachable has size 3860		Iteration 136: Reachable has size 3839		Iteration 137: Reachable has size 3860		Iteration 138: Reachable has size 3861		Iteration 139: Reachable has size 3860		Iteration 140: Reachable has size 3862		Iteration 141: Reachable has size 3861		Iteration 142: Reachable has size 3862		Iteration 143: Reachable has size 3860		Iteration 144: Reachable has size 3861		Iteration 145: Reachable has size 3815		Iteration 146: Reachable has size 3797		Explored 147 layers.[INF] ** CEGAR iterations: 9 w/ 27 clock predicates
+[INF] Result: false
+Time: 2.31 sec (Real time) / 2.27 sec (User CPU time)
+-BEGIN-
+=====================  34 =====================
+[INF] Reading timed automaton multiprocess/34.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 73		Iteration 2: Reachable has size 126		Iteration 3: Reachable has size 213		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 75		Iteration 2: Reachable has size 128		Iteration 3: Reachable has size 219		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 77		Iteration 2: Reachable has size 130		Iteration 3: Reachable has size 263		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 79		Iteration 2: Reachable has size 132		Iteration 3: Reachable has size 260		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.09 sec (Real time) / 0.08 sec (User CPU time)
+-BEGIN-
+=====================  4 =====================
+[INF] Reading timed automaton multiprocess/4.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 60		Iteration 2: Reachable has size 100		Iteration 3: Reachable has size 170		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 62		Iteration 2: Reachable has size 102		Iteration 3: Reachable has size 176		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 220		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 66		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 217		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.06 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  7 =====================
+[INF] Reading timed automaton multiprocess/7.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 61		Iteration 2: Reachable has size 102		Iteration 3: Reachable has size 174		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 63		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 180		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 65		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 224		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 67		Iteration 2: Reachable has size 108		Iteration 3: Reachable has size 221		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.06 sec (Real time) / 0.05 sec (User CPU time)
+-BEGIN-
+=====================  10 =====================
+[INF] Reading timed automaton multiprocess/10.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 62		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 178		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 184		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 66		Iteration 2: Reachable has size 108		Iteration 3: Reachable has size 228		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 68		Iteration 2: Reachable has size 110		Iteration 3: Reachable has size 225		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.05 sec (Real time) / 0.05 sec (User CPU time)
+-BEGIN-
+=====================  1 =====================
+[INF] Reading timed automaton multiprocess/1.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 346		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 352		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 205		Iteration 3: Reachable has size 396		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 120		Iteration 2: Reachable has size 207		Iteration 3: Reachable has size 393		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.40 sec (Real time) / 0.38 sec (User CPU time)
+-BEGIN-
+=====================  20 =====================
+[INF] Reading timed automaton multiprocess/20.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 346		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 352		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 205		Iteration 3: Reachable has size 396		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 120		Iteration 2: Reachable has size 207		Iteration 3: Reachable has size 393		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.40 sec (Real time) / 0.39 sec (User CPU time)
+-BEGIN-
+=====================  22 =====================
+[INF] Reading timed automaton multiprocess/22.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 112		Iteration 2: Reachable has size 197		Iteration 3: Reachable has size 339		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 114		Iteration 2: Reachable has size 199		Iteration 3: Reachable has size 345		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 116		Iteration 2: Reachable has size 201		Iteration 3: Reachable has size 389		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 118		Iteration 2: Reachable has size 203		Iteration 3: Reachable has size 386		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.39 sec (Real time) / 0.38 sec (User CPU time)
+-BEGIN-
+=====================  25 =====================
+[INF] Reading timed automaton multiprocess/25.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 71		Iteration 2: Reachable has size 120		Iteration 3: Reachable has size 210		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 73		Iteration 2: Reachable has size 122		Iteration 3: Reachable has size 216		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 75		Iteration 2: Reachable has size 124		Iteration 3: Reachable has size 260		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 77		Iteration 2: Reachable has size 126		Iteration 3: Reachable has size 257		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.07 sec (Real time) / 0.06 sec (User CPU time)
+-BEGIN-
+=====================  31 =====================
+[INF] Reading timed automaton multiprocess/31.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 83		Iteration 2: Reachable has size 143		Iteration 3: Reachable has size 253		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 85		Iteration 2: Reachable has size 145		Iteration 3: Reachable has size 259		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 87		Iteration 2: Reachable has size 147		Iteration 3: Reachable has size 303		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 89		Iteration 2: Reachable has size 149		Iteration 3: Reachable has size 300		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.11 sec (Real time) / 0.10 sec (User CPU time)
+-BEGIN-
+=====================  32 =====================
+[INF] Reading timed automaton multiprocess/32.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 18 clock predicates
+Iteration 1: Reachable has size 86		Iteration 2: Reachable has size 146		Iteration 3: Reachable has size 256		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 20 clock predicates
+Iteration 1: Reachable has size 88		Iteration 2: Reachable has size 148		Iteration 3: Reachable has size 256		Iteration 4: Reachable has size 598		Iteration 5: Reachable has size 615		Iteration 6: Reachable has size 751		Iteration 7: Reachable has size 841		Iteration 8: Reachable has size 908		Iteration 9: Reachable has size 932		Iteration 10: Reachable has size 934		Iteration 11: Reachable has size 934		Iteration 12: Reachable has size 936		Iteration 13: Reachable has size 938		Iteration 14: Reachable has size 938		Iteration 15: Reachable has size 936		Iteration 16: Reachable has size 940		Iteration 17: Reachable has size 946		Iteration 18: Reachable has size 1133		Iteration 19: Reachable has size 1390		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 21 clock predicates
+Iteration 1: Reachable has size 89		Iteration 2: Reachable has size 149		Iteration 3: Reachable has size 259		Iteration 4: Reachable has size 600		Iteration 5: Reachable has size 617		Iteration 6: Reachable has size 753		Iteration 7: Reachable has size 843		Iteration 8: Reachable has size 910		Iteration 9: Reachable has size 934		Iteration 10: Reachable has size 936		Iteration 11: Reachable has size 936		Iteration 12: Reachable has size 938		Iteration 13: Reachable has size 940		Iteration 14: Reachable has size 940		Iteration 15: Reachable has size 938		Iteration 16: Reachable has size 942		Iteration 17: Reachable has size 948		Iteration 18: Reachable has size 1135		Iteration 19: Reachable has size 1398		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 22 clock predicates
+Iteration 1: Reachable has size 90		Iteration 2: Reachable has size 150		Iteration 3: Reachable has size 261		Iteration 4: Reachable has size 533		Iteration 5: Reachable has size 550		Iteration 6: Reachable has size 686		Iteration 7: Reachable has size 776		Iteration 8: Reachable has size 842		Iteration 9: Reachable has size 866		Iteration 10: Reachable has size 868		Iteration 11: Reachable has size 868		Iteration 12: Reachable has size 870		Iteration 13: Reachable has size 872		Iteration 14: Reachable has size 872		Iteration 15: Reachable has size 870		Iteration 16: Reachable has size 874		Iteration 17: Reachable has size 880		Iteration 18: Reachable has size 1067		Iteration 19: Reachable has size 1333		Explored 20 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 5 w/ 23 clock predicates
+Iteration 1: Reachable has size 91		Iteration 2: Reachable has size 151		Iteration 3: Reachable has size 263		Iteration 4: Reachable has size 465		Iteration 5: Reachable has size 479		Iteration 6: Reachable has size 616		Iteration 7: Reachable has size 705		Iteration 8: Reachable has size 772		Iteration 9: Reachable has size 796		Iteration 10: Reachable has size 798		Iteration 11: Reachable has size 798		Iteration 12: Reachable has size 800		Iteration 13: Reachable has size 802		Iteration 14: Reachable has size 802		Iteration 15: Reachable has size 800		Iteration 16: Reachable has size 804		Iteration 17: Reachable has size 810		Iteration 18: Reachable has size 997		Iteration 19: Reachable has size 1191		Iteration 20: Reachable has size 1494		Iteration 21: Reachable has size 1660		Iteration 22: Reachable has size 1942		Iteration 23: Reachable has size 2110		Iteration 24: Reachable has size 2223		Iteration 25: Reachable has size 2374		Iteration 26: Reachable has size 2377		Iteration 27: Reachable has size 2377		Iteration 28: Reachable has size 2380		Iteration 29: Reachable has size 2383		Iteration 30: Reachable has size 2383		Iteration 31: Reachable has size 2380		Iteration 32: Reachable has size 2386		Iteration 33: Reachable has size 2395		Iteration 34: Reachable has size 2496		Iteration 35: Reachable has size 2684		Iteration 36: Reachable has size 3041		Iteration 37: Reachable has size 3218		Iteration 38: Reachable has size 3376		Iteration 39: Reachable has size 3498		Iteration 40: Reachable has size 3542		Iteration 41: Reachable has size 3632		Iteration 42: Reachable has size 3648		Iteration 43: Reachable has size 3648		Iteration 44: Reachable has size 3653		Iteration 45: Reachable has size 3655		Iteration 46: Reachable has size 3657		Iteration 47: Reachable has size 3653		Iteration 48: Reachable has size 3651		Iteration 49: Reachable has size 3637		Iteration 50: Reachable has size 3712		Iteration 51: Reachable has size 4074		Iteration 52: Reachable has size 4530		Iteration 53: Reachable has size 4770		Iteration 54: Reachable has size 4841		Iteration 55: Reachable has size 4878		Iteration 56: Reachable has size 4859		Iteration 57: Reachable has size 4943		Iteration 58: Reachable has size 4944		Iteration 59: Reachable has size 4942		Iteration 60: Reachable has size 4948		Iteration 61: Reachable has size 4951		Iteration 62: Reachable has size 4951		Iteration 63: Reachable has size 4946		Iteration 64: Reachable has size 4946		Iteration 65: Reachable has size 4936		Iteration 66: Reachable has size 4933		Iteration 67: Reachable has size 5118		Iteration 68: Reachable has size 5624		Iteration 69: Reachable has size 5757		Iteration 70: Reachable has size 5756		Iteration 71: Reachable has size 5755		Iteration 72: Reachable has size 5758		Iteration 73: Reachable has size 5741		Iteration 74: Reachable has size 5748		Iteration 75: Reachable has size 5747		Iteration 76: Reachable has size 5749		Iteration 77: Reachable has size 5749		Iteration 78: Reachable has size 5748		Iteration 79: Reachable has size 5745		Iteration 80: Reachable has size 5746		Iteration 81: Reachable has size 5601		Iteration 82: Reachable has size 5536		Iteration 83: Reachable has size 5645		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 6 w/ 24 clock predicates
+Iteration 1: Reachable has size 92		Iteration 2: Reachable has size 152		Iteration 3: Reachable has size 270		Iteration 4: Reachable has size 465		Iteration 5: Reachable has size 479		Iteration 6: Reachable has size 616		Iteration 7: Reachable has size 705		Iteration 8: Reachable has size 772		Iteration 9: Reachable has size 796		Iteration 10: Reachable has size 798		Iteration 11: Reachable has size 798		Iteration 12: Reachable has size 800		Iteration 13: Reachable has size 802		Iteration 14: Reachable has size 802		Iteration 15: Reachable has size 800		Iteration 16: Reachable has size 804		Iteration 17: Reachable has size 810		Iteration 18: Reachable has size 997		Iteration 19: Reachable has size 1207		Iteration 20: Reachable has size 1552		Iteration 21: Reachable has size 1718		Iteration 22: Reachable has size 2000		Iteration 23: Reachable has size 2168		Iteration 24: Reachable has size 2281		Iteration 25: Reachable has size 2432		Iteration 26: Reachable has size 2435		Iteration 27: Reachable has size 2435		Iteration 28: Reachable has size 2438		Iteration 29: Reachable has size 2441		Iteration 30: Reachable has size 2441		Iteration 31: Reachable has size 2438		Iteration 32: Reachable has size 2444		Iteration 33: Reachable has size 2453		Iteration 34: Reachable has size 2554		Iteration 35: Reachable has size 2740		Iteration 36: Reachable has size 3114		Iteration 37: Reachable has size 3301		Iteration 38: Reachable has size 3471		Iteration 39: Reachable has size 3593		Iteration 40: Reachable has size 3637		Iteration 41: Reachable has size 3727		Iteration 42: Reachable has size 3743		Iteration 43: Reachable has size 3743		Iteration 44: Reachable has size 3748		Iteration 45: Reachable has size 3750		Iteration 46: Reachable has size 3752		Iteration 47: Reachable has size 3748		Iteration 48: Reachable has size 3746		Iteration 49: Reachable has size 3732		Iteration 50: Reachable has size 3807		Iteration 51: Reachable has size 4162		Iteration 52: Reachable has size 4628		Iteration 53: Reachable has size 4868		Iteration 54: Reachable has size 4939		Iteration 55: Reachable has size 4976		Iteration 56: Reachable has size 4957		Iteration 57: Reachable has size 5041		Iteration 58: Reachable has size 5042		Iteration 59: Reachable has size 5040		Iteration 60: Reachable has size 5046		Iteration 61: Reachable has size 5049		Iteration 62: Reachable has size 5049		Iteration 63: Reachable has size 5044		Iteration 64: Reachable has size 5044		Iteration 65: Reachable has size 5034		Iteration 66: Reachable has size 5024		Iteration 67: Reachable has size 5206		Iteration 68: Reachable has size 5714		Iteration 69: Reachable has size 5847		Iteration 70: Reachable has size 5846		Iteration 71: Reachable has size 5845		Iteration 72: Reachable has size 5848		Iteration 73: Reachable has size 5831		Iteration 74: Reachable has size 5838		Iteration 75: Reachable has size 5837		Iteration 76: Reachable has size 5839		Iteration 77: Reachable has size 5839		Iteration 78: Reachable has size 5838		Iteration 79: Reachable has size 5835		Iteration 80: Reachable has size 5836		Iteration 81: Reachable has size 5691		Iteration 82: Reachable has size 5626		Iteration 83: Reachable has size 5755		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 7 w/ 25 clock predicates
+Iteration 1: Reachable has size 93		Iteration 2: Reachable has size 153		Iteration 3: Reachable has size 280		Iteration 4: Reachable has size 470		Iteration 5: Reachable has size 484		Iteration 6: Reachable has size 621		Iteration 7: Reachable has size 710		Iteration 8: Reachable has size 777		Iteration 9: Reachable has size 801		Iteration 10: Reachable has size 803		Iteration 11: Reachable has size 803		Iteration 12: Reachable has size 805		Iteration 13: Reachable has size 807		Iteration 14: Reachable has size 807		Iteration 15: Reachable has size 805		Iteration 16: Reachable has size 809		Iteration 17: Reachable has size 815		Iteration 18: Reachable has size 1002		Iteration 19: Reachable has size 1190		Iteration 20: Reachable has size 1436		Iteration 21: Reachable has size 1526		Iteration 22: Reachable has size 1734		Iteration 23: Reachable has size 1860		Iteration 24: Reachable has size 1956		Iteration 25: Reachable has size 2046		Iteration 26: Reachable has size 2049		Iteration 27: Reachable has size 2049		Iteration 28: Reachable has size 2052		Iteration 29: Reachable has size 2055		Iteration 30: Reachable has size 2055		Iteration 31: Reachable has size 2052		Iteration 32: Reachable has size 2058		Iteration 33: Reachable has size 2067		Iteration 34: Reachable has size 2141		Iteration 35: Reachable has size 2298		Iteration 36: Reachable has size 2537		Iteration 37: Reachable has size 2622		Iteration 38: Reachable has size 2772		Iteration 39: Reachable has size 2836		Iteration 40: Reachable has size 2850		Iteration 41: Reachable has size 2918		Iteration 42: Reachable has size 2920		Iteration 43: Reachable has size 2920		Iteration 44: Reachable has size 2922		Iteration 45: Reachable has size 2924		Iteration 46: Reachable has size 2924		Iteration 47: Reachable has size 2922		Iteration 48: Reachable has size 2918		Iteration 49: Reachable has size 2909		Iteration 50: Reachable has size 2973		Iteration 51: Reachable has size 3096		Iteration 52: Reachable has size 3428		Iteration 53: Reachable has size 3428		Iteration 54: Reachable has size 3430		Iteration 55: Reachable has size 3426		Iteration 56: Reachable has size 3423		Iteration 57: Reachable has size 3431		Iteration 58: Reachable has size 3433		Iteration 59: Reachable has size 3429		Iteration 60: Reachable has size 3435		Iteration 61: Reachable has size 3431		Iteration 62: Reachable has size 3433		Iteration 63: Reachable has size 3428		Iteration 64: Reachable has size 3436		Iteration 65: Reachable has size 3438		Iteration 66: Reachable has size 3533		Iteration 67: Reachable has size 3754		Iteration 68: Reachable has size 4086		Iteration 69: Reachable has size 4084		Iteration 70: Reachable has size 4087		Iteration 71: Reachable has size 4081		Iteration 72: Reachable has size 4085		Iteration 73: Reachable has size 4088		Iteration 74: Reachable has size 4091		Iteration 75: Reachable has size 4084		Iteration 76: Reachable has size 4093		Iteration 77: Reachable has size 4089		Iteration 78: Reachable has size 4092		Iteration 79: Reachable has size 4084		Iteration 80: Reachable has size 4097		Iteration 81: Reachable has size 4096		Iteration 82: Reachable has size 4141		Iteration 83: Reachable has size 4335		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 8 w/ 26 clock predicates
+Iteration 1: Reachable has size 94		Iteration 2: Reachable has size 154		Iteration 3: Reachable has size 285		Iteration 4: Reachable has size 478		Iteration 5: Reachable has size 492		Iteration 6: Reachable has size 629		Iteration 7: Reachable has size 718		Iteration 8: Reachable has size 785		Iteration 9: Reachable has size 809		Iteration 10: Reachable has size 811		Iteration 11: Reachable has size 811		Iteration 12: Reachable has size 813		Iteration 13: Reachable has size 815		Iteration 14: Reachable has size 815		Iteration 15: Reachable has size 813		Iteration 16: Reachable has size 817		Iteration 17: Reachable has size 823		Iteration 18: Reachable has size 1010		Iteration 19: Reachable has size 1190		Iteration 20: Reachable has size 1443		Iteration 21: Reachable has size 1533		Iteration 22: Reachable has size 1741		Iteration 23: Reachable has size 1867		Iteration 24: Reachable has size 1963		Iteration 25: Reachable has size 2053		Iteration 26: Reachable has size 2056		Iteration 27: Reachable has size 2056		Iteration 28: Reachable has size 2059		Iteration 29: Reachable has size 2062		Iteration 30: Reachable has size 2062		Iteration 31: Reachable has size 2059		Iteration 32: Reachable has size 2065		Iteration 33: Reachable has size 2074		Iteration 34: Reachable has size 2148		Iteration 35: Reachable has size 2305		Iteration 36: Reachable has size 2533		Iteration 37: Reachable has size 2618		Iteration 38: Reachable has size 2767		Iteration 39: Reachable has size 2831		Iteration 40: Reachable has size 2845		Iteration 41: Reachable has size 2913		Iteration 42: Reachable has size 2915		Iteration 43: Reachable has size 2915		Iteration 44: Reachable has size 2917		Iteration 45: Reachable has size 2919		Iteration 46: Reachable has size 2919		Iteration 47: Reachable has size 2917		Iteration 48: Reachable has size 2913		Iteration 49: Reachable has size 2904		Iteration 50: Reachable has size 2965		Iteration 51: Reachable has size 3132		Iteration 52: Reachable has size 3409		Iteration 53: Reachable has size 3408		Iteration 54: Reachable has size 3410		Iteration 55: Reachable has size 3406		Iteration 56: Reachable has size 3403		Iteration 57: Reachable has size 3410		Iteration 58: Reachable has size 3412		Iteration 59: Reachable has size 3408		Iteration 60: Reachable has size 3414		Iteration 61: Reachable has size 3411		Iteration 62: Reachable has size 3413		Iteration 63: Reachable has size 3408		Iteration 64: Reachable has size 3416		Iteration 65: Reachable has size 3416		Iteration 66: Reachable has size 3511		Iteration 67: Reachable has size 3716		Iteration 68: Reachable has size 4034		Iteration 69: Reachable has size 4032		Iteration 70: Reachable has size 4035		Iteration 71: Reachable has size 4029		Iteration 72: Reachable has size 4033		Iteration 73: Reachable has size 4036		Iteration 74: Reachable has size 4039		Iteration 75: Reachable has size 4032		Iteration 76: Reachable has size 4041		Iteration 77: Reachable has size 4037		Iteration 78: Reachable has size 4040		Iteration 79: Reachable has size 4032		Iteration 80: Reachable has size 4045		Iteration 81: Reachable has size 4044		Iteration 82: Reachable has size 4089		Iteration 83: Reachable has size 4298		Explored 84 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 9 w/ 27 clock predicates
+Iteration 1: Reachable has size 95		Iteration 2: Reachable has size 155		Iteration 3: Reachable has size 287		Iteration 4: Reachable has size 482		Iteration 5: Reachable has size 496		Iteration 6: Reachable has size 633		Iteration 7: Reachable has size 722		Iteration 8: Reachable has size 789		Iteration 9: Reachable has size 813		Iteration 10: Reachable has size 815		Iteration 11: Reachable has size 815		Iteration 12: Reachable has size 817		Iteration 13: Reachable has size 819		Iteration 14: Reachable has size 819		Iteration 15: Reachable has size 817		Iteration 16: Reachable has size 821		Iteration 17: Reachable has size 827		Iteration 18: Reachable has size 1014		Iteration 19: Reachable has size 1197		Iteration 20: Reachable has size 1361		Iteration 21: Reachable has size 1374		Iteration 22: Reachable has size 1502		Iteration 23: Reachable has size 1584		Iteration 24: Reachable has size 1649		Iteration 25: Reachable has size 1673		Iteration 26: Reachable has size 1675		Iteration 27: Reachable has size 1675		Iteration 28: Reachable has size 1677		Iteration 29: Reachable has size 1679		Iteration 30: Reachable has size 1679		Iteration 31: Reachable has size 1677		Iteration 32: Reachable has size 1681		Iteration 33: Reachable has size 1687		Iteration 34: Reachable has size 1733		Iteration 35: Reachable has size 1809		Iteration 36: Reachable has size 1898		Iteration 37: Reachable has size 1968		Iteration 38: Reachable has size 2041		Iteration 39: Reachable has size 2080		Iteration 40: Reachable has size 2110		Iteration 41: Reachable has size 2170		Iteration 42: Reachable has size 2171		Iteration 43: Reachable has size 2171		Iteration 44: Reachable has size 2172		Iteration 45: Reachable has size 2173		Iteration 46: Reachable has size 2173		Iteration 47: Reachable has size 2172		Iteration 48: Reachable has size 2174		Iteration 49: Reachable has size 2177		Iteration 50: Reachable has size 2221		Iteration 51: Reachable has size 2351		Iteration 52: Reachable has size 2447		Iteration 53: Reachable has size 2446		Iteration 54: Reachable has size 2447		Iteration 55: Reachable has size 2445		Iteration 56: Reachable has size 2449		Iteration 57: Reachable has size 2448		Iteration 58: Reachable has size 2449		Iteration 59: Reachable has size 2446		Iteration 60: Reachable has size 2449		Iteration 61: Reachable has size 2448		Iteration 62: Reachable has size 2449		Iteration 63: Reachable has size 2446		Iteration 64: Reachable has size 2451		Iteration 65: Reachable has size 2450		Iteration 66: Reachable has size 2530		Iteration 67: Reachable has size 2679		Iteration 68: Reachable has size 2904		Iteration 69: Reachable has size 2903		Iteration 70: Reachable has size 2905		Iteration 71: Reachable has size 2901		Iteration 72: Reachable has size 2902		Iteration 73: Reachable has size 2905		Iteration 74: Reachable has size 2907		Iteration 75: Reachable has size 2903		Iteration 76: Reachable has size 2909		Iteration 77: Reachable has size 2906		Iteration 78: Reachable has size 2908		Iteration 79: Reachable has size 2903		Iteration 80: Reachable has size 2911		Iteration 81: Reachable has size 2911		Iteration 82: Reachable has size 2954		Iteration 83: Reachable has size 3074		Iteration 84: Reachable has size 3351		Iteration 85: Reachable has size 3348		Iteration 86: Reachable has size 3351		Iteration 87: Reachable has size 3344		Iteration 88: Reachable has size 3316		Iteration 89: Reachable has size 3341		Iteration 90: Reachable has size 3344		Iteration 91: Reachable has size 3339		Iteration 92: Reachable has size 3347		Iteration 93: Reachable has size 3343		Iteration 94: Reachable has size 3346		Iteration 95: Reachable has size 3339		Iteration 96: Reachable has size 3348		Iteration 97: Reachable has size 3302		Iteration 98: Reachable has size 3313		Iteration 99: Reachable has size 3405		Iteration 100: Reachable has size 3631		Iteration 101: Reachable has size 3630		Iteration 102: Reachable has size 3631		Iteration 103: Reachable has size 3627		Iteration 104: Reachable has size 3627		Iteration 105: Reachable has size 3630		Iteration 106: Reachable has size 3632		Iteration 107: Reachable has size 3628		Iteration 108: Reachable has size 3633		Iteration 109: Reachable has size 3630		Iteration 110: Reachable has size 3631		Iteration 111: Reachable has size 3626		Iteration 112: Reachable has size 3628		Iteration 113: Reachable has size 3523		Iteration 114: Reachable has size 3538		Iteration 115: Reachable has size 3617		Iteration 116: Reachable has size 3768		Iteration 117: Reachable has size 3766		Iteration 118: Reachable has size 3768		Iteration 119: Reachable has size 3764		Iteration 120: Reachable has size 3770		Iteration 121: Reachable has size 3768		Iteration 122: Reachable has size 3770		Iteration 123: Reachable has size 3764		Iteration 124: Reachable has size 3768		Iteration 125: Reachable has size 3766		Iteration 126: Reachable has size 3768		Iteration 127: Reachable has size 3762		Iteration 128: Reachable has size 3764		Iteration 129: Reachable has size 3661		Iteration 130: Reachable has size 3661		Iteration 131: Reachable has size 3749		Iteration 132: Reachable has size 3862		Iteration 133: Reachable has size 3861		Iteration 134: Reachable has size 3862		Iteration 135: Reachable has size 3860		Iteration 136: Reachable has size 3839		Iteration 137: Reachable has size 3860		Iteration 138: Reachable has size 3861		Iteration 139: Reachable has size 3860		Iteration 140: Reachable has size 3862		Iteration 141: Reachable has size 3861		Iteration 142: Reachable has size 3862		Iteration 143: Reachable has size 3860		Iteration 144: Reachable has size 3861		Iteration 145: Reachable has size 3815		Iteration 146: Reachable has size 3797		Explored 147 layers.[INF] ** CEGAR iterations: 9 w/ 27 clock predicates
+[INF] Result: false
+Time: 2.36 sec (Real time) / 2.32 sec (User CPU time)
+-BEGIN-
+=====================  34 =====================
+[INF] Reading timed automaton multiprocess/34.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 73		Iteration 2: Reachable has size 126		Iteration 3: Reachable has size 213		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 75		Iteration 2: Reachable has size 128		Iteration 3: Reachable has size 219		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 77		Iteration 2: Reachable has size 130		Iteration 3: Reachable has size 263		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 79		Iteration 2: Reachable has size 132		Iteration 3: Reachable has size 260		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.08 sec (Real time) / 0.07 sec (User CPU time)
+-BEGIN-
+=====================  4 =====================
+[INF] Reading timed automaton multiprocess/4.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 60		Iteration 2: Reachable has size 100		Iteration 3: Reachable has size 170		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 62		Iteration 2: Reachable has size 102		Iteration 3: Reachable has size 176		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 64		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 220		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 66		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 217		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.06 sec (Real time) / 0.04 sec (User CPU time)
+-BEGIN-
+=====================  7 =====================
+[INF] Reading timed automaton multiprocess/7.xml and query multiprocess/multi.q
+[INF] Running Cudd Cegar algorithm...
+[INF] Read TA with 4 clocks
+[INF] ** CEGAR iterations: 1 w/ 15 clock predicates
+Iteration 1: Reachable has size 61		Iteration 2: Reachable has size 102		Iteration 3: Reachable has size 174		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 2 w/ 17 clock predicates
+Iteration 1: Reachable has size 63		Iteration 2: Reachable has size 104		Iteration 3: Reachable has size 180		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 3 w/ 19 clock predicates
+Iteration 1: Reachable has size 65		Iteration 2: Reachable has size 106		Iteration 3: Reachable has size 224		Explored 4 layers.[INF] Refined successfully
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+Iteration 1: Reachable has size 67		Iteration 2: Reachable has size 108		Iteration 3: Reachable has size 221		Explored 4 layers.[INF] Counter-example confirmed
+[INF] ** CEGAR iterations: 4 w/ 21 clock predicates
+[INF] Result: true
+Time: 0.05 sec (Real time) / 0.04 sec (User CPU time)

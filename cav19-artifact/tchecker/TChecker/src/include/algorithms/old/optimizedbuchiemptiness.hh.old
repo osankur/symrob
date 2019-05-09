@@ -1,0 +1,244 @@
+#ifndef __ALGORITHMS_OPTIMIZEDBUCHIEMPTINESS_HH__
+#define __ALGORITHMS_OPTIMIZEDBUCHIEMPTINESS_HH__
+
+#include <queue>
+#include <stack>
+#include <stdint.h>
+#include <vector>
+
+#include "algorithms/blockedbuchiemptiness.hh"
+#include "algorithms/emptiness.hh"
+#include "algorithms/graphtype.hh"
+#include "base/labelset.hh"
+#include "base/clockset.hh"
+#include "base/graphoutput.hh"
+#include "semantics/gzg.hh"
+#include "semantics/semantics.hh"
+#include "semantics/zg.hh"
+#include "statespace/statespace.hh"
+
+using namespace std;
+
+namespace algorithms {
+
+  namespace optimizedscc {
+  
+    /**
+       Emptiness check
+       
+       This is an optimized algorithm that handles non-Zenoness check in the
+       following way:
+       - blocked clocks (upper-bounded & not reset) are tested
+       - lower bounded clocks are used to conclude on non-Zenoness
+       - in the presence of zero checks, the guessing zone graph is used to
+       decide non-Zenoness
+    **/
+
+
+    /*
+      Type of todo stak entries
+     */
+    template <class NODE,class SUCC> class todo_entry_t :
+      public algorithms::blockedscc::todo_entry_t<NODE, SUCC> {
+    public:
+      todo_entry_t(NODE * n, const vector<SUCC*> & vsuccs,
+		   const clock_set_t & fub) :
+	algorithms::blockedscc::todo_entry_t<NODE, SUCC>(n, vsuccs, fub) {
+      }
+
+      todo_entry_t(const todo_entry_t & todo_entry) :
+	algorithms::blockedscc::todo_entry_t<NODE, SUCC>(todo_entry) {
+      }
+
+      ~todo_entry_t(void) {
+      }
+    };
+
+
+    
+    /*
+      Type of roots stack entries
+     */
+    template <class NODE> class roots_entry_t :
+      public algorithms::blockedscc::roots_entry_t<NODE> {
+    private:
+      clock_set_t scc_lb;    // lower-bounded (>0) variables in SCC
+      bool scc_zero_check;   // true if =0 in SCC
+      clock_set_t lb;        // lower-bounded (>0) on the in-going transition
+      bool zero_check;       // true if zero-check on the in-going transition
+    public:
+      roots_entry_t(NODE * n, const label_set_t & scc_labels,
+		    bool scc_clear_node, const clock_set_t & scc_lb,
+		    const clock_set_t & scc_reset, const clock_set_t & scc_ub,
+		    bool scc_zero_check, const clock_set_t & lb,
+		    const clock_set_t & reset, const clock_set_t & ub,
+		    bool zero_check) :
+	algorithms::blockedscc::roots_entry_t<NODE>(n, scc_labels, 
+						    scc_clear_node, scc_ub,
+						    scc_reset, ub, reset),
+	scc_lb(scc_lb), lb(lb) {
+	this->scc_zero_check = scc_zero_check;
+	this->zero_check = zero_check;
+      }
+
+      roots_entry_t(const roots_entry_t & roots_entry) :
+	algorithms::blockedscc::roots_entry_t<NODE>(roots_entry),
+	scc_lb(roots_entry.scc_lb), lb(roots_entry.lb) {
+	this->scc_zero_check = roots_entry.scc_zero_check;
+	this->zero_check = roots_entry.zero_check;
+      }
+
+      ~roots_entry_t(void) {
+      }
+
+      bool is_scc_zero_check(void) const {
+	return scc_zero_check;
+      }
+
+      bool is_zero_check(void) const {
+	return zero_check;
+      }
+
+      const clock_set_t & get_scc_lb(void) const {
+	return scc_lb;
+      }
+
+      const clock_set_t & get_lb(void) const {
+	return lb;
+      }
+
+      bool is_scc_reexplore(const label_set_t & accepting_labels) const {
+	return ((accepting_labels <= this->scc_labels) &&
+		((this->scc_lb & this->scc_reset).is_empty()) &&
+		this->scc_clear_node &&
+		(! (this->scc_ub <= this->scc_reset)));
+      }
+    };
+
+
+
+    /*
+      Type of forbidden stack entries
+     */
+    template <class NODE> class forbidden_entry_t :
+      public algorithms::blockedscc::forbidden_entry_t<NODE> {
+    public:
+      forbidden_entry_t(NODE * n, const clock_set_t & fub) :
+	algorithms::blockedscc::forbidden_entry_t<NODE>(n, fub) {
+      }
+
+      forbidden_entry_t(const forbidden_entry_t & forbidden_entry) :
+	algorithms::blockedscc::forbidden_entry_t<NODE>(forbidden_entry) {
+      }
+
+      ~forbidden_entry_t(void) {
+      }
+    };
+
+
+    /*
+      Emptiness check class used for parts of the SEMANTICS where some =0
+      checks cannot be resolved by other >0 checks hence it is necessary
+      to run the emptiness check on the GZG
+     */
+    class gzg_emptiness_algorithm_t :
+      public algorithms::blockedscc::emptiness_algorithm_t {
+    public:
+      typedef explore_scc_node_t node_t;
+      typedef basic_edge_t edge_t;
+
+      // INSTEAD OF gzg_t(ta) CONSIDER ABSTRACTION
+      gzg_emptiness_algorithm_t(const ta::ta_t & ta)
+	: algorithms::blockedscc::emptiness_algorithm_t(gzg::gzg_t(ta)) {
+
+	graph_output_factory_t & gof = graph_output_factory_t::get_instance();
+
+	this->output = gof.new_graph_output<node_t,edge_t>();
+	this->count = 0;
+      }
+
+      ~gzg_emptiness_algorithm_t(void) {
+	delete this->output;
+      }
+
+      node_t * get_node(gzg::state_t * state) {
+	return algorithms::blockedscc::emptiness_algorithm_t::
+	  state_space.set_initial(state);
+      }
+
+      bool is_empty_from(node_t * node) {
+	return algorithms::blockedscc::emptiness_algorithm_t::
+	  emptiness_check(node);
+      }
+    };
+    
+    /*
+      Algorithm main class
+     */
+
+    class emptiness_algorithm_t : 
+      public algorithms::emptiness_algorithm_t<explore_scc_node_t,
+					       basic_edge_t> {
+    protected:
+      // Types from the graph type
+      typedef explore_scc_node_t node_t;
+      typedef basic_edge_t edge_t;
+
+      // Types from the state space
+      typedef state_space_t<node_t,edge_t>::next_t next_t;
+
+      // Instanciation of todo, roots forbidden nodes entry types
+      typedef algorithms::optimizedscc::roots_entry_t<node_t> roots_entry_t;
+      typedef algorithms::optimizedscc::todo_entry_t<node_t, next_t>
+      todo_entry_t;
+      typedef algorithms::optimizedscc::forbidden_entry_t<node_t>
+      forbidden_entry_t;
+
+      // State space on semantics
+      state_space_t<node_t, edge_t> state_space;
+
+      // DFS number index
+      uint32_t count;
+      
+      // Stack of SCC roots
+      stack<roots_entry_t> roots;
+
+      // Stack of active nodes
+      stack<node_t*> active;
+
+      // Stack of nodes to explore
+      stack<todo_entry_t> todo;
+
+      // Stack of forbidden nodes
+      stack<forbidden_entry_t> forbidden;
+
+      // Emptiness check algorithm used for parts of the SEMANTICS where
+      // some =0 cannot be resolved using >0
+      gzg_emptiness_algorithm_t gzg_emptiness_algorithm;
+
+      // Emptiness check functions
+      bool emptiness_check(node_t * node);
+      bool emptiness_check(void);
+
+      // Initializing function
+      void initialize(void);
+
+      // Finalizing function
+      void finalize(void);
+
+      // Function called when a node is about to be explored
+      void push_node(node_t * node, const clock_set_t & lb,
+		     const clock_set_t & ub, const clock_set_t & reset,
+		     bool zero_check, const clock_set_t & fub);
+    public:
+      emptiness_algorithm_t(const semantics::semantics_t & semantics);
+      virtual ~emptiness_algorithm_t(void);
+      void set_accepting_labels(const string & al);
+      void set_accepting_labels(const label_set_t & al);
+    };
+
+  }
+
+}
+
+#endif

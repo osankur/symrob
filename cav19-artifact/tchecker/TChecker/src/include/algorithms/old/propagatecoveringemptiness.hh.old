@@ -1,0 +1,248 @@
+#ifndef __ALGORITHMS_PROPAGATE_COVERING_EMPTINESS_HH__
+#define __ALGORITHMS_PROPAGATE_COVERING_EMPTINESS_HH__
+
+#include <stack>
+
+#include <boost/unordered_set.hpp>
+
+#include "algorithms/coveringemptiness.hh"
+#include "base/global.hh"
+
+using namespace std;
+
+namespace algorithms {
+
+  namespace propagate {
+
+    /*
+     * Template class for emptiness algorithms based on a reachtree_t
+     * traversal, augmented with a covering test, and propagation of data
+     * on the tree (for refining the covering test)
+     *
+     * This algorithm is based on algorithms::covering::emptiness_algorithm_t.
+     * Likewise, the covering test is issued for non accepting nodes to decide
+     * if the node needs to be expanded. The covering algorithm is compatible
+     * with dynamic covering criterions s.t. the result for two given nodes
+     * may vary during the run of the algorithm. This new algorithm adds a way
+     * to update the dynamic covering criterion by propagating information
+     * to the nodes in the reachtree_t.
+     *
+     * The invariants for correctness and termination discussed for
+     * algorithms::covering::emptiness_algorithm_t are preserved by this new
+     * algorithm. However, this algorithm has to handle two covering relations:
+     * a static one (for PW covered/covering) that is invariant by propagation,
+     * and a dynamic one (for cover) that can be invalidated by propagation.
+     *
+     * Since the dynamic covering relation can be invalidated due to data
+     * propagation, it needs to be reexamined. For that purpose, we implement a
+     * two-phase  algorithm:
+     * - the first phase (or explore phase) corresponds to
+     * algorithms::covering::emptiness_algorithm_t, extended with propagation
+     * - the second phase (or resolve phase) corresponds to examining the
+     * nodes that are covered to check if the covering relation still holds.
+     * It is generally not needed to reexamine all the nodes that are covered.
+     * It is required only when the covering node has been updated by data
+     * propagation. Hence, during propagation (in the explore phase) the new
+     * algorithm stores the nodes that need resolution in _resolve_nodes. And
+     * the second phase only examines the nodes from _resolve_nodes. Notice that
+     * the static covering relation does not need to be resolved
+     *
+     * Correctness is ensured as all the nodes that need resolution will be
+     * considered back in the explore phase. Termination is guaranteed as soon
+     * as the propagation terminates (yielding termination of the explore phase)
+     * and it is guaranteed that the covering relation eventually stabilizes.
+     *
+     * Experiments have shown that the algorithm visits less nodes if the
+     * resolve phase extracts only one uncovered node instead of extracting all
+     * such nodes. This is the approach we take here.
+     *
+     * THIS CLASS INTENDS TO PROPOSE A GENERAL FRAMEWORK FOR PROPAGATION-AND
+     * -COVERING-BASED ALGORITHMS. IT DOES NOT PROPAGATE ANY DATA, HENCE IT 
+     * ACTS AS algorithms::covering::emptiness_algorithm_t. THUS, THIS CLASS
+     * SHOULD NOT BE INSTANTIATED. IT SHOULD BE DERIVATED TO PROVIDE DATA
+     * PROPAGATION AND DYNAMIC COVERING TESTS.
+     *
+     * All template parameter names speak for themselves: PDATA is the type of
+     * data that is propagated by the algorithm
+     */
+
+
+    /*
+     * A template class for the update that are propagated to the nodes
+     * in the reachtree_t
+     */
+    template <class NODE, class PDATA> class update_t : public PDATA {
+    public:
+      update_t(NODE * node = NULL, PDATA data = PDATA()) : PDATA(data),
+							   _node(node) {
+      }
+
+      NODE * _node;
+    };
+    
+
+    /*
+     * Emptiness algorithm
+     */
+    template <class NODE, class EDGE, class GRAPH, class TS, class PDATA>
+    class emptiness_algorithm_t
+      : public algorithms::covering::emptiness_algorithm_t<NODE, EDGE, GRAPH,
+							   TS> {
+    protected:
+      // Set of nodes that need to be resolved
+      boost::unordered_set<NODE *> _resolve_nodes;
+
+      // Collection of nodes updates to apply and propagate
+      stack< update_t<NODE, PDATA> > _updates;
+
+      // Counts the number of explore/refine cycles
+      unsigned _cycles_count;
+
+      // Emptiness check algorithm
+      bool emptiness_check(void) {
+	bool accepting = false;
+
+	this->on_pre_emptiness_check();
+
+	this->_pw.insert(this->_reachtree.root());
+
+	do {
+	  // Count cycles
+	  ++_cycles_count;
+
+	  // Explore phase
+	  accepting =
+	    algorithms::covering::emptiness_algorithm_t<NODE,
+							EDGE,
+							GRAPH,
+							TS>::explore();
+	  if (accepting)
+	    break;
+	    
+	  // Resolve phase (fills this->_pw with nodes that need exploration)
+	  resolve();
+
+	  // Dumps the tree each cycle if required
+	  if (global_t::instance().dump())
+	    this->_reachtree.output( *(this->_output) );
+	}
+	while (! this->_pw.wempty());
+
+	this->on_post_emptiness_check();
+
+	return (! accepting);
+      }
+
+      // Called after emptiness check stops
+      void on_post_emptiness_check(void) {
+	// Diplays cycles count
+	cerr << "Number of explore/refine cycle(s): " << _cycles_count << endl;
+	// Inherited diplays
+	this->algorithms::covering::emptiness_algorithm_t
+	  <NODE, EDGE, GRAPH, TS>::on_post_emptiness_check();
+      }
+
+      // Resolve phase algorithm
+      void resolve(void) {
+	typename boost::unordered_set<NODE *>::iterator it;
+
+	for (it = _resolve_nodes.begin(); it != _resolve_nodes.end(); ++it) {
+	  NODE * node = *it;
+	  
+	  // Checks if the covering relation still holds for node
+	  if ((node->covering_node() == NULL) ||
+	       (! this->_cover(node, node->covering_node()))) {
+	    // Uncover (must be done FIRST: event handling may propagate)
+	    node->uncover();
+
+	    on_uncover_node(node);
+
+	    // Inserts node in this->_pw for further exploration, if it has not
+	    // been explored already
+	    // Optimization: stops as soon as one node is found for exploration
+	    // TODO :remove leaf test once dynamic/static cover separated
+	    if (node->leaf() && this->_pw.insert(node))
+	      break;
+	  }
+	}
+
+	// Erases all the nodes that have been resolved from _resolve_nodes,
+	// keep the others for further consideration in a future resolve phase
+	if (it != _resolve_nodes.end())
+	  ++it;
+	_resolve_nodes.erase(_resolve_nodes.begin(), it);
+      }
+
+      // Called by resolve when the covering relation of a node is invalidated
+      virtual void on_uncover_node(NODE * node) {
+      }
+
+      // Propagate function
+      virtual void propagate(void) {
+	update_t<NODE, PDATA> update;
+
+	while (! _updates.empty()) {
+	  update = _updates.top();
+	  _updates.pop();
+
+	  // Applies update.
+	  // Returns false when updating did not modified the node (don't prop.)
+	  if (! on_apply_update(update))
+	    continue;
+	  
+	  // All the nodes covered by the modified update._node need resolution
+	  on_resolve_covered_nodes(update._node);
+
+	  // Propagates update (pushes the next updates to _updates)
+	  on_propagate_update(update);
+	}
+      }
+
+      // Called by propagate to apply an update to a node
+      // Returns: true  if propagation should occur after the update
+      //          false otherwise
+      virtual bool on_apply_update(const update_t<NODE, PDATA> & update) {
+	return true;
+      }
+
+      // Called by propagate. Sets all the nodes covered by node for resolution
+      virtual void on_resolve_covered_nodes(NODE * node) {
+	// TODO: only push dynamically covered nodes in _resolve_nodes
+	BOOST_FOREACH( NODE * n, node->covered_nodes() ) {
+	  _resolve_nodes.insert(n);
+	}
+      }
+
+      // Called by propagate to propagate update by pushing new updates to
+      // the _updates collection
+      // This implementation propagates upward in the reachtree_t
+      virtual void on_propagate_update(const update_t<NODE, PDATA> & update) {
+	if (this->_reachtree.parent(update._node) != NULL) {
+	  const EDGE * edge = this->_reachtree.parent(update._node);
+	  PDATA pdata_upward = on_propagate_upward(update);
+	  _updates.push(update_t<NODE,PDATA>(edge->src(), pdata_upward));
+	}
+      }
+
+      // Called by on_propagate_update to compute the data that needs to be
+      // propagated upward from update._node
+      virtual PDATA on_propagate_upward(const update_t<NODE, PDATA> & update) {
+	return update;
+      }
+    public:
+      emptiness_algorithm_t(TS & ts, pw::pw_t<NODE> & pw,
+			    graph::nodes_cmp_t<NODE> & cover)
+	: algorithms::covering::emptiness_algorithm_t<NODE,EDGE,GRAPH,
+						      TS>(ts, pw, cover),
+	  _cycles_count(0) {
+      }
+
+      virtual ~emptiness_algorithm_t() {
+      }
+    };
+
+  } // end of namespace propagate
+
+} // end of namespace algorithms
+
+#endif // __ALGORITHMS_PROPAGATE_COVERING_EMPTINESS_HH__

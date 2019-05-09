@@ -1,0 +1,35 @@
+Symrob: timed automata model checker
+==========
+This is a prototype model checker reading a subset of Uppaal xml files
+with the following features:
+1) Basic zone-based model checking
+2) Robust model checking algorithm of the following paper:
+
+Ocan Sankur. Symbolic Quantitative Robustness Analysis of Timed Automata In TACAS'15 LNCS 9035, pages 484-498. Springer Berlin Heidelberg, 2015.
+
+3) A counter-example guided abstraction refinement algorithm using BDDs (the CUDD library), described in the following paper:
+
+Victor Roussanaly, Ocan Sankur and Nicolas Markey. Abstraction Reﬁnement Algorithms for Timed Automata. CAV 2019.
+
+Installation
+============
+All packages below are required and can be installed using opam:
+- OCaml 4.0+
+- ocamlbuild
+- ocaml batteries included 2.2+
+- xml-light
+- mlcuddidl
+
+Compilation
+===========
+1) Build and install uppaal_parser (make; make install)
+2) Build symrob (make)
+
+License
+=============
+The license is GNU GPL 3.0
+See https://www.gnu.org/licenses/gpl-3.0-standalone.html
+
+Author and Contact
+============================
+Ocan Sankur <ocan.sankur@irisa.fr>

@@ -1,0 +1,120 @@
+* Abstract
+This directory contains the tools and the benchmarks used to produce the results of the following CAV19 paper:
+
+Victor Roussanaly, Ocan Sankur, Nicolas Markey. Abstraction Refinement Algorithms for Timed Automata.
+
+Contact: {firstname.lastname@irisa.fr}
+
+The paper compares 4 algorithms on 4 classes of benchmarks. Two of the algorithms are ours, and the other two are proprietary software
+which we cannot distribute although they are free to use.
+
+* Algorithms
+Our algorithms are:
+- The symbolic abstraction-refinement algorithm implemented in the tool *symrob*
+The source code is given in the directory symrob, and the binary symrob is on the path
+
+- The enumerative abstraction-refinement algorithm implemented in the tool *tchecker*
+The tool requires input models to be encoded as a .cpp file and compiled into a binary executable.
+These executables are given in the benchmark directories (see below). Furthermore, the directory tchecker contains
+a script to compile any given .cpp code into an executable.
+We are not allowed to distribute the source code so only a static library and header files are given.
+
+Third-party tools are:
+- Uppaal, which can be obtained from http://uppaal.org/
+If you install Uppaal, it suffices make sure that the binary verifyta is in the path.
+This can be found in the bin-Linux directory in Uppaal distribution.
+
+- The PAT model checker from http://pat.comp.nus.edu.sg/
+If you install PAT, please set the PAT_DIR variable in the scripts (see below).
+The algorithm can only be run with wine, which is correctly configured in this distribution.
+
+* Benchmarks
+The four classes of benchmarks are given in the directories:
+monoprocess, multiprocess, csma, and wave.
+(Note that the latter is referred to as async in the paper).
+
+Each directory contains three copies of each model:
+- *.xml files are in the Uppaal format and can be read by Uppaal and symrob.
+- *.ta files are for the PAT model checker
+- *.cpp files are the sources for TChecker. There is also a TChecker executable without extension.
+
+* Reproducing the results
+Reproducing all the results in the paper should take about a day since we have a 30 min timeout
+and many benchmarks are quite slow to solve.
+
+- We provide the script "full_test.sh" to launch experiments with given tool and benchmark. Executing "make full"
+will launch both of our algorithms on all benchmarks.
+- We provide the script "quick_test.sh" to launch a small number of fast experiments. Executing "make quick"
+will launch this for our algorithms.
+
+Here are a few examples to launch the script manually:
+./full_test.sh monoprocess symrob
+./full_test.sh monoprocess tchecker
+./full_test.sh wave uppaal
+./full_test.sh multiprocess pat
+
+The variables TIME_LIMIT and MEMORY_LIMIT can be set in these scripts.
+
+The results will be written in the *output* directory. For instance, monoprocess_symrob.txt
+will contain the raw output of the script run for given tool and benchmark, while the monoprocess_symrob.csv
+file will contain a table of files with running times and whether the reachability property holds.
+You can use the file plot.p to plot these results using
+
+gnuplot plot.p
+
+The script requires all variants to have been executed so we provide these files
+obtained by quick_test.sh. They will be overridden if one of the two scripts are run again.
+
+* Checking models individually
+Here are examples to launch a given model and spec manually.
+
+** Uppaal
+Use:
+verifyta monoprocess/amba3b5y.aag_4L_200.xml monoprocess/mono.q
+
+** Symrob (Symbolic abstract algorithm)
+symrob -c multiprocess/0.xml multiprocess/multi.q
+
+Symrob reads a basic subset of the Uppaal input format.
+You can create a model with Uppaal with integer or Boolean variables, no other complicated constructs,
+where templates have no parameters and only have unique instances.
+
+** TChecker (Enumerative abstract algorithm)
+All provided models are compiled into executables. To run the model checker, use, e.g. inside the async directory:
+./a0_f empty -a Shigh -l "err"
+
+This checks for emptiness for the acceptance condition given as a reachability objective states labeled by 'err'.
+It is possible to compile from .cpp files as follows:
+Go to the TChecker directory and use
+
+make-tchecker.sh model.cpp
+
+This should provide the binary 'model', which you can use in the same way.
+
+** PAT
+On Windows:
+PAT3.Console.exe -ta -engine 7 async/a0_f.ta output
+
+On Linux:
+wine path-to-PAT/PAT3.Console.exe -ta -engine 7 async/a0_f.ta output
+
+* Log of Our Own Results
+The *results* directory contains csv files which are the results of all our experiments.
+Each file tool_benchmark contains a table of 'benchmark' files run on 'tool', given the running time and whether the safety property holds.
+Files for which the tool crashed (time-out or mem-out) are not given.
+For instance, mono_symrob is the results of running symrob on mono.
+
+The file plot.p can be used to reproduce the graphs that appear in the paper using:
+gnuplot plot.p
+
+The resulting .png files are already given.
+
+* License and Other Information
+The tool symrob is authored by Ocan Sankur and is licensed under GNU GPL 3.0. 
+Former versions are publicly available here: http://people.irisa.fr/Ocan.Sankur/symrob.html
+The present version containing the new algorithm will be made available on our institution's gitlab server.
+
+The tool TChecker is written by Frederic Herbreteau (LaBRI, CNRS, Bordeaux INP). A new version
+is available and is open source here: https://github.com/fredher/tchecker
+However we use an older version and we cannot distribute its source code.
+

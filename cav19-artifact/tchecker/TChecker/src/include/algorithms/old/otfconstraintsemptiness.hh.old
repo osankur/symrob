@@ -1,0 +1,237 @@
+#ifndef __ALGORITHMS_OTF_CONSTRAINTS_EMPTINESS_HH__
+#define __ALGORITHMS_OTF_CONSTRAINTS_EMPTINESS_HH__
+
+#include <boost/foreach.hpp>
+
+#include "algorithms/algorithms.hh"
+#include "algorithms/propagatecoveringemptiness.hh"
+#include "graph/graph.hh"
+#include "graph/nodescmp.hh"
+#include "graph/pw.hh"
+#include "semantics/zg.hh"
+#include "syntax/system_builder.hh"
+
+using namespace std;
+
+namespace algorithms {
+
+  namespace otfconstraints {
+
+
+    /**************************************************************************
+     * On-the-fly interpolation and constraints propagation emptiness algorithm
+     *************************************************************************/
+    
+
+    /*
+     * Algorithm based on a reachtree_t traversal, with termination ensured by
+     * a covering test w.r.t. an abstract zone that is computed on-the-fly by
+     * propagating clock constraints over the reachtree_t.
+     * This algorithm is based on algorithms::propagate::emptiness_algorithm_t.
+     * 
+     * Each node contains two zones: the actual zone and an abstract zone. It
+     * is guaranteed that all the paths that are feasible from the abstract
+     * zone are also feasible from the actual zone. This is achieved by:
+     * - interpolating the actual zone and the guards (or target invariants)
+     * of transitions that are disabled
+     * - propagating backward in the tree the resulting interpolants, taking
+     * into account resets, guard and invariants
+     * The propagation is done to ensure that no valuation in the abstract zone
+     * enables a transition that is disabled by the actual zone.
+     *
+     * In order to keep efficiency, we ensure that the interpolation and the
+     * propagation ensure the invariant by propagating only one single clock
+     * constraint.
+     *
+     * However, this has a drawback. One cannot ensure that the actual zone is
+     * contained in the abstract zone. As a consequence, termination of the
+     * algorithm cannot be ensured. Indeed, termination in a node N is detected
+     * by inclusion of the actual zone in N into the abstract zone of some node
+     * N'. If N and N' have the same actual and absract zones (a loop with no
+     * guard and no reset between N and N') then the algorithm does not
+     * terminate.
+     * Hence, another abstraction should be used to ensure termination.
+     *
+     * THIS ALGORITHM MUST BE USED WITH THE ELAPSE-LAST SEMANTICS
+     */
+
+
+    // Local types
+    typedef otfc_node_t node_t;
+
+    typedef basic_edge_t<node_t> edge_t;
+
+    typedef graph_unfireable_ts_t<zg::zg_t, node_t, edge_t> graph_t;
+
+
+
+    /*
+     * Update of an abstract zone: propagation of a clock constraint
+     */
+    class constraint_pdata_t {
+    public:
+      constraint_pdata_t(zone::clock_constraint_t constraint =
+			 zone::clock_constraint_t())
+	: _constraint(constraint) {
+      }
+
+      zone::clock_constraint_t _constraint;
+    };
+
+
+    typedef algorithms::propagate::update_t<node_t,
+					    constraint_pdata_t> otfc_update_t;
+
+
+    /*
+     * Covering criterion that checks that n1 is not in the subtree of n2
+     */
+    class otfc_nosubtree_covered_t : public graph::otfc_inclusion_covered_t {
+    public:
+      otfc_nosubtree_covered_t(reachtree_t<graph_t, node_t, edge_t> & reachtree)
+	: _reachtree(reachtree) {
+      }
+
+      // Is n1 covered by n2?
+      bool operator () (otfc_node_t * n1, otfc_node_t * n2) const {
+	if (! graph::otfc_inclusion_covered_t::operator()(n1, n2))
+	  return false;
+
+	// Checks n2 is not an ancestor of n1
+	const edge_t * parent = _reachtree.parent(n1);
+	while (parent != NULL) {
+	  if (parent->src() == n2)
+	    return false;
+	  parent = _reachtree.parent(parent->src());
+	}
+	
+	return true;
+      }
+
+    private:
+      reachtree_t<graph_t, node_t, edge_t> & _reachtree;
+    };
+
+
+    /*
+     * Algorithm class
+     */
+    class emptiness_algorithm_t
+      : public algorithms::zg_algorithm_t,
+	public algorithms::pw_owner_t<node_t>,
+	public algorithms::propagate::emptiness_algorithm_t
+	<node_t, edge_t, graph_t, zg::zg_t, constraint_pdata_t> {
+    protected:
+      // Cover test
+      otfc_nosubtree_covered_t _otfc_cover;
+
+      // For interplation and propagation (avoids allocations/deallocations)
+      zone::zone_t * _zone;
+
+      // Trivial clock constraint (when propagation should be stopped)
+      constraint_pdata_t _trivial;
+
+
+      // Called when a disabled edge is expanded from node
+      virtual void on_expand_disabled_edge(node_t * node, edge_t * edge) {
+	zone::clock_constraint_t interpolant;
+
+	// Determines which one of the guard and the target invariant disables
+	// edge
+	// THIS DEPENDS ON USING THE ELAPSE LAST SEMANTICS ONLY
+	_zone->set_universe();
+	*_zone &= edge->data()->guard();
+
+	if (! node->zone().intersects(*_zone)) // the guard disables edge
+	  node->zone().interpolate(edge->data()->guard(), interpolant);
+	else { // the target invariant disables edge
+	  // Computes the zone before intersection with target invariant
+	  *_zone &= node->zone();
+	  _zone->reset(edge->data()->reset());
+	  if (syntax::time_elapse_allowed(edge->tgt()->data()))
+	    _zone->elapse();
+
+	  // Interpolate
+	  _zone->interpolate(edge->tgt()->data().inv(), interpolant);
+	}
+
+	// Propagates the interpolant from node to root node
+	this->_updates.push(otfc_update_t(node, interpolant));
+	this->propagate();
+      }
+
+
+
+      // Called by propagate to apply an update to a node
+      // Returns: true  if propagation should occur after the update
+      //          false otherwise
+      virtual bool on_apply_update(const otfc_update_t & update) {
+	// Stop if the abstract zone is not refined by the propagated constraint
+	if (update._node->azone() <= update._constraint)
+	  return false;
+
+	// Otherwise, refine the abstract zone and continue propagation
+	update._node->azone() &= update._constraint;
+	return true;
+      }
+
+
+
+      // Called by on_propagate_update to compute the data that needs to be
+      // propagated upward from update._node
+      virtual constraint_pdata_t on_propagate_upward(const otfc_update_t &
+						     update) {
+	assert(this->_reachtree.parent(update._node) != NULL);
+
+	constraint_pdata_t constraint_upward = update._constraint;
+	const edge_t * edge = this->_reachtree.parent(update._node);
+
+	// Computes predecessors of update wrt resets in edge
+	if (edge->data()->reset().belongs_to
+	    (static_cast<clock_id_t>(update._constraint.i)))
+	  constraint_upward._constraint.i = 0;
+	if (edge->data()->reset().belongs_to
+	    (static_cast<clock_id_t>(update._constraint.j)))
+	  constraint_upward._constraint.j = 0;
+
+	// If constraint_upward became trivial, normalize it
+	if ((constraint_upward._constraint.i == 0) &&
+	    ((constraint_upward._constraint.j == 0) ||
+	     (dbm_raw2bound(constraint_upward._constraint.value) >= 0)))
+	  return _trivial;
+
+	// The same if the guard of the edge satisfies constraint_upward
+	_zone->set_universe();
+	*_zone &= edge->data()->guard();
+	if (*_zone <= constraint_upward._constraint)
+	  return _trivial;
+
+	return constraint_upward;
+      }
+    public:
+      emptiness_algorithm_t(syntax::system_builder_t & system_builder)
+	: algorithms::zg_algorithm_t(system_builder),
+	  algorithms::pw_owner_t<node_t>
+	  (*_sb, &_pw_events,
+	   algorithms::covering::nodes_cmp_factory_t<node_t>::instance()),
+	  algorithms::propagate::emptiness_algorithm_t
+	  <node_t, edge_t, graph_t, zg::zg_t, constraint_pdata_t>
+	  (_zg, algorithms::pw_owner_t<node_t>::_pw, _otfc_cover),
+	  _otfc_cover(this->_reachtree),
+	  _zone(NULL),
+	  _trivial(zone::clock_constraint_t(0, zone::LE, 0)) {
+	const zone::factory_t & zf = zone::factory_t::instance();
+	_zone = zf.new_zone();
+      }
+
+      ~emptiness_algorithm_t() {
+	delete _zone;
+      }
+
+    };
+
+  }
+
+}
+
+#endif

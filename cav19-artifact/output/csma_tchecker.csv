@@ -1,0 +1,17 @@
+csma10;		0.09;		True
+csma11;		0.11;		True
+csma12;		0.14;		True
+csma3;		0.03;		True
+csma4;		0.03;		True
+csma5;		0.03;		True
+csma6;		0.04;		True
+csma7;		0.04;		True
+csma8;		0.05;		True
+csma9;		0.06;		True
+None;		None;		None
+ csma3;		0.03;		True
+ csma4;		0.03;		True
+ csma5;		0.03;		True
+ csma3;		0.03;		True
+ csma4;		0.03;		True
+ csma5;		0.03;		True
