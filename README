@@ -11,6 +11,8 @@ Ocan Sankur. Symbolic Quantitative Robustness Analysis of Timed Automata In TACA
 
 Victor Roussanaly, Ocan Sankur and Nicolas Markey. Abstraction Reﬁnement Algorithms for Timed Automata. CAV 2019.
 
+To reproduce the results of this paper, please see the src/experiments/cav19/cav19-artifact directory.
+
 Installation
 ============
 All packages below are required and can be installed using opam:
