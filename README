@@ -27,8 +27,12 @@ Compilation
 
 License
 =============
-The license is GNU GPL 3.0
-See https://www.gnu.org/licenses/gpl-3.0-standalone.html
+Some of the examples in the src/experiments directory were taken from 
+the Verifix tool (http://satoss.uni.lu/members/piotr/verifix/)
+by Piotr Kordy.
+
+The license for symrob is GNU GPL 3.0
+See the file LICENSE or https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 Author and Contact
 ============================
